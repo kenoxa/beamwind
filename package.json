@@ -1,0 +1,54 @@
+{
+  "name": "@beamwind/monorepo",
+  "version": "0.0.0-independent",
+  "private": true,
+  "homepage": "https://github.com/kenoxa/beamwind",
+  "bugs": "https://github.com/kenoxa/beamwind/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenoxa/beamwind.git"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "workspaces": [
+    "benchmarks",
+    "types",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "ci": "nps",
+    "clean": "nps clean && lerna exec -- nps clean",
+    "format": "nps format && lerna exec -- nps format.package",
+    "preinstall": "npx only-allow yarn",
+    "publish": "lerna publish",
+    "test": "nps",
+    "preversion": "lerna exec -- nps prepare && nps test",
+    "version": "lerna exec --since -- nps prettier.changelog"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/packages/*"
+    ]
+  },
+  "devDependencies": {
+    "@carv/bundle": "^1.1.3",
+    "@carv/eslint-config": "^1.4.9",
+    "@carv/jest-preset": "^1.0.0",
+    "@carv/prettier-config": "^1.0.4",
+    "@carv/tsconfig": "^1.0.0",
+    "@carv/types": "^1.3.1",
+    "eslint": "^7.3.1",
+    "jest": "^26.1.0",
+    "lerna": "^3.22.1",
+    "nps": "^5.9.12",
+    "only-allow": "^1.0.0",
+    "prettier": "^2.0.5",
+    "typescript": "^4.1.0"
+  }
+}

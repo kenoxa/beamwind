@@ -1,0 +1,56 @@
+{
+  "name": "@beamwind/colors",
+  "version": "1.0.0",
+  "description": "color utilities for beamwind",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/colors"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "nps",
+    "postbuild": "size-limit",
+    "prepublishOnly": "nps",
+    "size": "size-limit",
+    "start": "nps",
+    "test": "nps",
+    "typedoc": "typedoc",
+    "version": "typedoc && git add docs"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.6.0",
+    "nps": "^5.9.12",
+    "size-limit": "^4.6.0",
+    "typedoc": "0.17.0-3",
+    "typedoc-plugin-markdown": "^3.0.11"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "size-limit": [
+    {
+      "path": "dist/esnext/colors.js",
+      "limit": "2 KB"
+    }
+  ]
+}

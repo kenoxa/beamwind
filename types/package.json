@@ -1,0 +1,7 @@
+{
+  "name": "@types/beamwind",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "common types used during development",
+  "//": "by using the @types scope this package and its types is automaticly included by typescript"
+}

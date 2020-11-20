@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "Orta.vscode-jest",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "drknoxy.eslint-disable-snippets",
+    "eg2.vscode-npm-script",
+    "herrmannplatz.npm-dependency-links",
+    "visualstudioexptteam.vscodeintellicode",
+    "ibm.output-colorizer",
+    "christian-kohler.path-intellisense",
+    "kisstkondoros.vscode-gutter-preview",
+    "philsinatra.nested-comments"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@beamwind/preflight",
+  "version": "1.0.0",
+  "description": "An opinionated set of base styles for modern browsers",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/preflight"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nps",
+    "prepublishOnly": "nps",
+    "start": "nps",
+    "test": "nps"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "devDependencies": {
+    "beamwind": "^1.0.0",
+    "nps": "^5.9.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

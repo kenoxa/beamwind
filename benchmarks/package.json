@@ -1,0 +1,11 @@
+{
+  "name": "@beamwind/benchmarks",
+  "version": "1.0.0",
+  "private": "true",
+  "type": "module",
+  "dependencies": {
+    "beamwind": "^1.0.0",
+    "benchmark": "^2.1.4",
+    "oceanwind": "^0.9.0"
+  }
+}
