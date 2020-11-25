@@ -1,0 +1,48 @@
+{
+  "name": "@beamwind/example-sample",
+  "version": "1.0.0",
+  "private": true,
+  "description": "beamwind svelte exmaple",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "examples/svelte"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "check": "svelte-check"
+  },
+  "dependencies": {
+    "beamwind": "^1.0.0",
+    "svelte": "^3.24.0"
+  },
+  "devDependencies": {
+    "@carv/types": "^1.3.1",
+    "@snowpack/plugin-dotenv": "^2.0.4",
+    "@snowpack/plugin-svelte": "^3.3.0",
+    "@snowpack/web-test-runner-plugin": "^0.1.4",
+    "@testing-library/svelte": "^3.0.0",
+    "@types/snowpack-env": "^2.3.0",
+    "chai": "^4.2.0",
+    "snowpack": "^2.17.1",
+    "svelte-check": "^1.1.11",
+    "svelte-preprocess": "^4.0.8"
+  }
+}

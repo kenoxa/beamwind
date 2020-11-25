@@ -1,0 +1,76 @@
+<script context="module">
+  import { cx, setup } from 'beamwind'
+
+  if (import.meta.env.MODE !== 'production') {
+    setup({ hash: false })
+  }
+
+  setup({
+    plugins: {
+      'app-p': 'm-sm',
+      'app-code': 'bg-#0002 px-sm py-xs rounded-sm',
+    },
+    theme: {
+      animation: {
+        'logo-pulse': ['infinite 1.6s ease-in-out alternate'],
+      },
+      keyframes: {
+        'logo-pulse': {
+          from: {
+            transform: 'scale(1)',
+          },
+          to: {
+            transform: 'scale(1.06)',
+          },
+        },
+      },
+    },
+  })
+</script>
+
+<script>
+  import { onMount } from 'svelte'
+
+  const appLink = cx`text-#ff3e00 no-underline inline-block px-md`
+
+  let count = 0
+
+  onMount(() => {
+    const interval = setInterval(() => count++, 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  })
+</script>
+
+<div class={cx`text-center`}>
+  <header
+    class={cx`bg-#f9f6f6 text-#333 min-h-screen flex flex-col items-center justify-center text-2xl`}>
+    <img
+      src="/logo.svg"
+      class={cx`h-36vmin pointer-events-none mb-12 animate-logo-pulse`}
+      alt="logo" />
+    <p class={cx`app-p`}>
+      Edit
+      <code class={cx`app-code`}>src/App.svelte</code>
+      and save to reload.
+    </p>
+    <p class={cx`app-p`}>
+      Page has been open for
+      <code class={cx`app-code`}>{count}</code>
+      seconds.
+    </p>
+    <p class={cx`app-p divide-x`}>
+      <a class={appLink} href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
+        Learn Svelte
+      </a>
+      <a
+        class={appLink}
+        href="https://github.com/kenoxa/beamwind"
+        target="_blank"
+        rel="noopener noreferrer">
+        Learn Beamwind
+      </a>
+    </p>
+  </header>
+</div>
