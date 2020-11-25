@@ -6,12 +6,12 @@ import { escape } from '../css'
 
 import data from './api.json'
 
-const stringify = (className: string, declarations: Record<string, string | undefined>): string => {
+const stringify = (className: string, declarations: Declarations): string => {
   return (
     className +
     '{' +
     Object.entries(declarations)
-      .filter(([_property, value]) => value != null)
+      .filter(([_property, value]) => value)
       .map(([property, value]) => `${property}:${value as string}`)
       .join(';') +
     '}'

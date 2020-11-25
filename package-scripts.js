@@ -1,1 +1,1 @@
-module.exports = require('@carv/bundle/nps-preset')
+module.exports = require('@carv/esbundle/nps-preset')

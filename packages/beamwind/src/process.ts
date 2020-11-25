@@ -108,7 +108,9 @@ const translate = (token: string, variants: readonly string[]): unknown => {
     }
   }
 
-  let result = is.function(plugin) ? plugin(parts, theme, { keyframes, variants }) : plugin
+  let result = is.function(plugin)
+    ? plugin(parts, theme, { keyframes, variants, tag: currentContext.a })
+    : plugin
 
   if (is.function(result) || is.string(result)) {
     return processTokenResult(token, variants, result)

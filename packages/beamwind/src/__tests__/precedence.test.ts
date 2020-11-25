@@ -179,28 +179,6 @@ test('values (ascending - using the largest precedence of all values by counting
   expect(a).toBeLessThan(b)
 })
 
-test('transform (reference)', () => {
-  const transformVars = calculatePrecedence([], {
-    '--tw-translate-x': '0',
-    '--tw-translate-y': '0',
-    '--tw-rotate': '0',
-    '--tw-skew-x': '0',
-    '--tw-skew-y': '0',
-    '--tw-scale-x': '1',
-    '--tw-scale-y': '1',
-  })
-
-  const rotate45 = calculatePrecedence([], { '--tw-rotate': '45deg' })
-
-  const transform = calculatePrecedence([], {
-    transform:
-      'translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
-  })
-
-  expect(transformVars).toBeLessThan(rotate45)
-  expect(rotate45).toBeLessThan(transform)
-})
-
 test('gradient (reference)', () => {
   const fromPurple400 = calculatePrecedence([], {
     '--tw-gradient-from': '#c084fc',
@@ -295,4 +273,31 @@ test('transition (reference)', () => {
   expect(transitionNone).toBe(duration)
   expect(duration).toBe(delay)
   expect(delay).toBeLessThan(transitionTimingFunction)
+})
+
+test('transform (reference)', () => {
+  const scale = calculatePrecedence([], {
+    '--transform-scale-x': '.75',
+    '--transform-scale-y': '.75',
+    transform: 'scale(.75)',
+  })
+
+  const scaleX = calculatePrecedence([], {
+    '--transform-scale-x': '.75',
+    transform: 'scaleX(.75)',
+  })
+
+  const scaleY = calculatePrecedence([], {
+    '--transform-scale-y': '.75',
+    transform: 'scaleY(.75)',
+  })
+
+  const transform = calculatePrecedence([], {
+    transform:
+      'transform:translateX(var(--transform-translate-x,0)) translateY(var(--transform-translate-y,0)) rotate(var(--transform-rotate,0)) skewX(var(--transform-skew-x,0)) skewY(var(--transform-skew-y,0)) scaleX(var(--transform-scale-x,1)) scaleY(var(--transform-scale-y,1))',
+  })
+
+  expect(scale).toBeLessThan(scaleX)
+  expect(scaleX).toBe(scaleY)
+  expect(scaleY).toBeLessThan(transform)
 })

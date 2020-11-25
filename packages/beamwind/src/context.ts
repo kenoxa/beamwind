@@ -131,18 +131,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
 
   const variantToCss = (variant: string): string => createVariant(variant, activeTheme)
 
-  const tag: Context['a'] = (token) => {
-    const id = 'a\0' + token
-
-    let className = idToClassName.get(id)
-
-    if (!className) {
-      className = hash ? hash(token) : token
-      idToClassName.set(id, className)
-    }
-
-    return className
-  }
+  const tag: Context['a'] = (token) => (hash ? hash(token) : `bw-${token}`)
 
   const inject = (
     id: string,
@@ -215,7 +204,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
     },
 
     k(name, waypoints) {
-      const id = 'k\0' + name
+      const id = '\0' + name
 
       let className = idToClassName.get(id)
 
@@ -227,7 +216,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
           '',
         )
 
-        className = hash ? hash(declarationBody) : name
+        className = hash ? hash(declarationBody) : `bw-${name}`
 
         const rule = `@keyframes ${className}{${declarationBody}}`
 

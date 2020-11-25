@@ -86,12 +86,6 @@ export const utilities: Record<string, Plugin> = {
   // .shadow-none	box-shadow: none;
   shadow: (parts, theme) => ({ 'box-shadow': theme('boxShadow', parts[1]) }),
 
-  // .rotate-0	--transform-rotate: 0;
-  // .rotate-1	--transform-rotate: 1deg;
-  rotate: (parts, theme) => ({
-    transform: `rotate(${theme('angle', parts[1], convertTo('deg'))})`,
-  }),
-
   // .duration-75	transition-duration: 75ms;
   // .duration-75	transition-duration: 75ms;
   duration: (parts, theme) => ({
@@ -102,41 +96,72 @@ export const utilities: Record<string, Plugin> = {
   // .delay-100	transition-delay: 100ms;
   delay: (parts, theme) => ({ 'transition-delay': theme('durations', parts[1], convertTo('ms')) }),
 
-  // .scale-0	--transform-scale-x: 0;
-  // .scale-x-150
-  // .scale-y-0
-  scale: (parts, theme) => ({
-    transform: `scale${parts[2] ? parts[1].toUpperCase() : ''}(${theme(
-      'scale',
-      parts[2] || parts[1],
-      divideBy(100),
-    )})`,
-  }),
-
   origin: (parts) => ({ 'transform-origin': join(tail(parts), ' ') }),
 
   cursor: (parts) => ({ cursor: join(tail(parts)) }),
 
   select: (parts) => ({ 'user-select': parts[1] }),
 
+  transform: (parts, theme, { tag }) => ({
+    transform: `translateX(var(--${tag('transform-translate-x')},0)) translateY(var(--${tag(
+      'transform-translate-y',
+    )},0)) rotate(var(--${tag('transform-rotate')},0)) skewX(var(--${tag(
+      'transform-skew-x',
+    )},0)) skewY(var(--${tag('transform-skew-y')},0)) scaleX(var(--${tag(
+      'transform-scale-x',
+    )},1)) scaleY(var(--${tag('transform-scale-y')},1))`,
+  }),
+
+  // .rotate-0	--transform-rotate: 0;
+  // .rotate-1	--transform-rotate: 1deg;
+  rotate: (parts, theme, { tag }) => {
+    _ = theme('angle', parts[1], convertTo('deg'))
+
+    return {
+      [`--${tag('transform-rotate')}`]: _,
+      transform: `rotate(${_})`,
+    }
+  },
+
+  // .scale-0	--transform-scale-x: 0;
+  // .scale-x-150
+  // .scale-y-0
+  scale(parts, theme, { tag }) {
+    _ = theme('scale', parts[2] || parts[1], divideBy(100))
+
+    return {
+      [`--${tag('transform-scale-x')}`]: parts[1] !== 'y' && _,
+      [`--${tag('transform-scale-y')}`]: parts[1] !== 'x' && _,
+      transform: `scale${parts[2] ? parts[1].toUpperCase() : ''}(${_})`,
+    }
+  },
+
   // .translate-x-0	--transform-translate-x: 0;
   // .translate-x-1	--transform-translate-x: 0.25rem;
   // .translate-y-px	--transform-translate-y: 1px;
   // .translate-y-full	--transform-translate-y: 100%;
   // .translate-y-1/2	--transform-translate-y: 50%;
-  translate: (parts, theme) => ({
-    transform: `translate${parts[1].toUpperCase()}(${theme(
-      'spacing',
-      parts[2],
-      convertTo('rem'),
-    )})`,
-  }),
+  translate(parts, theme, { tag }) {
+    _ = theme('spacing', parts[2], convertTo('rem'))
+
+    return {
+      [`--${tag('transform-translate-x')}`]: parts[1] !== 'y' && _,
+      [`--${tag('transform-translate-y')}`]: parts[1] !== 'x' && _,
+      transform: `translate${parts[1].toUpperCase()}(${_})`,
+    }
+  },
 
   // .skew-y-0	--transform-skew-y: 0;
   // .skew-y-1	--transform-skew-y: 1deg;
-  skew: (parts, theme) => ({
-    transform: `skew${parts[1].toUpperCase()}(${theme('angle', parts[2], convertTo('deg'))})`,
-  }),
+  skew(parts, theme, { tag }) {
+    _ = theme('angle', parts[2], convertTo('deg'))
+
+    return {
+      [`--${tag('transform-skew-x')}`]: parts[1] !== 'y' && _,
+      [`--${tag('transform-skew-y')}`]: parts[1] !== 'x' && _,
+      transform: `skew${parts[1].toUpperCase()}(${_})`,
+    }
+  },
 
   'pointer-events': (parts) => ({ 'pointer-events': parts[1] }),
 

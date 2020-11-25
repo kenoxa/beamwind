@@ -46,3 +46,17 @@ test('suffix is considered for hash', () => {
     '._1s0kdql>:not([hidden])~:not([hidden]){border-left:1px solid currentColor}',
   ])
 })
+
+test('transform', () => {
+  expect(instance.cx('transform')).toBe('_qlfj4a')
+  expect(injector.target).toMatchObject([
+    '._qlfj4a{transform:translateX(var(--_1b5bwxb,0)) translateY(var(--_5lpe1e,0)) rotate(var(--_1tjx9ji,0)) skewX(var(--_18a3cx6,0)) skewY(var(--_8gr6l0,0)) scaleX(var(--_1nk5hxs,1)) scaleY(var(--_164xbw6,1))}',
+  ])
+})
+
+test('scale', () => {
+  expect(instance.cx('scale-90')).toBe('_rs8xuh')
+  expect(injector.target).toMatchObject([
+    '._rs8xuh{--_1nk5hxs:0.9;--_164xbw6:0.9;transform:scale(0.9)}',
+  ])
+})

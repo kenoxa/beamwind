@@ -809,7 +809,7 @@ TODO see TODO.md
   - ring-width
   - gradient-color-stops
 
-### Additional Directives
+### Additional Features
 
 - most directives are lenient when a value is not found in the theme:
   - decimal numbers (`2` or `1.5`) are divided by a divisor and a unit is added (`w-2.5` becomes `width: 0.625rem;`)
@@ -836,6 +836,9 @@ TODO see TODO.md
   - `divide-<position>-<size>` (`divide-x-xs` or `divide-y-4`): `{ border-<position>: <size> solid <theme.divideColor.DEFAULT>; }`
   - `divide-<position>-<color>` (`divide-x-primary` or `divide-y-red`): `{ border-<position>: <theme.divideWidth.DEFAULT> solid <color>; }`
   - `divide-<position>-<size>-<color>` (`divide-x-xs-primary` or `divide-y-4-red`): `{ border-<position>: <size> solid <color>; }`
+- `rotate`, `scale` , `skew` and `translate` can be used without `transform` when used alone
+
+  > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
 
 ## Oceanwind Differences
 

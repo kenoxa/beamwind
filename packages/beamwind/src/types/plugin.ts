@@ -15,6 +15,7 @@ export type PluginTokenResult = (parse: TokenParser) => void
 export interface PluginContext {
   readonly keyframes: InjectKeyframes
   readonly variants: readonly string[]
+  readonly tag: (token: string) => string
 }
 
 export type PluginResult =
