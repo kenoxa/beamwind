@@ -891,7 +891,7 @@ Some notable differences are:
   - [Background Image](https://tailwindcss.com/docs/gradient-color-stops#class-reference)
 
 - oceanwind supports duplicate token tracking
-- beamwind is 7-10 times faster than oceanwind (see [Beanchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
+- beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
 
 ### Size Comparison
 
