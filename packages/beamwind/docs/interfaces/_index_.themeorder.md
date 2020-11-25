@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeOrder**
 
@@ -12,30 +12,30 @@
 
 ### Properties
 
-* [first](_index_.themeorder.md#first)
-* [last](_index_.themeorder.md#last)
-* [none](_index_.themeorder.md#none)
+- [first](_index_.themeorder.md#first)
+- [last](_index_.themeorder.md#last)
+- [none](_index_.themeorder.md#none)
 
 ## Properties
 
 ### first
 
-•  **first**: string
+• **first**: string
 
-*Defined in [types/theme.ts:196](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L196)*
+_Defined in [types/theme.ts:196](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L196)_
 
-___
+---
 
 ### last
 
-•  **last**: string
+• **last**: string
 
-*Defined in [types/theme.ts:197](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L197)*
+_Defined in [types/theme.ts:197](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L197)_
 
-___
+---
 
 ### none
 
-•  **none**: string
+• **none**: string
 
-*Defined in [types/theme.ts:198](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L198)*
+_Defined in [types/theme.ts:198](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L198)_

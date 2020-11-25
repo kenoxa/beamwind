@@ -6,7 +6,7 @@ CSS Properties: box-shadow, text-shadow
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeBoxShadow**
 
@@ -14,84 +14,84 @@ CSS Properties: box-shadow, text-shadow
 
 ### Properties
 
-* [2xl](_types_theme_.themeboxshadow.md#2xl)
-* [DEFAULT](_types_theme_.themeboxshadow.md#default)
-* [inner](_types_theme_.themeboxshadow.md#inner)
-* [lg](_types_theme_.themeboxshadow.md#lg)
-* [md](_types_theme_.themeboxshadow.md#md)
-* [outline](_types_theme_.themeboxshadow.md#outline)
-* [sm](_types_theme_.themeboxshadow.md#sm)
-* [xl](_types_theme_.themeboxshadow.md#xl)
-* [xs](_types_theme_.themeboxshadow.md#xs)
+- [2xl](_types_theme_.themeboxshadow.md#2xl)
+- [DEFAULT](_types_theme_.themeboxshadow.md#default)
+- [inner](_types_theme_.themeboxshadow.md#inner)
+- [lg](_types_theme_.themeboxshadow.md#lg)
+- [md](_types_theme_.themeboxshadow.md#md)
+- [outline](_types_theme_.themeboxshadow.md#outline)
+- [sm](_types_theme_.themeboxshadow.md#sm)
+- [xl](_types_theme_.themeboxshadow.md#xl)
+- [xs](_types_theme_.themeboxshadow.md#xs)
 
 ## Properties
 
 ### 2xl
 
-•  **2xl**: string
+• **2xl**: string
 
-*Defined in [types/theme.ts:141](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L141)*
+_Defined in [types/theme.ts:141](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L141)_
 
-___
+---
 
 ### DEFAULT
 
-•  **DEFAULT**: string
+• **DEFAULT**: string
 
-*Defined in [types/theme.ts:135](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L135)*
+_Defined in [types/theme.ts:135](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L135)_
 
-___
+---
 
 ### inner
 
-•  **inner**: string
+• **inner**: string
 
-*Defined in [types/theme.ts:142](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L142)*
+_Defined in [types/theme.ts:142](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L142)_
 
-___
+---
 
 ### lg
 
-•  **lg**: string
+• **lg**: string
 
-*Defined in [types/theme.ts:139](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L139)*
+_Defined in [types/theme.ts:139](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L139)_
 
-___
+---
 
 ### md
 
-•  **md**: string
+• **md**: string
 
-*Defined in [types/theme.ts:138](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L138)*
+_Defined in [types/theme.ts:138](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L138)_
 
-___
+---
 
 ### outline
 
-•  **outline**: string
+• **outline**: string
 
-*Defined in [types/theme.ts:143](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L143)*
+_Defined in [types/theme.ts:143](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L143)_
 
-___
+---
 
 ### sm
 
-•  **sm**: string
+• **sm**: string
 
-*Defined in [types/theme.ts:137](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L137)*
+_Defined in [types/theme.ts:137](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L137)_
 
-___
+---
 
 ### xl
 
-•  **xl**: string
+• **xl**: string
 
-*Defined in [types/theme.ts:140](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L140)*
+_Defined in [types/theme.ts:140](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L140)_
 
-___
+---
 
 ### xs
 
-•  **xs**: string
+• **xs**: string
 
-*Defined in [types/theme.ts:136](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L136)*
+_Defined in [types/theme.ts:136](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L136)_

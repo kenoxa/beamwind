@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeKeyframes**
 
@@ -12,39 +12,39 @@
 
 ### Properties
 
-* [bounce](_types_index_.themekeyframes.md#bounce)
-* [ping](_types_index_.themekeyframes.md#ping)
-* [pulse](_types_index_.themekeyframes.md#pulse)
-* [spin](_types_index_.themekeyframes.md#spin)
+- [bounce](_types_index_.themekeyframes.md#bounce)
+- [ping](_types_index_.themekeyframes.md#ping)
+- [pulse](_types_index_.themekeyframes.md#pulse)
+- [spin](_types_index_.themekeyframes.md#spin)
 
 ## Properties
 
 ### bounce
 
-•  **bounce**: ThemeKeyframesDefintion
+• **bounce**: ThemeKeyframesDefintion
 
-*Defined in [types/theme.ts:246](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L246)*
+_Defined in [types/theme.ts:246](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L246)_
 
-___
+---
 
 ### ping
 
-•  **ping**: ThemeKeyframesDefintion
+• **ping**: ThemeKeyframesDefintion
 
-*Defined in [types/theme.ts:244](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L244)*
+_Defined in [types/theme.ts:244](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L244)_
 
-___
+---
 
 ### pulse
 
-•  **pulse**: ThemeKeyframesDefintion
+• **pulse**: ThemeKeyframesDefintion
 
-*Defined in [types/theme.ts:245](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L245)*
+_Defined in [types/theme.ts:245](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L245)_
 
-___
+---
 
 ### spin
 
-•  **spin**: ThemeKeyframesDefintion
+• **spin**: ThemeKeyframesDefintion
 
-*Defined in [types/theme.ts:243](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L243)*
+_Defined in [types/theme.ts:243](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L243)_

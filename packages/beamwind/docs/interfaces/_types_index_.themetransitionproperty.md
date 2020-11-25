@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeTransitionProperty**
 
@@ -12,30 +12,30 @@
 
 ### Properties
 
-* [DEFAULT](_types_index_.themetransitionproperty.md#default)
-* [colors](_types_index_.themetransitionproperty.md#colors)
-* [shadow](_types_index_.themetransitionproperty.md#shadow)
+- [DEFAULT](_types_index_.themetransitionproperty.md#default)
+- [colors](_types_index_.themetransitionproperty.md#colors)
+- [shadow](_types_index_.themetransitionproperty.md#shadow)
 
 ## Properties
 
 ### DEFAULT
 
-•  **DEFAULT**: string
+• **DEFAULT**: string
 
-*Defined in [types/theme.ts:215](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L215)*
+_Defined in [types/theme.ts:215](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L215)_
 
-___
+---
 
 ### colors
 
-•  **colors**: string
+• **colors**: string
 
-*Defined in [types/theme.ts:216](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L216)*
+_Defined in [types/theme.ts:216](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L216)_
 
-___
+---
 
 ### shadow
 
-•  **shadow**: string
+• **shadow**: string
 
-*Defined in [types/theme.ts:217](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L217)*
+_Defined in [types/theme.ts:217](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L217)_

@@ -4,35 +4,35 @@
 
 ## Type parameters
 
-Name |
------- |
-`T` |
+| Name |
+| ---- |
+| `T`  |
 
 ## Hierarchy
 
-* **Injector**
+- **Injector**
 
 ## Index
 
 ### Properties
 
-* [insert](_index_.injector.md#insert)
-* [target](_index_.injector.md#target)
+- [insert](_index_.injector.md#insert)
+- [target](_index_.injector.md#target)
 
 ## Properties
 
 ### insert
 
-•  **insert**: (rule: string, index: number) => number
+• **insert**: (rule: string, index: number) => number
 
-*Defined in [types/config.ts:25](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L25)*
+_Defined in [types/config.ts:25](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L25)_
 
-___
+---
 
 ### target
 
-•  **target**: T
+• **target**: T
 
-*Defined in [types/config.ts:23](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L23)*
+_Defined in [types/config.ts:23](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L23)_
 
 Target to insert rules into.

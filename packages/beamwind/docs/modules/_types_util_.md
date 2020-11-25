@@ -6,27 +6,27 @@
 
 ### Type aliases
 
-* [DeepPartial](_types_util_.md#deeppartial)
-* [Falsy](_types_util_.md#falsy)
+- [DeepPartial](_types_util_.md#deeppartial)
+- [Falsy](_types_util_.md#falsy)
 
 ## Type aliases
 
 ### DeepPartial
 
-Ƭ  **DeepPartial**\<T>: T *extends* Function ? T : T *extends* object ? {} : T
+Ƭ **DeepPartial**\<T>: T _extends_ Function ? T : T _extends_ object ? {} : T
 
-*Defined in [types/util.ts:2](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/util.ts#L2)*
+_Defined in [types/util.ts:2](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/util.ts#L2)_
 
 #### Type parameters:
 
-Name |
------- |
-`T` |
+| Name |
+| ---- |
+| `T`  |
 
-___
+---
 
 ### Falsy
 
-Ƭ  **Falsy**: "" \| 0 \| 0 \| false \| null \| undefined
+Ƭ **Falsy**: "" \| 0 \| 0 \| false \| null \| undefined
 
-*Defined in [types/util.ts:9](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/util.ts#L9)*
+_Defined in [types/util.ts:9](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/util.ts#L9)_

@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeTransitionTimingFunction**
 
@@ -12,39 +12,39 @@
 
 ### Properties
 
-* [DEFAULT](_types_index_.themetransitiontimingfunction.md#default)
-* [in](_types_index_.themetransitiontimingfunction.md#in)
-* [in-out](_types_index_.themetransitiontimingfunction.md#in-out)
-* [out](_types_index_.themetransitiontimingfunction.md#out)
+- [DEFAULT](_types_index_.themetransitiontimingfunction.md#default)
+- [in](_types_index_.themetransitiontimingfunction.md#in)
+- [in-out](_types_index_.themetransitiontimingfunction.md#in-out)
+- [out](_types_index_.themetransitiontimingfunction.md#out)
 
 ## Properties
 
 ### DEFAULT
 
-•  **DEFAULT**: string
+• **DEFAULT**: string
 
-*Defined in [types/theme.ts:221](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L221)*
+_Defined in [types/theme.ts:221](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L221)_
 
-___
+---
 
 ### in
 
-•  **in**: string
+• **in**: string
 
-*Defined in [types/theme.ts:222](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L222)*
+_Defined in [types/theme.ts:222](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L222)_
 
-___
+---
 
 ### in-out
 
-•  **in-out**: string
+• **in-out**: string
 
-*Defined in [types/theme.ts:224](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L224)*
+_Defined in [types/theme.ts:224](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L224)_
 
-___
+---
 
 ### out
 
-•  **out**: string
+• **out**: string
 
-*Defined in [types/theme.ts:223](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L223)*
+_Defined in [types/theme.ts:223](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L223)_

@@ -23,7 +23,7 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 - 💡 Generates only the styles required without building or purging
 - 🚀 Styles co-located with your component reduces context switching
 - 🍱 [Reliable selector ordering](#selector-ordering)
-- 🧱 [Extendable with plugins](#add-new-plugins)
+- 🧱 [Extendable with plugins](#plugins)
 - 🐾 Negligible runtime footprint
 - ⏱ Has desirable perf characteristics at runtime
 - 💫 Works without a framework - eg framework agnostic
@@ -892,12 +892,13 @@ Some notable differences are:
 
 - oceanwind supports duplicate token tracking
 - beamwind is 7-10 times faster than oceanwind (see [Beanchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
-- beamwind is a little bit smaller
 
-  | &nbsp;   | [oceanwind](<(https://bundlephobia.com/result?p=oceanwind)>)                                                                     | [beamwind](<(https://bundlephobia.com/result?p=beamwind)>)                                                                    |
-  | -------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-  | minified | [![Oceanwind Minified](https://flat.badgen.net/bundlephobia/min/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind)   | [![Beamwind Minified](https://flat.badgen.net/bundlephobia/min/beamwind?label)](https://bundlephobia.com/result?p=beamwind)   |
-  | gzipped  | [![Oceanwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind) | [![Beamwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/beamwind?label)](https://bundlephobia.com/result?p=beamwind) |
+### Size Comparison
+
+| &nbsp;   | [oceanwind](<(https://bundlephobia.com/result?p=oceanwind)>)                                                                     | [beamwind](<(https://bundlephobia.com/result?p=beamwind)>)                                                                    |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| minified | [![Oceanwind Minified](https://flat.badgen.net/bundlephobia/min/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind)   | [![Beamwind Minified](https://flat.badgen.net/bundlephobia/min/beamwind?label)](https://bundlephobia.com/result?p=beamwind)   |
+| gzipped  | [![Oceanwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind) | [![Beamwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/beamwind?label)](https://bundlephobia.com/result?p=beamwind) |
 
 ## Support
 

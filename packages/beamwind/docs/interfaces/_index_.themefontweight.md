@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeFontWeight**
 
@@ -12,84 +12,84 @@
 
 ### Properties
 
-* [black](_index_.themefontweight.md#black)
-* [bold](_index_.themefontweight.md#bold)
-* [extrabold](_index_.themefontweight.md#extrabold)
-* [extralight](_index_.themefontweight.md#extralight)
-* [light](_index_.themefontweight.md#light)
-* [medium](_index_.themefontweight.md#medium)
-* [normal](_index_.themefontweight.md#normal)
-* [semibold](_index_.themefontweight.md#semibold)
-* [thin](_index_.themefontweight.md#thin)
+- [black](_index_.themefontweight.md#black)
+- [bold](_index_.themefontweight.md#bold)
+- [extrabold](_index_.themefontweight.md#extrabold)
+- [extralight](_index_.themefontweight.md#extralight)
+- [light](_index_.themefontweight.md#light)
+- [medium](_index_.themefontweight.md#medium)
+- [normal](_index_.themefontweight.md#normal)
+- [semibold](_index_.themefontweight.md#semibold)
+- [thin](_index_.themefontweight.md#thin)
 
 ## Properties
 
 ### black
 
-•  **black**: string
+• **black**: string
 
-*Defined in [types/theme.ts:89](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L89)*
+_Defined in [types/theme.ts:89](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L89)_
 
-___
+---
 
 ### bold
 
-•  **bold**: string
+• **bold**: string
 
-*Defined in [types/theme.ts:87](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L87)*
+_Defined in [types/theme.ts:87](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L87)_
 
-___
+---
 
 ### extrabold
 
-•  **extrabold**: string
+• **extrabold**: string
 
-*Defined in [types/theme.ts:88](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L88)*
+_Defined in [types/theme.ts:88](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L88)_
 
-___
+---
 
 ### extralight
 
-•  **extralight**: string
+• **extralight**: string
 
-*Defined in [types/theme.ts:82](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L82)*
+_Defined in [types/theme.ts:82](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L82)_
 
-___
+---
 
 ### light
 
-•  **light**: string
+• **light**: string
 
-*Defined in [types/theme.ts:83](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L83)*
+_Defined in [types/theme.ts:83](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L83)_
 
-___
+---
 
 ### medium
 
-•  **medium**: string
+• **medium**: string
 
-*Defined in [types/theme.ts:85](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L85)*
+_Defined in [types/theme.ts:85](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L85)_
 
-___
+---
 
 ### normal
 
-•  **normal**: string
+• **normal**: string
 
-*Defined in [types/theme.ts:84](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L84)*
+_Defined in [types/theme.ts:84](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L84)_
 
-___
+---
 
 ### semibold
 
-•  **semibold**: string
+• **semibold**: string
 
-*Defined in [types/theme.ts:86](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L86)*
+_Defined in [types/theme.ts:86](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L86)_
 
-___
+---
 
 ### thin
 
-•  **thin**: string
+• **thin**: string
 
-*Defined in [types/theme.ts:81](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L81)*
+_Defined in [types/theme.ts:81](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L81)_

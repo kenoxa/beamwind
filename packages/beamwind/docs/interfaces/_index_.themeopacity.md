@@ -4,6 +4,6 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeOpacity**
