@@ -6,7 +6,7 @@ CSS Properties: width, height, min-width, max-width, min-height, max-height
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeSizes**
 
@@ -14,138 +14,138 @@ CSS Properties: width, height, min-width, max-width, min-height, max-height
 
 ### Properties
 
-* [2xl](_index_.themesizes.md#2xl)
-* [3xl](_index_.themesizes.md#3xl)
-* [4xl](_index_.themesizes.md#4xl)
-* [5xl](_index_.themesizes.md#5xl)
-* [6xl](_index_.themesizes.md#6xl)
-* [auto](_index_.themesizes.md#auto)
-* [full](_index_.themesizes.md#full)
-* [lg](_index_.themesizes.md#lg)
-* [max](_index_.themesizes.md#max)
-* [md](_index_.themesizes.md#md)
-* [min](_index_.themesizes.md#min)
-* [none](_index_.themesizes.md#none)
-* [prose](_index_.themesizes.md#prose)
-* [sm](_index_.themesizes.md#sm)
-* [xl](_index_.themesizes.md#xl)
+- [2xl](_index_.themesizes.md#2xl)
+- [3xl](_index_.themesizes.md#3xl)
+- [4xl](_index_.themesizes.md#4xl)
+- [5xl](_index_.themesizes.md#5xl)
+- [6xl](_index_.themesizes.md#6xl)
+- [auto](_index_.themesizes.md#auto)
+- [full](_index_.themesizes.md#full)
+- [lg](_index_.themesizes.md#lg)
+- [max](_index_.themesizes.md#max)
+- [md](_index_.themesizes.md#md)
+- [min](_index_.themesizes.md#min)
+- [none](_index_.themesizes.md#none)
+- [prose](_index_.themesizes.md#prose)
+- [sm](_index_.themesizes.md#sm)
+- [xl](_index_.themesizes.md#xl)
 
 ## Properties
 
 ### 2xl
 
-•  **2xl**: string
+• **2xl**: string
 
-*Defined in [types/theme.ts:182](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L182)*
+_Defined in [types/theme.ts:182](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L182)_
 
-___
+---
 
 ### 3xl
 
-•  **3xl**: string
+• **3xl**: string
 
-*Defined in [types/theme.ts:183](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L183)*
+_Defined in [types/theme.ts:183](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L183)_
 
-___
+---
 
 ### 4xl
 
-•  **4xl**: string
+• **4xl**: string
 
-*Defined in [types/theme.ts:184](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L184)*
+_Defined in [types/theme.ts:184](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L184)_
 
-___
+---
 
 ### 5xl
 
-•  **5xl**: string
+• **5xl**: string
 
-*Defined in [types/theme.ts:185](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L185)*
+_Defined in [types/theme.ts:185](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L185)_
 
-___
+---
 
 ### 6xl
 
-•  **6xl**: string
+• **6xl**: string
 
-*Defined in [types/theme.ts:186](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L186)*
+_Defined in [types/theme.ts:186](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L186)_
 
-___
+---
 
 ### auto
 
-•  **auto**: string
+• **auto**: string
 
-*Defined in [types/theme.ts:173](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L173)*
+_Defined in [types/theme.ts:173](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L173)_
 
-___
+---
 
 ### full
 
-•  **full**: string
+• **full**: string
 
-*Defined in [types/theme.ts:172](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L172)*
+_Defined in [types/theme.ts:172](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L172)_
 
-___
+---
 
 ### lg
 
-•  **lg**: string
+• **lg**: string
 
-*Defined in [types/theme.ts:180](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L180)*
+_Defined in [types/theme.ts:180](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L180)_
 
-___
+---
 
 ### max
 
-•  **max**: string
+• **max**: string
 
-*Defined in [types/theme.ts:176](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L176)*
+_Defined in [types/theme.ts:176](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L176)_
 
-___
+---
 
 ### md
 
-•  **md**: string
+• **md**: string
 
-*Defined in [types/theme.ts:179](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L179)*
+_Defined in [types/theme.ts:179](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L179)_
 
-___
+---
 
 ### min
 
-•  **min**: string
+• **min**: string
 
-*Defined in [types/theme.ts:175](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L175)*
+_Defined in [types/theme.ts:175](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L175)_
 
-___
+---
 
 ### none
 
-•  **none**: string
+• **none**: string
 
-*Defined in [types/theme.ts:174](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L174)*
+_Defined in [types/theme.ts:174](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L174)_
 
-___
+---
 
 ### prose
 
-•  **prose**: string
+• **prose**: string
 
-*Defined in [types/theme.ts:177](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L177)*
+_Defined in [types/theme.ts:177](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L177)_
 
-___
+---
 
 ### sm
 
-•  **sm**: string
+• **sm**: string
 
-*Defined in [types/theme.ts:178](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L178)*
+_Defined in [types/theme.ts:178](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L178)_
 
-___
+---
 
 ### xl
 
-•  **xl**: string
+• **xl**: string
 
-*Defined in [types/theme.ts:181](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L181)*
+_Defined in [types/theme.ts:181](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L181)_

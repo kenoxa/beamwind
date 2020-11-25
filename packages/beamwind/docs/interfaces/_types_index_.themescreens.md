@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeScreens**
 
@@ -12,48 +12,48 @@
 
 ### Properties
 
-* [2xl](_types_index_.themescreens.md#2xl)
-* [lg](_types_index_.themescreens.md#lg)
-* [md](_types_index_.themescreens.md#md)
-* [sm](_types_index_.themescreens.md#sm)
-* [xl](_types_index_.themescreens.md#xl)
+- [2xl](_types_index_.themescreens.md#2xl)
+- [lg](_types_index_.themescreens.md#lg)
+- [md](_types_index_.themescreens.md#md)
+- [sm](_types_index_.themescreens.md#sm)
+- [xl](_types_index_.themescreens.md#xl)
 
 ## Properties
 
 ### 2xl
 
-•  **2xl**: string
+• **2xl**: string
 
-*Defined in [types/theme.ts:16](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L16)*
+_Defined in [types/theme.ts:16](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L16)_
 
-___
+---
 
 ### lg
 
-•  **lg**: string
+• **lg**: string
 
-*Defined in [types/theme.ts:14](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L14)*
+_Defined in [types/theme.ts:14](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L14)_
 
-___
+---
 
 ### md
 
-•  **md**: string
+• **md**: string
 
-*Defined in [types/theme.ts:13](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L13)*
+_Defined in [types/theme.ts:13](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L13)_
 
-___
+---
 
 ### sm
 
-•  **sm**: string
+• **sm**: string
 
-*Defined in [types/theme.ts:12](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L12)*
+_Defined in [types/theme.ts:12](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L12)_
 
-___
+---
 
 ### xl
 
-•  **xl**: string
+• **xl**: string
 
-*Defined in [types/theme.ts:15](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L15)*
+_Defined in [types/theme.ts:15](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L15)_

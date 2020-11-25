@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-* [ClassNameCreator](../interfaces/_types_instance_.classnamecreator.md)
-* [Instance](../interfaces/_types_instance_.instance.md)
+- [ClassNameCreator](../interfaces/_types_instance_.classnamecreator.md)
+- [Instance](../interfaces/_types_instance_.instance.md)

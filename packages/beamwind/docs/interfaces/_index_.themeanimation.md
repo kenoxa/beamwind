@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeAnimation**
 
@@ -12,48 +12,48 @@
 
 ### Properties
 
-* [bounce](_index_.themeanimation.md#bounce)
-* [none](_index_.themeanimation.md#none)
-* [ping](_index_.themeanimation.md#ping)
-* [pulse](_index_.themeanimation.md#pulse)
-* [spin](_index_.themeanimation.md#spin)
+- [bounce](_index_.themeanimation.md#bounce)
+- [none](_index_.themeanimation.md#none)
+- [ping](_index_.themeanimation.md#ping)
+- [pulse](_index_.themeanimation.md#pulse)
+- [spin](_index_.themeanimation.md#spin)
 
 ## Properties
 
 ### bounce
 
-•  **bounce**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
+• **bounce**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
 
-*Defined in [types/theme.ts:237](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L237)*
+_Defined in [types/theme.ts:237](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L237)_
 
-___
+---
 
 ### none
 
-•  **none**: string
+• **none**: string
 
-*Defined in [types/theme.ts:233](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L233)*
+_Defined in [types/theme.ts:233](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L233)_
 
-___
+---
 
 ### ping
 
-•  **ping**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
+• **ping**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
 
-*Defined in [types/theme.ts:235](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L235)*
+_Defined in [types/theme.ts:235](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L235)_
 
-___
+---
 
 ### pulse
 
-•  **pulse**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
+• **pulse**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
 
-*Defined in [types/theme.ts:236](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L236)*
+_Defined in [types/theme.ts:236](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L236)_
 
-___
+---
 
 ### spin
 
-•  **spin**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
+• **spin**: [ThemeAnimationDefintion](../modules/_index_.md#themeanimationdefintion)
 
-*Defined in [types/theme.ts:234](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L234)*
+_Defined in [types/theme.ts:234](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L234)_

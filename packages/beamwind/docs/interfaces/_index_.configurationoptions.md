@@ -4,20 +4,20 @@
 
 ## Hierarchy
 
-* **ConfigurationOptions**
+- **ConfigurationOptions**
 
 ## Index
 
 ### Properties
 
-* [hash](_index_.configurationoptions.md#hash)
-* [init](_index_.configurationoptions.md#init)
-* [injector](_index_.configurationoptions.md#injector)
-* [nonce](_index_.configurationoptions.md#nonce)
-* [plugins](_index_.configurationoptions.md#plugins)
-* [prefix](_index_.configurationoptions.md#prefix)
-* [theme](_index_.configurationoptions.md#theme)
-* [warn](_index_.configurationoptions.md#warn)
+- [hash](_index_.configurationoptions.md#hash)
+- [init](_index_.configurationoptions.md#init)
+- [injector](_index_.configurationoptions.md#injector)
+- [nonce](_index_.configurationoptions.md#nonce)
+- [plugins](_index_.configurationoptions.md#plugins)
+- [prefix](_index_.configurationoptions.md#prefix)
+- [theme](_index_.configurationoptions.md#theme)
+- [warn](_index_.configurationoptions.md#warn)
 
 ## Properties
 
@@ -25,70 +25,70 @@
 
 • `Optional` **hash**: [Hasher](../modules/_index_.md#hasher) \| false
 
-*Defined in [types/config.ts:59](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L59)*
+_Defined in [types/config.ts:59](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L59)_
 
-___
+---
 
 ### init
 
 • `Optional` **init**: [OnInit](../modules/_index_.md#oninit)
 
-*Defined in [types/config.ts:54](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L54)*
+_Defined in [types/config.ts:54](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L54)_
 
 Called right before the first rule is injected.
 
-___
+---
 
 ### injector
 
 • `Optional` **injector**: [Injector](_index_.injector.md)
 
-*Defined in [types/config.ts:51](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L51)*
+_Defined in [types/config.ts:51](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L51)_
 
 Style insertion methodology to be used.
 
-___
+---
 
 ### nonce
 
 • `Optional` **nonce**: undefined \| string
 
-*Defined in [types/config.ts:48](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L48)*
+_Defined in [types/config.ts:48](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L48)_
 
 Sets a cryptographic nonce (number used once) on the enclosing `<style>` tag when generating a page on demand.
 
 Useful for enforcing a [Content Security Policy (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP).
 
-___
+---
 
 ### plugins
 
 • `Optional` **plugins**: Record\<string, [Plugin](../modules/_index_.md#plugin)>
 
-*Defined in [types/config.ts:41](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L41)*
+_Defined in [types/config.ts:41](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L41)_
 
-___
+---
 
 ### prefix
 
 • `Optional` **prefix**: [Prefixer](../modules/_index_.md#prefixer)
 
-*Defined in [types/config.ts:57](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L57)*
+_Defined in [types/config.ts:57](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L57)_
 
 Auto-prefixer method for CSS property–value pairs.
 
-___
+---
 
 ### theme
 
 • `Optional` **theme**: [ThemeConfiguration](../modules/_index_.md#themeconfiguration)
 
-*Defined in [types/config.ts:39](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L39)*
+_Defined in [types/config.ts:39](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L39)_
 
-___
+---
 
 ### warn
 
 • `Optional` **warn**: [WarnHandler](../modules/_index_.md#warnhandler)
 
-*Defined in [types/config.ts:61](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L61)*
+_Defined in [types/config.ts:61](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/config.ts#L61)_
