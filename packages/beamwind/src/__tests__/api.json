@@ -608,6 +608,45 @@
       ".transform{transform:translateX(var(--transform-translate-x,0)) translateY(var(--transform-translate-y,0)) rotate(var(--transform-rotate,0)) skewX(var(--transform-skew-x,0)) skewY(var(--transform-skew-y,0)) scaleX(var(--transform-scale-x,1)) scaleY(var(--transform-scale-y,1))}"
     ]
   ],
+  "bg-gradient-to-r from-primary via-secondary to-on-primary": [
+    "bg-gradient-to-r from-primary via-secondary to-on-primary",
+    [
+      ".via-secondary{--gradient-stops:var(--gradient-from,transparent),#e60278,var(--gradient-to,transparent)}",
+      ".from-primary{--gradient-from:#0d3880}",
+      ".to-on-primary{--gradient-to:#e8ecf4}",
+      ".bg-gradient-to-r{background-image:linear-gradient(to right,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
+  "bg-gradient-to-tl from-fuchsia to-aqua": [
+    "bg-gradient-to-tl from-fuchsia to-aqua",
+    [
+      ".from-fuchsia{--gradient-from:fuchsia}",
+      ".to-aqua{--gradient-to:aqua}",
+      ".bg-gradient-to-tl{background-image:linear-gradient(to left top,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
+  "bg-gradient-45 from-critical to-current": [
+    "bg-gradient-45 from-critical to-current",
+    [
+      ".from-critical{--gradient-from:#d0011b}",
+      ".to-current{--gradient-to:currentColor}",
+      ".bg-gradient-45{background-image:linear-gradient(45deg,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
+  "bg-gradient-0.25turn to-promote": [
+    "bg-gradient-0.25turn to-promote",
+    [
+      ".to-promote{--gradient-to:#9556b7}",
+      ".bg-gradient-0\\.25turn{background-image:linear-gradient(0.25turn,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
+  "bg-gradient-to-bottom-left from-#111 via-#222 to-#333": [
+    "bg-gradient-to-bottom-left from-#111 via-#222 to-#333",
+    [
+      ".via-\\#222{--gradient-stops:var(--gradient-from,transparent),#222,var(--gradient-to,transparent)}",
+      ".from-\\#111{--gradient-from:#111}",
+      ".to-\\#333{--gradient-to:#333}",
+      ".bg-gradient-to-bottom-left{background-image:linear-gradient(to bottom left,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
     ]
   ]
 }

@@ -32,24 +32,32 @@ text-bold!important
 
 https://tailwindcss.com/docs/ring-width
 
-https://tailwindcss.com/docs/gradient-color-stops#class-reference
-https://tailwindcss.com/docs/background-image#class-reference
-https://github.com/tailwindlabs/tailwindcss/pull/1883
-
-```html
-<div class="css`h-24 bg-gradient-to-r_from-teal-400_to-blue-500`"></div>
-<div class="h-24 bg-gradient-to-r from-teal-400 to-blue-500"></div>
-
-<div class="css`h-24 bg-gradient-to-r_from-teal-400_via-red-500_to-blue-500`"></div>
-<div class="h-24 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500"></div>
-
-<style>
-  .h-24 {
-    height: 6rem;
-  }
-
-  .bg-gradient-to-r_from-orange-400_via-red-500_to-pink-500 {
-    background-image: linear-gradient(to right, #f6ad55, #f56565, #ed64a6);
-  }
-</style>
 ```
+:root
+--tw-shadow: 0 0 transparent;
+--tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+--tw-ring-offset-width: 0px;
+--tw-ring-offset-color: #fff;
+--tw-ring-color: rgba(59,130,246,0.5);
+--tw-ring-offset-shadow: 0 0 transparent;
+--tw-ring-shadow: 0 0 transparent;
+
+
+.ring-4
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+
+.ring-pink-300
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(249,168,212,var(--tw-ring-opacity));
+
+.ring-inset
+  --tw-ring-inset: inset;
+
+.ring
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 transparent);
+```
+
+https://tailwindcss.com/docs/background-image#background-images

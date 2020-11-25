@@ -1,11 +1,20 @@
 import type { Declarations, Plugin, ThemeValueResolver, UnknownKeyHandler } from './types'
 
 import * as is from './is'
-import { compose, convertTo, corners, defaultToKey, divideBy, edges, optional } from './helpers'
+import {
+  compose,
+  convertTo,
+  corners,
+  defaultToKey,
+  divideBy,
+  edges,
+  optional,
+  expandEdges,
+} from './helpers'
 import { join, joinTruthy, tail } from './util'
 
 // Shared variables
-let _: undefined | string | Declarations
+let _: undefined | string | Declarations | string[]
 
 // eslint-disable-next-line no-implicit-coercion
 const keyColor: UnknownKeyHandler<string> = (key) => (~key.indexOf('-') ? undefined : key)
@@ -162,6 +171,40 @@ export const utilities: Record<string, Plugin> = {
       transform: `skew${parts[1].toUpperCase()}(${_})`,
     }
   },
+
+  // .bg-gradient => linear-gradient(180deg, ...)
+  // .bg-gradient-45 => linear-gradient(45deg, ...)
+  // .bg-gradient-to-r => linear-gradient(to right, ...)
+  // .bg-gradient-to-r => linear-gradient(to right, ...)
+  // eslint-disable-next-line no-return-assign
+  'bg-gradient': (parts, theme, { tag }) => ({
+    'background-image': `linear-gradient(${
+      parts[1] === 'to' && (_ = expandEdges(parts[2]))
+        ? 'to ' + join(_, ' ')
+        : theme('angle', join(tail(parts), ' '), compose(convertTo('deg'), defaultToKey))
+    },var(--${tag('gradient-stops')},var(--${tag('gradient-from')},transparent),var(--${tag(
+      'gradient-to',
+    )},transparent)))`,
+  }),
+
+  // .from-purple-400
+  from: (parts, theme, { tag }) => ({
+    [`--${tag('gradient-from')}`]: theme('colors', join(tail(parts)), keyColor),
+  }),
+
+  // .via-pink-500
+  via: (parts, theme, { tag }) => ({
+    [`--${tag('gradient-stops')}`]: `var(--${tag('gradient-from')},transparent),${theme(
+      'colors',
+      join(tail(parts)),
+      keyColor,
+    )},var(--${tag('gradient-to')},transparent)`,
+  }),
+
+  // .to-red-500
+  to: (parts, theme, { tag }) => ({
+    [`--${tag('gradient-to')}`]: theme('colors', join(tail(parts)), keyColor),
+  }),
 
   'pointer-events': (parts) => ({ 'pointer-events': parts[1] }),
 

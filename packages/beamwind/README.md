@@ -29,7 +29,7 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 - 💫 Works without a framework - eg framework agnostic
 - ⚠️ Warns the developer when unrecognized shorthand is used
 
-The library currently weighs ~7kb and supports the vast majority of Tailwind directives and variants ([see differences](#tailwind-differences)).
+The library currently weighs ~8kb and supports the vast majority of Tailwind directives and variants ([see differences](#tailwind-differences)).
 
 Here is a quick example:
 
@@ -807,7 +807,6 @@ TODO see TODO.md
 
   - dark mode
   - ring-width
-  - gradient-color-stops
 
 ### Additional Features
 
@@ -839,6 +838,11 @@ TODO see TODO.md
 - `rotate`, `scale` , `skew` and `translate` can be used without `transform` when used alone
 
   > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
+
+- `bg-gradient` accepts additionally to the side-or-corner parameter (`bg-gradient-to-tr`) an angle or mixed parameters:
+  - `bg-gradient-45`
+  - `bg-gradient-0.25turn`
+  - `bg-gradient-to-bottom-left`
 
 ## Oceanwind Differences
 
@@ -883,6 +887,8 @@ Some notable differences are:
   - [overflow-clip](https://tailwindcss.com/docs/text-overflow#overflow-clip)
   - [transition](https://tailwindcss.com/docs/transition-property) with default timing function and duration
   - [animate](https://tailwindcss.com/docs/animate)
+  - [transform](https://tailwindcss.com/docs/transform)
+  - [Background Image](https://tailwindcss.com/docs/gradient-color-stops#class-reference)
 
 - oceanwind supports duplicate token tracking
 - beamwind is 7-10 times faster than oceanwind (see [Beanchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
@@ -906,8 +912,8 @@ Without these libraries and their authors this would not have been possible:
 - [Tailwind CSS]
 - [Oceanwind]
 - [Otion]
-- https://www.npmjs.com/package/cslx
-- https://seek-oss.github.io/braid-design-system
+- [cslx](https://www.npmjs.com/package/cslx)
+- [Braid Design System](https://seek-oss.github.io/braid-design-system)
 
 ## Support
 

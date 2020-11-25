@@ -60,3 +60,10 @@ test('scale', () => {
     '._rs8xuh{--_1nk5hxs:0.9;--_164xbw6:0.9;transform:scale(0.9)}',
   ])
 })
+
+test('bg-gradient-to-r', () => {
+  expect(instance.cx('bg-gradient-to-r')).toBe('_1gt8na1')
+  expect(injector.target).toMatchObject([
+    '._1gt8na1{background-image:linear-gradient(to right,var(--_1j5yf11,var(--_1iasyn4,transparent),var(--_3cvhiv,transparent)))}',
+  ])
+})

@@ -85,12 +85,8 @@ const EDGES: Record<string, undefined | string> = {
   l: 'left',
 }
 
-// Support several edges like 'tr'
-// 'x' and 'y' can not be combined with others because size 'xl'
-// Every char must be a edge position
-// Sort to have consistent declaration ordering
-export const edges = positions((key) =>
-  (X_Y_TO_EDGES[key] || key)
+export const expandEdges = (key: string): string[] | undefined => {
+  const parts = (X_Y_TO_EDGES[key] || key || '')
     .split('')
     .sort()
     // eslint-disable-next-line unicorn/no-reduce, array-callback-return
@@ -99,8 +95,16 @@ export const edges = positions((key) =>
         result.push(EDGES[edge] as string)
         return result
       }
-    }, [] as string[] | undefined | void),
-)
+    }, [] as string[] | undefined | void) as string[] | undefined
+
+  if (parts && parts.length > 0) return parts
+}
+
+// Support several edges like 'tr'
+// 'x' and 'y' can not be combined with others because size 'xl'
+// Every char must be a edge position
+// Sort to have consistent declaration ordering
+export const edges = positions(expandEdges)
 
 export const compose = <T>(
   first: UnknownKeyHandler<T>,
