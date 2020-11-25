@@ -220,8 +220,12 @@ export const utilities: Record<string, Plugin> = {
   // .w-1/2	width: 50%;
   // .w-full	width: 100%;
   // .w-screen	width: 100vw;
-  w: (parts, theme) => ({ width: theme('sizes', parts[1], convertTo('rem', 'w')) }),
-  h: (parts, theme) => ({ height: theme('sizes', parts[1], convertTo('rem', 'h')) }),
+  w: (parts, theme) => ({
+    width: theme('sizes', parts[1], compose(convertTo('rem', 'w'), defaultToKey)),
+  }),
+  h: (parts, theme) => ({
+    height: theme('sizes', parts[1], compose(convertTo('rem', 'h'), defaultToKey)),
+  }),
 
   text(parts, theme) {
     switch (parts[1]) {
