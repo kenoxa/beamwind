@@ -131,7 +131,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
 
   const variantToCss = (variant: string): string => createVariant(variant, activeTheme)
 
-  const tag: Context['a'] = (token) => (hash ? hash(token) : `bw-${token}`)
+  const tag: Context['a'] = (token) => (hash ? hash(token) : token)
 
   const inject = (
     id: string,
@@ -216,7 +216,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
           '',
         )
 
-        className = hash ? hash(declarationBody) : `bw-${name}`
+        className = hash ? hash(declarationBody) : name
 
         const rule = `@keyframes ${className}{${declarationBody}}`
 
