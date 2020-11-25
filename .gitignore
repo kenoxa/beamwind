@@ -6,7 +6,6 @@ web_modules
 .cache
 dist
 __generated__
-packages/*/docs
 
 # Svelte Component type defs
 *.svelte.tsx
