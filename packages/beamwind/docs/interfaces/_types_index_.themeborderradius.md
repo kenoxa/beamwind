@@ -6,7 +6,7 @@ CSS Properties: border-radius
 
 ## Hierarchy
 
-- {}
+* {}
 
   ↳ **ThemeBorderRadius**
 
@@ -14,93 +14,93 @@ CSS Properties: border-radius
 
 ### Properties
 
-- [2xl](_types_index_.themeborderradius.md#2xl)
-- [3xl](_types_index_.themeborderradius.md#3xl)
-- [DEFAULT](_types_index_.themeborderradius.md#default)
-- [full](_types_index_.themeborderradius.md#full)
-- [lg](_types_index_.themeborderradius.md#lg)
-- [md](_types_index_.themeborderradius.md#md)
-- [none](_types_index_.themeborderradius.md#none)
-- [sm](_types_index_.themeborderradius.md#sm)
-- [xl](_types_index_.themeborderradius.md#xl)
-- [xs](_types_index_.themeborderradius.md#xs)
+* [2xl](_types_index_.themeborderradius.md#2xl)
+* [3xl](_types_index_.themeborderradius.md#3xl)
+* [DEFAULT](_types_index_.themeborderradius.md#default)
+* [full](_types_index_.themeborderradius.md#full)
+* [lg](_types_index_.themeborderradius.md#lg)
+* [md](_types_index_.themeborderradius.md#md)
+* [none](_types_index_.themeborderradius.md#none)
+* [sm](_types_index_.themeborderradius.md#sm)
+* [xl](_types_index_.themeborderradius.md#xl)
+* [xs](_types_index_.themeborderradius.md#xs)
 
 ## Properties
 
 ### 2xl
 
-• **2xl**: string
+•  **2xl**: string
 
-_Defined in [types/theme.ts:126](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L126)_
+*Defined in [types/theme.ts:126](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L126)*
 
----
+___
 
 ### 3xl
 
-• **3xl**: string
+•  **3xl**: string
 
-_Defined in [types/theme.ts:127](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L127)_
+*Defined in [types/theme.ts:127](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L127)*
 
----
+___
 
 ### DEFAULT
 
-• **DEFAULT**: string
+•  **DEFAULT**: string
 
-_Defined in [types/theme.ts:119](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L119)_
+*Defined in [types/theme.ts:119](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L119)*
 
----
+___
 
 ### full
 
-• **full**: string
+•  **full**: string
 
-_Defined in [types/theme.ts:128](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L128)_
+*Defined in [types/theme.ts:128](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L128)*
 
----
+___
 
 ### lg
 
-• **lg**: string
+•  **lg**: string
 
-_Defined in [types/theme.ts:124](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L124)_
+*Defined in [types/theme.ts:124](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L124)*
 
----
+___
 
 ### md
 
-• **md**: string
+•  **md**: string
 
-_Defined in [types/theme.ts:123](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L123)_
+*Defined in [types/theme.ts:123](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L123)*
 
----
+___
 
 ### none
 
-• **none**: string
+•  **none**: string
 
-_Defined in [types/theme.ts:120](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L120)_
+*Defined in [types/theme.ts:120](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L120)*
 
----
+___
 
 ### sm
 
-• **sm**: string
+•  **sm**: string
 
-_Defined in [types/theme.ts:122](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L122)_
+*Defined in [types/theme.ts:122](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L122)*
 
----
+___
 
 ### xl
 
-• **xl**: string
+•  **xl**: string
 
-_Defined in [types/theme.ts:125](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L125)_
+*Defined in [types/theme.ts:125](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L125)*
 
----
+___
 
 ### xs
 
-• **xs**: string
+•  **xs**: string
 
-_Defined in [types/theme.ts:121](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L121)_
+*Defined in [types/theme.ts:121](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L121)*

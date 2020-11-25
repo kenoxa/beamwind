@@ -5,4 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2020-11-25)
 
-**Note:** Version bump only for package @beamwind/preset-semantic
+**Note:** Version bump only for package @beamwind/benchmarks

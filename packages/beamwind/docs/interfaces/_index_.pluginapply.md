@@ -4,31 +4,31 @@
 
 ## Hierarchy
 
-- **PluginApply**
+* **PluginApply**
 
 ## Callable
 
 ▸ (`strings`: TemplateStringsArray, ...`interpolations`: [Token](../modules/_index_.md#token)[]): [PluginTokenResult](../modules/_index_.md#plugintokenresult)
 
-_Defined in [types/plugin.ts:7](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L7)_
+*Defined in [types/plugin.ts:7](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L7)*
 
 #### Parameters:
 
-| Name                | Type                                   |
-| ------------------- | -------------------------------------- |
-| `strings`           | TemplateStringsArray                   |
-| `...interpolations` | [Token](../modules/_index_.md#token)[] |
+Name | Type |
+------ | ------ |
+`strings` | TemplateStringsArray |
+`...interpolations` | [Token](../modules/_index_.md#token)[] |
 
 **Returns:** [PluginTokenResult](../modules/_index_.md#plugintokenresult)
 
 ▸ (...`tokens`: [Token](../modules/_index_.md#token)[]): [PluginTokenResult](../modules/_index_.md#plugintokenresult)
 
-_Defined in [types/plugin.ts:8](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L8)_
+*Defined in [types/plugin.ts:8](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L8)*
 
 #### Parameters:
 
-| Name        | Type                                   |
-| ----------- | -------------------------------------- |
-| `...tokens` | [Token](../modules/_index_.md#token)[] |
+Name | Type |
+------ | ------ |
+`...tokens` | [Token](../modules/_index_.md#token)[] |
 
 **Returns:** [PluginTokenResult](../modules/_index_.md#plugintokenresult)

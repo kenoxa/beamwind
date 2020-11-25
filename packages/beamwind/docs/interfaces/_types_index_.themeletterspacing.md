@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- {}
+* {}
 
   ↳ **ThemeLetterSpacing**
 
@@ -12,57 +12,57 @@
 
 ### Properties
 
-- [normal](_types_index_.themeletterspacing.md#normal)
-- [tight](_types_index_.themeletterspacing.md#tight)
-- [tighter](_types_index_.themeletterspacing.md#tighter)
-- [wide](_types_index_.themeletterspacing.md#wide)
-- [wider](_types_index_.themeletterspacing.md#wider)
-- [widest](_types_index_.themeletterspacing.md#widest)
+* [normal](_types_index_.themeletterspacing.md#normal)
+* [tight](_types_index_.themeletterspacing.md#tight)
+* [tighter](_types_index_.themeletterspacing.md#tighter)
+* [wide](_types_index_.themeletterspacing.md#wide)
+* [wider](_types_index_.themeletterspacing.md#wider)
+* [widest](_types_index_.themeletterspacing.md#widest)
 
 ## Properties
 
 ### normal
 
-• **normal**: string
+•  **normal**: string
 
-_Defined in [types/theme.ts:95](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L95)_
+*Defined in [types/theme.ts:95](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L95)*
 
----
+___
 
 ### tight
 
-• **tight**: string
+•  **tight**: string
 
-_Defined in [types/theme.ts:94](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L94)_
+*Defined in [types/theme.ts:94](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L94)*
 
----
+___
 
 ### tighter
 
-• **tighter**: string
+•  **tighter**: string
 
-_Defined in [types/theme.ts:93](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L93)_
+*Defined in [types/theme.ts:93](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L93)*
 
----
+___
 
 ### wide
 
-• **wide**: string
+•  **wide**: string
 
-_Defined in [types/theme.ts:96](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L96)_
+*Defined in [types/theme.ts:96](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L96)*
 
----
+___
 
 ### wider
 
-• **wider**: string
+•  **wider**: string
 
-_Defined in [types/theme.ts:97](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L97)_
+*Defined in [types/theme.ts:97](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L97)*
 
----
+___
 
 ### widest
 
-• **widest**: string
+•  **widest**: string
 
-_Defined in [types/theme.ts:98](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L98)_
+*Defined in [types/theme.ts:98](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L98)*

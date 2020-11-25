@@ -4,27 +4,27 @@
 
 ## Hierarchy
 
-- **PluginContext**
+* **PluginContext**
 
 ## Index
 
 ### Properties
 
-- [keyframes](_types_index_.plugincontext.md#keyframes)
-- [variants](_types_index_.plugincontext.md#variants)
+* [keyframes](_types_index_.plugincontext.md#keyframes)
+* [variants](_types_index_.plugincontext.md#variants)
 
 ## Properties
 
 ### keyframes
 
-• **keyframes**: [InjectKeyframes](../modules/_types_index_.md#injectkeyframes)
+•  **keyframes**: [InjectKeyframes](../modules/_types_index_.md#injectkeyframes)
 
-_Defined in [types/plugin.ts:16](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L16)_
+*Defined in [types/plugin.ts:16](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L16)*
 
----
+___
 
 ### variants
 
-• **variants**: keyof string[]
+•  **variants**: keyof string[]
 
-_Defined in [types/plugin.ts:17](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L17)_
+*Defined in [types/plugin.ts:17](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/plugin.ts#L17)*

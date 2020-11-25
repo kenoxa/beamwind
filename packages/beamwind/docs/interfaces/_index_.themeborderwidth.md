@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- {}
+* {}
 
   ↳ **ThemeBorderWidth**
 
@@ -12,12 +12,12 @@
 
 ### Properties
 
-- [DEFAULT](_index_.themeborderwidth.md#default)
+* [DEFAULT](_index_.themeborderwidth.md#default)
 
 ## Properties
 
 ### DEFAULT
 
-• **DEFAULT**: string
+•  **DEFAULT**: string
 
-_Defined in [types/theme.ts:45](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L45)_
+*Defined in [types/theme.ts:45](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L45)*

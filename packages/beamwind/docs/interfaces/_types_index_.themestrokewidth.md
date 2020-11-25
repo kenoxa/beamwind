@@ -6,6 +6,6 @@ CSS Properties: border-width, stroke-width
 
 ## Hierarchy
 
-- {}
+* {}
 
   ↳ **ThemeStrokeWidth**

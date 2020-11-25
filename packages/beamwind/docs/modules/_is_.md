@@ -6,14 +6,14 @@
 
 ### Variables
 
-- [array](_is_.md#array)
+* [array](_is_.md#array)
 
 ### Functions
 
-- [fn](_is_.md#fn)
-- [numberLike](_is_.md#numberlike)
-- [object](_is_.md#object)
-- [string](_is_.md#string)
+* [fn](_is_.md#fn)
+* [numberLike](_is_.md#numberlike)
+* [object](_is_.md#object)
+* [string](_is_.md#string)
 
 ## Variables
 
@@ -21,7 +21,7 @@
 
 • `Const` **array**: isArray = Array.isArray
 
-_Defined in [is.ts:8](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L8)_
+*Defined in [is.ts:8](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L8)*
 
 ## Functions
 
@@ -29,66 +29,66 @@ _Defined in [is.ts:8](https://github.com/kenoxa/beamwind/blob/main/packages/beam
 
 ▸ `Const`**fn**\<T>(`value`: unknown): value is T
 
-_Defined in [is.ts:11](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L11)_
+*Defined in [is.ts:11](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L11)*
 
 #### Type parameters:
 
-| Name | Type     |
-| ---- | -------- |
-| `T`  | Function |
+Name | Type |
+------ | ------ |
+`T` | Function |
 
 #### Parameters:
 
-| Name    | Type    |
-| ------- | ------- |
-| `value` | unknown |
+Name | Type |
+------ | ------ |
+`value` | unknown |
 
 **Returns:** value is T
 
----
+___
 
 ### numberLike
 
 ▸ `Const`**numberLike**(`value`: string): boolean
 
-_Defined in [is.ts:15](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L15)_
+*Defined in [is.ts:15](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L15)*
 
 #### Parameters:
 
-| Name    | Type   |
-| ------- | ------ |
-| `value` | string |
+Name | Type |
+------ | ------ |
+`value` | string |
 
 **Returns:** boolean
 
----
+___
 
 ### object
 
 ▸ `Const`**object**(`value`: unknown): value is object
 
-_Defined in [is.ts:6](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L6)_
+*Defined in [is.ts:6](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L6)*
 
 #### Parameters:
 
-| Name    | Type    |
-| ------- | ------- |
-| `value` | unknown |
+Name | Type |
+------ | ------ |
+`value` | unknown |
 
 **Returns:** value is object
 
----
+___
 
 ### string
 
 ▸ `Const`**string**(`value`: unknown): value is string
 
-_Defined in [is.ts:3](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L3)_
+*Defined in [is.ts:3](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/is.ts#L3)*
 
 #### Parameters:
 
-| Name    | Type    |
-| ------- | ------- |
-| `value` | unknown |
+Name | Type |
+------ | ------ |
+`value` | unknown |
 
 **Returns:** value is string

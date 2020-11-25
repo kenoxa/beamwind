@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- {}
+* {}
 
   ↳ **ThemeFlex**
 
@@ -12,39 +12,39 @@
 
 ### Properties
 
-- [1](_types_index_.themeflex.md#1)
-- [auto](_types_index_.themeflex.md#auto)
-- [initial](_types_index_.themeflex.md#initial)
-- [none](_types_index_.themeflex.md#none)
+* [1](_types_index_.themeflex.md#1)
+* [auto](_types_index_.themeflex.md#auto)
+* [initial](_types_index_.themeflex.md#initial)
+* [none](_types_index_.themeflex.md#none)
 
 ## Properties
 
 ### 1
 
-• **1**: string
+•  **1**: string
 
-_Defined in [types/theme.ts:202](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L202)_
+*Defined in [types/theme.ts:202](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L202)*
 
----
+___
 
 ### auto
 
-• **auto**: string
+•  **auto**: string
 
-_Defined in [types/theme.ts:203](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L203)_
+*Defined in [types/theme.ts:203](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L203)*
 
----
+___
 
 ### initial
 
-• **initial**: string
+•  **initial**: string
 
-_Defined in [types/theme.ts:204](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L204)_
+*Defined in [types/theme.ts:204](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L204)*
 
----
+___
 
 ### none
 
-• **none**: string
+•  **none**: string
 
-_Defined in [types/theme.ts:205](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L205)_
+*Defined in [types/theme.ts:205](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L205)*
