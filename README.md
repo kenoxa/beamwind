@@ -20,8 +20,8 @@ This library takes inspiration from [Tailwind CSS] ([see differences](https://gi
 
 - [Quick Start](#quick-start)
 - [Packages](#packages)
-- [Develop](#develop)
 - [Examples](#examples)
+- [Develop](#develop)
 - [Support](#support)
 - [Contribute](#contribute)
 - [Sponsors](#sponsors)
@@ -96,6 +96,10 @@ setup(preflight)
 
 - [@beamwind/colors](https://github.com/kenoxa/beamwind/blob/main/packages/colors) - color utilities
 
+## Examples
+
+- [svelte](https://github.com/kenoxa/beamwind/blob/main/examples/svelte)
+
 ## Develop
 
 Clone the repository and cd into the project directory.
@@ -107,10 +111,6 @@ Cd into the package that you'd like to make progress on.
 - `yarn test`: Run test suite including linting
 - `yarn format`: Ensure consistent code style
 - `yarn publish`: To publish all changed packages
-
-## Examples
-
-- [svelte](https://github.com/kenoxa/beamwind/blob/main/examples/svelte)
 
 ## Support
 
