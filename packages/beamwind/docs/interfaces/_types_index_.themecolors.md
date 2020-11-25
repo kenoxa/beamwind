@@ -6,6 +6,6 @@ CSS Properties: color, background-color, border-color
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeColors**

@@ -42,7 +42,8 @@ const theme: ThemeValueResolver = <P extends keyof Theme, K extends keyof NonNul
   >
 }
 
-const keyframes: InjectKeyframes = (name, waypoints) => currentContext.k(name, waypoints || theme('keyframes', name))
+const keyframes: InjectKeyframes = (name, waypoints) =>
+  currentContext.k(name, waypoints || theme('keyframes', name))
 
 const processTokenResult = (
   token: string,
@@ -107,9 +108,7 @@ const translate = (token: string, variants: readonly string[]): unknown => {
     }
   }
 
-  let result = is.function(plugin)
-    ? plugin(parts, theme, { keyframes, variants })
-    : plugin
+  let result = is.function(plugin) ? plugin(parts, theme, { keyframes, variants }) : plugin
 
   if (is.function(result) || is.string(result)) {
     return processTokenResult(token, variants, result)

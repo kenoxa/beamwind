@@ -8,7 +8,7 @@ grid-gap, grid-column-gap, grid-row-gap
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeSpacing**
 
@@ -16,129 +16,129 @@ grid-gap, grid-column-gap, grid-row-gap
 
 ### Properties
 
-* [2xl](_types_index_.themespacing.md#2xl)
-* [3xl](_types_index_.themespacing.md#3xl)
-* [4xl](_types_index_.themespacing.md#4xl)
-* [5xl](_types_index_.themespacing.md#5xl)
-* [6xl](_types_index_.themespacing.md#6xl)
-* [auto](_types_index_.themespacing.md#auto)
-* [base](_types_index_.themespacing.md#base)
-* [lg](_types_index_.themespacing.md#lg)
-* [md](_types_index_.themespacing.md#md)
-* [none](_types_index_.themespacing.md#none)
-* [px](_types_index_.themespacing.md#px)
-* [sm](_types_index_.themespacing.md#sm)
-* [xl](_types_index_.themespacing.md#xl)
-* [xs](_types_index_.themespacing.md#xs)
+- [2xl](_types_index_.themespacing.md#2xl)
+- [3xl](_types_index_.themespacing.md#3xl)
+- [4xl](_types_index_.themespacing.md#4xl)
+- [5xl](_types_index_.themespacing.md#5xl)
+- [6xl](_types_index_.themespacing.md#6xl)
+- [auto](_types_index_.themespacing.md#auto)
+- [base](_types_index_.themespacing.md#base)
+- [lg](_types_index_.themespacing.md#lg)
+- [md](_types_index_.themespacing.md#md)
+- [none](_types_index_.themespacing.md#none)
+- [px](_types_index_.themespacing.md#px)
+- [sm](_types_index_.themespacing.md#sm)
+- [xl](_types_index_.themespacing.md#xl)
+- [xs](_types_index_.themespacing.md#xs)
 
 ## Properties
 
 ### 2xl
 
-•  **2xl**: string
+• **2xl**: string
 
-*Defined in [types/theme.ts:161](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L161)*
+_Defined in [types/theme.ts:161](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L161)_
 
-___
+---
 
 ### 3xl
 
-•  **3xl**: string
+• **3xl**: string
 
-*Defined in [types/theme.ts:162](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L162)*
+_Defined in [types/theme.ts:162](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L162)_
 
-___
+---
 
 ### 4xl
 
-•  **4xl**: string
+• **4xl**: string
 
-*Defined in [types/theme.ts:163](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L163)*
+_Defined in [types/theme.ts:163](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L163)_
 
-___
+---
 
 ### 5xl
 
-•  **5xl**: string
+• **5xl**: string
 
-*Defined in [types/theme.ts:164](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L164)*
+_Defined in [types/theme.ts:164](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L164)_
 
-___
+---
 
 ### 6xl
 
-•  **6xl**: string
+• **6xl**: string
 
-*Defined in [types/theme.ts:165](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L165)*
+_Defined in [types/theme.ts:165](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L165)_
 
-___
+---
 
 ### auto
 
-•  **auto**: string
+• **auto**: string
 
-*Defined in [types/theme.ts:153](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L153)*
+_Defined in [types/theme.ts:153](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L153)_
 
-___
+---
 
 ### base
 
-•  **base**: string
+• **base**: string
 
-*Defined in [types/theme.ts:155](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L155)*
+_Defined in [types/theme.ts:155](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L155)_
 
-___
+---
 
 ### lg
 
-•  **lg**: string
+• **lg**: string
 
-*Defined in [types/theme.ts:159](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L159)*
+_Defined in [types/theme.ts:159](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L159)_
 
-___
+---
 
 ### md
 
-•  **md**: string
+• **md**: string
 
-*Defined in [types/theme.ts:158](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L158)*
+_Defined in [types/theme.ts:158](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L158)_
 
-___
+---
 
 ### none
 
-•  **none**: string
+• **none**: string
 
-*Defined in [types/theme.ts:154](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L154)*
+_Defined in [types/theme.ts:154](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L154)_
 
-___
+---
 
 ### px
 
-•  **px**: string
+• **px**: string
 
-*Defined in [types/theme.ts:152](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L152)*
+_Defined in [types/theme.ts:152](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L152)_
 
-___
+---
 
 ### sm
 
-•  **sm**: string
+• **sm**: string
 
-*Defined in [types/theme.ts:157](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L157)*
+_Defined in [types/theme.ts:157](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L157)_
 
-___
+---
 
 ### xl
 
-•  **xl**: string
+• **xl**: string
 
-*Defined in [types/theme.ts:160](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L160)*
+_Defined in [types/theme.ts:160](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L160)_
 
-___
+---
 
 ### xs
 
-•  **xs**: string
+• **xs**: string
 
-*Defined in [types/theme.ts:156](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L156)*
+_Defined in [types/theme.ts:156](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L156)_

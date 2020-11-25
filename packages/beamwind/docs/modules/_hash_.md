@@ -6,7 +6,7 @@
 
 ### Functions
 
-* [cyrb32](_hash_.md#cyrb32)
+- [cyrb32](_hash_.md#cyrb32)
 
 ## Functions
 
@@ -14,12 +14,12 @@
 
 ▸ `Const`**cyrb32**(`value`: string): string
 
-*Defined in [hash.ts:27](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/hash.ts#L27)*
+_Defined in [hash.ts:27](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/hash.ts#L27)_
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`value` | string |
+| Name    | Type   |
+| ------- | ------ |
+| `value` | string |
 
 **Returns:** string

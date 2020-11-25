@@ -1,3 +1,12 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [New Project](#new-project)
+  - [Available Scripts](#available-scripts)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # New Project
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).

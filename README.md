@@ -7,6 +7,7 @@
 [![Coverage Status](https://badgen.net/coveralls/c/github/kenoxa/beamwind/main)](https://coveralls.io/github/kenoxa/beamwind?branch=main)
 [![PRs Welcome](https://badgen.net/badge/PRs/welcome/purple)](http://makeapullrequest.com)
 [![Conventional Commits](https://badgen.net/badge/Conventional%20Commits/1.0.0/cyan)](https://conventionalcommits.org)
+[![Sponsor](https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9)](https://www.kenoxa.com)
 
 This library takes inspiration from [Tailwind CSS] ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences)), [Oceanwind] ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#oceanwind-differences)) and [Otion] to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.
 

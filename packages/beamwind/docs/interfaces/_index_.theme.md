@@ -4,40 +4,40 @@
 
 ## Hierarchy
 
-* **Theme**
+- **Theme**
 
 ## Index
 
 ### Properties
 
-* [angle](_index_.theme.md#angle)
-* [animation](_index_.theme.md#animation)
-* [borderColor](_index_.theme.md#bordercolor)
-* [borderRadius](_index_.theme.md#borderradius)
-* [borderWidth](_index_.theme.md#borderwidth)
-* [boxShadow](_index_.theme.md#boxshadow)
-* [colors](_index_.theme.md#colors)
-* [divideColor](_index_.theme.md#dividecolor)
-* [divideWidth](_index_.theme.md#dividewidth)
-* [durations](_index_.theme.md#durations)
-* [flex](_index_.theme.md#flex)
-* [fontFamily](_index_.theme.md#fontfamily)
-* [fontSize](_index_.theme.md#fontsize)
-* [fontWeight](_index_.theme.md#fontweight)
-* [keyframes](_index_.theme.md#keyframes)
-* [letterSpacing](_index_.theme.md#letterspacing)
-* [lineHeight](_index_.theme.md#lineheight)
-* [opacity](_index_.theme.md#opacity)
-* [order](_index_.theme.md#order)
-* [placeholderColor](_index_.theme.md#placeholdercolor)
-* [scale](_index_.theme.md#scale)
-* [screens](_index_.theme.md#screens)
-* [sizes](_index_.theme.md#sizes)
-* [spacing](_index_.theme.md#spacing)
-* [strokeWidth](_index_.theme.md#strokewidth)
-* [transitionProperty](_index_.theme.md#transitionproperty)
-* [transitionTimingFunction](_index_.theme.md#transitiontimingfunction)
-* [zIndex](_index_.theme.md#zindex)
+- [angle](_index_.theme.md#angle)
+- [animation](_index_.theme.md#animation)
+- [borderColor](_index_.theme.md#bordercolor)
+- [borderRadius](_index_.theme.md#borderradius)
+- [borderWidth](_index_.theme.md#borderwidth)
+- [boxShadow](_index_.theme.md#boxshadow)
+- [colors](_index_.theme.md#colors)
+- [divideColor](_index_.theme.md#dividecolor)
+- [divideWidth](_index_.theme.md#dividewidth)
+- [durations](_index_.theme.md#durations)
+- [flex](_index_.theme.md#flex)
+- [fontFamily](_index_.theme.md#fontfamily)
+- [fontSize](_index_.theme.md#fontsize)
+- [fontWeight](_index_.theme.md#fontweight)
+- [keyframes](_index_.theme.md#keyframes)
+- [letterSpacing](_index_.theme.md#letterspacing)
+- [lineHeight](_index_.theme.md#lineheight)
+- [opacity](_index_.theme.md#opacity)
+- [order](_index_.theme.md#order)
+- [placeholderColor](_index_.theme.md#placeholdercolor)
+- [scale](_index_.theme.md#scale)
+- [screens](_index_.theme.md#screens)
+- [sizes](_index_.theme.md#sizes)
+- [spacing](_index_.theme.md#spacing)
+- [strokeWidth](_index_.theme.md#strokewidth)
+- [transitionProperty](_index_.theme.md#transitionproperty)
+- [transitionTimingFunction](_index_.theme.md#transitiontimingfunction)
+- [zIndex](_index_.theme.md#zindex)
 
 ## Properties
 
@@ -45,220 +45,220 @@
 
 • `Optional` **angle**: [ThemeAngle](_index_.themeangle.md)
 
-*Defined in [types/theme.ts:279](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L279)*
+_Defined in [types/theme.ts:279](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L279)_
 
-___
+---
 
 ### animation
 
-•  **animation**: [ThemeAnimation](_index_.themeanimation.md)
+• **animation**: [ThemeAnimation](_index_.themeanimation.md)
 
-*Defined in [types/theme.ts:283](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L283)*
+_Defined in [types/theme.ts:283](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L283)_
 
-___
+---
 
 ### borderColor
 
-•  **borderColor**: [ThemeColorsWithDefault](_index_.themecolorswithdefault.md)
+• **borderColor**: [ThemeColorsWithDefault](_index_.themecolorswithdefault.md)
 
-*Defined in [types/theme.ts:267](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L267)*
+_Defined in [types/theme.ts:267](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L267)_
 
-___
+---
 
 ### borderRadius
 
-•  **borderRadius**: [ThemeBorderRadius](_index_.themeborderradius.md)
+• **borderRadius**: [ThemeBorderRadius](_index_.themeborderradius.md)
 
-*Defined in [types/theme.ts:273](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L273)*
+_Defined in [types/theme.ts:273](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L273)_
 
-___
+---
 
 ### borderWidth
 
-•  **borderWidth**: [ThemeBorderWidth](_index_.themeborderwidth.md)
+• **borderWidth**: [ThemeBorderWidth](_index_.themeborderwidth.md)
 
-*Defined in [types/theme.ts:266](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L266)*
+_Defined in [types/theme.ts:266](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L266)_
 
-___
+---
 
 ### boxShadow
 
-•  **boxShadow**: [ThemeBoxShadow](_index_.themeboxshadow.md)
+• **boxShadow**: [ThemeBoxShadow](_index_.themeboxshadow.md)
 
-*Defined in [types/theme.ts:274](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L274)*
+_Defined in [types/theme.ts:274](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L274)_
 
-___
+---
 
 ### colors
 
-•  **colors**: [ThemeColors](_index_.themecolors.md)
+• **colors**: [ThemeColors](_index_.themecolors.md)
 
-*Defined in [types/theme.ts:258](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L258)*
+_Defined in [types/theme.ts:258](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L258)_
 
-___
+---
 
 ### divideColor
 
 • `Optional` **divideColor**: [ThemeColorsWithDefault](_index_.themecolorswithdefault.md)
 
-*Defined in [types/theme.ts:269](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L269)*
+_Defined in [types/theme.ts:269](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L269)_
 
-___
+---
 
 ### divideWidth
 
 • `Optional` **divideWidth**: [ThemeBorderWidth](_index_.themeborderwidth.md)
 
-*Defined in [types/theme.ts:268](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L268)*
+_Defined in [types/theme.ts:268](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L268)_
 
-___
+---
 
 ### durations
 
-•  **durations**: [ThemeDurations](_index_.themedurations.md)
+• **durations**: [ThemeDurations](_index_.themedurations.md)
 
-*Defined in [types/theme.ts:277](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L277)*
+_Defined in [types/theme.ts:277](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L277)_
 
-___
+---
 
 ### flex
 
-•  **flex**: [ThemeFlex](_index_.themeflex.md)
+• **flex**: [ThemeFlex](_index_.themeflex.md)
 
-*Defined in [types/theme.ts:271](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L271)*
+_Defined in [types/theme.ts:271](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L271)_
 
-___
+---
 
 ### fontFamily
 
-•  **fontFamily**: [ThemeFontFamily](_index_.themefontfamily.md)
+• **fontFamily**: [ThemeFontFamily](_index_.themefontfamily.md)
 
-*Defined in [types/theme.ts:261](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L261)*
+_Defined in [types/theme.ts:261](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L261)_
 
-___
+---
 
 ### fontSize
 
-•  **fontSize**: [ThemeFontSize](_index_.themefontsize.md)
+• **fontSize**: [ThemeFontSize](_index_.themefontsize.md)
 
-*Defined in [types/theme.ts:262](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L262)*
+_Defined in [types/theme.ts:262](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L262)_
 
-___
+---
 
 ### fontWeight
 
-•  **fontWeight**: [ThemeFontWeight](_index_.themefontweight.md)
+• **fontWeight**: [ThemeFontWeight](_index_.themefontweight.md)
 
-*Defined in [types/theme.ts:263](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L263)*
+_Defined in [types/theme.ts:263](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L263)_
 
-___
+---
 
 ### keyframes
 
-•  **keyframes**: [ThemeKeyframes](_index_.themekeyframes.md)
+• **keyframes**: [ThemeKeyframes](_index_.themekeyframes.md)
 
-*Defined in [types/theme.ts:284](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L284)*
+_Defined in [types/theme.ts:284](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L284)_
 
-___
+---
 
 ### letterSpacing
 
-•  **letterSpacing**: [ThemeLetterSpacing](_index_.themeletterspacing.md)
+• **letterSpacing**: [ThemeLetterSpacing](_index_.themeletterspacing.md)
 
-*Defined in [types/theme.ts:264](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L264)*
+_Defined in [types/theme.ts:264](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L264)_
 
-___
+---
 
 ### lineHeight
 
-•  **lineHeight**: [ThemeLineHeight](_index_.themelineheight.md)
+• **lineHeight**: [ThemeLineHeight](_index_.themelineheight.md)
 
-*Defined in [types/theme.ts:265](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L265)*
+_Defined in [types/theme.ts:265](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L265)_
 
-___
+---
 
 ### opacity
 
 • `Optional` **opacity**: [ThemeOpacity](_index_.themeopacity.md)
 
-*Defined in [types/theme.ts:280](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L280)*
+_Defined in [types/theme.ts:280](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L280)_
 
-___
+---
 
 ### order
 
-•  **order**: [ThemeOrder](_index_.themeorder.md)
+• **order**: [ThemeOrder](_index_.themeorder.md)
 
-*Defined in [types/theme.ts:282](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L282)*
+_Defined in [types/theme.ts:282](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L282)_
 
-___
+---
 
 ### placeholderColor
 
 • `Optional` **placeholderColor**: [ThemeColorsWithDefault](_index_.themecolorswithdefault.md)
 
-*Defined in [types/theme.ts:270](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L270)*
+_Defined in [types/theme.ts:270](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L270)_
 
-___
+---
 
 ### scale
 
 • `Optional` **scale**: [ThemeScale](_index_.themescale.md)
 
-*Defined in [types/theme.ts:278](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L278)*
+_Defined in [types/theme.ts:278](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L278)_
 
-___
+---
 
 ### screens
 
-•  **screens**: [ThemeScreens](_index_.themescreens.md)
+• **screens**: [ThemeScreens](_index_.themescreens.md)
 
-*Defined in [types/theme.ts:254](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L254)*
+_Defined in [types/theme.ts:254](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L254)_
 
-___
+---
 
 ### sizes
 
-•  **sizes**: [ThemeSizes](_index_.themesizes.md)
+• **sizes**: [ThemeSizes](_index_.themesizes.md)
 
-*Defined in [types/theme.ts:260](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L260)*
+_Defined in [types/theme.ts:260](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L260)_
 
-___
+---
 
 ### spacing
 
-•  **spacing**: [ThemeSpacing](_index_.themespacing.md)
+• **spacing**: [ThemeSpacing](_index_.themespacing.md)
 
-*Defined in [types/theme.ts:259](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L259)*
+_Defined in [types/theme.ts:259](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L259)_
 
-___
+---
 
 ### strokeWidth
 
-•  **strokeWidth**: [ThemeStrokeWidth](_index_.themestrokewidth.md)
+• **strokeWidth**: [ThemeStrokeWidth](_index_.themestrokewidth.md)
 
-*Defined in [types/theme.ts:272](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L272)*
+_Defined in [types/theme.ts:272](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L272)_
 
-___
+---
 
 ### transitionProperty
 
-•  **transitionProperty**: [ThemeTransitionProperty](_index_.themetransitionproperty.md)
+• **transitionProperty**: [ThemeTransitionProperty](_index_.themetransitionproperty.md)
 
-*Defined in [types/theme.ts:275](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L275)*
+_Defined in [types/theme.ts:275](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L275)_
 
-___
+---
 
 ### transitionTimingFunction
 
-•  **transitionTimingFunction**: [ThemeTransitionTimingFunction](_index_.themetransitiontimingfunction.md)
+• **transitionTimingFunction**: [ThemeTransitionTimingFunction](_index_.themetransitiontimingfunction.md)
 
-*Defined in [types/theme.ts:276](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L276)*
+_Defined in [types/theme.ts:276](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L276)_
 
-___
+---
 
 ### zIndex
 
 • `Optional` **zIndex**: [ThemeZIndex](_index_.themezindex.md)
 
-*Defined in [types/theme.ts:281](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L281)*
+_Defined in [types/theme.ts:281](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L281)_

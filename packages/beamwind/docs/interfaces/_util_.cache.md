@@ -4,21 +4,21 @@
 
 ## Type parameters
 
-Name |
------- |
-`V` |
+| Name |
+| ---- |
+| `V`  |
 
 ## Hierarchy
 
-* **Cache**
+- **Cache**
 
 ## Index
 
 ### Methods
 
-* [get](_util_.cache.md#get)
-* [has](_util_.cache.md#has)
-* [set](_util_.cache.md#set)
+- [get](_util_.cache.md#get)
+- [has](_util_.cache.md#has)
+- [set](_util_.cache.md#set)
 
 ## Methods
 
@@ -26,45 +26,45 @@ Name |
 
 ▸ **get**(`key`: string): V \| undefined
 
-*Defined in [util.ts:24](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/util.ts#L24)*
+_Defined in [util.ts:24](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/util.ts#L24)_
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`key` | string |
+| Name  | Type   |
+| ----- | ------ |
+| `key` | string |
 
 **Returns:** V \| undefined
 
-___
+---
 
 ### has
 
 ▸ **has**(`key`: string): boolean
 
-*Defined in [util.ts:23](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/util.ts#L23)*
+_Defined in [util.ts:23](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/util.ts#L23)_
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`key` | string |
+| Name  | Type   |
+| ----- | ------ |
+| `key` | string |
 
 **Returns:** boolean
 
-___
+---
 
 ### set
 
 ▸ **set**(`key`: string, `value`: V): void
 
-*Defined in [util.ts:25](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/util.ts#L25)*
+_Defined in [util.ts:25](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/util.ts#L25)_
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`key` | string |
-`value` | V |
+| Name    | Type   |
+| ------- | ------ |
+| `key`   | string |
+| `value` | V      |
 
 **Returns:** void

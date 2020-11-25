@@ -19,15 +19,15 @@
   "license": "MIT",
   "author": "Kenoxa GmbH <https://kenoxa.com>",
   "main": "src/index.ts",
+  "scripts": {
+    "build": "snowpack build",
+    "check": "svelte-check",
+    "start": "snowpack dev"
+  },
   "prettier": "@carv/prettier-config",
   "eslintConfig": {
     "extends": "@carv/eslint-config",
     "root": true
-  },
-  "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "check": "svelte-check"
   },
   "dependencies": {
     "beamwind": "^1.0.0",

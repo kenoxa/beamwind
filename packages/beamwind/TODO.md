@@ -1,3 +1,5 @@
+pre-commit hook to format files
+
 https://tailwindcss.com/docs/transform#class-reference
 https://github.com/tailwindlabs/tailwindcss/pull/2531
 https://tailwindcss.com/docs/grid-auto-columns

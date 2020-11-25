@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* {}
+- {}
 
   ↳ **ThemeLineHeight**
 
@@ -12,57 +12,57 @@
 
 ### Properties
 
-* [loose](_index_.themelineheight.md#loose)
-* [none](_index_.themelineheight.md#none)
-* [normal](_index_.themelineheight.md#normal)
-* [relaxed](_index_.themelineheight.md#relaxed)
-* [snug](_index_.themelineheight.md#snug)
-* [tight](_index_.themelineheight.md#tight)
+- [loose](_index_.themelineheight.md#loose)
+- [none](_index_.themelineheight.md#none)
+- [normal](_index_.themelineheight.md#normal)
+- [relaxed](_index_.themelineheight.md#relaxed)
+- [snug](_index_.themelineheight.md#snug)
+- [tight](_index_.themelineheight.md#tight)
 
 ## Properties
 
 ### loose
 
-•  **loose**: string
+• **loose**: string
 
-*Defined in [types/theme.ts:107](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L107)*
+_Defined in [types/theme.ts:107](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L107)_
 
-___
+---
 
 ### none
 
-•  **none**: string
+• **none**: string
 
-*Defined in [types/theme.ts:102](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L102)*
+_Defined in [types/theme.ts:102](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L102)_
 
-___
+---
 
 ### normal
 
-•  **normal**: string
+• **normal**: string
 
-*Defined in [types/theme.ts:105](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L105)*
+_Defined in [types/theme.ts:105](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L105)_
 
-___
+---
 
 ### relaxed
 
-•  **relaxed**: string
+• **relaxed**: string
 
-*Defined in [types/theme.ts:106](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L106)*
+_Defined in [types/theme.ts:106](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L106)_
 
-___
+---
 
 ### snug
 
-•  **snug**: string
+• **snug**: string
 
-*Defined in [types/theme.ts:104](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L104)*
+_Defined in [types/theme.ts:104](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L104)_
 
-___
+---
 
 ### tight
 
-•  **tight**: string
+• **tight**: string
 
-*Defined in [types/theme.ts:103](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L103)*
+_Defined in [types/theme.ts:103](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L103)_
