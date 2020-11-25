@@ -5,6 +5,7 @@ import type {
   UnknownKeyHandler,
   Plugin,
   PluginTokenResult,
+  InjectKeyframes,
 } from './types'
 import type { Context } from './context'
 
@@ -40,6 +41,8 @@ const theme: ThemeValueResolver = <P extends keyof Theme, K extends keyof NonNul
     NonNullable<Theme[P]>[K]
   >
 }
+
+const keyframes: InjectKeyframes = (name, waypoints) => currentContext.k(name, waypoints || theme('keyframes', name))
 
 const processTokenResult = (
   token: string,
@@ -105,7 +108,7 @@ const translate = (token: string, variants: readonly string[]): unknown => {
   }
 
   let result = is.function(plugin)
-    ? plugin(parts, theme, { keyframes: currentContext.k, variants })
+    ? plugin(parts, theme, { keyframes, variants })
     : plugin
 
   if (is.function(result) || is.string(result)) {

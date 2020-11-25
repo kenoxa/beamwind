@@ -2,7 +2,6 @@ import type {
   Plugin,
   Declarations,
   Theme,
-  InjectKeyframes,
   ConfigurationOptions,
   Injector,
   Hasher,
@@ -60,7 +59,7 @@ export interface Context {
     suffix?: string,
   ) => string
 
-  k: InjectKeyframes
+  k: (name: string, waypoints: Record<string, Declarations>) => string
 
   /**
    * Configure

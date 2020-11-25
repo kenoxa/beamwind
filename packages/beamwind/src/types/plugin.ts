@@ -2,7 +2,7 @@ import type { Falsy } from './util'
 import type { Declarations, Token } from './common'
 import type { ThemeValueResolver } from './theme'
 
-export type InjectKeyframes = (name: string, waypoints: Record<string, Declarations>) => string
+export type InjectKeyframes = (name: string, waypoints?: Record<string, Declarations>) => string
 
 export interface PluginApply {
   (strings: TemplateStringsArray, ...interpolations: Token[]): PluginTokenResult
