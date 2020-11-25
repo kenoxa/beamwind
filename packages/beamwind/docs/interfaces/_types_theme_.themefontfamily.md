@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- {}
+* {}
 
   ↳ **ThemeFontFamily**
 
@@ -12,30 +12,30 @@
 
 ### Properties
 
-- [mono](_types_theme_.themefontfamily.md#mono)
-- [sans](_types_theme_.themefontfamily.md#sans)
-- [serif](_types_theme_.themefontfamily.md#serif)
+* [mono](_types_theme_.themefontfamily.md#mono)
+* [sans](_types_theme_.themefontfamily.md#sans)
+* [serif](_types_theme_.themefontfamily.md#serif)
 
 ## Properties
 
 ### mono
 
-• **mono**: string
+•  **mono**: string
 
-_Defined in [types/theme.ts:77](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L77)_
+*Defined in [types/theme.ts:77](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L77)*
 
----
+___
 
 ### sans
 
-• **sans**: string
+•  **sans**: string
 
-_Defined in [types/theme.ts:75](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L75)_
+*Defined in [types/theme.ts:75](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L75)*
 
----
+___
 
 ### serif
 
-• **serif**: string
+•  **serif**: string
 
-_Defined in [types/theme.ts:76](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L76)_
+*Defined in [types/theme.ts:76](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L76)*

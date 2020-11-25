@@ -6,8 +6,8 @@
 
 ### Functions
 
-- [createVariant](_variants_.md#createvariant)
-- [isGroupVariant](_variants_.md#isgroupvariant)
+* [createVariant](_variants_.md#createvariant)
+* [isGroupVariant](_variants_.md#isgroupvariant)
 
 ## Functions
 
@@ -15,29 +15,29 @@
 
 ▸ `Const`**createVariant**(`variant`: string, `theme`: [Theme](../interfaces/_index_.theme.md)): string
 
-_Defined in [variants.ts:14](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/variants.ts#L14)_
+*Defined in [variants.ts:14](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/variants.ts#L14)*
 
 #### Parameters:
 
-| Name      | Type                                    |
-| --------- | --------------------------------------- |
-| `variant` | string                                  |
-| `theme`   | [Theme](../interfaces/_index_.theme.md) |
+Name | Type |
+------ | ------ |
+`variant` | string |
+`theme` | [Theme](../interfaces/_index_.theme.md) |
 
 **Returns:** string
 
----
+___
 
 ### isGroupVariant
 
 ▸ `Const`**isGroupVariant**(`variant`: string): boolean
 
-_Defined in [variants.ts:11](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/variants.ts#L11)_
+*Defined in [variants.ts:11](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/variants.ts#L11)*
 
 #### Parameters:
 
-| Name      | Type   |
-| --------- | ------ |
-| `variant` | string |
+Name | Type |
+------ | ------ |
+`variant` | string |
 
 **Returns:** boolean

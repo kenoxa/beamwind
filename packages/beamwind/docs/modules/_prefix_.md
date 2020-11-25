@@ -6,8 +6,8 @@
 
 ### Functions
 
-- [autoprefix](_prefix_.md#autoprefix)
-- [noprefix](_prefix_.md#noprefix)
+* [autoprefix](_prefix_.md#autoprefix)
+* [noprefix](_prefix_.md#noprefix)
 
 ## Functions
 
@@ -15,30 +15,30 @@
 
 ▸ `Const`**autoprefix**(`property`: string, `value`: string): string
 
-_Defined in [prefix.ts:5](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/prefix.ts#L5)_
+*Defined in [prefix.ts:5](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/prefix.ts#L5)*
 
 #### Parameters:
 
-| Name       | Type   |
-| ---------- | ------ |
-| `property` | string |
-| `value`    | string |
+Name | Type |
+------ | ------ |
+`property` | string |
+`value` | string |
 
 **Returns:** string
 
----
+___
 
 ### noprefix
 
 ▸ `Const`**noprefix**(`property`: string, `value`: string): string
 
-_Defined in [prefix.ts:15](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/prefix.ts#L15)_
+*Defined in [prefix.ts:15](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/prefix.ts#L15)*
 
 #### Parameters:
 
-| Name       | Type   |
-| ---------- | ------ |
-| `property` | string |
-| `value`    | string |
+Name | Type |
+------ | ------ |
+`property` | string |
+`value` | string |
 
 **Returns:** string

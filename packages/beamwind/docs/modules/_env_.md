@@ -6,7 +6,7 @@
 
 ### Variables
 
-- [isBrowser](_env_.md#isbrowser)
+* [isBrowser](_env_.md#isbrowser)
 
 ## Variables
 
@@ -14,4 +14,4 @@
 
 • `Const` **isBrowser**: boolean = typeof window !== 'undefined'
 
-_Defined in [env.ts:1](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/env.ts#L1)_
+*Defined in [env.ts:1](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/env.ts#L1)*

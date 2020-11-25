@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- [ThemeColors](_index_.themecolors.md)
+* [ThemeColors](_index_.themecolors.md)
 
   ↳ **ThemeColorsWithDefault**
 
@@ -12,12 +12,12 @@
 
 ### Properties
 
-- [DEFAULT](_types_theme_.themecolorswithdefault.md#default)
+* [DEFAULT](_types_theme_.themecolorswithdefault.md#default)
 
 ## Properties
 
 ### DEFAULT
 
-• **DEFAULT**: string
+•  **DEFAULT**: string
 
-_Defined in [types/theme.ts:49](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L49)_
+*Defined in [types/theme.ts:49](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/theme.ts#L49)*

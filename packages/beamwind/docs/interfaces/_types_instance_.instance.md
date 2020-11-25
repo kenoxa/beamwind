@@ -4,27 +4,27 @@
 
 ## Hierarchy
 
-- **Instance**
+* **Instance**
 
 ## Index
 
 ### Properties
 
-- [cx](_types_instance_.instance.md#cx)
-- [setup](_types_instance_.instance.md#setup)
+* [cx](_types_instance_.instance.md#cx)
+* [setup](_types_instance_.instance.md#setup)
 
 ## Properties
 
 ### cx
 
-• **cx**: [ClassNameCreator](_index_.classnamecreator.md)
+•  **cx**: [ClassNameCreator](_index_.classnamecreator.md)
 
-_Defined in [types/instance.ts:10](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/instance.ts#L10)_
+*Defined in [types/instance.ts:10](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/instance.ts#L10)*
 
----
+___
 
 ### setup
 
-• **setup**: (options?: [ConfigurationOptions](_index_.configurationoptions.md) \| [ConfigurationOptions](_index_.configurationoptions.md)[]) => void
+•  **setup**: (options?: [ConfigurationOptions](_index_.configurationoptions.md) \| [ConfigurationOptions](_index_.configurationoptions.md)[]) => void
 
-_Defined in [types/instance.ts:11](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/instance.ts#L11)_
+*Defined in [types/instance.ts:11](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/types/instance.ts#L11)*

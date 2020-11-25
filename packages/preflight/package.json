@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/preflight",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An opinionated set of base styles for modern browsers",
   "keywords": [
     "beamwind",
@@ -33,7 +33,7 @@
     "preset": "@carv/jest-preset"
   },
   "devDependencies": {
-    "beamwind": "^1.1.0",
+    "beamwind": "^1.2.0",
     "nps": "^5.9.12"
   },
   "publishConfig": {

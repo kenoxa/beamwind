@@ -4,106 +4,106 @@
 
 ## Hierarchy
 
-- **Context**
+* **Context**
 
 ## Index
 
 ### Properties
 
-- [a](_context_.context.md#a)
-- [c](_context_.context.md#c)
-- [g](_context_.context.md#g)
-- [i](_context_.context.md#i)
-- [k](_context_.context.md#k)
-- [p](_context_.context.md#p)
-- [s](_context_.context.md#s)
-- [t](_context_.context.md#t)
-- [w](_context_.context.md#w)
+* [a](_context_.context.md#a)
+* [c](_context_.context.md#c)
+* [g](_context_.context.md#g)
+* [i](_context_.context.md#i)
+* [k](_context_.context.md#k)
+* [p](_context_.context.md#p)
+* [s](_context_.context.md#s)
+* [t](_context_.context.md#t)
+* [w](_context_.context.md#w)
 
 ## Properties
 
 ### a
 
-• **a**: (token: string) => string
+•  **a**: (token: string) => string
 
-_Defined in [context.ts:40](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L40)_
+*Defined in [context.ts:40](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L40)*
 
 Creates marker class name. This is used by group-hover and group-focus
 
----
+___
 
 ### c
 
-• **c**: (options?: [ConfigurationOptions](_index_.configurationoptions.md) \| [ConfigurationOptions](_index_.configurationoptions.md)[]) => void
+•  **c**: (options?: [ConfigurationOptions](_index_.configurationoptions.md) \| [ConfigurationOptions](_index_.configurationoptions.md)[]) => void
 
-_Defined in [context.ts:67](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L67)_
+*Defined in [context.ts:67](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L67)*
 
 Configure
 
----
+___
 
 ### g
 
-• **g**: (token: string, variants: keyof string[]) => string \| undefined
+•  **g**: (token: string, variants: keyof string[]) => string \| undefined
 
-_Defined in [context.ts:45](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L45)_
+*Defined in [context.ts:45](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L45)*
 
 Get cached className
 
----
+___
 
 ### i
 
-• **i**: (token: string, variants: keyof string[], declarations: [Declarations](../modules/_index_.md#declarations), suffix?: undefined \| string) => string
+•  **i**: (token: string, variants: keyof string[], declarations: [Declarations](../modules/_index_.md#declarations), suffix?: undefined \| string) => string
 
-_Defined in [context.ts:55](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L55)_
+*Defined in [context.ts:55](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L55)*
 
 Injects css
 
----
+___
 
 ### k
 
-• **k**: (name: string, waypoints: Record\<string, [Declarations](../modules/_index_.md#declarations)>) => string
+•  **k**: (name: string, waypoints: Record\<string, [Declarations](../modules/_index_.md#declarations)>) => string
 
-_Defined in [context.ts:62](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L62)_
+*Defined in [context.ts:62](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L62)*
 
----
+___
 
 ### p
 
-• **p**: (id: string) => [Plugin](../modules/_index_.md#plugin) \| undefined
+•  **p**: (id: string) => [Plugin](../modules/_index_.md#plugin) \| undefined
 
-_Defined in [context.ts:37](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L37)_
+*Defined in [context.ts:37](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L37)*
 
 Plugin accessor
 
----
+___
 
 ### s
 
-• **s**: (token: string, variants: keyof string[], className: string) => void
+•  **s**: (token: string, variants: keyof string[], className: string) => void
 
-_Defined in [context.ts:50](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L50)_
+*Defined in [context.ts:50](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L50)*
 
 Set cached className
 
----
+___
 
 ### t
 
-• **t**: \<P>(section: P) => Theme[P] \| undefined
+•  **t**: \<P>(section: P) => Theme[P] \| undefined
 
-_Defined in [context.ts:32](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L32)_
+*Defined in [context.ts:32](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L32)*
 
 Theme section accessor
 
----
+___
 
 ### w
 
-• **w**: (token: string, message: string) => void
+•  **w**: (token: string, message: string) => void
 
-_Defined in [context.ts:72](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L72)_
+*Defined in [context.ts:72](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/context.ts#L72)*
 
 Warn
