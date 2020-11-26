@@ -1,4 +1,4 @@
-import type { Instance, Injector } from '..'
+import type { Instance, Injector, InlinePlugin } from '..'
 
 import { createInstance, virtualInjector, noprefix, apply, optional, fail } from '..'
 
@@ -62,4 +62,34 @@ test('plugin can return new tokens to parse using `apply`', () => {
   expect(() => instance.cx('btn-unknown-color')).toThrow(
     `Invalid token btn-unknown-color: No translation for "btn-unknown-color" found`,
   )
+})
+
+test('inline plugin: token string', () => {
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  const inlinePlugin: InlinePlugin = () => 'font-bold text-xl'
+
+  expect(instance.cx(inlinePlugin)).toBe('font-bold text-xl')
+  expect(injector.target).toMatchObject([
+    '.text-xl{font-size:1.25rem;line-height:1.75rem}',
+    '.font-bold{font-weight:700}',
+  ])
+})
+
+test('inline plugin: css declarations', () => {
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  const inlinePlugin: InlinePlugin = jest.fn((theme) => ({
+    'font-weight': theme('fontWeight', 'extrabold'),
+    color: theme('colors', 'primary'),
+  }))
+
+  const className = instance.cx(inlinePlugin)
+
+  expect(className).toMatch(/__\w*_\d+/)
+  expect(injector.target).toMatchObject([`.${className}{font-weight:800;color:#0d3880}`])
+  expect(inlinePlugin).toHaveBeenCalledTimes(1)
+
+  // Added only once
+  expect(instance.cx`${inlinePlugin}`).toBe(className)
+  expect(injector.target).toMatchObject([`.${className}{font-weight:800;color:#0d3880}`])
+  expect(inlinePlugin).toHaveBeenCalledTimes(2)
 })

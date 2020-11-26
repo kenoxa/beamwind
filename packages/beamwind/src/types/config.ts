@@ -1,6 +1,6 @@
 import type { DeepPartial } from './util'
 import type { Theme } from './theme'
-import type { Plugin } from './plugin'
+import type { Plugin } from './core'
 
 export type PartialTheme = DeepPartial<Theme>
 

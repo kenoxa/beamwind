@@ -1,6 +1,12 @@
 import type { Falsy } from './util'
-import type { Declarations, Token } from './common'
+import type { Declarations } from './common'
 import type { ThemeValueResolver } from './theme'
+
+export interface TokenGrouping extends Record<string, Token> {}
+
+type TypescriptCompat = boolean | number
+
+export type Token = string | InlinePlugin | TokenGrouping | Token[] | Falsy | TypescriptCompat
 
 export type InjectKeyframes = (name: string, waypoints?: Record<string, Declarations>) => string
 
@@ -14,7 +20,6 @@ export type PluginTokenResult = (parse: TokenParser) => void
 
 export interface PluginContext {
   readonly keyframes: InjectKeyframes
-  readonly variants: readonly string[]
   readonly tag: (token: string) => string
 }
 
@@ -31,3 +36,8 @@ export type Plugin =
       theme: ThemeValueResolver,
       context: PluginContext,
     ) => PluginResult | PluginTokenResult)
+
+export type InlinePlugin = (
+  theme: ThemeValueResolver,
+  context: PluginContext,
+) => PluginResult | PluginTokenResult

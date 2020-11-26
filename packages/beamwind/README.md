@@ -150,7 +150,7 @@ css`bg-red-500` // will result in a hotpink background-color
 
 ### Function Signature
 
-It is possible to invoke beamwind in a multitude of different ways. The `cx` function can take **_any_** number of arguments, each of which can be an Object, Array, Boolean, Number, or String. This feature is based on [clsx](https://www.npmjs.com/package/cslx).
+It is possible to invoke beamwind in a multitude of different ways. The `cx` function can take **_any_** number of arguments, each of which can be an Object, Array, Boolean, Number, String or [inline plugins](#inline-plugins). This feature is based on [clsx](https://www.npmjs.com/package/cslx).
 
 > **Important**: _Any_ falsey values are discarded!
 > Standalone Boolean values are discarded as well.
@@ -260,6 +260,51 @@ Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be 
 cx`ring(& promote offset(sm on-promote))`)
 // ring ring-promote ring-offset-sm ring-offset-on-promote
 ```
+
+### Inline Plugins
+
+A global plugin registry (per instance) has it's downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like [normal plugins](#plugins) without the first parameter.
+
+> Please take a look at [Plugin API documentation](#plugins) for further details about what a plugin can do.
+
+```js
+const header = (theme) => ({
+  disply: block
+  border: `1px solid ${theme('colors', 'primary')}`,
+  'text-align': 'center',
+})
+
+cx`font-bold ${card} color-primary`
+// Note: Same works for arrays and objects
+
+// You can use variants
+cx`sm:${card} color-primary`
+// Same works for arrays and objects
+```
+
+> **Note**: This should be a last resort as it comes with a small performance penalty.
+
+### Class Name Factories
+
+Often you will find yourself in a position to need an abstraction to simplify the creation of tokens. A common best practice is to create a function that returns the required tokens:
+
+```js
+const btn = (color) => {
+  if (color) {
+    return `bg-${color} text-${color}-contrast hover:bg-${color}-hover active:bg-${color}-active`
+  }
+
+  return 'inline-block font-bold py-2 px-4 rounded'
+}
+
+cx(btn())
+// => inline-block font-bold py-2 px-4 rounded
+
+cx([btn(), btn('primary')])
+// => inline-block font-bold py-2 px-4 rounded bg-primary text-primary-contrast hover:bg-primary-hover active:bg-primary-active
+```
+
+> This can be converted into a [component plugin](#adding-new-components).
 
 ## Theming
 
@@ -609,9 +654,9 @@ setup({
     btn(parts) {
       if (parts[1]) {
         return `bg-${parts[1]} text-${parts[1]}-contrast hover:bg-${parts[1]}-hover active:bg-${parts[1]}-active`
-      } else {
-        return 'font-bold py-2 px-4 rounded'
       }
+
+      return 'font-bold py-2 px-4 rounded'
     },
   },
 })
@@ -902,9 +947,10 @@ Some notable differences are:
 - beamwind API [additionally supports](#function-signature)
 
   - variadic arguments like `cs('bg-blue', 'text-white')`
-  - Tagged Template Interpolation values may additionally be Array or Object
-  - Object values which are String, Array or Object start a new variant group
   - [Directive Grouping](#directive-grouping)
+  - Tagged Template Interpolation values may additionally be Array, Object or Function ([inline plugins](#inline-plugins))
+  - Object values which are String, Array or Object start a new variant group
+  - support for [inline plugins](#inline-plugins)
 
 - beamwind allows to define new plugins (see [Plugins](#plugins))
 - beamwind adheres to the pseudo class and variant order as used by tailwind

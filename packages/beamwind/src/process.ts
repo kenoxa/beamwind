@@ -6,6 +6,8 @@ import type {
   Plugin,
   PluginTokenResult,
   InjectKeyframes,
+  InlinePlugin,
+  PluginResult,
 } from './types'
 import type { Context } from './context'
 
@@ -69,6 +71,27 @@ const processTokenResult = (
   currentContext.s(token, variants, join(classNames.slice(lastClassNameLength), ' '))
 }
 
+const handlePluginResult = (
+  token: string,
+  variants: readonly string[],
+  result: PluginResult | PluginTokenResult,
+): boolean | number | void => {
+  if (is.function(result) || is.string(result)) {
+    return !(processTokenResult(token, variants, result) as unknown)
+  }
+
+  let suffix: string | undefined
+
+  if (is.array(result)) {
+    suffix = result[0]
+    result = result[1]
+  }
+
+  if (is.object(result)) {
+    return classNames.push(currentContext.i(token, variants, result, suffix))
+  }
+}
+
 const translate = (token: string, variants: readonly string[]): unknown => {
   const className =
     // Return the marker class name
@@ -109,26 +132,15 @@ const translate = (token: string, variants: readonly string[]): unknown => {
     }
   }
 
-  let result = is.function(plugin)
-    ? plugin(parts, theme, { keyframes, variants, tag: currentContext.a })
-    : plugin
-
-  if (is.function(result) || is.string(result)) {
-    return processTokenResult(token, variants, result)
+  if (
+    !handlePluginResult(
+      token,
+      variants,
+      is.function(plugin) ? plugin(parts, theme, { keyframes, tag: currentContext.a }) : plugin,
+    )
+  ) {
+    currentContext.w(token, `No translation for "${token}" found`)
   }
-
-  let suffix: string | undefined
-
-  if (is.array(result)) {
-    suffix = result[0]
-    result = result[1]
-  }
-
-  if (is.object(result)) {
-    return classNames.push(currentContext.i(token, variants, result, suffix))
-  }
-
-  currentContext.w(token, `No translation for "${token}" found`)
 }
 
 const reset = (array: unknown[]): void => {
@@ -241,11 +253,26 @@ const parseGroup = (key: string, token: Token): void => {
   }
 }
 
+const inlinePluginToToken = new WeakMap<InlinePlugin, string>()
+let nextTokenId = 0
 const parse = (token: Token): void => {
   if (is.string(token)) {
     parseString(token)
   } else if (is.array(token)) {
     token.forEach(parseGroupedToken)
+  } else if (is.function(token)) {
+    let tokenId = inlinePluginToToken.get(token)
+
+    if (!tokenId) {
+      tokenId = `__${token.name}_${(++nextTokenId).toString(36)}`
+      inlinePluginToToken.set(token, tokenId)
+    }
+
+    handlePluginResult(
+      tokenId,
+      variants.filter(Boolean),
+      token(theme, { keyframes, tag: currentContext.a }),
+    )
   } else if (is.object(token)) {
     Object.keys(token).forEach((key) => {
       parseGroup(key, token[key])

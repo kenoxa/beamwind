@@ -1,4 +1,4 @@
-import type { Token } from './common'
+import type { Token } from './core'
 import type { ConfigurationOptions } from './config'
 
 export interface ClassNameCreator {
