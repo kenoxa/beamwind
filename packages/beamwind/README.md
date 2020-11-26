@@ -245,6 +245,22 @@ cx({
 
 > Two things to note here is that the outermost variant should always be a responsive variant (just like in tailwind `hover:sm:` is not supported) and that nesting responsive variants doesn't make sense either, for example `sm:md:` is not supported.
 
+### Directive Grouping
+
+Directives with the same prefix can be grouped using parenthesis. Beamwind will expand the nested directives; applying the prefix to each directive in the group before translation. For example:
+
+```js
+cx`text(center underline bold primary)`)
+// text-center text-underline text-bold text-primary
+```
+
+Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be applied as is. For that case you can use the special `&` directive which is replaced with the current prefix:
+
+```js
+cx`ring(& promote offset(sm on-promote))`)
+// ring ring-promote ring-offset-sm ring-offset-on-promote
+```
+
 ## Theming
 
 beamwind tries to follow a semantic naming approach by using a common _language_ to reduce the guess work. A small set of well known design tokens hopefully prevents magic values or ambiguous names.
@@ -888,6 +904,7 @@ Some notable differences are:
   - variadic arguments like `cs('bg-blue', 'text-white')`
   - Tagged Template Interpolation values may additionally be Array or Object
   - Object values which are String, Array or Object start a new variant group
+  - [Directive Grouping](#directive-grouping)
 
 - beamwind allows to define new plugins (see [Plugins](#plugins))
 - beamwind adheres to the pseudo class and variant order as used by tailwind

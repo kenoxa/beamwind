@@ -532,6 +532,17 @@
       "@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}"
     ]
   ],
+  "my-2 text(center underline bold primary) px-5": [
+    "my-2 text-center text-underline text-bold text-primary px-5",
+    [
+      ".my-2{margin-bottom:0.5rem;margin-top:0.5rem}",
+      ".px-5{padding-left:1.25rem;padding-right:1.25rem}",
+      ".text-underline{color:underline}",
+      ".text-bold{color:bold}",
+      ".text-primary{color:#0d3880}",
+      ".text-center{text-align:center}"
+    ]
+  ],
   "group hover:bg-surface": [
     "group hover:bg-surface",
     [".hover\\:bg-surface:hover{background-color:#fff;color:#111}"]

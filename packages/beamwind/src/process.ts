@@ -10,7 +10,7 @@ import type {
 import type { Context } from './context'
 
 import * as is from './is'
-import { fail, tail, join } from './util'
+import { fail, tail, join, joinTruthy } from './util'
 
 // Shared variables used during processing
 let negate: string
@@ -18,6 +18,7 @@ let currentContext: Context
 
 const variants: string[] = []
 const classNames: string[] = []
+const prefix: string[] = []
 
 const theme: ThemeValueResolver = <P extends keyof Theme, K extends keyof NonNullable<Theme[P]>>(
   section: P,
@@ -160,7 +161,12 @@ const saveVariant = withBuffer((buffer) => {
 })
 
 const translateBuffer = withBuffer((buffer) => {
-  translate(buffer, variants.filter(Boolean))
+  const p = joinTruthy(prefix)
+  const token = buffer === '&' ? p : (p && p + '-') + buffer
+
+  if (token) {
+    translate(token, variants.filter(Boolean))
+  }
 })
 
 const parseString = (token: string, isGrouping?: boolean): void => {
@@ -174,6 +180,9 @@ const parseString = (token: string, isGrouping?: boolean): void => {
         break
 
       case '(':
+        // If there is a buffer this is the prefix for all grouped tokens
+        prefix.push(buffer)
+        buffer = ''
         startGrouping()
         break
 
@@ -187,6 +196,10 @@ const parseString = (token: string, isGrouping?: boolean): void => {
           endGrouping(char !== ')')
         } else if (char === ')') {
           endGrouping()
+        }
+
+        if (char === ')') {
+          prefix.pop()
         }
 
         break
@@ -249,6 +262,7 @@ export const process = (token: Token[], context: Context): string => {
 
   reset(classNames)
   reset(variants)
+  reset(prefix)
 
   try {
     token.forEach(parseGroupedToken)
