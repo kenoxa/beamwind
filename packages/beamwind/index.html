@@ -189,7 +189,7 @@ css`<span class="css"><span class="hljs-selector-tag">bg-red-500</span>`</span> 
 				<a href="#function-signature" id="function-signature" style="color: inherit; text-decoration: none;">
 					<h3>Function Signature</h3>
 				</a>
-				<p>It is possible to invoke beamwind in a multitude of different ways. The <code>cx</code> function can take <strong><em>any</em></strong> number of arguments, each of which can be an Object, Array, Boolean, Number, or String. This feature is based on <a href="https://www.npmjs.com/package/cslx">clsx</a>.</p>
+				<p>It is possible to invoke beamwind in a multitude of different ways. The <code>cx</code> function can take <strong><em>any</em></strong> number of arguments, each of which can be an Object, Array, Boolean, Number, String or <a href="#inline-plugins">inline plugins</a>. This feature is based on <a href="https://www.npmjs.com/package/cslx">clsx</a>.</p>
 				<blockquote>
 					<p><strong>Important</strong>: <em>Any</em> falsey values are discarded!
 					Standalone Boolean values are discarded as well.</p>
@@ -280,6 +280,48 @@ cx(
 				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
 				<pre><code class="language-js">cx<span class="hljs-string">`ring(&amp; promote offset(sm on-promote))`</span>)
 <span class="hljs-comment">// ring ring-promote ring-offset-sm ring-offset-on-promote</span></code></pre>
+				<a href="#inline-plugins" id="inline-plugins" style="color: inherit; text-decoration: none;">
+					<h3>Inline Plugins</h3>
+				</a>
+				<p>A global plugin registry (per instance) has it&#39;s downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like <a href="#plugins">normal plugins</a> without the first parameter.</p>
+				<blockquote>
+					<p>Please take a look at <a href="#plugins">Plugin API documentation</a> for further details about what a plugin can do.</p>
+				</blockquote>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> header = <span class="hljs-function">(<span class="hljs-params">theme</span>) =&gt;</span> ({
+  <span class="hljs-attr">disply</span>: block
+  <span class="hljs-attr">border</span>: <span class="hljs-string">`1px solid <span class="hljs-subst">${theme(<span class="hljs-string">&#x27;colors&#x27;</span>, <span class="hljs-string">&#x27;primary&#x27;</span>)}</span>`</span>,
+  <span class="hljs-string">&#x27;text-align&#x27;</span>: <span class="hljs-string">&#x27;center&#x27;</span>,
+})
+
+cx<span class="hljs-string">`font-bold <span class="hljs-subst">${card}</span> color-primary`</span>
+<span class="hljs-comment">// Note: Same works for arrays and objects</span>
+
+<span class="hljs-comment">// You can use variants</span>
+cx<span class="hljs-string">`sm:<span class="hljs-subst">${card}</span> color-primary`</span>
+<span class="hljs-comment">// Same works for arrays and objects</span></code></pre>
+				<blockquote>
+					<p><strong>Note</strong>: This should be a last resort as it comes with a small performance penalty.</p>
+				</blockquote>
+				<a href="#class-name-factories" id="class-name-factories" style="color: inherit; text-decoration: none;">
+					<h3>Class Name Factories</h3>
+				</a>
+				<p>Often you will find yourself in a position to need an abstraction to simplify the creation of tokens. A common best practice is to create a function that returns the required tokens:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> btn = <span class="hljs-function">(<span class="hljs-params">color</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (color) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`bg-<span class="hljs-subst">${color}</span> text-<span class="hljs-subst">${color}</span>-contrast hover:bg-<span class="hljs-subst">${color}</span>-hover active:bg-<span class="hljs-subst">${color}</span>-active`</span>
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;inline-block font-bold py-2 px-4 rounded&#x27;</span>
+}
+
+cx(btn())
+<span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded</span>
+
+cx([btn(), btn(<span class="hljs-string">&#x27;primary&#x27;</span>)])
+<span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded bg-primary text-primary-contrast hover:bg-primary-hover active:bg-primary-active</span></code></pre>
+				<blockquote>
+					<p>This can be converted into a <a href="#adding-new-components">component plugin</a>.</p>
+				</blockquote>
 				<a href="#theming" id="theming" style="color: inherit; text-decoration: none;">
 					<h2>Theming</h2>
 				</a>
@@ -595,9 +637,9 @@ setup({
     <span class="hljs-function"><span class="hljs-title">btn</span>(<span class="hljs-params">parts</span>)</span> {
       <span class="hljs-keyword">if</span> (parts[<span class="hljs-number">1</span>]) {
         <span class="hljs-keyword">return</span> <span class="hljs-string">`bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span> text-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-contrast hover:bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-hover active:bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-active`</span>
-      } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;font-bold py-2 px-4 rounded&#x27;</span>
       }
+
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;font-bold py-2 px-4 rounded&#x27;</span>
     },
   },
 })</code></pre>
@@ -868,9 +910,10 @@ setup(tailwindPreset)
 					<li><p>beamwind API <a href="#function-signature">additionally supports</a></p>
 						<ul>
 							<li>variadic arguments like <code>cs(&#39;bg-blue&#39;, &#39;text-white&#39;)</code></li>
-							<li>Tagged Template Interpolation values may additionally be Array or Object</li>
-							<li>Object values which are String, Array or Object start a new variant group</li>
 							<li><a href="#directive-grouping">Directive Grouping</a></li>
+							<li>Tagged Template Interpolation values may additionally be Array, Object or Function (<a href="#inline-plugins">inline plugins</a>)</li>
+							<li>Object values which are String, Array or Object start a new variant group</li>
+							<li>support for <a href="#inline-plugins">inline plugins</a></li>
 						</ul>
 					</li>
 					<li><p>beamwind allows to define new plugins (see <a href="#plugins">Plugins</a>)</p>
@@ -1082,6 +1125,9 @@ setup(tailwindPreset)
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#injectkeyframes" class="tsd-kind-icon">Inject<wbr>Keyframes</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#inlineplugin" class="tsd-kind-icon">Inline<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#oninit" class="tsd-kind-icon">On<wbr>Init</a>
