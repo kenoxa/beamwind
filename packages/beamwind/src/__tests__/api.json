@@ -193,9 +193,27 @@
   "border-neutral": { "border-color": "#596581" },
   "border-#4f46e5": { "border-color": "#4f46e5" },
   "border-olivedrab": { "border-color": "olivedrab" },
-  "shadow": { "box-shadow": "0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06)" },
-  "shadow-none": { "box-shadow": "none" },
-  "shadow-xs": { "box-shadow": "0 0 0 1px rgba(0,0,0,0.05)" },
+  "shadow": {
+    "--shadow": "0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06)",
+    "box-shadow": [
+      "0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06)",
+      "var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)"
+    ]
+  },
+  "shadow-none": {
+    "--shadow": "0 0 transparent",
+    "box-shadow": [
+      "0 0 transparent",
+      "var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)"
+    ]
+  },
+  "shadow-xs": {
+    "--shadow": "0 0 0 1px rgba(0,0,0,0.05)",
+    "box-shadow": [
+      "0 0 0 1px rgba(0,0,0,0.05)",
+      "var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)"
+    ]
+  },
   "opacity-100": { "opacity": "1" },
   "opacity-50": { "opacity": "0.5" },
   "opacity-0": { "opacity": "0" },
@@ -672,6 +690,98 @@
       ".from-\\#111{--gradient-from:#111}",
       ".to-\\#333{--gradient-to:#333}",
       ".bg-gradient-to-bottom-left{background-image:linear-gradient(to bottom left,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
+  "ring": {
+    "--ring-offset-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff)",
+    "--ring-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5))",
+    "box-shadow": "var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)"
+  },
+  "ring-0": {
+    "--ring-offset-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff)",
+    "--ring-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(0 + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5))",
+    "box-shadow": "var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)"
+  },
+  "ring-4": {
+    "--ring-offset-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff)",
+    "--ring-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(4px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5))",
+    "box-shadow": "var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)"
+  },
+  "ring-sm": {
+    "--ring-offset-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff)",
+    "--ring-shadow": "var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(.5rem + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5))",
+    "box-shadow": "var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)"
+  },
+  "ring-inset": {
+    "--ring-inset": "inset"
+  },
+  "ring-transparent": [
+    "ring-transparent",
+    [".ring-transparent{--ring-opacity:1;--ring-color:transparent}"]
+  ],
+  "ring-current": ["ring-current", [".ring-current{--ring-opacity:1;--ring-color:currentColor}"]],
+  "ring-4 ring-#333": [
+    "ring-4 ring-#333",
+    [
+      ".ring-4{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(4px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-\\#333{--ring-opacity:1;--ring-color:rgba(51,51,51,var(--ring-opacity))}"
+    ]
+  ],
+  "ring-4 ring-purple": [
+    "ring-4 ring-purple",
+    [
+      ".ring-4{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(4px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-purple{--ring-opacity:1;--ring-color:purple}"
+    ]
+  ],
+  "ring-8 ring-primary": [
+    "ring-8 ring-primary",
+    [
+      ".ring-8{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(8px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-primary{--ring-opacity:1;--ring-color:rgba(13,56,128,var(--ring-opacity))}"
+    ]
+  ],
+  "ring ring-caution ring-offset-0": [
+    "ring ring-caution ring-offset-0",
+    [
+      ".ring{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-caution{--ring-opacity:1;--ring-color:rgba(255,198,0,var(--ring-opacity))}",
+      ".ring-offset-0{--ring-offset-width:0}"
+    ]
+  ],
+  "ring ring-caution ring-offset-sm": [
+    "ring ring-caution ring-offset-sm",
+    [
+      ".ring{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-caution{--ring-opacity:1;--ring-color:rgba(255,198,0,var(--ring-opacity))}",
+      ".ring-offset-sm{--ring-offset-width:.5rem}"
+    ]
+  ],
+  "ring ring-caution ring-offset-4": [
+    "ring ring-caution ring-offset-4",
+    [
+      ".ring{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-caution{--ring-opacity:1;--ring-color:rgba(255,198,0,var(--ring-opacity))}",
+      ".ring-offset-4{--ring-offset-width:4px}"
+    ]
+  ],
+  "ring(& caution offset(sm on-caution)": [
+    "ring ring-caution ring-offset-sm ring-offset-on-caution",
+    [
+      ".ring{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-caution{--ring-opacity:1;--ring-color:rgba(255,198,0,var(--ring-opacity))}",
+      ".ring-offset-sm{--ring-offset-width:.5rem}",
+      ".ring-offset-on-caution{--ring-offset-color:#1A202C}"
+    ]
+  ],
+  "ring(& caution offset(sm on-caution)) shadow-md": [
+    "ring ring-caution ring-offset-sm ring-offset-on-caution shadow-md",
+    [
+      ".ring{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".ring-caution{--ring-opacity:1;--ring-color:rgba(255,198,0,var(--ring-opacity))}",
+      ".shadow-md{--shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}",
+      ".ring-offset-sm{--ring-offset-width:.5rem}",
+      ".ring-offset-on-caution{--ring-offset-color:#1A202C}"
     ]
   ]
 }

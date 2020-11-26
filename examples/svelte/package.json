@@ -30,6 +30,7 @@
     "root": true
   },
   "dependencies": {
+    "@beamwind/preflight": "^1.0.2",
     "beamwind": "^1.2.0",
     "svelte": "^3.24.0"
   },

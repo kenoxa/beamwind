@@ -1,3 +1,4 @@
+
 pre-commit hook to format files
 
 https://github.com/tailwindlabs/tailwindcss/pull/2531
@@ -27,38 +28,6 @@ important: needs a use case before implementing
 
 ```
 text-bold!important
-```
-
-> These require to drop IE11 support
-
-https://tailwindcss.com/docs/ring-width
-
-```
-:root
---tw-shadow: 0 0 transparent;
---tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
---tw-ring-offset-width: 0px;
---tw-ring-offset-color: #fff;
---tw-ring-color: rgba(59,130,246,0.5);
---tw-ring-offset-shadow: 0 0 transparent;
---tw-ring-shadow: 0 0 transparent;
-
-
-.ring-4
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-
-.ring-pink-300
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgba(249,168,212,var(--tw-ring-opacity));
-
-.ring-inset
-  --tw-ring-inset: inset;
-
-.ring
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 transparent);
 ```
 
 https://tailwindcss.com/docs/background-image#background-images

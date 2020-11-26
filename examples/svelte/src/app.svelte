@@ -1,31 +1,35 @@
 <script context="module">
+  import preflight from '@beamwind/preflight'
   import { cx, setup } from 'beamwind'
 
   if (import.meta.env.MODE !== 'production') {
     setup({ hash: false })
   }
 
-  setup({
-    plugins: {
-      'app-p': 'm-sm',
-      'app-code': 'bg-#0002 px-sm py-xs rounded-sm',
-    },
-    theme: {
-      animation: {
-        'logo-pulse': ['infinite 1.6s ease-in-out alternate'],
+  setup([
+    preflight,
+    {
+      plugins: {
+        'app-p': 'm-sm',
+        'app-code': 'bg-#0002 px-sm py-xs rounded-sm',
       },
-      keyframes: {
-        'logo-pulse': {
-          from: {
-            transform: 'scale(1)',
-          },
-          to: {
-            transform: 'scale(1.06)',
+      theme: {
+        animation: {
+          'logo-pulse': ['infinite 1.6s ease-in-out alternate'],
+        },
+        keyframes: {
+          'logo-pulse': {
+            from: {
+              transform: 'scale(1)',
+            },
+            to: {
+              transform: 'scale(1.06)',
+            },
           },
         },
       },
     },
-  })
+  ])
 </script>
 
 <script>
@@ -71,6 +75,13 @@
         rel="noopener noreferrer">
         Learn Beamwind
       </a>
+    </p>
+
+    <p class={cx`app-p divide-x`}>
+      <button
+        class={cx`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg-promote ring(& xs promote offset(xs on-promote))`}>
+        ring-offset-purple-100
+      </button>
     </p>
   </header>
 </div>

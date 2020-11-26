@@ -26,5 +26,6 @@ module.exports = {
   },
   alias: {
     beamwind: 'beamwind/dist/esnext/beamwind.js',
+    '@beamwind/preflight': '@beamwind/preflight/dist/esnext/preflight.js',
   },
 }

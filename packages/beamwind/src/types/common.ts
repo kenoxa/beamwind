@@ -9,4 +9,4 @@ type TypescriptCompat = boolean | number
 
 export type Token = string | Falsy | TokenGrouping | Token[] | TypescriptCompat
 
-export type Declarations = Record<string, string | Falsy>
+export type Declarations = Record<string, string | string[] | Falsy>

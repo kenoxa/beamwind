@@ -12,7 +12,11 @@ const stringify = (className: string, declarations: Declarations): string => {
     '{' +
     Object.entries(declarations)
       .filter(([_property, value]) => value)
-      .map(([property, value]) => `${property}:${value as string}`)
+      .map(([property, value]) =>
+        Array.isArray(value)
+          ? value.map((value) => `${property}:${value}`).join(';')
+          : `${property}:${value as string}`,
+      )
       .join(';') +
     '}'
   )
@@ -119,7 +123,7 @@ test.each([
       '@media (min-width: 992px){.lg\\:rounded-full{border-radius:9999px}}',
       '@media (min-width: 992px){.lg\\:hover\\:bg-primary:hover{background-color:#0d3880;color:#e8ecf4}}',
       '@media (min-width: 992px){.lg\\:hover\\:text-critical:hover{color:#d0011b}}',
-      '@media (min-width: 992px){.lg\\:hover\\:active\\:shadow:hover:active{box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06)}}',
+      '@media (min-width: 992px){.lg\\:hover\\:active\\:shadow:hover:active{--shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}}',
       '@media (min-width: 992px){.lg\\:hover\\:active\\:underline:hover:active{text-decoration:underline}}',
     ],
   ],

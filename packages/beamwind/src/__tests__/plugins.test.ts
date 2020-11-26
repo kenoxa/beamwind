@@ -23,9 +23,9 @@ test('value can be a token string', () => {
   expect(injector.target).toMatchObject([
     '.mx-auto{margin-left:auto;margin-right:auto}',
     '.bg-surface{background-color:#fff;color:#111}',
+    '.shadow-md{--shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}',
     '.my-md{margin-bottom:.875rem;margin-top:.875rem}',
     '.overflow-hidden{overflow:hidden}',
-    '.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06)}',
     '.max-w-md{max-width:28rem}',
     '.rounded-xl{border-radius:.75rem}',
     '@media (min-width: 768px){.md\\:max-w-2xl{max-width:42rem}}',

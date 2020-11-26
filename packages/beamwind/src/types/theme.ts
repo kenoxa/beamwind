@@ -41,7 +41,7 @@ export interface ThemeColors extends Record<string, undefined | string> {
   // 'on-promote': string
 }
 
-export interface ThemeBorderWidth extends Record<string, undefined | string> {
+export interface ThemeWidth extends Record<string, undefined | string> {
   DEFAULT: string
 }
 
@@ -263,15 +263,17 @@ export interface Theme {
   fontWeight: ThemeFontWeight
   letterSpacing: ThemeLetterSpacing
   lineHeight: ThemeLineHeight
-  borderWidth: ThemeBorderWidth
+  borderWidth: ThemeWidth
   borderColor: ThemeColorsWithDefault
-  divideWidth?: ThemeBorderWidth
+  divideWidth?: ThemeWidth
   divideColor?: ThemeColorsWithDefault
   placeholderColor?: ThemeColorsWithDefault
   flex: ThemeFlex
   strokeWidth: ThemeStrokeWidth
   borderRadius: ThemeBorderRadius
   boxShadow: ThemeBoxShadow
+  ringWidth: ThemeWidth
+  ringOffsetWidth: ThemeWidth
   transitionProperty: ThemeTransitionProperty
   transitionTimingFunction: ThemeTransitionTimingFunction
   durations: ThemeDurations

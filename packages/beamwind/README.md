@@ -833,10 +833,10 @@ TODO see TODO.md
 
 - beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features
 
-  The following feature are not yet available in beamwind
+  The following feature are not yet available in beamwind:
 
   - dark mode
-  - ring-width
+  - text opacity
 
 ### Additional Features
 
@@ -921,6 +921,7 @@ Some notable differences are:
   - [animate](https://tailwindcss.com/docs/animate)
   - [transform](https://tailwindcss.com/docs/transform)
   - [Background Image](https://tailwindcss.com/docs/gradient-color-stops#class-reference)
+  - [ring](https://tailwindcss.com/docs/ring-width)
 
 - oceanwind supports duplicate token tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))

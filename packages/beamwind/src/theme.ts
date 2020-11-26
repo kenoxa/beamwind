@@ -151,14 +151,27 @@ const defaultTheme: Theme = {
 
   borderWidth: {
     DEFAULT: '1px',
+    // Plus all spacing values
   },
 
   borderColor: {
     DEFAULT: 'currentColor',
+    // Plus all color values
   },
 
   placeholderColor: {
     DEFAULT: '#9ca3af',
+    // Plus all color values
+  },
+
+  ringWidth: {
+    DEFAULT: '3px',
+    // Plus all spacing values
+  },
+
+  ringOffsetWidth: {
+    DEFAULT: '2px',
+    // Plus all spacing values
   },
 
   flex: {
@@ -199,7 +212,7 @@ const defaultTheme: Theme = {
 
   boxShadow: {
     DEFAULT: '0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06)',
-    none: 'none',
+    none: '0 0 transparent',
     xs: '0 0 0 1px rgba(0,0,0,0.05)',
     sm: '0 1px 2px 0 rgba(0,0,0,0.05)',
     md: '0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06)',
@@ -208,6 +221,7 @@ const defaultTheme: Theme = {
     '2xl': '0 25px 50px -12px rgba(0,0,0,0.25)',
     inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
     outline: '0 0 0 3px rgba(66,153,225,0.5)',
+    focus: '0 0 0 3px rgba(66,153,225,0.5)',
   },
 
   transitionProperty: {
@@ -306,6 +320,9 @@ export const makeTheme = (
   theme.divideWidth = merge(theme.borderWidth, theme.divideWidth)
 
   theme.placeholderColor = merge(theme.colors, theme.placeholderColor)
+
+  theme.ringWidth = merge(theme.spacing, theme.ringWidth)
+  theme.ringOffsetWidth = merge(theme.spacing, theme.ringOffsetWidth)
 
   return theme
 }

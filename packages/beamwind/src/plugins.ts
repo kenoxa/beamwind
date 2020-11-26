@@ -16,6 +16,33 @@ import { join, joinTruthy, tail } from './util'
 // Shared variables
 let _: undefined | string | Declarations | string[]
 
+/* eslint-disable no-return-assign, no-cond-assign */
+
+const parseColorComponent = (chars: string, factor?: number): number =>
+  // eslint-disable-next-line unicorn/prefer-number-properties
+  parseInt(chars, 16) * (factor || 1)
+
+const asRGBA = (color: string, alpha: string): string => {
+  if (color[0] === '#') {
+    // In three-character format, each value is multiplied by 0x11 to give an
+    // even scale from 0x00 to 0xff
+    return (
+      'rgba(' +
+      (color.length === 4
+        ? `${parseColorComponent(color[1], 0x11)},${parseColorComponent(
+            color[2],
+            0x11,
+          )},${parseColorComponent(color[3], 0x11)}`
+        : `${parseColorComponent(color.slice(1, 3))},${parseColorComponent(
+            color.slice(3, 5),
+          )},${parseColorComponent(color.slice(5, 7))}`) +
+      `,${alpha})`
+    )
+  }
+
+  return color
+}
+
 const TOP_LEFT: Record<string, undefined | string> = { x: 'left', y: 'top' }
 const WIDTH_HEIGHT: Record<string, undefined | string> = { w: 'width', h: 'height' }
 
@@ -37,7 +64,6 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
       return { 'border-collapse': parts[1] }
   }
 
-  // eslint-disable-next-line no-return-assign, no-cond-assign
   return (_ = theme(
     `${parts[0]}Width` as 'borderWidth',
     parts[1],
@@ -45,14 +71,19 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
   ))
     ? {
         border: join(
-          [_, 'solid', theme(`${parts[0]}Color` as 'borderColor', join(parts.slice(2)), defaultToKey)],
+          [
+            _,
+            'solid',
+            theme(`${parts[0]}Color` as 'borderColor', join(parts.slice(2)), defaultToKey),
+          ],
           ' ',
         ),
       }
-    : { 'border-color': theme(`${parts[0]}Color` as 'borderColor', join(tail(parts)), defaultToKey) }
+    : {
+        'border-color': theme(`${parts[0]}Color` as 'borderColor', join(tail(parts)), defaultToKey),
+      }
 }
 
-// eslint-disable-next-line no-return-assign
 const minMax: Plugin = (parts, theme) =>
   (_ = WIDTH_HEIGHT[parts[1]]) && {
     [`${parts[0]}-${_}`]: theme(
@@ -90,7 +121,84 @@ export const utilities: Record<string, Plugin> = {
   // .shadow	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   // .shadow-md	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   // .shadow-none	box-shadow: none;
-  shadow: (parts, theme) => ({ 'box-shadow': theme('boxShadow', parts[1]) }),
+  shadow: (parts, theme, { tag }) =>
+    (_ = theme('boxShadow', parts[1], optional)) && {
+      [`--${tag('shadow')}`]: _,
+      // IE11 fallback first, then modern with rin-* support
+      'box-shadow': [
+        _,
+        `var(--${tag('ring-offset-shadow')},0 0 transparent),var(--${tag(
+          'ring-shadow',
+        )},0 0 transparent),var(--${tag('shadow')})`,
+      ],
+    },
+
+  // From theme.ringWidth
+  // .ring
+  // .ring-0
+  // .ring-inset
+  //
+  // From theme.colors
+  // .ring-current
+  // .ring-transparent
+  // .ring-gray-100
+  //
+  // From theme.opacity
+  // .ring-opacity-50
+  //
+  // From theme.ringOffsetWidth
+  // .ring-offset -> 2px
+  // .ring-offset-8 -> 8px
+  ring(parts, theme, { tag }) {
+    switch (parts[1]) {
+      case 'inset':
+        return { [`--${tag('ring-inset')}`]: 'inset' }
+
+      case 'opacity':
+        return { [`--${tag('ring-opacity')}`]: theme('opacity', parts[2], divideBy(100)) }
+
+      case 'offset':
+        // Either width or color
+        return (_ = theme('ringWidth', parts[2], compose(convertTo('px'), optional)))
+          ? {
+              [`--${tag('ring-offset-width')}`]: _,
+            }
+          : {
+              [`--${tag('ring-offset-color')}`]: theme(
+                'colors',
+                join(parts.slice(2)),
+                defaultToKey,
+              ),
+            }
+    }
+
+    // Either width or color
+    return (_ = theme('ringWidth', parts[1], compose(convertTo('px'), optional)))
+      ? {
+          // A width
+          [`--${tag('ring-offset-shadow')}`]: `var(--${tag(
+            'ring-inset',
+          )},/*!*/ /*!*/) 0 0 0 var(--${tag('ring-offset-width')},0px) var(--${tag(
+            'ring-offset-color',
+          )},#fff)`,
+          [`--${tag('ring-shadow')}`]: `var(--${tag(
+            'ring-inset',
+          )},/*!*/ /*!*/) 0 0 0 calc(${_} + var(--${tag('ring-offset-width')},0px)) var(--${tag(
+            'ring-color',
+          )},rgba(59,130,246,0.5))`,
+          'box-shadow': `var(--${tag('ring-offset-shadow')}),var(--${tag(
+            'ring-shadow',
+          )}),var(--${tag('shadow')},0 0 transparent)`,
+        }
+      : {
+          // A color
+          [`--${tag('ring-opacity')}`]: '1',
+          [`--${tag('ring-color')}`]: asRGBA(
+            theme('colors', join(tail(parts)), defaultToKey),
+            `var(--${tag('ring-opacity')})`,
+          ),
+        }
+  },
 
   // .duration-75	transition-duration: 75ms;
   // .duration-75	transition-duration: 75ms;
@@ -173,7 +281,6 @@ export const utilities: Record<string, Plugin> = {
   // .bg-gradient-45 => linear-gradient(45deg, ...)
   // .bg-gradient-to-r => linear-gradient(to right, ...)
   // .bg-gradient-to-r => linear-gradient(to right, ...)
-  // eslint-disable-next-line no-return-assign
   'bg-gradient': (parts, theme, { tag }) => ({
     'background-image': `linear-gradient(${
       parts[1] === 'to' && (_ = expandEdges(parts[2]))
@@ -647,8 +754,6 @@ export const utilities: Record<string, Plugin> = {
   mb: margin,
   ml: margin,
 
-  /* eslint-disable no-return-assign, no-cond-assign */
-
   font: (parts, theme) =>
     (_ = theme('fontFamily', parts[1], optional))
       ? { 'font-family': _ }
@@ -717,8 +822,6 @@ export const utilities: Record<string, Plugin> = {
     ]
   },
 
-  /* eslint-enable no-return-assign, no-cond-assign */
-
   placeholder: (parts, theme) => [
     '::placeholder',
     { color: theme('placeholderColor', join(tail(parts)), defaultToKey) },
@@ -737,3 +840,5 @@ export const utilities: Record<string, Plugin> = {
     }
   },
 }
+
+/* eslint-enable no-return-assign, no-cond-assign */

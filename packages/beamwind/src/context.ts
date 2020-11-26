@@ -119,12 +119,21 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
       },
     )
 
+  const serializeDeclaration = (property: string, value: string | string[]): string =>
+    is.array(value)
+      ? join(
+          value.filter(Boolean).map((value) => prefix(property, value)),
+          ';',
+        )
+      : prefix(property, value)
+
   const serializeDeclarationList = (declarations: Declarations): string =>
     // eslint-disable-next-line unicorn/no-reduce
     Object.keys(declarations).reduce(
       (body, property) =>
         declarations[property]
-          ? (body && body + ';') + prefix(property, declarations[property] as string)
+          ? (body && body + ';') +
+            serializeDeclaration(property, declarations[property] as string | string[])
           : body,
       '',
     )
