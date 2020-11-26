@@ -18,18 +18,17 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 
 ## Key Features
 
-- 📖 Supports all existing Tailwind shorthand syntax outlined [in the docs](https://tailwindcss.com/docs)
+- 📖 Supports vast majority of Tailwind shorthand syntax outlined [in the docs](https://tailwindcss.com/docs) ([see differences](#tailwind-differences))
 - 🗜 Is smaller than the average purged css file output from the Tailwind compiler
 - 💡 Generates only the styles required without building or purging
 - 🚀 Styles co-located with your component reduces context switching
+- 🧹 [Variant](#variant-grouping) and [Directive](#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
 - 🍱 [Reliable selector ordering](#selector-ordering)
 - 🧱 [Extendable with plugins](#plugins)
 - 🐾 Negligible runtime footprint
-- ⏱ Has desirable perf characteristics at runtime
+- ⏱ Performant runtime characteristics
 - 💫 Works without a framework - eg framework agnostic
 - ⚠️ Warns the developer when unrecognized shorthand is used
-
-The library currently weighs ~8kb and supports the vast majority of Tailwind directives and variants ([see differences](#tailwind-differences)).
 
 Here is a quick example:
 
@@ -251,14 +250,14 @@ Directives with the same prefix can be grouped using parenthesis. Beamwind will 
 
 ```js
 bw`text(center underline bold primary)`)
-// text-center text-underline text-bold text-primary
+// => text-center text-underline text-bold text-primary
 ```
 
 Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be applied as is. For that case you can use the special `&` directive which is replaced with the current prefix:
 
 ```js
 bw`ring(& promote offset(sm on-promote))`)
-// ring ring-promote ring-offset-sm ring-offset-on-promote
+// => ring ring-promote ring-offset-sm ring-offset-on-promote
 ```
 
 ### Inline Plugins
@@ -702,7 +701,7 @@ beamwind provides a small set of helper functions to write your own plugins:
 Sometimes global CSS styles are required. beamwind support injection of CSS during the initialization:
 
 ```js
-import { setup, fail } from 'beamwind'
+import { setup } from 'beamwind'
 
 setup({
   init(insert, theme) {
@@ -773,7 +772,7 @@ An injector is responsible for adding a CSS rule to its underlying target.
 During testing or server-side rendering the `virtualInjector` should be used:
 
 ```js
-import { bw, setup, virtualInjector } from 'beamwind'
+import { setup, virtualInjector } from 'beamwind'
 
 const injector = virtualInjector()
 setup({ injector })
@@ -922,7 +921,7 @@ TODO see TODO.md
 
 ## Oceanwind Differences
 
-> All [Tailwind Differences](#tailwind-differences) apply aswell.
+> All [Tailwind Differences](#tailwind-differences) apply as well.
 
 This library is heavily inspired and based on [oceanwind]. Without the work of [Luke Jackson](https://github.com/lukejacksonn) this would not have been possible! He wrote a great [blog post](http://blog.lukejacksonn.com/oceanwind) about the development of oceanwind.
 
