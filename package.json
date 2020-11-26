@@ -25,7 +25,8 @@
     "preinstall": "npx only-allow yarn",
     "publish": "lerna publish --no-private",
     "test": "nps",
-    "preversion": "lerna exec --no-private -- nps prepare && nps test"
+    "preversion": "lerna exec --no-private -- nps prepare && nps test",
+    "version": "lerna exec --no-private -- nps version"
   },
   "prettier": "@carv/prettier-config",
   "eslintConfig": {
