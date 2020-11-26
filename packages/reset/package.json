@@ -21,7 +21,6 @@
   "scripts": {
     "build": "nps",
     "prepublishOnly": "nps",
-    "start": "nps",
     "test": "nps"
   },
   "prettier": "@carv/prettier-config",

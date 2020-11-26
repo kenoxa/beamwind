@@ -19,15 +19,11 @@
   "author": "Kenoxa GmbH <https://kenoxa.com>",
   "main": "src/index.ts",
   "scripts": {
-    "analyze": "size-limit --why",
     "build": "nps",
     "postbuild": "size-limit",
     "prepublishOnly": "nps",
     "size": "size-limit",
-    "start": "nps",
-    "test": "nps",
-    "typedoc": "typedoc",
-    "version": "typedoc && git add docs"
+    "test": "nps"
   },
   "prettier": "@carv/prettier-config",
   "eslintConfig": {
@@ -43,9 +39,7 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
     "nps": "^5.9.12",
-    "size-limit": "^4.6.0",
-    "typedoc": "0.17.0-3",
-    "typedoc-plugin-markdown": "^3.0.11"
+    "size-limit": "^4.6.0"
   },
   "publishConfig": {
     "access": "public"

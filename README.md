@@ -1,4 +1,4 @@
-# Beamwind Monorepo
+# Beamwind
 
 > a [collection of packages](#packages) to compile [Tailwind CSS] like shorthand syntax into CSS at runtime
 

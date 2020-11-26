@@ -3,6 +3,7 @@ pre-commit hook to format files
 https://github.com/tailwindlabs/tailwindcss/pull/2531
 https://tailwindcss.com/docs/grid-auto-columns
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
+https://github.com/tailwindlabs/tailwindcss/pull/2910
 
 - @beamwind/prose: https://tailwindcss.com/docs/typography-plugin
   - implement as plugin -> plugins may need to know what variants are already applied

@@ -7,6 +7,9 @@ web_modules
 dist
 __generated__
 
+docs
+!packages/*/docs
+
 # Svelte Component type defs
 *.svelte.tsx
 __svelte-jsx.d.ts
