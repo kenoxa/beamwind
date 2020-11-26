@@ -133,6 +133,21 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
 
   const tag: Context['a'] = (token) => (hash ? hash(token) : token)
 
+  const insert = (rule: string, presedence: number): void => {
+    if (!injector) {
+      injector = isBrowser ? cssomInjector({ nonce }) : noOpInjector()
+    }
+
+    const index = sortedInsertionIndex(sortedPrecedences, presedence)
+
+    try {
+      injector.insert(rule, index)
+      sortedPrecedences.splice(index, 0, presedence)
+    } catch (error) {
+      console.warn(error)
+    }
+  }
+
   const inject = (
     id: string,
     className: string,
@@ -141,25 +156,12 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
     declarations: Declarations,
   ): void => {
     if (!cachedClassNames.has(className)) {
-      const presedence = calculatePrecedence(variantsCss, declarations)
-      let index = sortedInsertionIndex(sortedPrecedences, presedence)
-
-      if (!injector) {
-        injector = isBrowser ? cssomInjector({ nonce }) : noOpInjector()
-      }
-
       // eslint-disable-next-line unicorn/explicit-length-check
       if (!sortedPrecedences.length && inits.length) {
-        inits.forEach((init) => {
-          init((rule) => {
-            injector.insert(rule, index)
-            sortedPrecedences.splice(index++, 0, 0)
-          }, activeTheme)
-        })
+        inits.forEach((init) => init((rule) => insert(rule, 0), activeTheme))
       }
 
-      injector.insert(rule, index)
-      sortedPrecedences.splice(index, 0, presedence)
+      insert(rule, calculatePrecedence(variantsCss, declarations))
 
       cachedClassNames.set(className, true)
     }

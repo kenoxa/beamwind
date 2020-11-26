@@ -28,10 +28,7 @@ export const virtualInjector = ({ target = [] }: InjectorConfig<string[]> = {}):
 > => {
   return {
     target,
-    insert: (rule, index): number => {
-      target.splice(index, 0, rule)
-      return index
-    },
+    insert: (rule, index) => target.splice(index, 0, rule),
   }
 }
 
@@ -46,14 +43,7 @@ export const cssomInjector = ({
 
   return {
     target,
-    insert: (rule, index) => {
-      // Avoid render failure during production if a rule cannot be parsed
-      try {
-        return target.insertRule(rule, index)
-      } catch {
-        return -1
-      }
-    },
+    insert: target.insertRule.bind(target)
   }
 }
 
@@ -63,6 +53,6 @@ export const cssomInjector = ({
 export const noOpInjector = (): Injector<null> => {
   return {
     target: null,
-    insert: () => 0,
+    insert: () => {},
   }
 }

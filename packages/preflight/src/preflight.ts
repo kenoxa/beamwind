@@ -150,7 +150,6 @@ export const preflight = (theme: Theme): string[] => [
   /**
    * Remove the inner border and padding in Firefox.
    */
-
   `::-moz-focus-inner{border-style:none;padding:0}`,
 
   /**
