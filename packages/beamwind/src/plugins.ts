@@ -178,7 +178,7 @@ export const utilities: Record<string, Plugin> = {
     'background-image': `linear-gradient(${
       parts[1] === 'to' && (_ = expandEdges(parts[2]))
         ? 'to ' + join(_, ' ')
-        : theme('angle', join(tail(parts), ' '), compose(convertTo('deg'), defaultToKey))
+        : theme('angle', join(tail(parts), ' ') || '180', compose(convertTo('deg'), defaultToKey))
     },var(--${tag('gradient-stops')},var(--${tag('gradient-from')},transparent),var(--${tag(
       'gradient-to',
     )},transparent)))`,

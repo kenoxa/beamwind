@@ -608,6 +608,20 @@
       ".transform{transform:translateX(var(--transform-translate-x,0)) translateY(var(--transform-translate-y,0)) rotate(var(--transform-rotate,0)) skewX(var(--transform-skew-x,0)) skewY(var(--transform-skew-y,0)) scaleX(var(--transform-scale-x,1)) scaleY(var(--transform-scale-y,1))}"
     ]
   ],
+  "bg-gradient": [
+    "bg-gradient",
+    [
+      ".bg-gradient{background-image:linear-gradient(180deg,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
+  "bg-gradient from-primary to-on-primary": [
+    "bg-gradient from-primary to-on-primary",
+    [
+      ".from-primary{--gradient-from:#0d3880}",
+      ".to-on-primary{--gradient-to:#e8ecf4}",
+      ".bg-gradient{background-image:linear-gradient(180deg,var(--gradient-stops,var(--gradient-from,transparent),var(--gradient-to,transparent)))}"
+    ]
+  ],
   "bg-gradient-to-r from-primary via-secondary to-on-primary": [
     "bg-gradient-to-r from-primary via-secondary to-on-primary",
     [

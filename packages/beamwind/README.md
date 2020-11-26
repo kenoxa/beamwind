@@ -854,6 +854,7 @@ TODO see TODO.md
   > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
 
 - `bg-gradient` accepts additionally to the side-or-corner parameter (`bg-gradient-to-tr`) an angle or mixed parameters:
+  - `bg-gradient` - defaults to `180deg` eg `to bottom`
   - `bg-gradient-45`
   - `bg-gradient-0.25turn`
   - `bg-gradient-to-bottom-left`

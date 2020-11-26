@@ -67,3 +67,11 @@ test('bg-gradient-to-r', () => {
     '._1gt8na1{background-image:linear-gradient(to right,var(--_1j5yf11,var(--_1iasyn4,transparent),var(--_3cvhiv,transparent)))}',
   ])
 })
+
+test('different variant producde different hashes', () => {
+  expect(instance.cx('sm:text-center lg:text-center')).toBe('_4ibn6j _1n3gpqh')
+  expect(injector.target).toMatchObject([
+    '@media (min-width: 576px){._4ibn6j{text-align:center}}',
+    '@media (min-width: 992px){._1n3gpqh{text-align:center}}',
+  ])
+})
