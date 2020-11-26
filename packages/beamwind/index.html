@@ -271,6 +271,15 @@ cx(
 				<blockquote>
 					<p>Two things to note here is that the outermost variant should always be a responsive variant (just like in tailwind <code>hover:sm:</code> is not supported) and that nesting responsive variants doesn&#39;t make sense either, for example <code>sm:md:</code> is not supported.</p>
 				</blockquote>
+				<a href="#directive-grouping" id="directive-grouping" style="color: inherit; text-decoration: none;">
+					<h3>Directive Grouping</h3>
+				</a>
+				<p>Directives with the same prefix can be grouped using parenthesis. Beamwind will expand the nested directives; applying the prefix to each directive in the group before translation. For example:</p>
+				<pre><code class="language-js">cx<span class="hljs-string">`text(center underline bold primary)`</span>)
+<span class="hljs-comment">// text-center text-underline text-bold text-primary</span></code></pre>
+				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
+				<pre><code class="language-js">cx<span class="hljs-string">`ring(&amp; promote offset(sm on-promote))`</span>)
+<span class="hljs-comment">// ring ring-promote ring-offset-sm ring-offset-on-promote</span></code></pre>
 				<a href="#theming" id="theming" style="color: inherit; text-decoration: none;">
 					<h2>Theming</h2>
 				</a>
@@ -768,10 +777,10 @@ setup(tailwindPreset)
 <span class="hljs-string">`</span></code></pre>
 					</li>
 					<li><p>beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features</p>
-						<p>The following feature are not yet available in beamwind</p>
+						<p>The following feature are not yet available in beamwind:</p>
 						<ul>
 							<li>dark mode</li>
-							<li>ring-width</li>
+							<li>text opacity</li>
 						</ul>
 					</li>
 				</ul>
@@ -861,6 +870,7 @@ setup(tailwindPreset)
 							<li>variadic arguments like <code>cs(&#39;bg-blue&#39;, &#39;text-white&#39;)</code></li>
 							<li>Tagged Template Interpolation values may additionally be Array or Object</li>
 							<li>Object values which are String, Array or Object start a new variant group</li>
+							<li><a href="#directive-grouping">Directive Grouping</a></li>
 						</ul>
 					</li>
 					<li><p>beamwind allows to define new plugins (see <a href="#plugins">Plugins</a>)</p>
@@ -880,6 +890,7 @@ setup(tailwindPreset)
 							<li><a href="https://tailwindcss.com/docs/animate">animate</a></li>
 							<li><a href="https://tailwindcss.com/docs/transform">transform</a></li>
 							<li><a href="https://tailwindcss.com/docs/gradient-color-stops#class-reference">Background Image</a></li>
+							<li><a href="https://tailwindcss.com/docs/ring-width">ring</a></li>
 						</ul>
 					</li>
 					<li><p>oceanwind supports duplicate token tracking</p>
@@ -989,9 +1000,6 @@ setup(tailwindPreset)
 						<a href="interfaces/themeborderradius.html" class="tsd-kind-icon">Theme<wbr>Border<wbr>Radius</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/themeborderwidth.html" class="tsd-kind-icon">Theme<wbr>Border<wbr>Width</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/themeboxshadow.html" class="tsd-kind-icon">Theme<wbr>Box<wbr>Shadow</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -1050,6 +1058,9 @@ setup(tailwindPreset)
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/themetransitiontimingfunction.html" class="tsd-kind-icon">Theme<wbr>Transition<wbr>Timing<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themewidth.html" class="tsd-kind-icon">Theme<wbr>Width</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/themezindex.html" class="tsd-kind-icon">ThemeZIndex</a>
