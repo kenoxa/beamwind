@@ -13,13 +13,7 @@ export default function preset({ colors }: Options = {}): { theme: { colors: The
     surface: '#fafafa',
     'on-surface': '#222',
 
-    // TODO 'surface-primary': '#f9fafb',
-    // 'on-surface-primary': '#111827',
-    // 'surface-secondary': '#d1d5db',
-    // 'on-surface-secondary': '#111827',
-    // - `surface-primary`
-    // - `surface-secondary`
-    // - `surface-ternary`
+    // TODO other surfaces like sheet, panel, menu
 
     // https://seek-oss.github.io/braid-design-system/foundations/tones/
     primary: '#0d3880',

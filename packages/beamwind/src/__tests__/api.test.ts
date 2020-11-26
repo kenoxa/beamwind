@@ -187,10 +187,6 @@ test('no arguments', () => {
   expect(cx()).toBe('')
 })
 
-test('fail for invalid animation', () => {
-  expect(() => cx`animate-unknown`).toThrow(`No theme value found for "animation.unknown"`)
-})
-
 test('warn to console', () => {
   const consoleWarn = console.warn
 

@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @beamwind/preset-tailwind
 
-
-
-
-
 ## 1.0.1 (2020-11-25)
 
 **Note:** Version bump only for package @beamwind/preset-tailwind

@@ -831,13 +831,15 @@ export const utilities: Record<string, Plugin> = {
   max: minMax,
 
   animate: (parts, theme, { keyframes }) => {
-    const animation = theme('animation', (_ = join(tail(parts))))
+    const animation = theme('animation', (_ = join(tail(parts))), optional)
 
-    return {
-      animation: is.string(animation)
-        ? animation
-        : `${keyframes(animation[1] || _)} ${animation[0]}`,
-    }
+    return (
+      animation && {
+        animation: is.string(animation)
+          ? animation
+          : `${keyframes(animation[1] || _)} ${animation[0]}`,
+      }
+    )
   },
 }
 

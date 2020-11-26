@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @beamwind/preset-semantic
 
-
-
-
-
 ## [1.0.2](https://github.com/kenoxa/beamwind/compare/@beamwind/preset-semantic@1.0.1...@beamwind/preset-semantic@1.0.2) (2020-11-25)
 
 **Note:** Version bump only for package @beamwind/preset-semantic
