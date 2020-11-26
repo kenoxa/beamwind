@@ -7,6 +7,6 @@ export interface ClassNameCreator {
 }
 
 export interface Instance {
-  bw: ClassNameCreator
-  setup: (options?: ConfigurationOptions | ConfigurationOptions[]) => void
+  readonly bw: ClassNameCreator
+  readonly setup: (options?: ConfigurationOptions | ConfigurationOptions[]) => void
 }
