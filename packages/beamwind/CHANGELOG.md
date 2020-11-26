@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/kenoxa/beamwind/compare/beamwind@1.4.0...beamwind@1.4.1) (2020-11-26)
+
+### Bug Fixes
+
+- use 'bw' instead of cx in preparation for intellisense ([9fdb322](https://github.com/kenoxa/beamwind/commit/9fdb3226262609d5d732c1fa2f72d0796c6a8250))
+
 # [1.4.0](https://github.com/kenoxa/beamwind/compare/beamwind@1.3.1...beamwind@1.4.0) (2020-11-26)
 
 ### Features
