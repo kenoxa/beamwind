@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/kenoxa/beamwind/compare/beamwind@1.3.1...beamwind@1.4.0) (2020-11-26)
+
+### Features
+
+- inline plugins ([5ac827a](https://github.com/kenoxa/beamwind/commit/5ac827a30007854b47f03739676d1827144ce9c3))
+
 ## [1.3.1](https://github.com/kenoxa/beamwind/compare/beamwind@1.3.0...beamwind@1.3.1) (2020-11-26)
 
 **Note:** Version bump only for package beamwind
