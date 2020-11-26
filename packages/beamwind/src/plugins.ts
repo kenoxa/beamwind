@@ -1,4 +1,4 @@
-import type { Declarations, Plugin, ThemeValueResolver, UnknownKeyHandler } from './types'
+import type { Declarations, Plugin, ThemeValueResolver } from './types'
 
 import * as is from './is'
 import {
@@ -15,9 +15,6 @@ import { join, joinTruthy, tail } from './util'
 
 // Shared variables
 let _: undefined | string | Declarations | string[]
-
-// eslint-disable-next-line no-implicit-coercion
-const keyColor: UnknownKeyHandler<string> = (key) => (~key.indexOf('-') ? undefined : key)
 
 const TOP_LEFT: Record<string, undefined | string> = { x: 'left', y: 'top' }
 const WIDTH_HEIGHT: Record<string, undefined | string> = { w: 'width', h: 'height' }
@@ -48,11 +45,11 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
   ))
     ? {
         border: join(
-          [_, 'solid', theme(`${parts[0]}Color` as 'borderColor', join(parts.slice(2)), keyColor)],
+          [_, 'solid', theme(`${parts[0]}Color` as 'borderColor', join(parts.slice(2)), defaultToKey)],
           ' ',
         ),
       }
-    : { 'border-color': theme(`${parts[0]}Color` as 'borderColor', join(tail(parts)), keyColor) }
+    : { 'border-color': theme(`${parts[0]}Color` as 'borderColor', join(tail(parts)), defaultToKey) }
 }
 
 // eslint-disable-next-line no-return-assign
@@ -189,7 +186,7 @@ export const utilities: Record<string, Plugin> = {
 
   // .from-purple-400
   from: (parts, theme, { tag }) => ({
-    [`--${tag('gradient-from')}`]: theme('colors', join(tail(parts)), keyColor),
+    [`--${tag('gradient-from')}`]: theme('colors', join(tail(parts)), defaultToKey),
   }),
 
   // .via-pink-500
@@ -197,13 +194,13 @@ export const utilities: Record<string, Plugin> = {
     [`--${tag('gradient-stops')}`]: `var(--${tag('gradient-from')},transparent),${theme(
       'colors',
       join(tail(parts)),
-      keyColor,
+      defaultToKey,
     )},var(--${tag('gradient-to')},transparent)`,
   }),
 
   // .to-red-500
   to: (parts, theme, { tag }) => ({
-    [`--${tag('gradient-to')}`]: theme('colors', join(tail(parts)), keyColor),
+    [`--${tag('gradient-to')}`]: theme('colors', join(tail(parts)), defaultToKey),
   }),
 
   'pointer-events': (parts) => ({ 'pointer-events': parts[1] }),
@@ -236,7 +233,7 @@ export const utilities: Record<string, Plugin> = {
   'stroke-current': { stroke: 'currentColor' },
   stroke: (parts, theme) => ({ 'stroke-width': theme('strokeWidth', parts[1], defaultToKey) }),
 
-  fill: (parts, theme) => ({ fill: theme('colors', join(tail(parts)), keyColor) }),
+  fill: (parts, theme) => ({ fill: theme('colors', join(tail(parts)), defaultToKey) }),
 
   // .outline-none	outline: 2px solid transparent; outline-offset: 2px;
   // .outline-white	outline: 2px dotted white; outline-offset: 2px;
@@ -244,7 +241,7 @@ export const utilities: Record<string, Plugin> = {
     outline: `2px ${parts[1] === 'none' ? 'solid' : 'dotted'} ${theme(
       'colors',
       join(tail(parts)),
-      keyColor,
+      defaultToKey,
     )}`,
     'outline-offset': '2px',
   }),
@@ -315,7 +312,7 @@ export const utilities: Record<string, Plugin> = {
               }
         }
 
-        return { color: theme('colors', join(tail(parts)), keyColor) }
+        return { color: theme('colors', join(tail(parts)), defaultToKey) }
       }
     }
   },
@@ -349,14 +346,14 @@ export const utilities: Record<string, Plugin> = {
     }
 
     return {
-      'background-color': theme('colors', join(tail(parts)), keyColor),
+      'background-color': theme('colors', join(tail(parts)), defaultToKey),
       // Look for a corresponding text color:
       // 'primary' -> 'on-primary'
       // 'on-primary' -> 'primary'
       color: theme(
         'colors',
         join(parts[1] === 'on' ? parts.slice(2) : ['on'].concat(tail(parts))),
-        compose(keyColor, optional),
+        optional,
       ),
     }
   },
@@ -683,7 +680,7 @@ export const utilities: Record<string, Plugin> = {
           [
             _ || theme('borderWidth', 'DEFAULT', optional),
             'solid',
-            theme('borderColor', join(parts.slice(_ ? 3 : 2)), keyColor),
+            theme('borderColor', join(parts.slice(_ ? 3 : 2)), defaultToKey),
           ],
           ' ',
         ),
@@ -711,7 +708,7 @@ export const utilities: Record<string, Plugin> = {
               [
                 _ || theme('divideWidth', 'DEFAULT'),
                 'solid',
-                theme('divideColor', join(parts.slice(_ ? 3 : 2)), keyColor),
+                theme('divideColor', join(parts.slice(_ ? 3 : 2)), defaultToKey),
               ],
               ' ',
             ),
@@ -724,7 +721,7 @@ export const utilities: Record<string, Plugin> = {
 
   placeholder: (parts, theme) => [
     '::placeholder',
-    { color: theme('placeholderColor', join(tail(parts)), keyColor) },
+    { color: theme('placeholderColor', join(tail(parts)), defaultToKey) },
   ],
 
   min: minMax,
