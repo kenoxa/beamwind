@@ -93,14 +93,14 @@
 				<pre><code class="language-jsx"><span class="hljs-comment">// Load an opinionated set of base styles for Tailwind projects.</span>
 <span class="hljs-comment">// If you need to support IE 11 use @beamwind/reset</span>
 <span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/@beamwind/preflight&#x27;</span>
-<span class="hljs-keyword">import</span> { cx, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
+<span class="hljs-keyword">import</span> { bw, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
 
 setup(preflight)
 
-&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>={cx<span class="hljs-string">`flex space`</span>}&gt;
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{cx</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{cx</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{cx</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>={bw<span class="hljs-string">`flex space`</span>}&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 &lt;/div&gt;</code></pre>
 				<!-- prettier-ignore-start -->
 				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -129,13 +129,13 @@ setup(preflight)
 				</a>
 				<pre><code class="language-sh">npm install beamwind</code></pre>
 				<p>And then import it:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { cx } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span></code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span></code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<p>To use the library, first import the module then invoke the <code>cx</code> export using tagged template syntax:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { cx } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
-<span class="hljs-built_in">document</span>.body.className = cx<span class="hljs-string">`h-full bg-purple-500 rotate-3 scale-95`</span></code></pre>
+				<p>To use the library, first import the module then invoke the <code>bw</code> export using tagged template syntax:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
+<span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full bg-purple-500 rotate-3 scale-95`</span></code></pre>
 				<p>Running the above code will result in the following happening:</p>
 				<ol>
 					<li>Parse tokens (<code>h-full</code>, <code>bg-purple-500</code>, <code>rotate-3</code>, <code>scale-95</code>)</li>
@@ -157,8 +157,8 @@ setup(preflight)
 				<blockquote>
 					<p>The <a href="#theming">Theming section</a> provides detailed insight into the theming options.</p>
 				</blockquote>
-				<p>To customize the theme, use the <code>setup</code> export. This will change the theme used by the <code>cx</code> export.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { cx, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+				<p>To customize the theme, use the <code>setup</code> export. This will change the theme used by the <code>bw</code> export.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
   <span class="hljs-attr">theme</span>: {
@@ -168,7 +168,7 @@ setup({
   },
 })
 
-cx<span class="hljs-string">`bg-red-500`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
+bw<span class="hljs-string">`bg-red-500`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
 				<blockquote>
 					<p><code>setup</code> can be called multiple times where each call extends the existing configuration.
 					The <code>theme</code> and <code>plugins</code> properties merge their values with the previous ones.</p>
@@ -189,47 +189,47 @@ css`<span class="css"><span class="hljs-selector-tag">bg-red-500</span>`</span> 
 				<a href="#function-signature" id="function-signature" style="color: inherit; text-decoration: none;">
 					<h3>Function Signature</h3>
 				</a>
-				<p>It is possible to invoke beamwind in a multitude of different ways. The <code>cx</code> function can take <strong><em>any</em></strong> number of arguments, each of which can be an Object, Array, Boolean, Number, String or <a href="#inline-plugins">inline plugins</a>. This feature is based on <a href="https://www.npmjs.com/package/cslx">clsx</a>.</p>
+				<p>It is possible to invoke beamwind in a multitude of different ways. The <code>bw</code> function can take <strong><em>any</em></strong> number of arguments, each of which can be an Object, Array, Boolean, Number, String or <a href="#inline-plugins">inline plugins</a>. This feature is based on <a href="https://www.npmjs.com/package/cslx">clsx</a>.</p>
 				<blockquote>
 					<p><strong>Important</strong>: <em>Any</em> falsey values are discarded!
 					Standalone Boolean values are discarded as well.</p>
 				</blockquote>
 				<p>For example:</p>
 				<pre><code class="language-js"><span class="hljs-comment">// Tag Template Literal (falsey interpolations will be omitted)</span>
-cx<span class="hljs-string">`bg-primary rounded`</span>
+bw<span class="hljs-string">`bg-primary rounded`</span>
 <span class="hljs-comment">//=&gt; &#x27;bg-primary rounded&#x27;</span>
 
-cx<span class="hljs-string">`bg-primary <span class="hljs-subst">${<span class="hljs-literal">false</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>}</span>`</span>
+bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${<span class="hljs-literal">false</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>}</span>`</span>
 <span class="hljs-comment">//=&gt; &#x27;bg-primary&#x27;</span>
 
-cx<span class="hljs-string">`bg-primary <span class="hljs-subst">${[<span class="hljs-literal">false</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;block&#x27;</span>]}</span>`</span>
+bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${[<span class="hljs-literal">false</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;block&#x27;</span>]}</span>`</span>
 <span class="hljs-comment">//=&gt; &#x27;bg-primary block&#x27;</span>
 
-cx<span class="hljs-string">`bg-primary <span class="hljs-subst">${{ rounded: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>: isTrue() }}</span>`</span>
+bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${{ rounded: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>: isTrue() }}</span>`</span>
 <span class="hljs-comment">//=&gt; &#x27;bg-primary text-underline&#x27;</span>
 
 <span class="hljs-comment">// Strings (variadic)</span>
-cx(<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>)
+bw(<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>)
 <span class="hljs-comment">//=&gt; &#x27;bg-primary rounded text-underline&#x27;</span>
 
 <span class="hljs-comment">// Objects (keys with falsey values will be omitted)</span>
-cx({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>: isTrue() })
+bw({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>: isTrue() })
 <span class="hljs-comment">//=&gt; &#x27;bg-primary text-underline&#x27;</span>
 
 <span class="hljs-comment">// Objects (variadic)</span>
-cx({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span> }, { <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span> }, <span class="hljs-literal">null</span>, { <span class="hljs-string">&#x27;text-underline&#x27;</span>: <span class="hljs-literal">true</span> })
+bw({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span> }, { <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span> }, <span class="hljs-literal">null</span>, { <span class="hljs-string">&#x27;text-underline&#x27;</span>: <span class="hljs-literal">true</span> })
 <span class="hljs-comment">//=&gt; &#x27;bg-primary text-underline&#x27;</span>
 
 <span class="hljs-comment">// Arrays (falsey items will be omitted)</span>
-cx([<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>])
+bw([<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>])
 <span class="hljs-comment">//=&gt; &#x27;bg-primary rounded&#x27;</span>
 
 <span class="hljs-comment">// Arrays (variadic)</span>
-cx([<span class="hljs-string">&#x27;bg-primary&#x27;</span>], [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>], [[<span class="hljs-string">&#x27;text-underline&#x27;</span>, [[<span class="hljs-string">&#x27;text-lg&#x27;</span>], <span class="hljs-string">&#x27;block&#x27;</span>]]])
+bw([<span class="hljs-string">&#x27;bg-primary&#x27;</span>], [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>], [[<span class="hljs-string">&#x27;text-underline&#x27;</span>, [[<span class="hljs-string">&#x27;text-lg&#x27;</span>], <span class="hljs-string">&#x27;block&#x27;</span>]]])
 <span class="hljs-comment">//=&gt; &#x27;bg-primary rounded text-underline text-lg block&#x27;</span>
 
 <span class="hljs-comment">// Kitchen sink (with nesting)</span>
-cx(
+bw(
   <span class="hljs-string">&#x27;bg-primary&#x27;</span>,
   [<span class="hljs-number">1</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, { <span class="hljs-attr">underline</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;color-secondary&#x27;</span>: <span class="hljs-literal">null</span> }, [<span class="hljs-string">&#x27;text-lg&#x27;</span>, [<span class="hljs-string">&#x27;shadow-lg&#x27;</span>]]],
   <span class="hljs-string">&#x27;uppercase&#x27;</span>,
@@ -242,7 +242,7 @@ cx(
 				<blockquote>
 					<p>Notice any directives within tagged template literals can span multiple lines</p>
 				</blockquote>
-				<pre><code class="language-js">cx<span class="hljs-string">`
+				<pre><code class="language-js">bw<span class="hljs-string">`
   sm:hover:(
     bg-black
     text-white
@@ -251,7 +251,7 @@ cx(
 `</span>
 <span class="hljs-comment">// =&gt; sm:hover:bg-black sm:hover:text-white md:bg-white md:hover:text-black</span></code></pre>
 				<p>It is possible to nest groupings too, for example:</p>
-				<pre><code class="language-js">cx<span class="hljs-string">`
+				<pre><code class="language-js">bw<span class="hljs-string">`
   sm:(
     bg-black
     text-white
@@ -260,7 +260,7 @@ cx(
 `</span>
 <span class="hljs-comment">// =&gt; sm:hover:bg-black sm:hover:text-white sm:hover:bg-white sm:hover:text-black</span></code></pre>
 				<p>Object values which are String, Array or Object start a new variant group:</p>
-				<pre><code class="language-js">cx({
+				<pre><code class="language-js">bw({
   <span class="hljs-attr">sm</span>: {
     <span class="hljs-string">&#x27;bg-black&#x27;</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-string">&#x27;text-white&#x27;</span>: <span class="hljs-literal">true</span>,
@@ -275,10 +275,10 @@ cx(
 					<h3>Directive Grouping</h3>
 				</a>
 				<p>Directives with the same prefix can be grouped using parenthesis. Beamwind will expand the nested directives; applying the prefix to each directive in the group before translation. For example:</p>
-				<pre><code class="language-js">cx<span class="hljs-string">`text(center underline bold primary)`</span>)
+				<pre><code class="language-js">bw<span class="hljs-string">`text(center underline bold primary)`</span>)
 <span class="hljs-comment">// text-center text-underline text-bold text-primary</span></code></pre>
 				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
-				<pre><code class="language-js">cx<span class="hljs-string">`ring(&amp; promote offset(sm on-promote))`</span>)
+				<pre><code class="language-js">bw<span class="hljs-string">`ring(&amp; promote offset(sm on-promote))`</span>)
 <span class="hljs-comment">// ring ring-promote ring-offset-sm ring-offset-on-promote</span></code></pre>
 				<a href="#inline-plugins" id="inline-plugins" style="color: inherit; text-decoration: none;">
 					<h3>Inline Plugins</h3>
@@ -293,11 +293,11 @@ cx(
   <span class="hljs-string">&#x27;text-align&#x27;</span>: <span class="hljs-string">&#x27;center&#x27;</span>,
 })
 
-cx<span class="hljs-string">`font-bold <span class="hljs-subst">${card}</span> color-primary`</span>
+bw<span class="hljs-string">`font-bold <span class="hljs-subst">${card}</span> color-primary`</span>
 <span class="hljs-comment">// Note: Same works for arrays and objects</span>
 
 <span class="hljs-comment">// You can use variants</span>
-cx<span class="hljs-string">`sm:<span class="hljs-subst">${card}</span> color-primary`</span>
+bw<span class="hljs-string">`sm:<span class="hljs-subst">${card}</span> color-primary`</span>
 <span class="hljs-comment">// Same works for arrays and objects</span></code></pre>
 				<blockquote>
 					<p><strong>Note</strong>: This should be a last resort as it comes with a small performance penalty.</p>
@@ -314,10 +314,10 @@ cx<span class="hljs-string">`sm:<span class="hljs-subst">${card}</span> color-pr
   <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;inline-block font-bold py-2 px-4 rounded&#x27;</span>
 }
 
-cx(btn())
+bw(btn())
 <span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded</span>
 
-cx([btn(), btn(<span class="hljs-string">&#x27;primary&#x27;</span>)])
+bw([btn(), btn(<span class="hljs-string">&#x27;primary&#x27;</span>)])
 <span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded bg-primary text-primary-contrast hover:bg-primary-hover active:bg-primary-active</span></code></pre>
 				<blockquote>
 					<p>This can be converted into a <a href="#adding-new-components">component plugin</a>.</p>
@@ -621,7 +621,7 @@ setup({
 				<blockquote>
 					<p>Components define a set of utility tokens that should be applied if the component token is used.</p>
 				</blockquote>
-				<p>Static components that are only a collection of utilities can be defined as strings. The following example allows to use <code>card</code> as a token (<code>cx(&#39;card&#39;)</code>) which will be expanded to <code>max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl</code>:</p>
+				<p>Static components that are only a collection of utilities can be defined as strings. The following example allows to use <code>card</code> as a token (<code>bw(&#39;card&#39;)</code>) which will be expanded to <code>max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl</code>:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
@@ -643,7 +643,7 @@ setup({
     },
   },
 })</code></pre>
-				<p>Some dynamic components depend on additional logic and like to use the familiar <code>cx</code> API. For these case beamwind provides the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply">apply</a> helper, which has the same API signature as <code>cx</code>.</p>
+				<p>Some dynamic components depend on additional logic and like to use the familiar <code>bw</code> API. For these case beamwind provides the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply">apply</a> helper, which has the same API signature as <code>bw</code>.</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup, apply, optional } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
@@ -729,7 +729,7 @@ setup({ <span class="hljs-attr">hash</span>: <span class="hljs-function">(<span 
 				</a>
 				<p>An injector is responsible for adding a CSS rule to its underlying target.</p>
 				<p>During testing or server-side rendering the <code>virtualInjector</code> should be used:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { cx, setup, virtualInjector } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw, setup, virtualInjector } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 <span class="hljs-keyword">const</span> injector = virtualInjector()
 setup({ injector })
@@ -743,7 +743,7 @@ injector.target <span class="hljs-comment">// Array with sorted CSS rulesText</s
 
 <span class="hljs-keyword">const</span> iframeDocument = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;iframe&#x27;</span>)[<span class="hljs-number">0</span>].contentDocument
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> { cx } = createInstance({
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> { bw } = createInstance({
   <span class="hljs-attr">injector</span>: cssomInjector({
     <span class="hljs-comment">// Make sure this node exists or create it on the fly if necessary</span>
     <span class="hljs-attr">target</span>: iframeDocument.getElementById(<span class="hljs-string">&#x27;beamwind&#x27;</span>),
@@ -760,11 +760,11 @@ injector.target <span class="hljs-comment">// Array with sorted CSS rulesText</s
 <span class="hljs-keyword">import</span> { getStyleTag } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/ssr&#x27;</span>
 
 <span class="hljs-keyword">const</span> injector = virtualInjector()
-<span class="hljs-keyword">const</span> cx = createInstance({ injector })
+<span class="hljs-keyword">const</span> bw = createInstance({ injector })
 
 <span class="hljs-keyword">const</span> html = htm.bind(h)
 <span class="hljs-keyword">const</span> style = {
-  <span class="hljs-attr">main</span>: cx<span class="hljs-string">`clearfix`</span>,
+  <span class="hljs-attr">main</span>: bw<span class="hljs-string">`clearfix`</span>,
 }
 
 <span class="hljs-keyword">const</span> app = html`<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">main</span> <span class="hljs-attr">className</span>=</span></span><span class="hljs-subst">${style.main}</span><span class="xml"><span class="hljs-tag">&gt;</span>hello beamwind<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>`</span>
@@ -1177,6 +1177,9 @@ setup(tailwindPreset)
 					<li class=" tsd-kind-function">
 						<a href="modules.html#autoprefix" class="tsd-kind-icon">autoprefix</a>
 					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#bw" class="tsd-kind-icon">bw</a>
+					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="modules.html#compose" class="tsd-kind-icon">compose</a>
 					</li>
@@ -1191,9 +1194,6 @@ setup(tailwindPreset)
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#cssominjector" class="tsd-kind-icon">cssom<wbr>Injector</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#cx" class="tsd-kind-icon">cx</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#cyrb32" class="tsd-kind-icon">cyrb32</a>
