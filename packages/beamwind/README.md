@@ -636,6 +636,20 @@ beamwind provides a small set of helper functions to write your own plugins:
 
 ## [API](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/README.md)
 
+### Global Styles
+
+Sometimes global CSS styles are required. beamwind support injection of CSS during the initialization:
+
+```js
+import { setup, fail } from 'beamwind'
+
+setup({
+  init(insert, theme) {
+    insert(`body{margin:${theme.spacing.xl}}`)
+  }
+})
+```
+
 ### Catching Errors
 
 By default warnings about missing translations will be written to the console.
