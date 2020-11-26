@@ -10,7 +10,7 @@ export const createInstance = (
   const context = createContext(options)
 
   return {
-    cx: (...tokens: unknown[]) => process(asTokens(tokens), context),
+    bw: (...tokens: unknown[]) => process(asTokens(tokens), context),
 
     setup: context.c,
   }

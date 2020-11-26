@@ -2,7 +2,7 @@ import { createInstance } from './instance'
 
 const instance = createInstance()
 
-export const { cx } = instance
+export const { bw } = instance
 export const { setup } = instance
 
 export * from './hash'

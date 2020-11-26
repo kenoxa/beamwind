@@ -23,13 +23,13 @@ const stringify = (className: string, declarations: Declarations): string => {
 }
 
 let injector: Injector<string[]>
-let cx: Instance['cx']
+let bw: Instance['bw']
 let setup: Instance['setup']
 
 beforeEach(() => {
   injector = virtualInjector()
   const instance = createInstance({ injector, prefix: noprefix, hash: false })
-  cx = instance.cx
+  bw = instance.bw
   setup = instance.setup
 })
 
@@ -70,12 +70,12 @@ test.each(
       [stringify('.' + escape(tokens), declarations as Record<string, string | undefined>)],
     ]
   }),
-)('cx(%j) => %s', (tokens, classNames, rules) => {
-  expect(cx(tokens)).toBe(classNames)
+)('bw(%j) => %s', (tokens, classNames, rules) => {
+  expect(bw(tokens)).toBe(classNames)
   expect(injector.target).toMatchObject(rules)
 
   // Cached access
-  expect(cx(tokens)).toBe(classNames)
+  expect(bw(tokens)).toBe(classNames)
   expect(injector.target).toMatchObject(rules)
 })
 
@@ -127,44 +127,44 @@ test.each([
       '@media (min-width: 992px){.lg\\:hover\\:active\\:underline:hover:active{text-decoration:underline}}',
     ],
   ],
-])('cx(%j) => %s', (tokens, classNames, rules) => {
-  expect(cx(tokens)).toBe(classNames)
+])('bw(%j) => %s', (tokens, classNames, rules) => {
+  expect(bw(tokens)).toBe(classNames)
   expect(injector.target).toMatchObject(rules)
 
   // Cached access
-  expect(cx(tokens)).toBe(classNames)
+  expect(bw(tokens)).toBe(classNames)
   expect(injector.target).toMatchObject(rules)
 })
 
 /* eslint-disable no-template-curly-in-string */
-test('cx`bg-primary ${false && "rounded"}`', () => {
-  expect(cx`bg-primary ${false && 'rounded'}`).toBe('bg-primary')
+test('bw`bg-primary ${false && "rounded"}`', () => {
+  expect(bw`bg-primary ${false && 'rounded'}`).toBe('bg-primary')
   expect(injector.target).toMatchObject(['.bg-primary{background-color:#0d3880;color:#e8ecf4}'])
 })
 
-test('cx`bg-primary ${true && "rounded"}`', () => {
-  expect(cx`bg-primary ${true && 'rounded'}`).toBe('bg-primary rounded')
+test('bw`bg-primary ${true && "rounded"}`', () => {
+  expect(bw`bg-primary ${true && 'rounded'}`).toBe('bg-primary rounded')
   expect(injector.target).toMatchObject([
     '.bg-primary{background-color:#0d3880;color:#e8ecf4}',
     '.rounded{border-radius:.25rem}',
   ])
 })
 
-test('cx`bg-primary ${{rounded: true}}`', () => {
-  expect(cx`bg-primary ${{ rounded: true }}`).toBe('bg-primary rounded')
+test('bw`bg-primary ${{rounded: true}}`', () => {
+  expect(bw`bg-primary ${{ rounded: true }}`).toBe('bg-primary rounded')
   expect(injector.target).toMatchObject([
     '.bg-primary{background-color:#0d3880;color:#e8ecf4}',
     '.rounded{border-radius:.25rem}',
   ])
 })
 
-test('cx`bg-primary ${{rounded: false}}`', () => {
-  expect(cx`bg-primary ${{ rounded: false }}`).toBe('bg-primary')
+test('bw`bg-primary ${{rounded: false}}`', () => {
+  expect(bw`bg-primary ${{ rounded: false }}`).toBe('bg-primary')
   expect(injector.target).toMatchObject(['.bg-primary{background-color:#0d3880;color:#e8ecf4}'])
 })
 
-test('cx`bg-${"secondary"} rounded-${"xl"}`', () => {
-  expect(cx`bg-${'secondary'} rounded-${'xl'}`).toBe('bg-secondary rounded-xl')
+test('bw`bg-${"secondary"} rounded-${"xl"}`', () => {
+  expect(bw`bg-${'secondary'} rounded-${'xl'}`).toBe('bg-secondary rounded-xl')
   expect(injector.target).toMatchObject([
     '.bg-secondary{background-color:#e60278;color:#000}',
     '.rounded-xl{border-radius:.75rem}',
@@ -173,18 +173,18 @@ test('cx`bg-${"secondary"} rounded-${"xl"}`', () => {
 /* eslint-enable no-template-curly-in-string */
 
 test('falsy arguments', () => {
-  expect(cx(true, false, '', null, undefined, 0, Number.NaN)).toBe('')
-  expect(cx('')).toBe('')
+  expect(bw(true, false, '', null, undefined, 0, Number.NaN)).toBe('')
+  expect(bw('')).toBe('')
 })
 
 test('empty arguments', () => {
-  expect(cx('')).toBe('')
-  expect(cx([])).toBe('')
-  expect(cx({})).toBe('')
+  expect(bw('')).toBe('')
+  expect(bw([])).toBe('')
+  expect(bw({})).toBe('')
 })
 
 test('no arguments', () => {
-  expect(cx()).toBe('')
+  expect(bw()).toBe('')
 })
 
 test('warn to console', () => {
@@ -193,7 +193,7 @@ test('warn to console', () => {
   try {
     console.warn = jest.fn()
 
-    expect(cx('text-white unknown-directive bg-black')).toBe('text-white bg-black')
+    expect(bw('text-white unknown-directive bg-black')).toBe('text-white bg-black')
 
     expect(console.warn).toHaveBeenCalledWith(
       `Invalid token unknown-directive: No translation for "unknown-directive" found`,
@@ -206,7 +206,7 @@ test('warn to console', () => {
 test('use fail for warn', () => {
   setup({ warn: fail })
 
-  expect(() => cx('unknown-directive')).toThrow(
+  expect(() => bw('unknown-directive')).toThrow(
     `Invalid token unknown-directive: No translation for "unknown-directive" found`,
   )
 })
@@ -215,13 +215,13 @@ test('changing injector before first use', () => {
   const newInjector = virtualInjector()
   setup({ injector: newInjector })
 
-  expect(cx('text-center')).toBe('text-center')
+  expect(bw('text-center')).toBe('text-center')
   expect(newInjector.target).toMatchObject(['.text-center{text-align:center}'])
   expect(injector.target).toHaveLength(0)
 })
 
 test('changing injector after first use', () => {
-  expect(cx('text-center')).toBe('text-center')
+  expect(bw('text-center')).toBe('text-center')
 
   // Can not change injector after first use
   expect(() => {

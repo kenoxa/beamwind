@@ -1,7 +1,7 @@
 import benchmark from 'benchmark'
 
 import { themed } from 'oceanwind/index.min.js'
-import { cx, setup, fail, createInstance } from 'beamwind/dist/node/esm/beamwind.js'
+import { bw, setup, fail, createInstance } from 'beamwind/dist/node/esm/beamwind.js'
 
 const ow = themed({ strict: true })
 setup({ warn: fail })
@@ -30,7 +30,7 @@ function bench(name, run) {
 
   new Suite()
     .add('oceanwind', () => run(ow))
-    .add('beamwind', () => run(cx))
+    .add('beamwind', () => run(bw))
     .on('cycle', (event) => console.log(`  ${event.target}`))
     .run()
 }
@@ -45,8 +45,8 @@ function benchInitial() {
       return ow(tokens)
     })
     .add('beamwind', () => {
-      const { cx } = createInstance({ warn: fail })
-      return cx(tokens)
+      const { bw } = createInstance({ warn: fail })
+      return bw(tokens)
     })
     .on('cycle', (event) => console.log(`  ${event.target}`))
     .run()

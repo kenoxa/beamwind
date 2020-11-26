@@ -23,12 +23,17 @@ Server Side Rendering including re-hydration
 https://tailwindui.com/components
 @tailwindcss/forms: https://github.com/tailwindlabs/tailwindcss-forms
 
+Autocompletion:
 https://tailwindcss.com/docs/intellisense
+https://github.com/kingdaro/typescript-plugin-tw-template
 
-important: needs a use case before implementing
+💥 Add important to any class with a trailing bang!
 
-```
-text-bold!important
+bw`hidden!`
+// ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+{ "display": "none !important" }
+
 ```
 
 https://tailwindcss.com/docs/background-image#background-images
+```

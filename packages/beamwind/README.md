@@ -37,14 +37,14 @@ Here is a quick example:
 // Load an opinionated set of base styles for Tailwind projects.
 // If you need to support IE 11 use @beamwind/reset
 import preflight from 'https://unpkg.com/@beamwind/preflight'
-import { cx, setup } from 'https://unpkg.com/beamwind'
+import { bw, setup } from 'https://unpkg.com/beamwind'
 
 setup(preflight)
 
-<div class={cx`flex space`}>
-  <div class={cx`w-1/3`}><!-- ... --></div>
-  <div class={cx`w-1/3`}><!-- ... --></div>
-  <div class={cx`w-1/3`}><!-- ... --></div>
+<div class={bw`flex space`}>
+  <div class={bw`w-1/3`}><!-- ... --></div>
+  <div class={bw`w-1/3`}><!-- ... --></div>
+  <div class={bw`w-1/3`}><!-- ... --></div>
 </div>
 ```
 
@@ -81,16 +81,16 @@ npm install beamwind
 And then import it:
 
 ```js
-import { cx } from 'beamwind'
+import { bw } from 'beamwind'
 ```
 
 ## Usage
 
-To use the library, first import the module then invoke the `cx` export using tagged template syntax:
+To use the library, first import the module then invoke the `bw` export using tagged template syntax:
 
 ```js
-import { cx } from 'https://unpkg.com/beamwind'
-document.body.className = cx`h-full bg-purple-500 rotate-3 scale-95`
+import { bw } from 'https://unpkg.com/beamwind'
+document.body.className = bw`h-full bg-purple-500 rotate-3 scale-95`
 ```
 
 Running the above code will result in the following happening:
@@ -113,10 +113,10 @@ for directives that require themed values (like `bg-primary` for example).
 
 > The [Theming section](#theming) provides detailed insight into the theming options.
 
-To customize the theme, use the `setup` export. This will change the theme used by the `cx` export.
+To customize the theme, use the `setup` export. This will change the theme used by the `bw` export.
 
 ```js
-import { cx, setup } from 'beamwind'
+import { bw, setup } from 'beamwind'
 
 setup({
   theme: {
@@ -126,7 +126,7 @@ setup({
   },
 })
 
-cx`bg-red-500` // will result in a hotpink background-color
+bw`bg-red-500` // will result in a hotpink background-color
 ```
 
 > `setup` can be called multiple times where each call extends the existing configuration.
@@ -150,7 +150,7 @@ css`bg-red-500` // will result in a hotpink background-color
 
 ### Function Signature
 
-It is possible to invoke beamwind in a multitude of different ways. The `cx` function can take **_any_** number of arguments, each of which can be an Object, Array, Boolean, Number, String or [inline plugins](#inline-plugins). This feature is based on [clsx](https://www.npmjs.com/package/cslx).
+It is possible to invoke beamwind in a multitude of different ways. The `bw` function can take **_any_** number of arguments, each of which can be an Object, Array, Boolean, Number, String or [inline plugins](#inline-plugins). This feature is based on [clsx](https://www.npmjs.com/package/cslx).
 
 > **Important**: _Any_ falsey values are discarded!
 > Standalone Boolean values are discarded as well.
@@ -159,40 +159,40 @@ For example:
 
 ```js
 // Tag Template Literal (falsey interpolations will be omitted)
-cx`bg-primary rounded`
+bw`bg-primary rounded`
 //=> 'bg-primary rounded'
 
-cx`bg-primary ${false && 'rounded'}`
+bw`bg-primary ${false && 'rounded'}`
 //=> 'bg-primary'
 
-cx`bg-primary ${[false && 'rounded', 'block']}`
+bw`bg-primary ${[false && 'rounded', 'block']}`
 //=> 'bg-primary block'
 
-cx`bg-primary ${{ rounded: false, 'text-underline': isTrue() }}`
+bw`bg-primary ${{ rounded: false, 'text-underline': isTrue() }}`
 //=> 'bg-primary text-underline'
 
 // Strings (variadic)
-cx('bg-primary', true && 'rounded', 'text-underline')
+bw('bg-primary', true && 'rounded', 'text-underline')
 //=> 'bg-primary rounded text-underline'
 
 // Objects (keys with falsey values will be omitted)
-cx({ 'bg-primary': true, rounded: false, 'text-underline': isTrue() })
+bw({ 'bg-primary': true, rounded: false, 'text-underline': isTrue() })
 //=> 'bg-primary text-underline'
 
 // Objects (variadic)
-cx({ 'bg-primary': true }, { rounded: false }, null, { 'text-underline': true })
+bw({ 'bg-primary': true }, { rounded: false }, null, { 'text-underline': true })
 //=> 'bg-primary text-underline'
 
 // Arrays (falsey items will be omitted)
-cx(['bg-primary', 0, false, 'rounded'])
+bw(['bg-primary', 0, false, 'rounded'])
 //=> 'bg-primary rounded'
 
 // Arrays (variadic)
-cx(['bg-primary'], ['', 0, false, 'rounded'], [['text-underline', [['text-lg'], 'block']]])
+bw(['bg-primary'], ['', 0, false, 'rounded'], [['text-underline', [['text-lg'], 'block']]])
 //=> 'bg-primary rounded text-underline text-lg block'
 
 // Kitchen sink (with nesting)
-cx(
+bw(
   'bg-primary',
   [1 && 'rounded', { underline: false, 'color-secondary': null }, ['text-lg', ['shadow-lg']]],
   'uppercase',
@@ -207,7 +207,7 @@ Directives with the same variants can be grouped using parenthesis. Beamwind wil
 > Notice any directives within tagged template literals can span multiple lines
 
 ```js
-cx`
+bw`
   sm:hover:(
     bg-black
     text-white
@@ -220,7 +220,7 @@ cx`
 It is possible to nest groupings too, for example:
 
 ```js
-cx`
+bw`
   sm:(
     bg-black
     text-white
@@ -233,7 +233,7 @@ cx`
 Object values which are String, Array or Object start a new variant group:
 
 ```js
-cx({
+bw({
   sm: {
     'bg-black': true,
     'text-white': true,
@@ -250,14 +250,14 @@ cx({
 Directives with the same prefix can be grouped using parenthesis. Beamwind will expand the nested directives; applying the prefix to each directive in the group before translation. For example:
 
 ```js
-cx`text(center underline bold primary)`)
+bw`text(center underline bold primary)`)
 // text-center text-underline text-bold text-primary
 ```
 
 Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be applied as is. For that case you can use the special `&` directive which is replaced with the current prefix:
 
 ```js
-cx`ring(& promote offset(sm on-promote))`)
+bw`ring(& promote offset(sm on-promote))`)
 // ring ring-promote ring-offset-sm ring-offset-on-promote
 ```
 
@@ -274,11 +274,11 @@ const header = (theme) => ({
   'text-align': 'center',
 })
 
-cx`font-bold ${card} color-primary`
+bw`font-bold ${card} color-primary`
 // Note: Same works for arrays and objects
 
 // You can use variants
-cx`sm:${card} color-primary`
+bw`sm:${card} color-primary`
 // Same works for arrays and objects
 ```
 
@@ -297,10 +297,10 @@ const btn = (color) => {
   return 'inline-block font-bold py-2 px-4 rounded'
 }
 
-cx(btn())
+bw(btn())
 // => inline-block font-bold py-2 px-4 rounded
 
-cx([btn(), btn('primary')])
+bw([btn(), btn('primary')])
 // => inline-block font-bold py-2 px-4 rounded bg-primary text-primary-contrast hover:bg-primary-hover active:bg-primary-active
 ```
 
@@ -632,7 +632,7 @@ setup({
 
 > Components define a set of utility tokens that should be applied if the component token is used.
 
-Static components that are only a collection of utilities can be defined as strings. The following example allows to use `card` as a token (`cx('card')`) which will be expanded to `max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl`:
+Static components that are only a collection of utilities can be defined as strings. The following example allows to use `card` as a token (`bw('card')`) which will be expanded to `max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl`:
 
 ```js
 import { setup } from 'beamwind'
@@ -662,7 +662,7 @@ setup({
 })
 ```
 
-Some dynamic components depend on additional logic and like to use the familiar `cx` API. For these case beamwind provides the [apply](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply) helper, which has the same API signature as `cx`.
+Some dynamic components depend on additional logic and like to use the familiar `bw` API. For these case beamwind provides the [apply](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply) helper, which has the same API signature as `bw`.
 
 ```js
 import { setup, apply, optional } from 'beamwind'
@@ -773,7 +773,7 @@ An injector is responsible for adding a CSS rule to its underlying target.
 During testing or server-side rendering the `virtualInjector` should be used:
 
 ```js
-import { cx, setup, virtualInjector } from 'beamwind'
+import { bw, setup, virtualInjector } from 'beamwind'
 
 const injector = virtualInjector()
 setup({ injector })
@@ -790,7 +790,7 @@ import { createInstance, cssomInjector } from 'beamwind'
 
 const iframeDocument = document.getElementsByTagName('iframe')[0].contentDocument
 
-export const { cx } = createInstance({
+export const { bw } = createInstance({
   injector: cssomInjector({
     // Make sure this node exists or create it on the fly if necessary
     target: iframeDocument.getElementById('beamwind'),
@@ -810,11 +810,11 @@ import { createInstance, virtualInjector } from 'beamwind'
 import { getStyleTag } from '@beamwind/ssr'
 
 const injector = virtualInjector()
-const cx = createInstance({ injector })
+const bw = createInstance({ injector })
 
 const html = htm.bind(h)
 const style = {
-  main: cx`clearfix`,
+  main: bw`clearfix`,
 }
 
 const app = html`<main className=${style.main}>hello beamwind</main>`

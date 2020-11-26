@@ -17,7 +17,7 @@ test('value can be a token string', () => {
     },
   })
 
-  expect(instance.cx('mx-auto card my-md')).toBe(
+  expect(instance.bw('mx-auto card my-md')).toBe(
     'mx-auto max-w-md mx-auto bg-surface rounded-xl shadow-md overflow-hidden md:max-w-2xl my-md',
   )
   expect(injector.target).toMatchObject([
@@ -51,15 +51,15 @@ test('plugin can return new tokens to parse using `apply`', () => {
     },
   })
 
-  expect(instance.cx('btn')).toBe('font-bold py-2 px-4 rounded')
-  expect(instance.cx('btn-primary cursor-not-allowed')).toBe(
+  expect(instance.bw('btn')).toBe('font-bold py-2 px-4 rounded')
+  expect(instance.bw('btn-primary cursor-not-allowed')).toBe(
     'bg-primary hover:bg-on-primary active:bg-primary active:underline cursor-not-allowed',
   )
-  expect(instance.cx('btn cursor-not-allowed btn-primary transition')).toBe(
+  expect(instance.bw('btn cursor-not-allowed btn-primary transition')).toBe(
     'font-bold py-2 px-4 rounded cursor-not-allowed bg-primary hover:bg-on-primary active:bg-primary active:underline transition',
   )
 
-  expect(() => instance.cx('btn-unknown-color')).toThrow(
+  expect(() => instance.bw('btn-unknown-color')).toThrow(
     `Invalid token btn-unknown-color: No translation for "btn-unknown-color" found`,
   )
 })
@@ -68,7 +68,7 @@ test('inline plugin: token string', () => {
   // eslint-disable-next-line unicorn/consistent-function-scoping
   const inlinePlugin: InlinePlugin = () => 'font-bold text-xl'
 
-  expect(instance.cx(inlinePlugin)).toBe('font-bold text-xl')
+  expect(instance.bw(inlinePlugin)).toBe('font-bold text-xl')
   expect(injector.target).toMatchObject([
     '.text-xl{font-size:1.25rem;line-height:1.75rem}',
     '.font-bold{font-weight:700}',
@@ -82,14 +82,14 @@ test('inline plugin: css declarations', () => {
     color: theme('colors', 'primary'),
   }))
 
-  const className = instance.cx(inlinePlugin)
+  const className = instance.bw(inlinePlugin)
 
   expect(className).toMatch(/__\w*_\d+/)
   expect(injector.target).toMatchObject([`.${className}{font-weight:800;color:#0d3880}`])
   expect(inlinePlugin).toHaveBeenCalledTimes(1)
 
   // Added only once
-  expect(instance.cx`${inlinePlugin}`).toBe(className)
+  expect(instance.bw`${inlinePlugin}`).toBe(className)
   expect(injector.target).toMatchObject([`.${className}{font-weight:800;color:#0d3880}`])
   expect(inlinePlugin).toHaveBeenCalledTimes(2)
 })

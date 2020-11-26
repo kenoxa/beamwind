@@ -13,7 +13,7 @@ beforeEach(async () => {
 })
 
 test('class names are hashed', () => {
-  expect(instance.cx('group flex pt-4 text-center')).toBe('_1bk5mm5 _1l0yvu6 _xqpuic _1gpf024')
+  expect(instance.bw('group flex pt-4 text-center')).toBe('_1bk5mm5 _1l0yvu6 _xqpuic _1gpf024')
   expect(injector.target).toMatchObject([
     '._1l0yvu6{display:flex}',
     '._xqpuic{padding-top:1rem}',

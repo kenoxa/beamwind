@@ -7,6 +7,6 @@ export interface ClassNameCreator {
 }
 
 export interface Instance {
-  cx: ClassNameCreator
+  bw: ClassNameCreator
   setup: (options?: ConfigurationOptions | ConfigurationOptions[]) => void
 }

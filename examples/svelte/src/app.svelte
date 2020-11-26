@@ -1,6 +1,6 @@
 <script context="module">
   import preflight from '@beamwind/preflight'
-  import { cx, setup } from 'beamwind'
+  import { bw, setup } from 'beamwind'
 
   if (import.meta.env.MODE !== 'production') {
     setup({ hash: false })
@@ -35,7 +35,7 @@
 <script>
   import { onMount } from 'svelte'
 
-  const appLink = cx`text-#ff3e00 no-underline inline-block px-md`
+  const appLink = bw`text-#ff3e00 no-underline inline-block px-md`
 
   let count = 0
 
@@ -47,24 +47,24 @@
   })
 </script>
 
-<div class={cx`text-center`}>
+<div class={bw`text-center`}>
   <header
-    class={cx`bg-#f9f6f6 text-#333 min-h-screen flex flex-col items-center justify-center text-2xl`}>
+    class={bw`bg-#f9f6f6 text-#333 min-h-screen flex flex-col items-center justify-center text-2xl`}>
     <img
       src="/logo.svg"
-      class={cx`h-36vmin pointer-events-none mb-12 animate-logo-pulse`}
+      class={bw`h-36vmin pointer-events-none mb-12 animate-logo-pulse`}
       alt="logo" />
-    <p class={cx`app-p`}>
+    <p class={bw`app-p`}>
       Edit
-      <code class={cx`app-code`}>src/App.svelte</code>
+      <code class={bw`app-code`}>src/App.svelte</code>
       and save to reload.
     </p>
-    <p class={cx`app-p`}>
+    <p class={bw`app-p`}>
       Page has been open for
-      <code class={cx`app-code`}>{count}</code>
+      <code class={bw`app-code`}>{count}</code>
       seconds.
     </p>
-    <p class={cx`app-p divide-x`}>
+    <p class={bw`app-p divide-x`}>
       <a class={appLink} href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
         Learn Svelte
       </a>
@@ -77,9 +77,9 @@
       </a>
     </p>
 
-    <p class={cx`app-p divide-x`}>
+    <p class={bw`app-p divide-x`}>
       <button
-        class={cx`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg-promote ring(& xs promote offset(xs on-promote))`}>
+        class={bw`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg-promote ring(& xs promote offset(xs on-promote))`}>
         ring-offset-purple-100
       </button>
     </p>

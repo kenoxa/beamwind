@@ -15,7 +15,7 @@ beforeEach(() => {
 test('add reset styles', () => {
   instance.setup(reset)
 
-  expect(instance.cx('text-primary')).toBe('text-primary')
+  expect(instance.bw('text-primary')).toBe('text-primary')
 
   expect(injector.target).toMatchObject([
     ':root{-moz-tab-size:4;tab-size:4}',
@@ -81,7 +81,7 @@ test('add reset styles with custom theme', () => {
     },
   ])
 
-  expect(instance.cx('text-primary')).toBe('text-primary')
+  expect(instance.bw('text-primary')).toBe('text-primary')
 
   expect(injector.target).toContain(
     'html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif}',
@@ -105,7 +105,7 @@ test('add reset styles with theme missing some values', () => {
     },
   ])
 
-  expect(instance.cx('text-primary')).toBe('text-primary')
+  expect(instance.bw('text-primary')).toBe('text-primary')
 
   expect(injector.target).toContain(
     '*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}',

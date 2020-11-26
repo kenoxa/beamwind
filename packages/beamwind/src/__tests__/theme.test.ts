@@ -13,7 +13,7 @@ beforeEach(() => {
 test('adjust theme using callback', () => {
   instance.setup({ theme: (theme) => ({ colors: { red: theme.colors.critical } }) })
 
-  expect(instance.cx('bg-primary text-red')).toBe('bg-primary text-red')
+  expect(instance.bw('bg-primary text-red')).toBe('bg-primary text-red')
   expect(injector.target).toMatchObject([
     '.bg-primary{background-color:#0d3880;color:#e8ecf4}',
     '.text-red{color:#d0011b}',
@@ -23,6 +23,6 @@ test('adjust theme using callback', () => {
 test('on-* text color is added to bg-color', () => {
   instance.setup({ theme: { colors: { 'on-primary': 'red' } } })
 
-  expect(instance.cx('bg-primary')).toBe('bg-primary')
+  expect(instance.bw('bg-primary')).toBe('bg-primary')
   expect(injector.target).toMatchObject(['.bg-primary{background-color:#0d3880;color:red}'])
 })

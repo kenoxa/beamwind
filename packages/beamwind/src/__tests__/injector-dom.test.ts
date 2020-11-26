@@ -1,9 +1,9 @@
-import { cx, setup, virtualInjector } from '..'
+import { bw, setup, virtualInjector } from '..'
 
 test('injects in to a style sheet element', () => {
   expect(document.querySelector('#__beamwind')).toBeFalsy()
 
-  expect(cx('group flex pt-4 text-center md:text-left')).toBe(
+  expect(bw('group flex pt-4 text-center md:text-left')).toBe(
     '_1bk5mm5 _1l0yvu6 _xqpuic _1gpf024 _dg11mi',
   )
 

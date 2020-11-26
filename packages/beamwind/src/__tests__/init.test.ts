@@ -21,8 +21,8 @@ test('call init before first insert', () => {
 
   expect(init).not.toHaveBeenCalled()
 
-  expect(instance.cx('text-center underline')).toBe('text-center underline')
-  expect(instance.cx('hidden')).toBe('hidden')
+  expect(instance.bw('text-center underline')).toBe('text-center underline')
+  expect(instance.bw('hidden')).toBe('hidden')
 
   expect(init).toHaveBeenCalledTimes(1)
 
@@ -50,8 +50,8 @@ test('several init function can be used', () => {
   expect(init1).not.toHaveBeenCalled()
   expect(init2).not.toHaveBeenCalled()
 
-  expect(instance.cx('text-center underline')).toBe('text-center underline')
-  expect(instance.cx('hidden')).toBe('hidden')
+  expect(instance.bw('text-center underline')).toBe('text-center underline')
+  expect(instance.bw('hidden')).toBe('hidden')
 
   expect(init1).toHaveBeenCalledTimes(1)
   expect(init2).toHaveBeenCalledTimes(1)
