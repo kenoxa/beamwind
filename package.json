@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@carv/esbundle": "^1.1.4",
+    "@carv/esbundle": "^1.1.5",
     "@carv/eslint-config": "^1.6.0",
     "@carv/jest-preset": "^1.1.6",
     "@carv/prettier-config": "^1.1.0",

@@ -314,12 +314,40 @@
     update-notifier "^5.0.0"
     v8-compile-cache "^2.1.1"
 
-"@carv/esbundle@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/@carv/esbundle/-/esbundle-1.1.4.tgz#c639282ea37d8bbf03e010f8b28f473009ccb869"
-  integrity sha512-2QhyHV3EeUy136PvFLtx3K2TDfwFO1LTS/VyXRAW467BJnJCyuYAXbWTDu37vvKkOqzfLpDPRBBX3KXNmBB5pw==
+"@carv/bundle@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.npmjs.org/@carv/bundle/-/bundle-1.3.1.tgz#f4bbe4d29ed46a17dcea06cdab00f4b979e7ba0f"
+  integrity sha512-ivxzuS6nHOg3s88FWAT7AKXNmQp4sCNsRT5r6GxdSZyFHhAHEneQ43TwEUp2JVWXta17H/YVCo8XiGNlu3Xvfg==
   dependencies:
-    "@carv/bundle" "^1.3.0"
+    "@carv/types" "^1.3.1"
+    at-least-node "^1.0.0"
+    camelcase "^6.0.0"
+    cosmiconfig "^7.0.0"
+    doctoc "^1.4.0"
+    envinfo "^7.5.1"
+    esbuild "^0.8.14"
+    eslint "^7.4.0"
+    find-up "^5.0.0"
+    fs-extra "^9.0.1"
+    manage-path "^2.0.0"
+    nps "^5.9.12"
+    pkg-dir "^5.0.0"
+    prettier "^2.2.0"
+    project-root-directory "^1.0.3"
+    rimraf "^3.0.2"
+    signal-exit "^3.0.3"
+    ts-graphql-plugin "^2.0.0"
+    typescript "^4.1.0"
+    typescript-eslint-language-service "^4.1.1"
+    update-notifier "^5.0.0"
+    v8-compile-cache "^2.1.1"
+
+"@carv/esbundle@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.npmjs.org/@carv/esbundle/-/esbundle-1.1.5.tgz#ba04b07fb355502408832cee258191d90bec2813"
+  integrity sha512-dAEtZB6tRUpcG6IjwXvIKK5vNUbhEXjYA8L4oPK7gzovWemw522TZ9vR+aEC/g0cOeCklm3Qb8Js3VoSLY3VHA==
+  dependencies:
+    "@carv/bundle" "^1.3.1"
     esbuild "^0.8.14"
     execa "^4.0.3"
     find-up "^5.0.0"

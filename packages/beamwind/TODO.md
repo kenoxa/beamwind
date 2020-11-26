@@ -1,4 +1,3 @@
-
 pre-commit hook to format files
 
 https://github.com/tailwindlabs/tailwindcss/pull/2531

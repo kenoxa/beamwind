@@ -43,7 +43,7 @@ export const cssomInjector = ({
 
   return {
     target,
-    insert: target.insertRule.bind(target)
+    insert: target.insertRule.bind(target),
   }
 }
 
@@ -53,6 +53,8 @@ export const cssomInjector = ({
 export const noOpInjector = (): Injector<null> => {
   return {
     target: null,
-    insert: () => {},
+    insert: () => {
+      /* No-Op */
+    },
   }
 }

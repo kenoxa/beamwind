@@ -662,7 +662,7 @@ import { setup, fail } from 'beamwind'
 setup({
   init(insert, theme) {
     insert(`body{margin:${theme.spacing.xl}}`)
-  }
+  },
 })
 ```
 

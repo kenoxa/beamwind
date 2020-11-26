@@ -47,7 +47,7 @@
   "size-limit": [
     {
       "path": "./dist/esnext/beamwind.js",
-      "limit": "8.1 KB"
+      "limit": "8.5 KB"
     }
   ]
 }
