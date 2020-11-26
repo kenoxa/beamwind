@@ -1,0 +1,449 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Beamwind</title>
+	<meta name="description" content="Documentation for Beamwind">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Beamwind</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>Project Beamwind</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#beamwind" id="beamwind" style="color: inherit; text-decoration: none;">
+					<h1>Beamwind</h1>
+				</a>
+				<blockquote>
+					<p>a <a href="#packages">collection of packages</a> to compile <a href="https://tailwindcss.com">Tailwind CSS</a> like shorthand syntax into CSS at runtime</p>
+				</blockquote>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE"><img src="https://badgen.net/github/license/kenoxa/beamwind" alt="License"></a>
+					<a href="https://github.com/kenoxa/beamwind/actions?query=workflow%3Aci"><img src="https://github.com/kenoxa/beamwind/workflows/CI/badge.svg" alt="CI"></a>
+					<a href="https://coveralls.io/github/kenoxa/beamwind?branch=main"><img src="https://badgen.net/coveralls/c/github/kenoxa/beamwind/main" alt="Coverage Status"></a>
+					<a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/purple" alt="PRs Welcome"></a>
+					<a href="https://conventionalcommits.org"><img src="https://badgen.net/badge/Conventional%20Commits/1.0.0/cyan" alt="Conventional Commits"></a>
+				<a href="https://www.kenoxa.com"><img src="https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9" alt="Sponsor"></a></p>
+				<p>This library takes inspiration from <a href="https://tailwindcss.com">Tailwind CSS</a> (<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences">see differences</a>), <a href="https://www.npmjs.com/package/oceanwind">Oceanwind</a> (<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#oceanwind-differences">see differences</a>) and <a href="https://www.npmjs.com/package/otion">Otion</a> to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.</p>
+				<blockquote>
+					<p><strong>Beamwind</strong>: a wind blowing against a vessel from a direction at right angles to its keel for optimal speed.</p>
+				</blockquote>
+				<!-- prettier-ignore-start -->
+				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+				<ul>
+					<li><a href="#quick-start">Quick Start</a></li>
+					<li><a href="#packages">Packages</a></li>
+					<li><a href="#examples">Examples</a></li>
+					<li><a href="#develop">Develop</a></li>
+					<li><a href="#support">Support</a></li>
+					<li><a href="#contribute">Contribute</a></li>
+					<li><a href="#sponsors">Sponsors</a></li>
+					<li><a href="#license">License</a></li>
+				</ul>
+				<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- prettier-ignore-end -->
+				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+					<h2>Quick Start</h2>
+				</a>
+				<blockquote>
+					<p>⚡️ Check out the <a href="https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGN4IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJzsKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogY3hgaC1mdWxsIGJnLXByb21vdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzc05hbWU9JHtzdHlsZS5jb250YWluZXJ9PgogICAgICA8aDEgY2xhc3NOYW1lPSR7CiAgICAgICAgLy8gRXhhbXBsZSBvZiBhbiBpbmxpbmUgc3R5bGUKICAgICAgICBjeGAKICAgICAgICAgIHRleHQtd2hpdGUKICAgICAgICAgIGZvbnQtYm9sZAogICAgICAgICAgZm9udC1zYW5zCiAgICAgICAgICBob3ZlcjoodHJhbnNmb3JtIHJvdGF0ZS01IHNjYWxlLTE1MCBjdXJzb3ItcG9pbnRlcikKICAgICAgICBgCiAgICAgIH0+SGVsbG8gV29ybGQ8L2gxPgogICAgPC9kaXY+CiAgYCwKICBkb2N1bWVudC5ib2R5Cik7">live and interactive demo</a></p>
+				</blockquote>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { cx } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
+
+<span class="hljs-built_in">document</span>.body.className = cx<span class="hljs-string">`h-full bg-primary rotate-3 scale-95`</span></code></pre>
+				<p>Using the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">tailwind preset</a> and a <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">set opinionated of base styles</a> for modern browsers:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> tailwind <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/@beamwind/tailwind&#x27;</span>
+<span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/@beamwind/preflight&#x27;</span>
+<span class="hljs-keyword">import</span> { cx, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
+
+setup([tailwind, preflight])
+
+<span class="hljs-built_in">document</span>.body.className = cx<span class="hljs-string">`h-full bg-purple-500 rotate-3 scale-95`</span></code></pre>
+				<a href="#packages" id="packages" style="color: inherit; text-decoration: none;">
+					<h2>Packages</h2>
+				</a>
+				<p>This projects is split into several packages. The main one is <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind">beamwind</a> itself:</p>
+				<ul>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#key-features">Key Features</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#installation">Installation</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#usage">Usage</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#theming">Theming</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#plugins">Plugins</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#api">API</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#selector-ordering">Selector Ordering</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences">Tailwind Differences</a></li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#oceanwind-differences">Oceanwind Differences</a></li>
+				</ul>
+				<a href="#presets" id="presets" style="color: inherit; text-decoration: none;">
+					<h3>Presets</h3>
+				</a>
+				<blockquote>
+					<p>reusable configuration presets</p>
+				</blockquote>
+				<ul>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic">@beamwind/preset-semantic</a> - a semantic color scheme</li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a> - mirroring tailwind default theme</li>
+				</ul>
+				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> tailwind <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/tailwind&#x27;</span>
+<span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+
+setup(tailwind)</code></pre>
+				<a href="#base-styles" id="base-styles" style="color: inherit; text-decoration: none;">
+					<h3>Base Styles</h3>
+				</a>
+				<blockquote>
+					<p>A set of opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier for to work within the constraints of your design system.</p>
+				</blockquote>
+				<ul>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">@beamwind/preflight</a> - for modern browsers</li>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/reset">@beamwind/reset</a> - for legacy browsers like IE10/11</li>
+				</ul>
+				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/preflight&#x27;</span>
+<span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+
+setup(preflight)</code></pre>
+				<a href="#helpers" id="helpers" style="color: inherit; text-decoration: none;">
+					<h3>Helpers</h3>
+				</a>
+				<ul>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/colors">@beamwind/colors</a> - color utilities</li>
+				</ul>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<ul>
+					<li><a href="https://github.com/kenoxa/beamwind/blob/main/examples/svelte">svelte</a></li>
+				</ul>
+				<a href="#develop" id="develop" style="color: inherit; text-decoration: none;">
+					<h2>Develop</h2>
+				</a>
+				<p>Clone the repository and cd into the project directory.</p>
+				<p>Run <code>yarn install</code>.</p>
+				<p>Cd into the package that you&#39;d like to make progress on.</p>
+				<ul>
+					<li><code>yarn test</code>: Run test suite including linting</li>
+					<li><code>yarn format</code>: Ensure consistent code style</li>
+					<li><code>yarn publish</code>: To publish all changed packages</li>
+				</ul>
+				<a href="#support" id="support" style="color: inherit; text-decoration: none;">
+					<h2>Support</h2>
+				</a>
+				<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/kenoxa/beamwind">star it on GitHub</a>. Feel free to <a href="https://github.com/beamwind/beamwind/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
+				<a href="#contribute" id="contribute" style="color: inherit; text-decoration: none;">
+					<h2>Contribute</h2>
+				</a>
+				<p>Thanks for being willing to contribute!</p>
+				<p><strong>Working on your first Pull Request?</strong> You can learn how from this <em>free</em> series <a href="https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github">How to Contribute to an Open Source Project on GitHub</a></p>
+				<p>We are following the <a href="https://www.conventionalcommits.org">Conventional Commits</a> convention.</p>
+				<a href="#sponsors" id="sponsors" style="color: inherit; text-decoration: none;">
+					<h2>Sponsors</h2>
+				</a>
+				<p><a href="https://www.kenoxa.com"><img src="https://images.opencollective.com/kenoxa/9c25796/logo/68.png" alt="Kenoxa GmbH"></a> <a href="https://www.kenoxa.com">Kenoxa GmbH</a></p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE">MIT</a> © <a href="https://kenoxa.com">Kenoxa GmbH</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/classnamecreator.html" class="tsd-kind-icon">Class<wbr>Name<wbr>Creator</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/configurationoptions.html" class="tsd-kind-icon">Configuration<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/injector.html" class="tsd-kind-icon">Injector</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/injectorconfig.html" class="tsd-kind-icon">Injector<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/instance.html" class="tsd-kind-icon">Instance</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pluginapply.html" class="tsd-kind-icon">Plugin<wbr>Apply</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/plugincontext.html" class="tsd-kind-icon">Plugin<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/theme.html" class="tsd-kind-icon">Theme</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeangle.html" class="tsd-kind-icon">Theme<wbr>Angle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeanimation.html" class="tsd-kind-icon">Theme<wbr>Animation</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeborderradius.html" class="tsd-kind-icon">Theme<wbr>Border<wbr>Radius</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeborderwidth.html" class="tsd-kind-icon">Theme<wbr>Border<wbr>Width</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeboxshadow.html" class="tsd-kind-icon">Theme<wbr>Box<wbr>Shadow</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themecolors.html" class="tsd-kind-icon">Theme<wbr>Colors</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themecolorswithdefault.html" class="tsd-kind-icon">Theme<wbr>Colors<wbr>With<wbr>Default</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themedurations.html" class="tsd-kind-icon">Theme<wbr>Durations</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeflex.html" class="tsd-kind-icon">Theme<wbr>Flex</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themefontfamily.html" class="tsd-kind-icon">Theme<wbr>Font<wbr>Family</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themefontsize.html" class="tsd-kind-icon">Theme<wbr>Font<wbr>Size</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themefontweight.html" class="tsd-kind-icon">Theme<wbr>Font<wbr>Weight</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themekeyframes.html" class="tsd-kind-icon">Theme<wbr>Keyframes</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeletterspacing.html" class="tsd-kind-icon">Theme<wbr>Letter<wbr>Spacing</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themelineheight.html" class="tsd-kind-icon">Theme<wbr>Line<wbr>Height</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeopacity.html" class="tsd-kind-icon">Theme<wbr>Opacity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themeorder.html" class="tsd-kind-icon">Theme<wbr>Order</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themescale.html" class="tsd-kind-icon">Theme<wbr>Scale</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themescreens.html" class="tsd-kind-icon">Theme<wbr>Screens</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themesizes.html" class="tsd-kind-icon">Theme<wbr>Sizes</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themespacing.html" class="tsd-kind-icon">Theme<wbr>Spacing</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themestrokewidth.html" class="tsd-kind-icon">Theme<wbr>Stroke<wbr>Width</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themetransitionproperty.html" class="tsd-kind-icon">Theme<wbr>Transition<wbr>Property</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themetransitiontimingfunction.html" class="tsd-kind-icon">Theme<wbr>Transition<wbr>Timing<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/themezindex.html" class="tsd-kind-icon">ThemeZIndex</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/tokengrouping.html" class="tsd-kind-icon">Token<wbr>Grouping</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#declarations" class="tsd-kind-icon">Declarations</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#deeppartial" class="tsd-kind-icon">Deep<wbr>Partial</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#falsy" class="tsd-kind-icon">Falsy</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#hasher" class="tsd-kind-icon">Hasher</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#injectkeyframes" class="tsd-kind-icon">Inject<wbr>Keyframes</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#oninit" class="tsd-kind-icon">On<wbr>Init</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#oninitcallback" class="tsd-kind-icon">On<wbr>Init<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#partialtheme" class="tsd-kind-icon">Partial<wbr>Theme</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#plugin" class="tsd-kind-icon">Plugin</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#pluginresult" class="tsd-kind-icon">Plugin<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#plugintokenresult" class="tsd-kind-icon">Plugin<wbr>Token<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#prefixer" class="tsd-kind-icon">Prefixer</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#themeanimationdefintion" class="tsd-kind-icon">Theme<wbr>Animation<wbr>Defintion</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#themeconfiguration" class="tsd-kind-icon">Theme<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#themevalueresolver" class="tsd-kind-icon">Theme<wbr>Value<wbr>Resolver</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#token" class="tsd-kind-icon">Token</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#tokenparser" class="tsd-kind-icon">Token<wbr>Parser</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#unknownkeyhandler" class="tsd-kind-icon">Unknown<wbr>Key<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#warnhandler" class="tsd-kind-icon">Warn<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#apply" class="tsd-kind-icon">apply</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#autoprefix" class="tsd-kind-icon">autoprefix</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#compose" class="tsd-kind-icon">compose</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#convertto" class="tsd-kind-icon">convert<wbr>To</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#corners" class="tsd-kind-icon">corners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#cssominjector" class="tsd-kind-icon">cssom<wbr>Injector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#cx" class="tsd-kind-icon">cx</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#cyrb32" class="tsd-kind-icon">cyrb32</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#defaulttokey" class="tsd-kind-icon">default<wbr>ToKey</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#divideby" class="tsd-kind-icon">divide<wbr>By</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#edges" class="tsd-kind-icon">edges</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#expandedges" class="tsd-kind-icon">expand<wbr>Edges</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fail" class="tsd-kind-icon">fail</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#join" class="tsd-kind-icon">join</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#noopinjector" class="tsd-kind-icon">no<wbr>OpInjector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#noprefix" class="tsd-kind-icon">noprefix</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#optional" class="tsd-kind-icon">optional</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#setup" class="tsd-kind-icon">setup</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#tail" class="tsd-kind-icon">tail</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#virtualinjector" class="tsd-kind-icon">virtual<wbr>Injector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#warn" class="tsd-kind-icon">warn</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
