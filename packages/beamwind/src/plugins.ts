@@ -606,6 +606,7 @@ export const utilities: Record<string, Plugin> = {
     return { resize: parts[1] || 'both' }
   },
 
+  // TODO remove once IE11 support is dropped: https://www.digitalocean.com/community/tutorials/css-no-more-clearfix-flow-root
   clearfix: [
     '::after',
     {

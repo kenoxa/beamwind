@@ -1,7 +1,10 @@
+Link to https://nerdcave.com/tailwind-cheat-sheet
+
 pre-commit hook to format files
 
 support symbols as tokens? to prevent name collusion in the plugin registry
 
+transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
 https://github.com/tailwindlabs/tailwindcss/pull/2531
 https://tailwindcss.com/docs/grid-auto-columns
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
