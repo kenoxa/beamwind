@@ -625,6 +625,17 @@ setup({
 				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
 					<h2><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/README.md">API</a></h2>
 				</a>
+				<a href="#global-styles" id="global-styles" style="color: inherit; text-decoration: none;">
+					<h3>Global Styles</h3>
+				</a>
+				<p>Sometimes global CSS styles are required. beamwind support injection of CSS during the initialization:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup, fail } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+
+setup({
+  <span class="hljs-function"><span class="hljs-title">init</span>(<span class="hljs-params">insert, theme</span>)</span> {
+    insert(<span class="hljs-string">`body{margin:<span class="hljs-subst">${theme.spacing.xl}</span>}`</span>)
+  },
+})</code></pre>
 				<a href="#catching-errors" id="catching-errors" style="color: inherit; text-decoration: none;">
 					<h3>Catching Errors</h3>
 				</a>
@@ -814,6 +825,7 @@ setup(tailwindPreset)
 					</li>
 					<li><p><code>bg-gradient</code> accepts additionally to the side-or-corner parameter (<code>bg-gradient-to-tr</code>) an angle or mixed parameters:</p>
 						<ul>
+							<li><code>bg-gradient</code> - defaults to <code>180deg</code> eg <code>to bottom</code></li>
 							<li><code>bg-gradient-45</code></li>
 							<li><code>bg-gradient-0.25turn</code></li>
 							<li><code>bg-gradient-to-bottom-left</code></li>
