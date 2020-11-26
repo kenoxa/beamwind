@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/preset-semantic",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "beamwind design system preset using a semantic naming scheme",
   "keywords": [
     "beamwind",
@@ -33,7 +33,7 @@
     "preset": "@carv/jest-preset"
   },
   "dependencies": {
-    "@beamwind/colors": "^1.0.2"
+    "@beamwind/colors": "^1.0.3"
   },
   "devDependencies": {
     "nps": "^5.9.12"
