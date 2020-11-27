@@ -1,19 +1,21 @@
 Link to https://nerdcave.com/tailwind-cheat-sheet
 
-default to strict mode and only allow themed values
+default to strict mode and allow only known values
+
+preset-semantic: use callback theme to adjust all existing colors
 
 oceanwind issue:
 
 - discuss format (grouping variants and directives)
-- plugin format
+- plugin api
 
 architecure section
 
 - beamwind:
   - foreach directive
     - search plugin
-    - inject one css block
-- with oceanwind differences
+    - inject one css rules for each directive
+- oceanwind:
   - parses directives into one css declaration object
   - otion generates atomic styles
   - may lead to invalid ordering
@@ -25,15 +27,12 @@ divide-y-reverse
 
 doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
 
-DOMException: Failed to execute 'insertRule' on 'CSSStyleSheet': Failed to parse the rule '::-moz-focus-inner{border-style:none;padding:0}'.
-DOMException: Failed to execute 'insertRule' on 'CSSStyleSheet': Failed to parse the rule ':-moz-focusring{outline:1px dotted ButtonText}'.
-DOMException: Failed to execute 'insertRule' on 'CSSStyleSheet': Failed to parse the rule ':-moz-ui-invalid{box-shadow:none}'.
-
 transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
 https://github.com/tailwindlabs/tailwindcss/pull/2531
 https://tailwindcss.com/docs/grid-auto-columns
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
 https://github.com/tailwindlabs/tailwindcss/pull/2910
+https://tailwindcss.com/docs/background-image#background-images
 
 - @beamwind/prose: https://tailwindcss.com/docs/typography-plugin
   - implement as plugin??
@@ -60,8 +59,3 @@ https://github.com/ben-rogerson/twin.macro
 bw`hidden!`
 // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
 { "display": "none !important" }
-
-```
-
-https://tailwindcss.com/docs/background-image#background-images
-```

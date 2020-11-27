@@ -11,7 +11,7 @@
 This library takes inspiration from [Tailwind CSS] ([see differences](#tailwind-differences)), [Oceanwind] ([see differences](#oceanwind-differences)), [Otion] and [others](#acknowledgements) to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.
 
 ```js
-import { bw } from 'https://unpkg.com/beamwind?module'
+import { bw } from 'beamwind'
 
 document.body.className = bw`h-full text(4xl underline) font(bold sans) flex items-center justify-center `
 ```
@@ -26,7 +26,7 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 
 ## Key Features
 
-- 📖 Supports vast majority of Tailwind shorthand syntax outlined [in the docs](https://tailwindcss.com/docs) ([see differences](#tailwind-differences))
+- 📖 Supports vast majority of Tailwind directives outlined [in the docs](https://tailwindcss.com/docs) ([see differences](#tailwind-differences))
 - 🗜 Is smaller than the average purged css file output from the Tailwind compiler
 - 💡 Generates only the styles required without building or purging
 - 🚀 Styles co-located with your component reduces context switching
@@ -36,15 +36,15 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 - 🐾 Negligible runtime footprint
 - ⏱ Performant runtime characteristics
 - 💫 Works without a framework - eg framework agnostic
-- ⚠️ Warns the developer when unrecognized shorthand is used
+- ⚠️ Warns the developer when unrecognized directives is used
 
 Here is a quick example:
 
 ```jsx
 // Load an opinionated set of base styles for Tailwind projects.
 // If you need to support IE 11 use @beamwind/reset
-import preflight from 'https://unpkg.com/@beamwind/preflight'
-import { bw, setup } from 'https://unpkg.com/beamwind'
+import preflight from '@beamwind/preflight'
+import { bw, setup } from 'beamwind'
 
 setup(preflight)
 
@@ -93,18 +93,19 @@ import { bw } from 'beamwind'
 
 ## Usage
 
-To use the library, first import the module then invoke the `bw` export using tagged template syntax:
+To use the library, first import the module then invoke the `bw` export using tagged template syntax ([or one of the many other ways](#function-signature)):
 
 ```js
-import { bw } from 'https://unpkg.com/beamwind?module'
+import { bw } from 'beamwind'
+
 document.body.className = bw`h-full bg-primary rotate-3 scale-95`
 ```
 
 Running the above code will result in the following happening:
 
-1. Parse tokens (`h-full`, `bg-primary`, `rotate-3`, `scale-95`)
-2. Token shorthand syntax will be translated into CSS declarations (e.g. `h-full -> { height: 100vh }`).
-3. Inject each token CSS declarations with a unique class name into a library-managed style sheet
+1. Parse directives (`h-full`, `bg-primary`, `rotate-3`, `scale-95`)
+2. Directive will be translated into CSS rule (e.g. `h-full -> { height: 100vh }`).
+3. Inject each directive CSS rule with a unique class name into a library-managed style sheet
 4. Return a space-separated string of class names
 
 ### Function Signature
@@ -222,7 +223,7 @@ bw`ring(& promote offset(sm on-promote))`)
 
 ### Inline Plugins
 
-A global plugin registry (per beamwind instance) has it's downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like [normal plugins](#plugins) without the first parameter.
+A global plugin registry (per [beamwind instance](#instance-creation)) has it's downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like [normal plugins](#plugins) without the first parameter.
 
 > Please take a look at [Plugin API documentation](#plugins) for further details about what a plugin can do.
 
@@ -298,7 +299,7 @@ bw`bg-red-500` // will result in a hotpink background-color
 > `setup` can be called multiple times where each call extends the existing configuration.
 > The `theme` and `plugins` properties merge their values with the previous ones.
 
-Alternatively you can create a own instance:
+Alternatively you can [create a own instance](#instance-creation):
 
 ```js
 import { createInstance } from 'beamwind'
@@ -370,6 +371,8 @@ The `colors` key allows you to customize the global color palette for your proje
 
 By default, these colors are inherited by all color-related core plugins, like `borderColor`, `divideColor`, `placeholderColor` and others.
 
+Please note the following guidelines:
+
 1. This is a flat object (`{ 'gray-50': '#f9fafb' }`) not a nested on like in tailwind ((`{ 'gray': { 50: '#f9fafb' } }`)) uses.
 2. Colors should be in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) (like `#RRGGBB` or `#RGB`) to work best with opacity plugins like `text-opacitiy` or `bg-opacitiy`.
 
@@ -377,7 +380,7 @@ By default, these colors are inherited by all color-related core plugins, like `
 
 #### Default Colors
 
-Out-of-the-box beamwind provides only a few colors that follow the [semantic color system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors) and are based on [Braid Design System / Tones](https://seek-oss.github.io/braid-design-system/foundations/tones). [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) provides the full tailwind color palette.
+Out-of-the-box beamwind provides only a few colors that follow the [semantic color system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors) and are based on [Braid Design System / Tones](https://seek-oss.github.io/braid-design-system/foundations/tones). [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) provides the full tailwind color palette. [@beamwind/tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/tailwind) is pre-configured with this preset and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight).
 
 ```js
 theme = {
@@ -472,9 +475,9 @@ theme = {
 
 By default, these values are inherited by the `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space`, and `translate` core plugins.
 
-Most tailwind classes use a deterministic number calculation scheme (for example [width](https://tailwindcss.com/docs/width)). If beamwind detects a number in a token and there is not mapped value in the theme it uses the following algorithm to generate a CSS value:
+Most tailwind classes use a deterministic number calculation scheme (for example [width](https://tailwindcss.com/docs/width)). If beamwind detects a number in a directive and there is not mapped value in the theme it uses the following algorithm to generate a CSS value which aligns with the tailwind rules for that directive:
 
-- decimal numbers (`2` or `1.5`) are divided by a divisor and `rem` is used as a unit (`w-2.5` becomes `width: 0.625rem;`)
+- decimal numbers (`2` or `1.5`) are divided by a divisor and a unit is added (`w-2.5` becomes `width: 0.625rem;`)
 - fractions (`1/6` or `3/5`) are evaluated and `%` is used as a unit (`w-4/5` becomes `width: 80%;`)
 
 > Non number-like values are used as is and may result in invalid CSS values.
@@ -522,12 +525,12 @@ If you also want to provide a [default `line-height`](https://tailwindcss.com/do
 
 Conceptual there are two kind of plugins:
 
-1. Utilities: these may return a CSS declaration object to be injected into the page (eq: `{ 'text-color': 'red' }`)
-2. Components: these return tokens which are resolved by utilities to their final class name (eq: `'bg-white text-red'`)
+1. Utilities: these may return a CSS rule object to be injected into the page (eq: `{ 'text-color': 'red' }`)
+2. Components: these return directives which are resolved by utilities to their final class name (eq: `'bg-white text-red'`)
 
 New plugins can be provided using the `setup` method. `setup` can be called multiple times where each call extends the existing configuration.
 
-Plugins are searched for by name using the longest prefix before a dash (`"-"'). The name and the remaining parts (splitted by a dash) are provided as first argument to the plugin function. For example if the token is `bg-gradient-to-t` the following order applies:
+Plugins are searched for by name using the longest prefix before a dash (`"-"'). The name and the remaining parts (splitted by a dash) are provided as first argument to the plugin function. For example if the directive is `bg-gradient-to-t` the following order applies:
 
 | Plugin             | Parts                           |
 | ------------------ | ------------------------------- |
@@ -575,16 +578,16 @@ setup({
 })
 ```
 
-Most utilities have some logic based on the token value or need access to the current theme. For these case you can define a function which needs to return a CSS declaration object, a suffix/declaration tuple or a falsey value if it couldn't handle the provided token parts.
+Most utilities have some logic based on the directive value or need access to the current theme. For these case you can define a function which needs to return a CSS declaration object, a suffix/declaration tuple or a falsey value if it couldn't handle the provided directive parts.
 
-Lets define a basic [scroll-snap](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) utility. It should support these tokens: `scroll-snap-none`, `scroll-snap-x` and `scroll-snap-y`
+Lets define a basic [scroll-snap](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) utility. It should support these directives: `scroll-snap-none`, `scroll-snap-x` and `scroll-snap-y`
 
 ```js
 import { setup } from 'beamwind'
 
 setup({
   plugins: {
-    // The token splitted by '-' with the plugin name as first value: ['scroll-snap', ...]
+    // The directive splitted by '-' with the plugin name as first value: ['scroll-snap', ...]
     'scroll-snap': (parts) => {
         return { 'scroll-snap-type': parts[1] }
       }
@@ -612,7 +615,7 @@ import { setup, join, tail } from 'beamwind'
 return { 'scroll-snap-type': join(tail(parts), ' ') }
 ```
 
-As a second parameter the plugin function receives a theme value accessor. We can use that to access configured theme values. This allows to provide aliases for token parts. Lets allow these tokens: `scroll-snap` (using a default value) and `scroll-snap-proximity` (using a theme value)
+As a second parameter the plugin function receives a theme value accessor. We can use that to access configured theme values. This allows to provide aliases for directive parts. Lets allow these directives: `scroll-snap` (using a default value) and `scroll-snap-proximity` (using a theme value)
 
 ```js
 import { setup, defaultToKey } from 'beamwind'
@@ -630,8 +633,8 @@ setup({
 
   plugins: {
     'scroll-snap': (parts, theme) => {
-      // defaultToKey: if no theme value is found -> use the provided key (value of parts.slice(1).join(' '))
-      return { 'scroll-snap-type': theme('scroll', parts.slice(1).join(' '), defaultToKey }
+      // defaultToKey: if no theme value is found -> use the provided key (everything after 'scroll-snap-' joined with a space)
+      return { 'scroll-snap-type': theme('scroll', join(tail(parts), ' '), defaultToKey }
     }
   }
 })
@@ -641,9 +644,9 @@ setup({
 
 ### Adding New Components
 
-> Components define a set of utility tokens that should be applied if the component token is used.
+> Components define a set of utility directives that should be applied if the component directive is used.
 
-Static components that are only a collection of utilities can be defined as strings. The following example allows to use `card` as a token (`bw('card')`) which will be expanded to `max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl`:
+Static components that are only a collection of utilities can be defined as strings. The following example allows to use `card` as a directive (`bw('card')`) which will be expanded to `max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl`:
 
 ```js
 import { setup } from 'beamwind'
@@ -655,7 +658,7 @@ setup({
 })
 ```
 
-Dynamic components can be implemented as function which should return a string of tokens to be applied.
+Dynamic components can be implemented as function which should return a string of directives to be applied.
 
 ```js
 import { setup } from 'beamwind'
@@ -673,7 +676,7 @@ setup({
 })
 ```
 
-Some dynamic components depend on additional logic and like to use the familiar `bw` API. For these case beamwind provides the [apply](https://beamwind.js.org/packages/beamwind/modules.html#apply) helper, which has the same API signature as `bw`.
+Some dynamic components depend on additional logic and like to use the familiar `bw` API. For these cases beamwind provides the [apply](https://beamwind.js.org/packages/beamwind/modules.html#apply) helper, which has the same [API signature as `bw`](#function-signature).
 
 ```js
 import { setup, apply, optional } from 'beamwind'
@@ -738,7 +741,7 @@ To fully customize the error handling you can provide a `warn` function:
 
 ```js
 setup({
-  warn: (message, token) => {
+  warn: (message, directive) => {
     /* ... */
   },
 })
@@ -939,11 +942,11 @@ Some notable differences are:
   Some tailwind classes like [font-size](https://tailwindcss.com/docs/font-size) are comprised of several CSS declarations.
   They must be in one CSS declaration block to be overridden by single CSS declarations liken [line-heigth](https://tailwindcss.com/docs/line-height).
 
-- beamwind supports non configured token values
+- beamwind supports non configured directive tokens
 
   Most color directives accept color names (`text-rebeccapurple`) and hex colors (`text-#009900`) if the color is not found in [theme.colors](#colors).
 
-  Some tailwind classes use a deterministic number calculation scheme (for example [width](https://tailwindcss.com/docs/width)). If beamwind detects a number in a token and there is not mapped value in the theme it uses the following algorithm to generate a CSS value:
+  Some tailwind classes use a deterministic number calculation scheme (for example [width](https://tailwindcss.com/docs/width)). If beamwind detects a number in a directive and there is not mapped value in the theme it uses the following algorithm to generate a CSS value:
 
   - decimal numbers (`2` or `1.5`) are divided by a divisor and a unit is added (`w-2.5` becomes `width: 0.625rem;`)
   - fractions (`1/6` or `3/5`) are evaluated and `%` is added as a unit (`w-4/5` becomes `width: 80%;`)
@@ -981,7 +984,7 @@ Some notable differences are:
   - [border-opacity](https://tailwindcss.com/docs/border-opacity)
   - [placeholder-opacity](https://tailwindcss.com/docs/placeholder-opacity)
 
-- oceanwind supports duplicate token tracking
+- oceanwind supports duplicate directives tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
 
 ### Size Comparison

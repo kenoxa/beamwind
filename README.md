@@ -12,7 +12,7 @@
 This library takes inspiration from [Tailwind CSS] ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences)), [Oceanwind] ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#oceanwind-differences)) and [Otion] to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.
 
 ```js
-import { bw } from 'https://unpkg.com/beamwind?module'
+import { bw } from 'beamwind'
 
 document.body.className = bw`h-full bg-primary rotate-3 scale-95`
 ```
@@ -22,7 +22,7 @@ document.body.className = bw`h-full bg-primary rotate-3 scale-95`
 Or start with the pre-configured [@beamwind/tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/tailwind) which combines the [tailwind theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and a [set opinionated of base styles](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) for modern browsers:
 
 ```js
-import { tw } from 'https://unpkg.com/@beamwind/tailwind?module'
+import { tw } from '@beamwind/tailwind'
 
 document.body.className = tw`h-full bg-purple-500 rotate-3 scale-95`
 ```
@@ -44,6 +44,20 @@ document.body.className = tw`h-full bg-purple-500 rotate-3 scale-95`
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
+
+## Key Features
+
+- 📖 Supports vast majority of Tailwind directives outlined [in the docs](https://tailwindcss.com/docs) ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences))
+- 🗜 Is smaller than the average purged css file output from the Tailwind compiler
+- 💡 Generates only the styles required without building or purging
+- 🚀 Styles co-located with your component reduces context switching
+- 🧹 [Variant](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#variant-grouping) and [Directive](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
+- 🧱 [Extendable with plugins](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#plugins)
+- 🍱 [Reliable selector ordering](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#selector-ordering)
+- 🐾 Negligible runtime footprint
+- ⏱ Performant runtime characteristics
+- 💫 Works without a framework - eg framework agnostic
+- ⚠️ Warns the developer when unrecognized directive is used
 
 > **Beamwind**: a wind blowing against a vessel from a direction at right angles to its keel for optimal speed
 
@@ -101,7 +115,7 @@ bw`h-full bg-primary rotate-3 scale-95`
 
 ### Base Styles
 
-> A set of opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier for to work within the constraints of your design system.
+> A set of opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier to work within the constraints of your design system.
 
 - [@beamwind/preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) - for modern browsers
 

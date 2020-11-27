@@ -9,7 +9,7 @@
 [![Sponsor](https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9)](https://www.kenoxa.com)
 
 ```js
-import { tw } from 'https://unpkg.com/@beamwind/tailwind?module'
+import { tw } from '@beamwind/tailwind'
 
 document.body.className = tw`h-full bg-purple-500 rotate-3 scale-95`
 ```
