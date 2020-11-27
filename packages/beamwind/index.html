@@ -68,6 +68,12 @@
 					<a href="https://unpkg.com/browse/beamwind/dist/index.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
 				<a href="https://www.kenoxa.com"><img src="https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9" alt="Sponsor"></a></p>
 				<p>This library takes inspiration from <a href="https://tailwindcss.com">Tailwind CSS</a> (<a href="#tailwind-differences">see differences</a>), <a href="https://www.npmjs.com/package/oceanwind">Oceanwind</a> (<a href="#oceanwind-differences">see differences</a>), <a href="https://www.npmjs.com/package/otion">Otion</a> and <a href="#acknowledgements">others</a> to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.</p>
+				<blockquote>
+					<p>⚡️ Check out the <a href="https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB0YWlsd2luZCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlc2V0LXRhaWx3aW5kP21vZHVsZScKaW1wb3J0IHByZWZsaWdodCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlZmxpZ2h0P21vZHVsZScKaW1wb3J0IHsgYncsIHNldHVwIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKc2V0dXAoW3RhaWx3aW5kLCBwcmVmbGlnaHRdKQoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXByb21vdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTUgc2NhbGUtMTUwIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xNSBzY2FsZS0xODApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==">live and interactive demo</a></p>
+				</blockquote>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind?module&#x27;</span>
+
+<span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full text(4xl underline) font(bold sans) flex items-center justify-center `</span></code></pre>
 				<a href="#backstory" id="backstory" style="color: inherit; text-decoration: none;">
 					<h2>Backstory</h2>
 				</a>
@@ -134,7 +140,7 @@ setup(preflight)
 					<h2>Usage</h2>
 				</a>
 				<p>To use the library, first import the module then invoke the <code>bw</code> export using tagged template syntax:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind&#x27;</span>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind?module&#x27;</span>
 <span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full bg-purple-500 rotate-3 scale-95`</span></code></pre>
 				<p>Running the above code will result in the following happening:</p>
 				<ol>
@@ -143,56 +149,13 @@ setup(preflight)
 					<li>Inject each token CSS declarations with a unique class name into a library-managed style sheet</li>
 					<li>Return a space-separated string of unique class names</li>
 				</ol>
-				<p>It is recommended to import the following css files which help normalize styles across browsers:</p>
-				<ul>
-					<li>The Tailwind reset <a href="https://unpkg.com/tailwindcss/dist/base.min.css">available here</a></li>
-					<li>The Tailwind prose helper <a href="https://unpkg.com/@tailwindcss/typography/dist/typography.min.css">available here</a></li>
-				</ul>
-				<a href="#extending-the-default-theme" id="extending-the-default-theme" style="color: inherit; text-decoration: none;">
-					<h3>Extending the default theme</h3>
-				</a>
-				<p>Importing and invoking beamwind directly will cause it to use
-					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js">default theme</a>
-				for directives that require themed values (like <code>bg-primary</code> for example).</p>
-				<blockquote>
-					<p>The <a href="#theming">Theming section</a> provides detailed insight into the theming options.</p>
-				</blockquote>
-				<p>To customize the theme, use the <code>setup</code> export. This will change the theme used by the <code>bw</code> export.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
-
-setup({
-  <span class="hljs-attr">theme</span>: {
-    <span class="hljs-attr">colors</span>: {
-      <span class="hljs-string">&#x27;red-500&#x27;</span>: <span class="hljs-string">&#x27;hotpink&#x27;</span>,
-    },
-  },
-})
-
-bw<span class="hljs-string">`bg-red-500`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
-				<blockquote>
-					<p><code>setup</code> can be called multiple times where each call extends the existing configuration.
-					The <code>theme</code> and <code>plugins</code> properties merge their values with the previous ones.</p>
-				</blockquote>
-				<p>Alternatively you can create a own instance:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { createInstance } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
-
-<span class="hljs-keyword">const</span> css = createInstance({
-  <span class="hljs-attr">colors</span>: {
-    <span class="hljs-string">&#x27;red-500&#x27;</span>: <span class="hljs-string">&#x27;hotpink&#x27;</span>,
-  },
-})
-
-css`<span class="css"><span class="hljs-selector-tag">bg-red-500</span>`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
-				<blockquote>
-					<p>Any custom theme will be deep merged with the default theme.</p>
-				</blockquote>
 				<a href="#function-signature" id="function-signature" style="color: inherit; text-decoration: none;">
 					<h3>Function Signature</h3>
 				</a>
 				<p>It is possible to invoke beamwind in a multitude of different ways. The <code>bw</code> function can take <strong><em>any</em></strong> number of arguments, each of which can be an Object, Array, Boolean, Number, String or <a href="#inline-plugins">inline plugins</a>. This feature is based on <a href="https://www.npmjs.com/package/cslx">clsx</a>.</p>
 				<blockquote>
 					<p><strong>Important</strong>: <em>Any</em> falsey values are discarded!
-					Standalone Boolean values are discarded as well.</p>
+					Standalone Boolean and Number values are discarded as well.</p>
 				</blockquote>
 				<p>For example:</p>
 				<pre><code class="language-js"><span class="hljs-comment">// Tag Template Literal (falsey interpolations will be omitted)</span>
@@ -287,8 +250,8 @@ bw(
 				<blockquote>
 					<p>Please take a look at <a href="#plugins">Plugin API documentation</a> for further details about what a plugin can do.</p>
 				</blockquote>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> header = <span class="hljs-function">(<span class="hljs-params">theme</span>) =&gt;</span> ({
-  <span class="hljs-attr">disply</span>: block
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> card = <span class="hljs-function">(<span class="hljs-params">theme</span>) =&gt;</span> ({
+  <span class="hljs-attr">display</span>: block
   <span class="hljs-attr">border</span>: <span class="hljs-string">`1px solid <span class="hljs-subst">${theme(<span class="hljs-string">&#x27;colors&#x27;</span>, <span class="hljs-string">&#x27;primary&#x27;</span>)}</span>`</span>,
   <span class="hljs-string">&#x27;text-align&#x27;</span>: <span class="hljs-string">&#x27;center&#x27;</span>,
 })
@@ -322,11 +285,46 @@ bw([btn(), btn(<span class="hljs-string">&#x27;primary&#x27;</span>)])
 				<blockquote>
 					<p>This can be converted into a <a href="#adding-new-components">component plugin</a>.</p>
 				</blockquote>
+				<a href="#extending-the-default-theme" id="extending-the-default-theme" style="color: inherit; text-decoration: none;">
+					<h3>Extending the default theme</h3>
+				</a>
+				<p>Importing and invoking beamwind directly will cause it to use
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js">default theme</a>
+				for directives that require themed values (like <code>bg-primary</code> for example).</p>
+				<blockquote>
+					<p>The <a href="#theming">Theming section</a> provides detailed insight into the theming options.</p>
+				</blockquote>
+				<p>To customize the theme, use the <code>setup</code> export. This will change the theme used by the <code>bw</code> export.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+
+setup({
+  <span class="hljs-attr">theme</span>: {
+    <span class="hljs-attr">colors</span>: {
+      <span class="hljs-string">&#x27;red-500&#x27;</span>: <span class="hljs-string">&#x27;hotpink&#x27;</span>,
+    },
+  },
+})
+
+bw<span class="hljs-string">`bg-red-500`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
+				<blockquote>
+					<p><code>setup</code> can be called multiple times where each call extends the existing configuration.
+					The <code>theme</code> and <code>plugins</code> properties merge their values with the previous ones.</p>
+				</blockquote>
+				<p>Alternatively you can create a own instance:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { createInstance } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+
+<span class="hljs-keyword">const</span> css = createInstance({
+  <span class="hljs-attr">colors</span>: {
+    <span class="hljs-string">&#x27;red-500&#x27;</span>: <span class="hljs-string">&#x27;hotpink&#x27;</span>,
+  },
+})
+
+css`<span class="css"><span class="hljs-selector-tag">bg-red-500</span>`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
 				<a href="#theming" id="theming" style="color: inherit; text-decoration: none;">
 					<h2>Theming</h2>
 				</a>
 				<p>beamwind tries to follow a semantic naming approach by using a common <em>language</em> to reduce the guess work. A small set of well known design tokens hopefully prevents magic values or ambiguous names.</p>
-				<p>The theme object contains keys for <code>screens</code>, <code>colors</code>, and <code>spacing</code>, as well as a key for each customizable core plugin. The <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js">default theme</a> shows most of the available values. A tailwind like theme is available via <a href="https://www.npmjs.com/package/@beamwind/preset-tailwind">@beamwind/preset-tailwind</a>. For a full featured design system take a look at <a href="https://www.npmjs.com/package/@beamwind/preset-semantic">@beamwind/preset-semantic</a>.</p>
+				<p>The theme object contains keys for <code>screens</code>, <code>colors</code>, and <code>spacing</code>, as well as a key for each customizable core plugin. The <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js">default theme</a> shows most of the available values. A tailwind like theme is available via <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a>. For a full featured design system take a look at <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic">@beamwind/preset-semantic</a>.</p>
 				<p>To customize the theme call <code>setup</code> with a <code>theme</code> property:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
@@ -347,6 +345,9 @@ setup({
     }
   },
 })</code></pre>
+				<blockquote>
+					<p>Any custom theme will be deep merged with the current theme.</p>
+				</blockquote>
 				<a href="#screens" id="screens" style="color: inherit; text-decoration: none;">
 					<h3>Screens</h3>
 				</a>
@@ -369,7 +370,7 @@ setup({
 					<p><strong>Note</strong> This is a flat object (<code>{ &#39;gray-50&#39;: &#39;#f9fafb&#39; }</code>) not a nested on like in tailwind ((<code>{ &#39;gray&#39;: { 50: &#39;#f9fafb&#39; } }</code>)) uses.</p>
 				</blockquote>
 				<p>Most color directives accept color names (<code>text-rebeccapurple</code>) and hex colors (<code>text-#009900</code>) if the color is not found in <code>theme.colors</code>. This feature should be used for prototyping only as it usually prevents a consistent UI experience.</p>
-				<p>Out-of-the-box beamwind provides only a few colors that follow the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors">semantic color system</a> and are based on <a href="https://seek-oss.github.io/braid-design-system/foundations/tones">Braid Design System / Tones</a>. <a href="https://www.npmjs.com/package/@beamwind/preset-tailwind">@beamwind/preset-tailwind</a> provides the full tailwind color palette.</p>
+				<p>Out-of-the-box beamwind provides only a few colors that follow the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors">semantic color system</a> and are based on <a href="https://seek-oss.github.io/braid-design-system/foundations/tones">Braid Design System / Tones</a>. <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a> provides the full tailwind color palette.</p>
 				<pre><code class="language-js">theme = {
   <span class="hljs-attr">colors</span>: {
     <span class="hljs-attr">current</span>: <span class="hljs-string">&#x27;currentColor&#x27;</span>,
@@ -409,7 +410,7 @@ setup({
 					<h4>Color Names</h4>
 				</a>
 				<p>Naming colors is one of the most challenging parts of a color system. Many systems try to map color tones to their relative lightness, but this can be problematic because it creates a very loose mental model. Other systems will try to name colors based on use or hierarchy and those are equally problematic.</p>
-				<p>Most design systems have their own color naming scheme. beamwind does not enforce a particular scheme. With <a href="https://www.npmjs.com/package/@beamwind/preset-tailwind">@beamwind/preset-tailwind</a> and <a href="https://www.npmjs.com/package/@beamwind/preset-semantic">@beamwind/preset-semantic</a> two different approaches are available.</p>
+				<p>Most design systems have their own color naming scheme. beamwind does not enforce a particular scheme. With <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a> and <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic">@beamwind/preset-semantic</a> two different approaches are available.</p>
 				<ul>
 					<li><code>surface</code> - affect surfaces of components, such as cards, sheets, and menus</li>
 					<li><code>primary</code> - is the color displayed most frequently across screens and components</li>
@@ -500,7 +501,7 @@ setup({
 				<a href="#font-sizes" id="font-sizes" style="color: inherit; text-decoration: none;">
 					<h3>Font Sizes</h3>
 				</a>
-				<p>If you also want to provide a default <code>line-height</code> and/or <code>letter-spacing</code> value for a font size, you can do so using a tuple of the form <code>[fontSize, { letterSpacing, lineHeight }]</code>.</p>
+				<p>If you also want to provide a <a href="https://tailwindcss.com/docs/font-size#providing-a-default-line-height">default <code>line-height</code></a> and/or <a href="https://tailwindcss.com/docs/font-size#providing-a-default-letter-spacing"><code>letter-spacing</code></a> value for a font size, you can do so using a tuple of the form <code>[fontSize, lineHeight]</code> or <code>[fontSize, { letterSpacing, lineHeight }]</code>.</p>
 				<a href="#plugins" id="plugins" style="color: inherit; text-decoration: none;">
 					<h2>Plugins</h2>
 				</a>
@@ -543,7 +544,7 @@ setup({
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
-  <span class="hljs-attr">plugin</span>: {
+  <span class="hljs-attr">plugins</span>: {
     <span class="hljs-string">&#x27;text-important&#x27;</span>: { <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;red&#x27;</span> },
   },
 })</code></pre>
@@ -551,7 +552,7 @@ setup({
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
-  <span class="hljs-attr">plugin</span>: {
+  <span class="hljs-attr">plugins</span>: {
     <span class="hljs-string">&#x27;stretched-link&#x27;</span>: [
       <span class="hljs-string">&#x27;::after&#x27;</span>,
       {
@@ -573,7 +574,7 @@ setup({
 setup({
   <span class="hljs-attr">plugins</span>: {
     <span class="hljs-comment">// The token splitted by &#x27;-&#x27; with the plugin name as first value: [&#x27;scroll-snap&#x27;, ...]</span>
-    <span class="hljs-string">&#x27;scroll-snap&#x27;</span>(parts) {
+    <span class="hljs-string">&#x27;scroll-snap&#x27;</span>: <span class="hljs-function">(<span class="hljs-params">parts</span>) =&gt;</span> {
         <span class="hljs-keyword">return</span> { <span class="hljs-string">&#x27;scroll-snap-type&#x27;</span>: parts[<span class="hljs-number">1</span>] }
       }
     },
@@ -586,7 +587,7 @@ setup({
 				<p>What this currently does not support is something like <code>scroll-snap-both-mandatory</code>. Lets fix that:</p>
 				<pre><code class="language-js"><span class="hljs-comment">// ... same as before</span>
 <span class="hljs-keyword">return</span> { <span class="hljs-string">&#x27;scroll-snap-type&#x27;</span>: parts.slice(<span class="hljs-number">1</span>).join(<span class="hljs-string">&#x27; &#x27;</span>) }</code></pre>
-				<p>As this is quite common beamwind provides two helper (<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#join">join</a> and <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#tail">tail</a>) for this:</p>
+				<p>As this is quite common beamwind provides two helper (<a href="https://beamwind.js.org/packages/beamwind/modules.html#join">join</a> and <a href="https://beamwind.js.org/packages/beamwind/modules.html#tail">tail</a>) for this:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup, join, tail } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 <span class="hljs-comment">// ... same as before</span>
@@ -605,8 +606,8 @@ setup({
     }
   }
 
-  <span class="hljs-attr">plugin</span>: {
-    <span class="hljs-string">&#x27;scroll-snap&#x27;</span>(parts, theme) {
+  <span class="hljs-attr">plugins</span>: {
+    <span class="hljs-string">&#x27;scroll-snap&#x27;</span>: <span class="hljs-function">(<span class="hljs-params">parts, theme</span>) =&gt;</span> {
       <span class="hljs-comment">// defaultToKey: if no theme value is found -&gt; use the provided key (value of parts.slice(1).join(&#x27; &#x27;))</span>
       <span class="hljs-keyword">return</span> { <span class="hljs-string">&#x27;scroll-snap-type&#x27;</span>: theme(<span class="hljs-string">&#x27;scroll&#x27;</span>, parts.slice(<span class="hljs-number">1</span>).join(<span class="hljs-string">&#x27; &#x27;</span>), defaultToKey }
     }
@@ -625,7 +626,7 @@ setup({
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
-  <span class="hljs-attr">plugin</span>: {
+  <span class="hljs-attr">plugins</span>: {
     <span class="hljs-attr">card</span>: <span class="hljs-string">&#x27;max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl&#x27;</span>,
   },
 })</code></pre>
@@ -633,28 +634,28 @@ setup({
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
-  <span class="hljs-attr">plugin</span>: {
+  <span class="hljs-attr">plugins</span>: {
     <span class="hljs-function"><span class="hljs-title">btn</span>(<span class="hljs-params">parts</span>)</span> {
       <span class="hljs-keyword">if</span> (parts[<span class="hljs-number">1</span>]) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span> text-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-contrast hover:bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-hover active:bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-active`</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span> hover:bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-hover active:bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-active`</span>
       }
 
       <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;font-bold py-2 px-4 rounded&#x27;</span>
     },
   },
 })</code></pre>
-				<p>Some dynamic components depend on additional logic and like to use the familiar <code>bw</code> API. For these case beamwind provides the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply">apply</a> helper, which has the same API signature as <code>bw</code>.</p>
+				<p>Some dynamic components depend on additional logic and like to use the familiar <code>bw</code> API. For these case beamwind provides the <a href="https://beamwind.js.org/packages/beamwind/modules.html#apply">apply</a> helper, which has the same API signature as <code>bw</code>.</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup, apply, optional } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 setup({
-  <span class="hljs-attr">plugin</span>: {
+  <span class="hljs-attr">plugins</span>: {
     <span class="hljs-function"><span class="hljs-title">btn</span>(<span class="hljs-params">parts, theme</span>)</span> {
       <span class="hljs-keyword">if</span> (parts[<span class="hljs-number">1</span>]) {
-        <span class="hljs-keyword">return</span> apply<span class="hljs-string">`bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span> text-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span>-contrast <span class="hljs-subst">${{rounded: !!theme(<span class="hljs-string">&#x27;btn&#x27;</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>, optional}}</span>`</span>
-      } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;font-bold py-2 px-4 rounded&#x27;</span>
+        <span class="hljs-keyword">return</span> apply<span class="hljs-string">`bg-<span class="hljs-subst">${parts[<span class="hljs-number">1</span>]}</span> <span class="hljs-subst">${{ rounded: !!theme(<span class="hljs-string">&#x27;btn&#x27;</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>, optional) }}</span>`</span>
       }
-    }
+
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;font-bold py-2 px-4 rounded&#x27;</span>
+    },
   },
 })</code></pre>
 				<a href="#plugin-helper-functions" id="plugin-helper-functions" style="color: inherit; text-decoration: none;">
@@ -662,19 +663,19 @@ setup({
 				</a>
 				<p>beamwind provides a small set of helper functions to write your own plugins:</p>
 				<ul>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply">apply</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#compose">compose</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#convertto">convertTo</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#corners">corners</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#defaulttokey">defaultToKey</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#divideby">divideBy</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#edges">edges</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#join">join</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#optional">optional</a></li>
-					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#tail">tail</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#apply">apply</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#compose">compose</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#convertto">convertTo</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#corners">corners</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#defaulttokey">defaultToKey</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#divideby">divideBy</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#edges">edges</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#join">join</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#optional">optional</a></li>
+					<li><a href="https://beamwind.js.org/packages/beamwind/modules.html#tail">tail</a></li>
 				</ul>
 				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
-					<h2><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/README.md">API</a></h2>
+					<h2><a href="https://beamwind.js.org/packages/beamwind/modules.html">API</a></h2>
 				</a>
 				<a href="#global-styles" id="global-styles" style="color: inherit; text-decoration: none;">
 					<h3>Global Styles</h3>
@@ -810,18 +811,18 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 				<ul>
 					<li><p>beamwind uses a different color nameing scheme which is based on <a href="https://seek-oss.github.io/braid-design-system/foundations/tones/">Braid Design System - Tones</a></p>
 						<blockquote>
-							<p>The default tailwind theme is available via <a href="https://www.npmjs.com/package/@beamwind/preset-tailwind">@beamwind/preset-tailwind</a></p>
+							<p>The default tailwind theme is available via <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a></p>
 						</blockquote>
 						<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 <span class="hljs-keyword">import</span> tailwindPreset <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/preset-tailwind&#x27;</span>
 
-setup(tailwindPreset)
-<span class="hljs-string">`</span></code></pre>
+setup(tailwindPreset)</code></pre>
 					</li>
 					<li><p>beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features</p>
-						<p>The following feature are not yet available in beamwind:</p>
+						<p>The following Tailwind v2 features are not yet available in beamwind:</p>
 						<ul>
 							<li>dark mode</li>
+							<li>space-x-reverse</li>
 							<li>divide-y-reverse</li>
 							<li><a href="https://tailwindcss.com/docs/font-variant-numeric">Font Variant Numeric</a></li>
 						</ul>
@@ -902,7 +903,7 @@ setup(tailwindPreset)
 					</li>
 					<li><p>beamwind API <a href="#function-signature">additionally supports</a></p>
 						<ul>
-							<li>variadic arguments like <code>cs(&#39;bg-blue&#39;, &#39;text-white&#39;)</code></li>
+							<li>variadic arguments like <code>bw(&#39;bg-blue&#39;, &#39;text-white&#39;)</code></li>
 							<li><a href="#directive-grouping">Directive Grouping</a></li>
 							<li>Tagged Template Interpolation values may additionally be Array, Object or Function (<a href="#inline-plugins">inline plugins</a>)</li>
 							<li>Object values which are String, Array or Object start a new variant group</li>

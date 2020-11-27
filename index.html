@@ -70,8 +70,11 @@
 				<a href="https://www.kenoxa.com"><img src="https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9" alt="Sponsor"></a></p>
 				<p>This library takes inspiration from <a href="https://tailwindcss.com">Tailwind CSS</a> (<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences">see differences</a>), <a href="https://www.npmjs.com/package/oceanwind">Oceanwind</a> (<a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#oceanwind-differences">see differences</a>) and <a href="https://www.npmjs.com/package/otion">Otion</a> to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.</p>
 				<blockquote>
-					<p><strong>Beamwind</strong>: a wind blowing against a vessel from a direction at right angles to its keel for optimal speed.</p>
+					<p>⚡️ Check out the <a href="https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB0YWlsd2luZCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlc2V0LXRhaWx3aW5kP21vZHVsZScKaW1wb3J0IHByZWZsaWdodCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlZmxpZ2h0P21vZHVsZScKaW1wb3J0IHsgYncsIHNldHVwIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKc2V0dXAoW3RhaWx3aW5kLCBwcmVmbGlnaHRdKQoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXByb21vdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTUgc2NhbGUtMTUwIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xNSBzY2FsZS0xODApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==">live and interactive demo</a></p>
 				</blockquote>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind?module&#x27;</span>
+
+<span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full bg-primary rotate-3 scale-95`</span></code></pre>
 				<!-- prettier-ignore-start -->
 				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
 				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -87,15 +90,12 @@
 				</ul>
 				<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 				<!-- prettier-ignore-end -->
+				<blockquote>
+					<p><strong>Beamwind</strong>: a wind blowing against a vessel from a direction at right angles to its keel for optimal speed</p>
+				</blockquote>
 				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
 					<h2>Quick Start</h2>
 				</a>
-				<blockquote>
-					<p>⚡️ Check out the <a href="https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB0YWlsd2luZCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlc2V0LXRhaWx3aW5kP21vZHVsZScKaW1wb3J0IHByZWZsaWdodCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlZmxpZ2h0P21vZHVsZScKaW1wb3J0IHsgYncsIHNldHVwIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKc2V0dXAoW3RhaWx3aW5kLCBwcmVmbGlnaHRdKQoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXByb21vdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzc05hbWU9JHtzdHlsZS5jb250YWluZXJ9PgogICAgICA8aDEgY2xhc3NOYW1lPSR7CiAgICAgICAgLy8gRXhhbXBsZSBvZiBhbiBpbmxpbmUgc3R5bGUKICAgICAgICBid2AKICAgICAgICAgIHRleHQoNHhsIHdoaXRlKQogICAgICAgICAgZm9udChib2xkIHNhbnMpCiAgICAgICAgICBob3ZlcjoodHJhbnNpdGlvbiB0cmFuc2Zvcm0gcm90YXRlLTUgc2NhbGUtMTUwIGN1cnNvci1wb2ludGVyKQogICAgICAgIGAKICAgICAgfT5IZWxsbyBXb3JsZDwvaDE+CiAgICA8L2Rpdj4KICBgLAogIGRvY3VtZW50LmJvZHkKKTs=">live and interactive demo</a></p>
-				</blockquote>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind?module&#x27;</span>
-
-<span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full bg-primary rotate-3 scale-95`</span></code></pre>
 				<p>Using the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">tailwind preset</a> and a <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">set opinionated of base styles</a> for modern browsers:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> tailwind <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/@beamwind/preset-tailwind?module&#x27;</span>
 <span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/@beamwind/preflight?module&#x27;</span>
@@ -129,8 +129,8 @@ setup([tailwind, preflight])
 					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic">@beamwind/preset-semantic</a> - a semantic color scheme</li>
 					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a> - mirroring tailwind default theme</li>
 				</ul>
-				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> tailwind <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/tailwind&#x27;</span>
-<span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+<span class="hljs-keyword">import</span> tailwind <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/tailwind&#x27;</span>
 
 setup(tailwind)</code></pre>
 				<a href="#base-styles" id="base-styles" style="color: inherit; text-decoration: none;">
@@ -143,8 +143,8 @@ setup(tailwind)</code></pre>
 					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">@beamwind/preflight</a> - for modern browsers</li>
 					<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/reset">@beamwind/reset</a> - for legacy browsers like IE10/11</li>
 				</ul>
-				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/preflight&#x27;</span>
-<span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
+<span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/preflight&#x27;</span>
 
 setup(preflight)</code></pre>
 				<a href="#helpers" id="helpers" style="color: inherit; text-decoration: none;">
