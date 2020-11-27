@@ -34,6 +34,7 @@ beforeEach(() => {
 })
 
 test.each(
+  // "bg-#f87171": ".bg-\\#f87171{--bg-opacity:1;background-color:#f87171;background-color:rgba(248,113,113,var(--bg-opacity));--text-opacity:1}",
   // "skew-y-3": { "transform": "skewY(3deg)" },
   // "space-x": [">:not([hidden])~:not([hidden])", { "margin-left": ".625rem" }],
   // "group hover:bg-surface": [
@@ -63,6 +64,10 @@ test.each(
       ]
     }
 
+    if (typeof declarations === 'string') {
+      return [tokens, tokens, [declarations]]
+    }
+
     // "skew-y-3": { "transform": "skewY(3deg)" },
     return [
       tokens,
@@ -83,27 +88,40 @@ test.each([
   [
     ['bg-primary', false && 'rounded'],
     'bg-primary',
-    ['.bg-primary{background-color:#0d3880;color:#e8ecf4}'],
+    [
+      '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+    ],
   ],
   [
     ['bg-primary', true && 'rounded'],
     'bg-primary rounded',
-    ['.bg-primary{background-color:#0d3880;color:#e8ecf4}', '.rounded{border-radius:.25rem}'],
+    [
+      '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+      '.rounded{border-radius:.25rem}',
+    ],
   ],
   [
     ['bg-primary', true, false, '', 'text-caution', null, undefined, 0, Number.NaN],
     'bg-primary text-caution',
-    ['.bg-primary{background-color:#0d3880;color:#e8ecf4}', '.text-caution{color:#ffc600}'],
+    [
+      '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+      '.text-caution{--text-opacity:1;color:#ffc600;color:rgba(255,198,0,var(--text-opacity))}',
+    ],
   ],
   [
     { 'bg-primary': true, rounded: false },
     'bg-primary',
-    ['.bg-primary{background-color:#0d3880;color:#e8ecf4}'],
+    [
+      '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+    ],
   ],
   [
     { 'bg-primary': true, rounded: true },
     'bg-primary rounded',
-    ['.bg-primary{background-color:#0d3880;color:#e8ecf4}', '.rounded{border-radius:.25rem}'],
+    [
+      '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+      '.rounded{border-radius:.25rem}',
+    ],
   ],
   [
     {
@@ -119,10 +137,10 @@ test.each([
       '@media (min-width: 576px){.sm\\:hover\\:rounded:hover{border-radius:.25rem}}',
       '@media (min-width: 576px){.sm\\:active\\:rounded-full:active{border-radius:9999px}}',
       '@media (min-width: 768px){.md\\:rounded{border-radius:.25rem}}',
-      '@media (min-width: 768px){.md\\:hover\\:bg-primary:hover{background-color:#0d3880;color:#e8ecf4}}',
+      '@media (min-width: 768px){.md\\:hover\\:bg-primary:hover{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}}',
       '@media (min-width: 992px){.lg\\:rounded-full{border-radius:9999px}}',
-      '@media (min-width: 992px){.lg\\:hover\\:bg-primary:hover{background-color:#0d3880;color:#e8ecf4}}',
-      '@media (min-width: 992px){.lg\\:hover\\:text-critical:hover{color:#d0011b}}',
+      '@media (min-width: 992px){.lg\\:hover\\:bg-primary:hover{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}}',
+      '@media (min-width: 992px){.lg\\:hover\\:text-critical:hover{--text-opacity:1;color:#d0011b;color:rgba(208,1,27,var(--text-opacity))}}',
       '@media (min-width: 992px){.lg\\:hover\\:active\\:shadow:hover:active{--shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}}',
       '@media (min-width: 992px){.lg\\:hover\\:active\\:underline:hover:active{text-decoration:underline}}',
     ],
@@ -139,13 +157,15 @@ test.each([
 /* eslint-disable no-template-curly-in-string */
 test('bw`bg-primary ${false && "rounded"}`', () => {
   expect(bw`bg-primary ${false && 'rounded'}`).toBe('bg-primary')
-  expect(injector.target).toMatchObject(['.bg-primary{background-color:#0d3880;color:#e8ecf4}'])
+  expect(injector.target).toMatchObject([
+    '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+  ])
 })
 
 test('bw`bg-primary ${true && "rounded"}`', () => {
   expect(bw`bg-primary ${true && 'rounded'}`).toBe('bg-primary rounded')
   expect(injector.target).toMatchObject([
-    '.bg-primary{background-color:#0d3880;color:#e8ecf4}',
+    '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
     '.rounded{border-radius:.25rem}',
   ])
 })
@@ -153,20 +173,22 @@ test('bw`bg-primary ${true && "rounded"}`', () => {
 test('bw`bg-primary ${{rounded: true}}`', () => {
   expect(bw`bg-primary ${{ rounded: true }}`).toBe('bg-primary rounded')
   expect(injector.target).toMatchObject([
-    '.bg-primary{background-color:#0d3880;color:#e8ecf4}',
+    '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
     '.rounded{border-radius:.25rem}',
   ])
 })
 
 test('bw`bg-primary ${{rounded: false}}`', () => {
   expect(bw`bg-primary ${{ rounded: false }}`).toBe('bg-primary')
-  expect(injector.target).toMatchObject(['.bg-primary{background-color:#0d3880;color:#e8ecf4}'])
+  expect(injector.target).toMatchObject([
+    '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+  ])
 })
 
 test('bw`bg-${"secondary"} rounded-${"xl"}`', () => {
   expect(bw`bg-${'secondary'} rounded-${'xl'}`).toBe('bg-secondary rounded-xl')
   expect(injector.target).toMatchObject([
-    '.bg-secondary{background-color:#e60278;color:#000}',
+    '.bg-secondary{--bg-opacity:1;background-color:#e60278;background-color:rgba(230,2,120,var(--bg-opacity));--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}',
     '.rounded-xl{border-radius:.75rem}',
   ])
 })

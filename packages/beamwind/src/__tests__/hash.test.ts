@@ -28,22 +28,22 @@ test('keyframes are hashed', () => {
 })
 
 test('same declarations are inserted only once', () => {
-  expect(instance.bw('border-x border-lr')).toBe('_1k8rogr _1k8rogr')
-  expect(injector.target).toMatchObject([
-    '._1k8rogr{border-left:1px solid currentColor;border-right:1px solid currentColor}',
-  ])
+  expect(instance.bw('border-x border-lr')).toBe('_5mfhy3 _5mfhy3')
+  expect(injector.target).toMatchObject(['._5mfhy3{border-left-width:1px;border-right-width:1px}'])
 })
 
 test('same color is inserted only once', () => {
-  expect(instance.bw('text-primary text-#0d3880')).toBe('_1jca9tr _1jca9tr')
-  expect(injector.target).toMatchObject(['._1jca9tr{color:#0d3880}'])
+  expect(instance.bw('text-primary text-#0d3880')).toBe('_w64b8 _w64b8')
+  expect(injector.target).toMatchObject([
+    '._w64b8{--_9esraz:1;color:#0d3880;color:rgba(13,56,128,var(--_9esraz))}',
+  ])
 })
 
 test('suffix is considered for hash', () => {
-  expect(instance.bw('border-l divide-x')).toBe('_1ldho2c _1s0kdql')
+  expect(instance.bw('border-l divide-x')).toBe('_gg8x1m _9d49do')
   expect(injector.target).toMatchObject([
-    '._1ldho2c{border-left:1px solid currentColor}',
-    '._1s0kdql>:not([hidden])~:not([hidden]){border-left:1px solid currentColor}',
+    '._gg8x1m{border-left-width:1px}',
+    '._9d49do>:not([hidden])~:not([hidden]){border-left-width:1px}',
   ])
 })
 

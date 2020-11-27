@@ -27,7 +27,7 @@ test('add reset styles', () => {
     'ol,ul{list-style:none;margin:0;padding:0}',
     'html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}',
     'body{margin:0;font-family:inherit;line-height:inherit}',
-    '*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}',
+    '*,::before,::after{box-sizing:border-box;border:0 solid currentColor}',
     'hr{height:0;overflow:visible;color:inherit;border-top-width:1px}',
     'img{border-style:solid}',
     'textarea{overflow:auto;resize:vertical}',
@@ -65,7 +65,7 @@ test('add reset styles', () => {
     'summary{display:list-item}',
     'template{display:none}',
     '[hidden]{display:none}',
-    '.text-primary{color:#0d3880}',
+    '.text-primary{--text-opacity:1;color:#0d3880;color:rgba(13,56,128,var(--text-opacity))}',
   ])
 })
 
@@ -86,9 +86,7 @@ test('add reset styles with custom theme', () => {
   expect(injector.target).toContain(
     'html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif}',
   )
-  expect(injector.target).toContain(
-    '*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#222}',
-  )
+  expect(injector.target).toContain('*,::before,::after{box-sizing:border-box;border:0 solid #222}')
   expect(injector.target).toContain('input::placeholder,textarea::placeholder{color:#333}')
   expect(injector.target).toContain('pre,code,kbd,samp{font-family:ui-monospace;font-size:1em}')
 })
@@ -108,7 +106,7 @@ test('add reset styles with theme missing some values', () => {
   expect(instance.bw('text-primary')).toBe('text-primary')
 
   expect(injector.target).toContain(
-    '*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}',
+    '*,::before,::after{box-sizing:border-box;border:0 solid currentColor}',
   )
   expect(injector.target).toContain('input::placeholder,textarea::placeholder{color:#a1a1aa}')
 })

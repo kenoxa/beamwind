@@ -21,8 +21,8 @@ test('value can be a token string', () => {
     'mx-auto max-w-md mx-auto bg-surface rounded-xl shadow-md overflow-hidden md:max-w-2xl my-md',
   )
   expect(injector.target).toMatchObject([
+    '.bg-surface{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity));--text-opacity:1;color:#111;color:rgba(17,17,17,var(--text-opacity))}',
     '.mx-auto{margin-left:auto;margin-right:auto}',
-    '.bg-surface{background-color:#fff;color:#111}',
     '.shadow-md{--shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}',
     '.my-md{margin-bottom:.875rem;margin-top:.875rem}',
     '.overflow-hidden{overflow:hidden}',

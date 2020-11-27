@@ -15,8 +15,8 @@ test('adjust theme using callback', () => {
 
   expect(instance.bw('bg-primary text-red')).toBe('bg-primary text-red')
   expect(injector.target).toMatchObject([
-    '.bg-primary{background-color:#0d3880;color:#e8ecf4}',
-    '.text-red{color:#d0011b}',
+    '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}',
+    '.text-red{--text-opacity:1;color:#d0011b;color:rgba(208,1,27,var(--text-opacity))}',
   ])
 })
 
@@ -24,5 +24,7 @@ test('on-* text color is added to bg-color', () => {
   instance.setup({ theme: { colors: { 'on-primary': 'red' } } })
 
   expect(instance.bw('bg-primary')).toBe('bg-primary')
-  expect(injector.target).toMatchObject(['.bg-primary{background-color:#0d3880;color:red}'])
+  expect(injector.target).toMatchObject([
+    '.bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:red}',
+  ])
 })

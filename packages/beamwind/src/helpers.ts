@@ -45,7 +45,7 @@ export const defaultToKey: UnknownKeyHandler<string> = (key) => key
 export const optional: UnknownKeyHandler<string> = () => ''
 
 const positions = (resolve: (position: string) => undefined | string[] | void) => (
-  value: string,
+  value: string | string[] | undefined,
   position: string,
   prefix: string,
   suffix?: string,

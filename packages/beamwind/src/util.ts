@@ -98,25 +98,5 @@ export const sortedInsertionIndex = (array: readonly number[], element: number):
   return high
 }
 
-/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/ban-types, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any */
-export const merge = <A extends object, B extends object>(
-  a: A,
-  b: DeepPartial<B> | undefined,
-): A & B => {
-  if (!(a && b)) {
-    return (a || b) as A & B
-  }
-
-  const result = Object.create(null)
-
-  Object.keys(a).forEach((key) => {
-    result[key] = (a as any)[key]
-  })
-
-  Object.keys(b).forEach((key) => {
-    result[key] = (b as any)[key]
-  })
-
-  return result as A & B
-}
-/* eslint-enable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/ban-types, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any */
+export const merge = <A, B>(a: A, b: DeepPartial<B> | undefined): A & B =>
+  (a && b ? { ...a, ...b } : a || b) as A & B

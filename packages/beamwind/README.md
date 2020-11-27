@@ -40,7 +40,7 @@ import { bw, setup } from 'https://unpkg.com/beamwind'
 
 setup(preflight)
 
-<div class={bw`flex space`}>
+<div class={bw`flex space(x y)`}>
   <div class={bw`w-1/3`}><!-- ... --></div>
   <div class={bw`w-1/3`}><!-- ... --></div>
   <div class={bw`w-1/3`}><!-- ... --></div>
@@ -880,7 +880,10 @@ TODO see TODO.md
   The following feature are not yet available in beamwind:
 
   - dark mode
-  - text opacity
+  - divide-y-reverse
+  - [Font Variant Numeric](https://tailwindcss.com/docs/font-variant-numeric)
+
+  > Did we miss a feature? Please [open a an issue](https://github.com/kenoxa/beamwind/issues/new) or [contribute](#contribute) a pull request.
 
 ### Additional Features
 
@@ -894,21 +897,10 @@ TODO see TODO.md
 - `border` and `divide` allow to combine positions (`t`op, `r`righ, `l`eft, `b`ottom)
 
   - `tr` - `top` & `right`
-  - `brl` - `top`, `right` and `left`
+  - `brl` - `bottom`, `right` and `left`
 
   > **Note** `x` and `y` can not be combined.
 
-- `border` directives use border shorthand for `width`, `style` and `color`; each of those can be overridden by its variant (`border-dashed` & `border-primary`)
-  - `border`: `{ border: <theme.borderWidth.DEFAULT> solid <theme.borderColor.DEFAULT>; }`
-  - `border-<position>` (`border-t` or `border-l`): `{ border-<position>: <theme.borderWidth.DEFAULT> solid <theme.borderColor.DEFAULT>; }`
-  - `border-<position>-<size>` (`border-t-xs` or `border-l-4`): `{ border-<position>: <size> solid <theme.borderColor.DEFAULT>; }`
-  - `border-<position>-<color>` (`border-t-primary` or `border-l-red`): `{ border-<position>: <theme.borderWidth.DEFAULT> solid <color>; }`
-  - `border-<position>-<size>-<color>` (`border-t-xs-primary` or `border-l-4-red`): `{ border-<position>: <size> solid <color>; }`
-- `divide` directives use border shorthand for `width`, `style` and `color`; each of those can be overridden by its variant (`divide-dashed` & `divide-primary`)
-  - `divide-<position>` (`divide-x` or `divide-y`): `{ border-<position>: <theme.divideWidth.DEFAULT> solid <theme.divideColor.DEFAULT>; }`
-  - `divide-<position>-<size>` (`divide-x-xs` or `divide-y-4`): `{ border-<position>: <size> solid <theme.divideColor.DEFAULT>; }`
-  - `divide-<position>-<color>` (`divide-x-primary` or `divide-y-red`): `{ border-<position>: <theme.divideWidth.DEFAULT> solid <color>; }`
-  - `divide-<position>-<size>-<color>` (`divide-x-xs-primary` or `divide-y-4-red`): `{ border-<position>: <size> solid <color>; }`
 - `rotate`, `scale` , `skew` and `translate` can be used without `transform` when used alone
 
   > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
@@ -967,6 +959,11 @@ Some notable differences are:
   - [transform](https://tailwindcss.com/docs/transform)
   - [Background Image](https://tailwindcss.com/docs/gradient-color-stops#class-reference)
   - [ring](https://tailwindcss.com/docs/ring-width)
+  - [text-opacity](https://tailwindcss.com/docs/text-opacity)
+  - [bg-opacity](https://tailwindcss.com/docs/bg-opacity)
+  - [divide-opacity](https://tailwindcss.com/docs/divide-opacity)
+  - [border-opacity](https://tailwindcss.com/docs/border-opacity)
+  - [placeholder-opacity](https://tailwindcss.com/docs/placeholder-opacity)
 
 - oceanwind supports duplicate token tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))

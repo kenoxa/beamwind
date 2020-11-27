@@ -2,7 +2,16 @@ Link to https://nerdcave.com/tailwind-cheat-sheet
 
 pre-commit hook to format files
 
-support symbols as tokens? to prevent name collusion in the plugin registry
+util: merge using object spread
+text like directive (underline, italic) via text to support
+same for font (italic) via text to support
+
+doc for: text(center primary underline) font(sans bold italic)
+
+space-x-reverse
+divide-y-reverse
+
+doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
 
 transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
 https://github.com/tailwindlabs/tailwindcss/pull/2531
@@ -18,7 +27,6 @@ https://theme-ui.com/color-modes/:
 - https://github.com/tailwindlabs/tailwindcss/pull/2279
 - https://github.com/tailwindlabs/tailwindcss/pull/2631
   @beamwind/preset-dark, @beamwind/preset-light
-  @beamwin/preset-tailwind with all v2 colors: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 
 Server Side Rendering including re-hydration
 @beamwind/ssr
@@ -30,6 +38,7 @@ Autocompletion:
 https://tailwindcss.com/docs/intellisense
 https://github.com/kingdaro/typescript-plugin-tw-template
 
+https://github.com/ben-rogerson/twin.macro
 💥 Add important to any class with a trailing bang!
 
 bw`hidden!`

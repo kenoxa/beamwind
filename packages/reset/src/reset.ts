@@ -88,7 +88,7 @@ export const reset = (theme: Theme): string[] => [
    *
    *    https://github.com/tailwindcss/tailwindcss/pull/116
    */
-  `*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:${
+  `*,::before,::after{box-sizing:border-box;border:0 solid ${
     theme.borderColor?.DEFAULT || 'currentColor'
   }}`,
 

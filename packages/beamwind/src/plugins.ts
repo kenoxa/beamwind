@@ -1,4 +1,4 @@
-import type { Declarations, Plugin, ThemeValueResolver } from './types'
+import type { Declarations, Plugin, PluginContext, ThemeValueResolver } from './types'
 
 import * as is from './is'
 import {
@@ -11,10 +11,10 @@ import {
   optional,
   expandEdges,
 } from './helpers'
-import { join, joinTruthy, tail } from './util'
+import { join, joinTruthy, merge, tail } from './util'
 
 // Shared variables
-let _: undefined | string | Declarations | string[]
+let _: undefined | string | Declarations | string[] | boolean
 
 /* eslint-disable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */
 
@@ -22,7 +22,7 @@ const parseColorComponent = (chars: string, factor: number): number =>
   // eslint-disable-next-line unicorn/prefer-number-properties
   Math.round(parseInt(chars, 16) * factor)
 
-const asRGBA = (color: string, alpha: string): string => {
+const asRGBA = (color: string, opacityProperty: string): string => {
   if (color[0] === '#') {
     const length = (color.length - 1) / 3
     const factor = [17, 1, 0.062272][length - 1]
@@ -31,21 +31,39 @@ const asRGBA = (color: string, alpha: string): string => {
     return `rgba(${parseColorComponent(color.substr(1, length), factor)},${parseColorComponent(
       color.substr(1 + length, length),
       factor,
-    )},${parseColorComponent(color.substr(1 + 2 * length, length), factor)},${alpha})`
+    )},${parseColorComponent(
+      color.substr(1 + 2 * length, length),
+      factor,
+    )},var(--${opacityProperty}))`
     /* eslint-enable unicorn/prefer-string-slice */
   }
 
   return color
 }
 
-const TOP_LEFT: Record<string, undefined | string> = { x: 'left', y: 'top' }
+const withOpacityFallback = (
+  property: string,
+  kind: string,
+  color: string | undefined,
+  tag: PluginContext['tag'],
+): Declarations =>
+  color
+    ? {
+        [`--${tag(kind + '-opacity')}`]: '1',
+        [property]: (_ = asRGBA(color, tag(kind + '-opacity'))) === color ? color : [color, _],
+      }
+    : {}
 
 const propertyAndValue = (parts: string[]): Declarations => ({ [parts[0]]: parts[1] })
 const display = (parts: string[]): Declarations => ({ display: join(parts) })
 const position = (parts: string[]): Declarations => ({ position: parts[0] })
 const textTransform = (parts: string[]): Declarations => ({ 'text-transform': parts[0] })
 
-const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
+const border = (
+  parts: string[],
+  theme: ThemeValueResolver,
+  tag: PluginContext['tag'],
+): Declarations => {
   switch (parts[1]) {
     case 'solid':
     case 'dashed':
@@ -56,6 +74,8 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
     case 'collapse':
     case 'separate':
       return { 'border-collapse': parts[1] }
+    case 'opacity':
+      return { [`--${tag(parts[0] + '-opacity')}`]: theme('opacity', parts[2], divideBy(100)) }
   }
 
   return (_ = theme(
@@ -63,19 +83,13 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
     parts[1],
     compose(convertTo('px'), optional),
   ))
-    ? {
-        border: join(
-          [
-            _,
-            'solid',
-            theme(`${parts[0]}Color` as 'borderColor', join(tail(parts, 2)), defaultToKey),
-          ],
-          ' ',
-        ),
-      }
-    : {
-        'border-color': theme(`${parts[0]}Color` as 'borderColor', join(tail(parts)), defaultToKey),
-      }
+    ? { 'border-width': _ }
+    : withOpacityFallback(
+        'border-color',
+        parts[0],
+        theme(`${parts[0]}Color` as 'borderColor', join(tail(parts)), defaultToKey),
+        tag,
+      )
 }
 
 const minMax: Plugin = (parts, theme) =>
@@ -203,7 +217,7 @@ export const utilities: Record<string, Plugin> = {
           [`--${tag('ring-opacity')}`]: '1',
           [`--${tag('ring-color')}`]: asRGBA(
             theme('colors', join(tail(parts)), defaultToKey),
-            `var(--${tag('ring-opacity')})`,
+            tag('ring-opacity'),
           ),
         }
   },
@@ -397,32 +411,38 @@ export const utilities: Record<string, Plugin> = {
     height: theme('sizes', parts[1], compose(convertTo('rem', 'h'), defaultToKey)),
   }),
 
-  text(parts, theme) {
+  text(parts, theme, { tag }) {
     switch (parts[1]) {
       case 'left':
       case 'center':
       case 'right':
       case 'justify':
         return { 'text-align': parts[1] }
-      default: {
-        const fontSize = theme('fontSize', parts[1], optional)
-
-        if (fontSize) {
-          return is.string(fontSize)
-            ? { 'font-size': fontSize }
-            : {
-                'font-size': fontSize[0],
-                'line-height': is.string(fontSize[1]) ? fontSize[1] : fontSize[1].lineHeight,
-                'letter-spacing': (fontSize[1] as { letterSpacing?: string }).letterSpacing,
-              }
-        }
-
-        return { color: theme('colors', join(tail(parts)), defaultToKey) }
-      }
+      case 'opacity':
+        return { [`--${tag('text-opacity')}`]: theme('opacity', parts[2], divideBy(100)) }
     }
+
+    const fontSize = theme('fontSize', parts[1], optional)
+
+    if (fontSize) {
+      return is.string(fontSize)
+        ? { 'font-size': fontSize }
+        : {
+            'font-size': fontSize[0],
+            'line-height': is.string(fontSize[1]) ? fontSize[1] : fontSize[1].lineHeight,
+            'letter-spacing': (fontSize[1] as { letterSpacing?: string }).letterSpacing,
+          }
+    }
+
+    return withOpacityFallback(
+      'color',
+      'text',
+      theme('colors', join(tail(parts)), defaultToKey),
+      tag,
+    )
   },
 
-  bg(parts, theme) {
+  bg(parts, theme, { tag }) {
     switch (parts[1]) {
       case 'fixed':
       case 'local':
@@ -448,19 +468,31 @@ export const utilities: Record<string, Plugin> = {
       case 'cover':
       case 'contain':
         return { 'background-size': parts[1] }
+      case 'opacity':
+        return { [`--${tag('bg-opacity')}`]: theme('opacity', parts[2], divideBy(100)) }
     }
 
-    return {
-      'background-color': theme('colors', join(tail(parts)), defaultToKey),
+    return merge(
+      withOpacityFallback(
+        'background-color',
+        'bg',
+        theme('colors', join(tail(parts)), defaultToKey),
+        tag,
+      ),
       // Look for a corresponding text color:
       // 'primary' -> 'on-primary'
       // 'on-primary' -> 'primary'
-      color: theme(
-        'colors',
-        join(parts[1] === 'on' ? tail(parts, 2) : ['on'].concat(tail(parts))),
-        optional,
+      withOpacityFallback(
+        'color',
+        'text',
+        theme(
+          'colors',
+          join(parts[1] === 'on' ? tail(parts, 2) : ['on'].concat(tail(parts))),
+          optional,
+        ),
+        tag,
       ),
-    }
+    )
   },
 
   // .rounded	border-radius: 0.25rem;
@@ -726,15 +758,11 @@ export const utilities: Record<string, Plugin> = {
       ? { 'font-family': _ }
       : (_ = theme('fontWeight', parts[1], defaultToKey)) && { 'font-weight': _ },
 
-  space: (parts, theme) => [
-    '>:not([hidden])~:not([hidden])',
-    (_ = TOP_LEFT[parts[1]])
-      ? { [`margin-${_}`]: theme('spacing', parts[2] || 'base', convertTo('rem')) }
-      : (_ = theme('spacing', parts[1] || 'base', convertTo('rem'))) && {
-          'margin-left': _,
-          'margin-top': _,
-        },
-  ],
+  space: (parts, theme) =>
+    (_ = ({ x: 'l', y: 't' } as Record<string, undefined | string>)[parts[1]]) && [
+      '>:not([hidden])~:not([hidden])',
+      edges(theme('spacing', parts[2] || 'base', convertTo('rem')), _, 'margin'),
+    ],
 
   // .border	border-width: 1px;
   // .border-0	border-width: 0;
@@ -743,55 +771,33 @@ export const utilities: Record<string, Plugin> = {
   // .border-t	border-top-width: 1px;
   // .border-t-0	border-top-width: 0px;
   // .border-t-xs
-  border: (parts, theme) => {
-    _ = theme('borderWidth', parts[2], compose(convertTo('px'), optional))
-
-    return (
-      edges(
-        join(
-          [
-            _ || theme('borderWidth', 'DEFAULT', optional),
-            'solid',
-            theme('borderColor', join(tail(parts, _ ? 3 : 2)), defaultToKey),
-          ],
-          ' ',
-        ),
-        parts[1],
-        'border',
-      ) || border(parts, theme)
-    )
-  },
+  border: (parts, theme, { tag }) =>
+    (parts[1]
+      ? edges(theme('borderWidth', parts[2], convertTo('px')), parts[1], 'border', 'width')
+      : {
+          'border-width': theme('borderWidth', 'DEFAULT'),
+        }) || border(parts, theme, tag),
 
   // .divide-x
   // .divide-x-8
-  // .divide-x-8-promote
-  divide: (parts, theme) => {
-    const topLeft = TOP_LEFT[parts[1]]
+  divide: (parts, theme, { tag }) => [
+    '>:not([hidden])~:not([hidden])',
 
-    // '\0' to prevent DEFAULT value resolution
-    _ = topLeft && theme('divideWidth', parts[2] || '\0', compose(convertTo('px'), optional))
+    (_ = ({ x: 'l', y: 't' } as Record<string, undefined | string>)[parts[1]])
+      ? edges(theme('divideWidth', parts[2], convertTo('px')), _, 'border', 'width')
+      : border(parts, theme, tag),
+  ],
 
-    return [
-      '>:not([hidden])~:not([hidden])',
-
-      topLeft
-        ? {
-            [`border-${topLeft}`]: join(
-              [
-                _ || theme('divideWidth', 'DEFAULT'),
-                'solid',
-                theme('divideColor', join(tail(parts, _ ? 3 : 2)), defaultToKey),
-              ],
-              ' ',
-            ),
-          }
-        : border(parts, theme),
-    ]
-  },
-
-  placeholder: (parts, theme) => [
+  placeholder: (parts, theme, { tag }) => [
     '::placeholder',
-    { color: theme('placeholderColor', join(tail(parts)), defaultToKey) },
+    parts[1] === 'opacity'
+      ? { [`--${tag('placeholder-opacity')}`]: theme('opacity', parts[2], divideBy(100)) }
+      : withOpacityFallback(
+          'color',
+          'placeholder',
+          theme('placeholderColor', join(tail(parts)), defaultToKey),
+          tag,
+        ),
   ],
 
   min: minMax,
