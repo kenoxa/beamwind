@@ -97,7 +97,7 @@
 
 setup(preflight)
 
-&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>={bw<span class="hljs-string">`flex space`</span>}&gt;
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>={bw<span class="hljs-string">`flex space(x y)`</span>}&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">w-1</span>/<span class="hljs-attr">3</span>`}&gt;</span><span class="hljs-comment">&lt;!-- ... --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
@@ -822,8 +822,12 @@ setup(tailwindPreset)
 						<p>The following feature are not yet available in beamwind:</p>
 						<ul>
 							<li>dark mode</li>
-							<li>text opacity</li>
+							<li>divide-y-reverse</li>
+							<li><a href="https://tailwindcss.com/docs/font-variant-numeric">Font Variant Numeric</a></li>
 						</ul>
+						<blockquote>
+							<p>Did we miss a feature? Please <a href="https://github.com/kenoxa/beamwind/issues/new">open a an issue</a> or <a href="#contribute">contribute</a> a pull request.</p>
+						</blockquote>
 					</li>
 				</ul>
 				<a href="#additional-features" id="additional-features" style="color: inherit; text-decoration: none;">
@@ -846,28 +850,11 @@ setup(tailwindPreset)
 					<li><p><code>border</code> and <code>divide</code> allow to combine positions (<code>t</code>op, <code>r</code>righ, <code>l</code>eft, <code>b</code>ottom)</p>
 						<ul>
 							<li><code>tr</code> - <code>top</code> &amp; <code>right</code></li>
-							<li><code>brl</code> - <code>top</code>, <code>right</code> and <code>left</code></li>
+							<li><code>brl</code> - <code>bottom</code>, <code>right</code> and <code>left</code></li>
 						</ul>
 						<blockquote>
 							<p><strong>Note</strong> <code>x</code> and <code>y</code> can not be combined.</p>
 						</blockquote>
-					</li>
-					<li><p><code>border</code> directives use border shorthand for <code>width</code>, <code>style</code> and <code>color</code>; each of those can be overridden by its variant (<code>border-dashed</code> &amp; <code>border-primary</code>)</p>
-						<ul>
-							<li><code>border</code>: <code>{ border: &lt;theme.borderWidth.DEFAULT&gt; solid &lt;theme.borderColor.DEFAULT&gt;; }</code></li>
-							<li><code>border-&lt;position&gt;</code> (<code>border-t</code> or <code>border-l</code>): <code>{ border-&lt;position&gt;: &lt;theme.borderWidth.DEFAULT&gt; solid &lt;theme.borderColor.DEFAULT&gt;; }</code></li>
-							<li><code>border-&lt;position&gt;-&lt;size&gt;</code> (<code>border-t-xs</code> or <code>border-l-4</code>): <code>{ border-&lt;position&gt;: &lt;size&gt; solid &lt;theme.borderColor.DEFAULT&gt;; }</code></li>
-							<li><code>border-&lt;position&gt;-&lt;color&gt;</code> (<code>border-t-primary</code> or <code>border-l-red</code>): <code>{ border-&lt;position&gt;: &lt;theme.borderWidth.DEFAULT&gt; solid &lt;color&gt;; }</code></li>
-							<li><code>border-&lt;position&gt;-&lt;size&gt;-&lt;color&gt;</code> (<code>border-t-xs-primary</code> or <code>border-l-4-red</code>): <code>{ border-&lt;position&gt;: &lt;size&gt; solid &lt;color&gt;; }</code></li>
-						</ul>
-					</li>
-					<li><p><code>divide</code> directives use border shorthand for <code>width</code>, <code>style</code> and <code>color</code>; each of those can be overridden by its variant (<code>divide-dashed</code> &amp; <code>divide-primary</code>)</p>
-						<ul>
-							<li><code>divide-&lt;position&gt;</code> (<code>divide-x</code> or <code>divide-y</code>): <code>{ border-&lt;position&gt;: &lt;theme.divideWidth.DEFAULT&gt; solid &lt;theme.divideColor.DEFAULT&gt;; }</code></li>
-							<li><code>divide-&lt;position&gt;-&lt;size&gt;</code> (<code>divide-x-xs</code> or <code>divide-y-4</code>): <code>{ border-&lt;position&gt;: &lt;size&gt; solid &lt;theme.divideColor.DEFAULT&gt;; }</code></li>
-							<li><code>divide-&lt;position&gt;-&lt;color&gt;</code> (<code>divide-x-primary</code> or <code>divide-y-red</code>): <code>{ border-&lt;position&gt;: &lt;theme.divideWidth.DEFAULT&gt; solid &lt;color&gt;; }</code></li>
-							<li><code>divide-&lt;position&gt;-&lt;size&gt;-&lt;color&gt;</code> (<code>divide-x-xs-primary</code> or <code>divide-y-4-red</code>): <code>{ border-&lt;position&gt;: &lt;size&gt; solid &lt;color&gt;; }</code></li>
-						</ul>
 					</li>
 					<li><p><code>rotate</code>, <code>scale</code> , <code>skew</code> and <code>translate</code> can be used without <code>transform</code> when used alone</p>
 						<blockquote>
@@ -934,6 +921,11 @@ setup(tailwindPreset)
 							<li><a href="https://tailwindcss.com/docs/transform">transform</a></li>
 							<li><a href="https://tailwindcss.com/docs/gradient-color-stops#class-reference">Background Image</a></li>
 							<li><a href="https://tailwindcss.com/docs/ring-width">ring</a></li>
+							<li><a href="https://tailwindcss.com/docs/text-opacity">text-opacity</a></li>
+							<li><a href="https://tailwindcss.com/docs/bg-opacity">bg-opacity</a></li>
+							<li><a href="https://tailwindcss.com/docs/divide-opacity">divide-opacity</a></li>
+							<li><a href="https://tailwindcss.com/docs/border-opacity">border-opacity</a></li>
+							<li><a href="https://tailwindcss.com/docs/placeholder-opacity">placeholder-opacity</a></li>
 						</ul>
 					</li>
 					<li><p>oceanwind supports duplicate token tracking</p>
