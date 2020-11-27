@@ -17,7 +17,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build",
+    "build": "lerna run --no-private build",
     "ci": "nps",
     "clean": "nps clean && lerna exec -- nps clean",
     "docs": "nps docs && lerna exec --no-private -- nps docs.package",
