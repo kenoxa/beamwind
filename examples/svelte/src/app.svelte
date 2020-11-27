@@ -79,7 +79,7 @@
 
     <p class={bw`app-p divide-x`}>
       <button
-        class={bw`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg-promote ring(& xs promote offset(xs on-promote))`}>
+        class={bw`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg(promote opacity-80) ring(& xs promote opacity-80 offset(xs on-promote))`}>
         ring-offset-purple-100
       </button>
     </p>

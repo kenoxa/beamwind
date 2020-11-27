@@ -22,7 +22,8 @@
   "scripts": {
     "build": "snowpack build",
     "check": "svelte-check",
-    "start": "snowpack dev"
+    "start": "snowpack dev",
+    "start:reload": "snowpack dev --reload"
   },
   "prettier": "@carv/prettier-config",
   "eslintConfig": {
