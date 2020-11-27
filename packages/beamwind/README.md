@@ -97,15 +97,15 @@ To use the library, first import the module then invoke the `bw` export using ta
 
 ```js
 import { bw } from 'https://unpkg.com/beamwind?module'
-document.body.className = bw`h-full bg-purple-500 rotate-3 scale-95`
+document.body.className = bw`h-full bg-primary rotate-3 scale-95`
 ```
 
 Running the above code will result in the following happening:
 
-1. Parse tokens (`h-full`, `bg-purple-500`, `rotate-3`, `scale-95`)
+1. Parse tokens (`h-full`, `bg-primary`, `rotate-3`, `scale-95`)
 2. Token shorthand syntax will be translated into CSS declarations (e.g. `h-full -> { height: 100vh }`).
 3. Inject each token CSS declarations with a unique class name into a library-managed style sheet
-4. Return a space-separated string of unique class names
+4. Return a space-separated string of class names
 
 ### Function Signature
 
@@ -127,33 +127,33 @@ bw`bg-primary ${false && 'rounded'}`
 bw`bg-primary ${[false && 'rounded', 'block']}`
 //=> 'bg-primary block'
 
-bw`bg-primary ${{ rounded: false, 'text-underline': isTrue() }}`
-//=> 'bg-primary text-underline'
+bw`bg-primary ${{ rounded: false, underline: isTrue() }}`
+//=> 'bg-primary underline'
 
 // Strings (variadic)
-bw('bg-primary', true && 'rounded', 'text-underline')
-//=> 'bg-primary rounded text-underline'
+bw('bg-primary', true && 'rounded', 'underline')
+//=> 'bg-primary rounded underline'
 
 // Objects (keys with falsey values will be omitted)
-bw({ 'bg-primary': true, rounded: false, 'text-underline': isTrue() })
-//=> 'bg-primary text-underline'
+bw({ 'bg-primary': true, rounded: false, underline: isTrue() })
+//=> 'bg-primary underline'
 
 // Objects (variadic)
-bw({ 'bg-primary': true }, { rounded: false }, null, { 'text-underline': true })
-//=> 'bg-primary text-underline'
+bw({ 'bg-primary': true }, { rounded: false }, null, { underline: true })
+//=> 'bg-primary underline'
 
 // Arrays (falsey items will be omitted)
 bw(['bg-primary', 0, false, 'rounded'])
 //=> 'bg-primary rounded'
 
 // Arrays (variadic)
-bw(['bg-primary'], ['', 0, false, 'rounded'], [['text-underline', [['text-lg'], 'block']]])
-//=> 'bg-primary rounded text-underline text-lg block'
+bw(['bg-primary'], ['', 0, false, 'rounded'], [['underline', [['text-lg'], 'block']]])
+//=> 'bg-primary rounded underline text-lg block'
 
 // Kitchen sink (with nesting)
 bw(
   'bg-primary',
-  [1 && 'rounded', { underline: false, 'color-secondary': null }, ['text-lg', ['shadow-lg']]],
+  [1 && 'rounded', { underline: false, 'text-secondary': null }, ['text-lg', ['shadow-lg']]],
   'uppercase',
 )
 //=> 'bg-primary rounded text-lg shadow-lg uppercase'
@@ -209,8 +209,8 @@ bw({
 Directives with the same prefix can be grouped using parenthesis. Beamwind will expand the nested directives; applying the prefix to each directive in the group before translation. For example:
 
 ```js
-bw`text(center underline bold primary)`)
-// => text-center text-underline text-bold text-primary
+bw`text(center bold primary)`)
+// => text-center text-bold text-primary
 ```
 
 Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be applied as is. For that case you can use the special `&` directive which is replaced with the current prefix:
@@ -222,7 +222,7 @@ bw`ring(& promote offset(sm on-promote))`)
 
 ### Inline Plugins
 
-A global plugin registry (per instance) has it's downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like [normal plugins](#plugins) without the first parameter.
+A global plugin registry (per beamwind instance) has it's downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like [normal plugins](#plugins) without the first parameter.
 
 > Please take a look at [Plugin API documentation](#plugins) for further details about what a plugin can do.
 
@@ -233,24 +233,30 @@ const card = (theme) => ({
   'text-align': 'center',
 })
 
-bw`font-bold ${card} color-primary`
-// Note: Same works for arrays and objects
+bw`font-bold ${card} text-primary`
+// => font-bold __card_1 text-primary
+
+bw('font-bold', card, 'text-primary')
+// => font-bold __card_1 text-primary
 
 // You can use variants
-bw`sm:${card} color-primary`
-// Same works for arrays and objects
+bw`sm:${card} text-primary`
+// => font-bold sm:__card_1 text-primary
+
+bw({ sm: card }, 'text-primary')
+// => font-bold sm:__card_1 text-primary
 ```
 
 > **Note**: This should be a last resort as it comes with a small performance penalty.
 
-### Class Name Factories
+### Directive Factories
 
-Often you will find yourself in a position to need an abstraction to simplify the creation of tokens. A common best practice is to create a function that returns the required tokens:
+Often you will find yourself in a position to need an abstraction to simplify the creation of directives. A best practice is to create a function that returns the required directives:
 
 ```js
 const btn = (color) => {
   if (color) {
-    return `bg-${color} text-${color}-contrast hover:bg-${color}-hover active:bg-${color}-active`
+    return `bg-${color} hover:bg-${color}-hover active:bg-${color}-active`
   }
 
   return 'inline-block font-bold py-2 px-4 rounded'
@@ -260,7 +266,7 @@ bw(btn())
 // => inline-block font-bold py-2 px-4 rounded
 
 bw([btn(), btn('primary')])
-// => inline-block font-bold py-2 px-4 rounded bg-primary text-primary-contrast hover:bg-primary-hover active:bg-primary-active
+// => inline-block font-bold py-2 px-4 rounded bg-primary hover:bg-primary-hover active:bg-primary-active
 ```
 
 > This can be converted into a [component plugin](#adding-new-components).
@@ -297,13 +303,13 @@ Alternatively you can create a own instance:
 ```js
 import { createInstance } from 'beamwind'
 
-const css = createInstance({
+const cx = createInstance({
   colors: {
     'red-500': 'hotpink',
   },
 })
 
-css`bg-red-500` // will result in a hotpink background-color
+cx`bg-red-500` // will result in a hotpink background-color
 ```
 
 ## Theming
@@ -364,9 +370,12 @@ The `colors` key allows you to customize the global color palette for your proje
 
 By default, these colors are inherited by all color-related core plugins, like `borderColor`, `divideColor`, `placeholderColor` and others.
 
-> **Note** This is a flat object (`{ 'gray-50': '#f9fafb' }`) not a nested on like in tailwind ((`{ 'gray': { 50: '#f9fafb' } }`)) uses.
+1. This is a flat object (`{ 'gray-50': '#f9fafb' }`) not a nested on like in tailwind ((`{ 'gray': { 50: '#f9fafb' } }`)) uses.
+2. Colors should be in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) (like `#RRGGBB` or `#RGB`) to work best with opacity plugins like `text-opacitiy` or `bg-opacitiy`.
 
-Most color directives accept color names (`text-rebeccapurple`) and hex colors (`text-#009900`) if the color is not found in `theme.colors`. This feature should be used for prototyping only as it usually prevents a consistent UI experience.
+> Most color directives accept color names (`text-rebeccapurple`) and hex colors (`text-#009900`) if the color is not found in `theme.colors`. This feature should be used for prototyping only as it usually prevents a consistent UI experience.
+
+#### Default Colors
 
 Out-of-the-box beamwind provides only a few colors that follow the [semantic color system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors) and are based on [Braid Design System / Tones](https://seek-oss.github.io/braid-design-system/foundations/tones). [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) provides the full tailwind color palette.
 
@@ -898,7 +907,7 @@ TODO see TODO.md
 - `appearance-*`: supports [all values](https://developer.mozilla.org/en-US/docs/Web/CSS/appearance)
 - `bg-<color>`: if a "_on_" color) (`on-<color>`) is found it is used as default CSS `color`; to change to a different color use `text-<color>` (tailwind style)
 - text like directive (underline, italic) via text
-- `text-underline`, `text-no-underline`, `text-line-through`, `text-uppercase`, `text-lowercase` and `text-capitalize`: this allows grouping of text directives like `text(lg primary capitalize underline)`
+- `underline`, `text-no-underline`, `text-line-through`, `text-uppercase`, `text-lowercase` and `text-capitalize`: this allows grouping of text directives like `text(lg primary capitalize underline)`
 - `font-italic` and `font-no-italic`: this allows grouping of font directives like `font(sans italic bold)`
 - `border` and `divide` allow to combine positions (`t`op, `r`righ, `l`eft, `b`ottom)
 
@@ -999,7 +1008,7 @@ Without these libraries and their authors this would not have been possible:
 
 ## Support
 
-This project is free and open-source, so if you think this project can help you or anyone else, you may [star it on GitHub](https://github.com/carvjs/is). Feel free to [open an issue](https://github.com/carvjs/stdlib/issues) if you have any idea, question, or you've found a bug.
+This project is free and open-source, so if you think this project can help you or anyone else, you may [star it on GitHub](https://github.com/kenoxa/beamwind). Feel free to [open an issue](https://github.com/kenoxa/beamwind/issues) if you have any idea, question, or you've found a bug.
 
 ## Contribute
 

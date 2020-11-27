@@ -2,7 +2,21 @@ Link to https://nerdcave.com/tailwind-cheat-sheet
 
 default to strict mode and only allow themed values
 
-oceanwind issue: to discuss format
+oceanwind issue:
+
+- discuss format (grouping variants and directives)
+- plugin format
+
+architecure section
+
+- beamwind:
+  - foreach directive
+    - search plugin
+    - inject one css block
+- with oceanwind differences
+  - parses directives into one css declaration object
+  - otion generates atomic styles
+  - may lead to invalid ordering
 
 pre-commit hook to format files
 

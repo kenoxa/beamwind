@@ -255,6 +255,7 @@ const parseGroup = (key: string, token: Token): void => {
 
 const inlinePluginToToken = new WeakMap<InlinePlugin, string>()
 let nextTokenId = 0
+
 const parse = (token: Token): void => {
   if (is.string(token)) {
     parseString(token)

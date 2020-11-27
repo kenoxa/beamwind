@@ -139,7 +139,7 @@ Assign values to the scale (h1 — h6)
 
 ## Support
 
-This project is free and open-source, so if you think this project can help you or anyone else, you may [star it on GitHub](https://github.com/carvjs/is). Feel free to [open an issue](https://github.com/carvjs/stdlib/issues) if you have any idea, question, or you've found a bug.
+This project is free and open-source, so if you think this project can help you or anyone else, you may [star it on GitHub](https://github.com/kenoxa/beamwind). Feel free to [open an issue](https://github.com/kenoxa/beamwind/issues) if you have any idea, question, or you've found a bug.
 
 ## Contribute
 
