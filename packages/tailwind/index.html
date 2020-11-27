@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@beamwind/reset - v1.2.0</title>
-	<meta name="description" content="Documentation for @beamwind/reset - v1.2.0">
+	<title>@beamwind/tailwind - v1.0.0</title>
+	<meta name="description" content="Documentation for @beamwind/tailwind - v1.0.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<script async src="assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@beamwind/reset - v1.2.0</a>
+					<a href="index.html" class="title">@beamwind/tailwind - v1.0.0</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -48,7 +48,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<h1>Project @beamwind/reset - v1.2.0</h1>
+			<h1>Project @beamwind/tailwind - v1.0.0</h1>
 		</div>
 	</div>
 </header>
@@ -56,19 +56,23 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#beamwindreset" id="beamwindreset" style="color: inherit; text-decoration: none;">
-					<h1>@beamwind/reset</h1>
+				<a href="#beamwindtailwind" id="beamwindtailwind" style="color: inherit; text-decoration: none;">
+					<h1>@beamwind/tailwind</h1>
 				</a>
 				<blockquote>
-					<p>an opinionated set of base styles for legacy browsers like IE10/11 based on <a href="https://v1.tailwindcss.com/docs/preflight">Tailwind Preflight v1</a></p>
+					<p>ready to go beamwind with <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">@beamwind/preflight</a> and <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a></p>
 				</blockquote>
 				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE"><img src="https://flat.badgen.net/github/license/kenoxa/beamwind" alt="License"></a>
-					<a href="https://www.npmjs.com/package/@beamwind/reset"><img src="https://flat.badgen.net/npm/v/@beamwind/reset?label=release" alt="Latest Release"></a>
-					<a href="https://bundlephobia.com/result?p=@beamwind/reset"><img src="https://flat.badgen.net/bundlephobia/minzip/@beamwind/reset?icon=packagephobia&label&color=blue" alt="Bundle Size"></a>
-					<a href="https://unpkg.com/browse/@beamwind/reset/dist/index.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
+					<a href="https://www.npmjs.com/package/@beamwind/tailwind"><img src="https://flat.badgen.net/npm/v/@beamwind/tailwind?label=release" alt="Latest Release"></a>
+					<a href="https://bundlephobia.com/result?p=@beamwind/tailwind"><img src="https://flat.badgen.net/bundlephobia/minzip/@beamwind/tailwind?icon=packagephobia&label&color=blue" alt="Bundle Size"></a>
+					<a href="https://unpkg.com/browse/@beamwind/tailwind/dist/index.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
 				<a href="https://www.kenoxa.com"><img src="https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9" alt="Sponsor"></a></p>
-				<p>Built on top of <a href="https://github.com/necolas/normalize.css/">normalize.css</a>, @beamwind/reset is a set of base styles that are designed to smooth over cross-browser inconsistencies and make it easier for you to work within the constraints of your design system.</p>
-				<p>If you do <strong>not</strong> need to support IE 10/11, we recommend using <a href="https://www.npmjs.com/package/@beamwind/preflight">@beamwind/preflight</a>.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { tw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/@beamwind/tailwind?module&#x27;</span>
+
+<span class="hljs-built_in">document</span>.body.className = tw<span class="hljs-string">`h-full bg-purple-500 rotate-3 scale-95`</span></code></pre>
+				<blockquote>
+					<p>⚡️ Check out the <a href="https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IHR3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vQGJlYW13aW5kL3RhaWx3aW5kP21vZHVsZScKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogdHdgaC1mdWxsIGJnLXB1cnBsZS01MDAgdGV4dC13aGl0ZSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlcmAKfQoKcmVuZGVyKAogIGh0bWxgCiAgICA8ZGl2IGNsYXNzPSR7c3R5bGUuY29udGFpbmVyfT4KICAgICAgPGgxIGNsYXNzPSR7CiAgICAgICAgLy8gRXhhbXBsZSBvZiBhbiBpbmxpbmUgc3R5bGUKICAgICAgICB0d2AKICAgICAgICAgIHRleHQoNHhsIHVuZGVybGluZSkKICAgICAgICAgIGZvbnQoYm9sZCBzYW5zKQogICAgICAgICAgdHJhbnNpdGlvbgogICAgICAgICAgaG92ZXI6KHRyYW5zZm9ybSByb3RhdGUtNSBzY2FsZS0xNTAgY3Vyc29yLXBvaW50ZXIpCiAgICAgICAgICBhY3RpdmU6KHRyYW5zZm9ybSAtcm90YXRlLTE1IHNjYWxlLTE4MCkKICAgICAgICBgCiAgICAgIH0+SGVsbG8gV29ybGQ8L2gxPgogICAgPC9kaXY+CiAgYCwKICBkb2N1bWVudC5ib2R5Cik7">live and interactive demo</a></p>
+				</blockquote>
 				<!-- prettier-ignore-start -->
 				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
 				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -85,14 +89,23 @@
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<pre><code class="language-sh">npm install @beamwind/reset</code></pre>
+				<pre><code class="language-sh">npm install @beamwind/tailwind</code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
-<span class="hljs-keyword">import</span> reset <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/reset&#x27;</span>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { tw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/tailwind&#x27;</span>
 
-setup(reset)</code></pre>
+tw<span class="hljs-string">`text-purple-500`</span></code></pre>
+				<p>For further customization <code>setup</code> is exported:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { tw, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/tailwind&#x27;</span>
+
+setup({
+  <span class="hljs-attr">colors</span>: {
+    <span class="hljs-string">&#x27;red-500&#x27;</span>: <span class="hljs-string">&#x27;hotpink&#x27;</span>,
+  },
+})
+
+tw<span class="hljs-string">`text-red-500`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
 				<a href="#support" id="support" style="color: inherit; text-decoration: none;">
 					<h2>Support</h2>
 				</a>
@@ -123,14 +136,11 @@ setup(reset)</code></pre>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/theme.html" class="tsd-kind-icon">Theme</a>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#setup" class="tsd-kind-icon">setup</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#oninitcallback" class="tsd-kind-icon">On<wbr>Init<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-property">
-						<a href="modules.html#default" class="tsd-kind-icon">default</a>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#tw" class="tsd-kind-icon">tw</a>
 					</li>
 				</ul>
 			</nav>
@@ -141,9 +151,6 @@ setup(reset)</code></pre>
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
 		</div>
 	</div>
 </footer>

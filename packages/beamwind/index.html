@@ -141,13 +141,13 @@ setup(preflight)
 				</a>
 				<p>To use the library, first import the module then invoke the <code>bw</code> export using tagged template syntax:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://unpkg.com/beamwind?module&#x27;</span>
-<span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full bg-purple-500 rotate-3 scale-95`</span></code></pre>
+<span class="hljs-built_in">document</span>.body.className = bw<span class="hljs-string">`h-full bg-primary rotate-3 scale-95`</span></code></pre>
 				<p>Running the above code will result in the following happening:</p>
 				<ol>
-					<li>Parse tokens (<code>h-full</code>, <code>bg-purple-500</code>, <code>rotate-3</code>, <code>scale-95</code>)</li>
+					<li>Parse tokens (<code>h-full</code>, <code>bg-primary</code>, <code>rotate-3</code>, <code>scale-95</code>)</li>
 					<li>Token shorthand syntax will be translated into CSS declarations (e.g. <code>h-full -&gt; { height: 100vh }</code>).</li>
 					<li>Inject each token CSS declarations with a unique class name into a library-managed style sheet</li>
-					<li>Return a space-separated string of unique class names</li>
+					<li>Return a space-separated string of class names</li>
 				</ol>
 				<a href="#function-signature" id="function-signature" style="color: inherit; text-decoration: none;">
 					<h3>Function Signature</h3>
@@ -168,33 +168,33 @@ bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${<span class="
 bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${[<span class="hljs-literal">false</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;block&#x27;</span>]}</span>`</span>
 <span class="hljs-comment">//=&gt; &#x27;bg-primary block&#x27;</span>
 
-bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${{ rounded: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>: isTrue() }}</span>`</span>
-<span class="hljs-comment">//=&gt; &#x27;bg-primary text-underline&#x27;</span>
+bw<span class="hljs-string">`bg-primary <span class="hljs-subst">${{ rounded: <span class="hljs-literal">false</span>, underline: isTrue() }}</span>`</span>
+<span class="hljs-comment">//=&gt; &#x27;bg-primary underline&#x27;</span>
 
 <span class="hljs-comment">// Strings (variadic)</span>
-bw(<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>)
-<span class="hljs-comment">//=&gt; &#x27;bg-primary rounded text-underline&#x27;</span>
+bw(<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, <span class="hljs-string">&#x27;underline&#x27;</span>)
+<span class="hljs-comment">//=&gt; &#x27;bg-primary rounded underline&#x27;</span>
 
 <span class="hljs-comment">// Objects (keys with falsey values will be omitted)</span>
-bw({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-underline&#x27;</span>: isTrue() })
-<span class="hljs-comment">//=&gt; &#x27;bg-primary text-underline&#x27;</span>
+bw({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">underline</span>: isTrue() })
+<span class="hljs-comment">//=&gt; &#x27;bg-primary underline&#x27;</span>
 
 <span class="hljs-comment">// Objects (variadic)</span>
-bw({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span> }, { <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span> }, <span class="hljs-literal">null</span>, { <span class="hljs-string">&#x27;text-underline&#x27;</span>: <span class="hljs-literal">true</span> })
-<span class="hljs-comment">//=&gt; &#x27;bg-primary text-underline&#x27;</span>
+bw({ <span class="hljs-string">&#x27;bg-primary&#x27;</span>: <span class="hljs-literal">true</span> }, { <span class="hljs-attr">rounded</span>: <span class="hljs-literal">false</span> }, <span class="hljs-literal">null</span>, { <span class="hljs-attr">underline</span>: <span class="hljs-literal">true</span> })
+<span class="hljs-comment">//=&gt; &#x27;bg-primary underline&#x27;</span>
 
 <span class="hljs-comment">// Arrays (falsey items will be omitted)</span>
 bw([<span class="hljs-string">&#x27;bg-primary&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>])
 <span class="hljs-comment">//=&gt; &#x27;bg-primary rounded&#x27;</span>
 
 <span class="hljs-comment">// Arrays (variadic)</span>
-bw([<span class="hljs-string">&#x27;bg-primary&#x27;</span>], [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>], [[<span class="hljs-string">&#x27;text-underline&#x27;</span>, [[<span class="hljs-string">&#x27;text-lg&#x27;</span>], <span class="hljs-string">&#x27;block&#x27;</span>]]])
-<span class="hljs-comment">//=&gt; &#x27;bg-primary rounded text-underline text-lg block&#x27;</span>
+bw([<span class="hljs-string">&#x27;bg-primary&#x27;</span>], [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;rounded&#x27;</span>], [[<span class="hljs-string">&#x27;underline&#x27;</span>, [[<span class="hljs-string">&#x27;text-lg&#x27;</span>], <span class="hljs-string">&#x27;block&#x27;</span>]]])
+<span class="hljs-comment">//=&gt; &#x27;bg-primary rounded underline text-lg block&#x27;</span>
 
 <span class="hljs-comment">// Kitchen sink (with nesting)</span>
 bw(
   <span class="hljs-string">&#x27;bg-primary&#x27;</span>,
-  [<span class="hljs-number">1</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, { <span class="hljs-attr">underline</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;color-secondary&#x27;</span>: <span class="hljs-literal">null</span> }, [<span class="hljs-string">&#x27;text-lg&#x27;</span>, [<span class="hljs-string">&#x27;shadow-lg&#x27;</span>]]],
+  [<span class="hljs-number">1</span> &amp;&amp; <span class="hljs-string">&#x27;rounded&#x27;</span>, { <span class="hljs-attr">underline</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;text-secondary&#x27;</span>: <span class="hljs-literal">null</span> }, [<span class="hljs-string">&#x27;text-lg&#x27;</span>, [<span class="hljs-string">&#x27;shadow-lg&#x27;</span>]]],
   <span class="hljs-string">&#x27;uppercase&#x27;</span>,
 )
 <span class="hljs-comment">//=&gt; &#x27;bg-primary rounded text-lg shadow-lg uppercase&#x27;</span></code></pre>
@@ -238,15 +238,15 @@ bw(
 					<h3>Directive Grouping</h3>
 				</a>
 				<p>Directives with the same prefix can be grouped using parenthesis. Beamwind will expand the nested directives; applying the prefix to each directive in the group before translation. For example:</p>
-				<pre><code class="language-js">bw<span class="hljs-string">`text(center underline bold primary)`</span>)
-<span class="hljs-comment">// =&gt; text-center text-underline text-bold text-primary</span></code></pre>
+				<pre><code class="language-js">bw<span class="hljs-string">`text(center bold primary)`</span>)
+<span class="hljs-comment">// =&gt; text-center text-bold text-primary</span></code></pre>
 				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
 				<pre><code class="language-js">bw<span class="hljs-string">`ring(&amp; promote offset(sm on-promote))`</span>)
 <span class="hljs-comment">// =&gt; ring ring-promote ring-offset-sm ring-offset-on-promote</span></code></pre>
 				<a href="#inline-plugins" id="inline-plugins" style="color: inherit; text-decoration: none;">
 					<h3>Inline Plugins</h3>
 				</a>
-				<p>A global plugin registry (per instance) has it&#39;s downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like <a href="#plugins">normal plugins</a> without the first parameter.</p>
+				<p>A global plugin registry (per beamwind instance) has it&#39;s downsides as each key/name must be unique. beamwind allows to define inline plugins which are just like <a href="#plugins">normal plugins</a> without the first parameter.</p>
 				<blockquote>
 					<p>Please take a look at <a href="#plugins">Plugin API documentation</a> for further details about what a plugin can do.</p>
 				</blockquote>
@@ -256,22 +256,28 @@ bw(
   <span class="hljs-string">&#x27;text-align&#x27;</span>: <span class="hljs-string">&#x27;center&#x27;</span>,
 })
 
-bw<span class="hljs-string">`font-bold <span class="hljs-subst">${card}</span> color-primary`</span>
-<span class="hljs-comment">// Note: Same works for arrays and objects</span>
+bw<span class="hljs-string">`font-bold <span class="hljs-subst">${card}</span> text-primary`</span>
+<span class="hljs-comment">// =&gt; font-bold __card_1 text-primary</span>
+
+bw(<span class="hljs-string">&#x27;font-bold&#x27;</span>, card, <span class="hljs-string">&#x27;text-primary&#x27;</span>)
+<span class="hljs-comment">// =&gt; font-bold __card_1 text-primary</span>
 
 <span class="hljs-comment">// You can use variants</span>
-bw<span class="hljs-string">`sm:<span class="hljs-subst">${card}</span> color-primary`</span>
-<span class="hljs-comment">// Same works for arrays and objects</span></code></pre>
+bw<span class="hljs-string">`sm:<span class="hljs-subst">${card}</span> text-primary`</span>
+<span class="hljs-comment">// =&gt; font-bold sm:__card_1 text-primary</span>
+
+bw({ <span class="hljs-attr">sm</span>: card }, <span class="hljs-string">&#x27;text-primary&#x27;</span>)
+<span class="hljs-comment">// =&gt; font-bold sm:__card_1 text-primary</span></code></pre>
 				<blockquote>
 					<p><strong>Note</strong>: This should be a last resort as it comes with a small performance penalty.</p>
 				</blockquote>
-				<a href="#class-name-factories" id="class-name-factories" style="color: inherit; text-decoration: none;">
-					<h3>Class Name Factories</h3>
+				<a href="#directive-factories" id="directive-factories" style="color: inherit; text-decoration: none;">
+					<h3>Directive Factories</h3>
 				</a>
-				<p>Often you will find yourself in a position to need an abstraction to simplify the creation of tokens. A common best practice is to create a function that returns the required tokens:</p>
+				<p>Often you will find yourself in a position to need an abstraction to simplify the creation of directives. A best practice is to create a function that returns the required directives:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> btn = <span class="hljs-function">(<span class="hljs-params">color</span>) =&gt;</span> {
   <span class="hljs-keyword">if</span> (color) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`bg-<span class="hljs-subst">${color}</span> text-<span class="hljs-subst">${color}</span>-contrast hover:bg-<span class="hljs-subst">${color}</span>-hover active:bg-<span class="hljs-subst">${color}</span>-active`</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`bg-<span class="hljs-subst">${color}</span> hover:bg-<span class="hljs-subst">${color}</span>-hover active:bg-<span class="hljs-subst">${color}</span>-active`</span>
   }
 
   <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;inline-block font-bold py-2 px-4 rounded&#x27;</span>
@@ -281,7 +287,7 @@ bw(btn())
 <span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded</span>
 
 bw([btn(), btn(<span class="hljs-string">&#x27;primary&#x27;</span>)])
-<span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded bg-primary text-primary-contrast hover:bg-primary-hover active:bg-primary-active</span></code></pre>
+<span class="hljs-comment">// =&gt; inline-block font-bold py-2 px-4 rounded bg-primary hover:bg-primary-hover active:bg-primary-active</span></code></pre>
 				<blockquote>
 					<p>This can be converted into a <a href="#adding-new-components">component plugin</a>.</p>
 				</blockquote>
@@ -313,13 +319,13 @@ bw<span class="hljs-string">`bg-red-500`</span> <span class="hljs-comment">// wi
 				<p>Alternatively you can create a own instance:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { createInstance } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
-<span class="hljs-keyword">const</span> css = createInstance({
+<span class="hljs-keyword">const</span> cx = createInstance({
   <span class="hljs-attr">colors</span>: {
     <span class="hljs-string">&#x27;red-500&#x27;</span>: <span class="hljs-string">&#x27;hotpink&#x27;</span>,
   },
 })
 
-css`<span class="css"><span class="hljs-selector-tag">bg-red-500</span>`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
+cx<span class="hljs-string">`bg-red-500`</span> <span class="hljs-comment">// will result in a hotpink background-color</span></code></pre>
 				<a href="#theming" id="theming" style="color: inherit; text-decoration: none;">
 					<h2>Theming</h2>
 				</a>
@@ -366,10 +372,16 @@ setup({
 				</a>
 				<p>The <code>colors</code> key allows you to customize the global color palette for your project.</p>
 				<p>By default, these colors are inherited by all color-related core plugins, like <code>borderColor</code>, <code>divideColor</code>, <code>placeholderColor</code> and others.</p>
+				<ol>
+					<li>This is a flat object (<code>{ &#39;gray-50&#39;: &#39;#f9fafb&#39; }</code>) not a nested on like in tailwind ((<code>{ &#39;gray&#39;: { 50: &#39;#f9fafb&#39; } }</code>)) uses.</li>
+					<li>Colors should be in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">#-hexadecimal notation</a> (like <code>#RRGGBB</code> or <code>#RGB</code>) to work best with opacity plugins like <code>text-opacitiy</code> or <code>bg-opacitiy</code>.</li>
+				</ol>
 				<blockquote>
-					<p><strong>Note</strong> This is a flat object (<code>{ &#39;gray-50&#39;: &#39;#f9fafb&#39; }</code>) not a nested on like in tailwind ((<code>{ &#39;gray&#39;: { 50: &#39;#f9fafb&#39; } }</code>)) uses.</p>
+					<p>Most color directives accept color names (<code>text-rebeccapurple</code>) and hex colors (<code>text-#009900</code>) if the color is not found in <code>theme.colors</code>. This feature should be used for prototyping only as it usually prevents a consistent UI experience.</p>
 				</blockquote>
-				<p>Most color directives accept color names (<code>text-rebeccapurple</code>) and hex colors (<code>text-#009900</code>) if the color is not found in <code>theme.colors</code>. This feature should be used for prototyping only as it usually prevents a consistent UI experience.</p>
+				<a href="#default-colors" id="default-colors" style="color: inherit; text-decoration: none;">
+					<h4>Default Colors</h4>
+				</a>
 				<p>Out-of-the-box beamwind provides only a few colors that follow the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors">semantic color system</a> and are based on <a href="https://seek-oss.github.io/braid-design-system/foundations/tones">Braid Design System / Tones</a>. <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">@beamwind/preset-tailwind</a> provides the full tailwind color palette.</p>
 				<pre><code class="language-js">theme = {
   <span class="hljs-attr">colors</span>: {
@@ -850,7 +862,7 @@ setup(tailwindPreset)</code></pre>
 					</li>
 					<li><p>text like directive (underline, italic) via text</p>
 					</li>
-					<li><p><code>text-underline</code>, <code>text-no-underline</code>, <code>text-line-through</code>, <code>text-uppercase</code>, <code>text-lowercase</code> and <code>text-capitalize</code>: this allows grouping of text directives like <code>text(lg primary capitalize underline)</code></p>
+					<li><p><code>underline</code>, <code>text-no-underline</code>, <code>text-line-through</code>, <code>text-uppercase</code>, <code>text-lowercase</code> and <code>text-capitalize</code>: this allows grouping of text directives like <code>text(lg primary capitalize underline)</code></p>
 					</li>
 					<li><p><code>font-italic</code> and <code>font-no-italic</code>: this allows grouping of font directives like <code>font(sans italic bold)</code></p>
 					</li>
@@ -981,7 +993,7 @@ setup(tailwindPreset)</code></pre>
 				<a href="#support-1" id="support-1" style="color: inherit; text-decoration: none;">
 					<h2>Support</h2>
 				</a>
-				<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/carvjs/is">star it on GitHub</a>. Feel free to <a href="https://github.com/carvjs/stdlib/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
+				<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/kenoxa/beamwind">star it on GitHub</a>. Feel free to <a href="https://github.com/kenoxa/beamwind/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
 				<a href="#contribute" id="contribute" style="color: inherit; text-decoration: none;">
 					<h2>Contribute</h2>
 				</a>
