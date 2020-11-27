@@ -959,6 +959,7 @@ Some notable differences are:
   - support for [inline plugins](#inline-plugins)
 
 - beamwind allows to define new plugins (see [Plugins](#plugins))
+- beamwind allows to generate [readable class names](#hashed-class-names) during development
 - beamwind adheres to the pseudo class and variant order as used by tailwind
 - beamwind supports additional tailwind features like
 
