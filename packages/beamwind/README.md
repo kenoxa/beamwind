@@ -10,6 +10,14 @@
 
 This library takes inspiration from [Tailwind CSS] ([see differences](#tailwind-differences)), [Oceanwind] ([see differences](#oceanwind-differences)), [Otion] and [others](#acknowledgements) to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.
 
+> ⚡️ Check out the [live and interactive demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB0YWlsd2luZCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlc2V0LXRhaWx3aW5kP21vZHVsZScKaW1wb3J0IHByZWZsaWdodCBmcm9tICdodHRwczovL3VucGtnLmNvbS9AYmVhbXdpbmQvcHJlZmxpZ2h0P21vZHVsZScKaW1wb3J0IHsgYncsIHNldHVwIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKc2V0dXAoW3RhaWx3aW5kLCBwcmVmbGlnaHRdKQoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXByb21vdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTUgc2NhbGUtMTUwIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xNSBzY2FsZS0xODApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
+
+```js
+import { bw } from 'https://unpkg.com/beamwind?module'
+
+document.body.className = bw`h-full text(4xl underline) font(bold sans) flex items-center justify-center `
+```
+
 ## Backstory
 
 Design systems embrace a component-oriented mindset. Inspired by [Tailwind CSS], utility classes provide reusable styles with no unwanted side-effects. However, they have to be generated upfront.
@@ -88,7 +96,7 @@ import { bw } from 'beamwind'
 To use the library, first import the module then invoke the `bw` export using tagged template syntax:
 
 ```js
-import { bw } from 'https://unpkg.com/beamwind'
+import { bw } from 'https://unpkg.com/beamwind?module'
 document.body.className = bw`h-full bg-purple-500 rotate-3 scale-95`
 ```
 
@@ -99,60 +107,12 @@ Running the above code will result in the following happening:
 3. Inject each token CSS declarations with a unique class name into a library-managed style sheet
 4. Return a space-separated string of unique class names
 
-It is recommended to import the following css files which help normalize styles across browsers:
-
-- The Tailwind reset [available here](https://unpkg.com/tailwindcss/dist/base.min.css)
-- The Tailwind prose helper [available here](https://unpkg.com/@tailwindcss/typography/dist/typography.min.css)
-
-### Extending the default theme
-
-Importing and invoking beamwind directly will cause it to use
-[default theme](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js)
-for directives that require themed values (like `bg-primary` for example).
-
-> The [Theming section](#theming) provides detailed insight into the theming options.
-
-To customize the theme, use the `setup` export. This will change the theme used by the `bw` export.
-
-```js
-import { bw, setup } from 'beamwind'
-
-setup({
-  theme: {
-    colors: {
-      'red-500': 'hotpink',
-    },
-  },
-})
-
-bw`bg-red-500` // will result in a hotpink background-color
-```
-
-> `setup` can be called multiple times where each call extends the existing configuration.
-> The `theme` and `plugins` properties merge their values with the previous ones.
-
-Alternatively you can create a own instance:
-
-```js
-import { createInstance } from 'beamwind'
-
-const css = createInstance({
-  colors: {
-    'red-500': 'hotpink',
-  },
-})
-
-css`bg-red-500` // will result in a hotpink background-color
-```
-
-> Any custom theme will be deep merged with the default theme.
-
 ### Function Signature
 
 It is possible to invoke beamwind in a multitude of different ways. The `bw` function can take **_any_** number of arguments, each of which can be an Object, Array, Boolean, Number, String or [inline plugins](#inline-plugins). This feature is based on [clsx](https://www.npmjs.com/package/cslx).
 
 > **Important**: _Any_ falsey values are discarded!
-> Standalone Boolean values are discarded as well.
+> Standalone Boolean and Number values are discarded as well.
 
 For example:
 
@@ -267,8 +227,8 @@ A global plugin registry (per instance) has it's downsides as each key/name must
 > Please take a look at [Plugin API documentation](#plugins) for further details about what a plugin can do.
 
 ```js
-const header = (theme) => ({
-  disply: block
+const card = (theme) => ({
+  display: block
   border: `1px solid ${theme('colors', 'primary')}`,
   'text-align': 'center',
 })
@@ -305,11 +265,52 @@ bw([btn(), btn('primary')])
 
 > This can be converted into a [component plugin](#adding-new-components).
 
+### Extending the default theme
+
+Importing and invoking beamwind directly will cause it to use
+[default theme](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js)
+for directives that require themed values (like `bg-primary` for example).
+
+> The [Theming section](#theming) provides detailed insight into the theming options.
+
+To customize the theme, use the `setup` export. This will change the theme used by the `bw` export.
+
+```js
+import { bw, setup } from 'beamwind'
+
+setup({
+  theme: {
+    colors: {
+      'red-500': 'hotpink',
+    },
+  },
+})
+
+bw`bg-red-500` // will result in a hotpink background-color
+```
+
+> `setup` can be called multiple times where each call extends the existing configuration.
+> The `theme` and `plugins` properties merge their values with the previous ones.
+
+Alternatively you can create a own instance:
+
+```js
+import { createInstance } from 'beamwind'
+
+const css = createInstance({
+  colors: {
+    'red-500': 'hotpink',
+  },
+})
+
+css`bg-red-500` // will result in a hotpink background-color
+```
+
 ## Theming
 
 beamwind tries to follow a semantic naming approach by using a common _language_ to reduce the guess work. A small set of well known design tokens hopefully prevents magic values or ambiguous names.
 
-The theme object contains keys for `screens`, `colors`, and `spacing`, as well as a key for each customizable core plugin. The [default theme](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js) shows most of the available values. A tailwind like theme is available via [@beamwind/preset-tailwind](https://www.npmjs.com/package/@beamwind/preset-tailwind). For a full featured design system take a look at [@beamwind/preset-semantic](https://www.npmjs.com/package/@beamwind/preset-semantic).
+The theme object contains keys for `screens`, `colors`, and `spacing`, as well as a key for each customizable core plugin. The [default theme](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/src/theme.js) shows most of the available values. A tailwind like theme is available via [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind). For a full featured design system take a look at [@beamwind/preset-semantic](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic).
 
 To customize the theme call `setup` with a `theme` property:
 
@@ -339,6 +340,8 @@ setup({
 })
 ```
 
+> Any custom theme will be deep merged with the current theme.
+
 ### Screens
 
 The `screens` key allows you to customize the responsive breakpoints in your project.
@@ -365,7 +368,7 @@ By default, these colors are inherited by all color-related core plugins, like `
 
 Most color directives accept color names (`text-rebeccapurple`) and hex colors (`text-#009900`) if the color is not found in `theme.colors`. This feature should be used for prototyping only as it usually prevents a consistent UI experience.
 
-Out-of-the-box beamwind provides only a few colors that follow the [semantic color system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors) and are based on [Braid Design System / Tones](https://seek-oss.github.io/braid-design-system/foundations/tones). [@beamwind/preset-tailwind](https://www.npmjs.com/package/@beamwind/preset-tailwind) provides the full tailwind color palette.
+Out-of-the-box beamwind provides only a few colors that follow the [semantic color system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic/README.md#colors) and are based on [Braid Design System / Tones](https://seek-oss.github.io/braid-design-system/foundations/tones). [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) provides the full tailwind color palette.
 
 ```js
 theme = {
@@ -409,7 +412,7 @@ theme = {
 
 Naming colors is one of the most challenging parts of a color system. Many systems try to map color tones to their relative lightness, but this can be problematic because it creates a very loose mental model. Other systems will try to name colors based on use or hierarchy and those are equally problematic.
 
-Most design systems have their own color naming scheme. beamwind does not enforce a particular scheme. With [@beamwind/preset-tailwind](https://www.npmjs.com/package/@beamwind/preset-tailwind) and [@beamwind/preset-semantic](https://www.npmjs.com/package/@beamwind/preset-semantic) two different approaches are available.
+Most design systems have their own color naming scheme. beamwind does not enforce a particular scheme. With [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and [@beamwind/preset-semantic](https://github.com/kenoxa/beamwind/blob/main/packages/preset-semantic) two different approaches are available.
 
 - `surface` - affect surfaces of components, such as cards, sheets, and menus
 - `primary` - is the color displayed most frequently across screens and components
@@ -504,7 +507,7 @@ theme = {
 
 ### Font Sizes
 
-If you also want to provide a default `line-height` and/or `letter-spacing` value for a font size, you can do so using a tuple of the form `[fontSize, { letterSpacing, lineHeight }]`.
+If you also want to provide a [default `line-height`](https://tailwindcss.com/docs/font-size#providing-a-default-line-height) and/or [`letter-spacing`](https://tailwindcss.com/docs/font-size#providing-a-default-letter-spacing) value for a font size, you can do so using a tuple of the form `[fontSize, lineHeight]` or `[fontSize, { letterSpacing, lineHeight }]`.
 
 ## Plugins
 
@@ -534,7 +537,7 @@ Static utilities can be defined as CSS declaration objects:
 import { setup } from 'beamwind'
 
 setup({
-  plugin: {
+  plugins: {
     'text-important': { color: 'red' },
   },
 })
@@ -546,7 +549,7 @@ Sometimes a pseudo class or child selector maybe required. In these case use an 
 import { setup } from 'beamwind'
 
 setup({
-  plugin: {
+  plugins: {
     'stretched-link': [
       '::after',
       {
@@ -573,7 +576,7 @@ import { setup } from 'beamwind'
 setup({
   plugins: {
     // The token splitted by '-' with the plugin name as first value: ['scroll-snap', ...]
-    'scroll-snap'(parts) {
+    'scroll-snap': (parts) => {
         return { 'scroll-snap-type': parts[1] }
       }
     },
@@ -591,7 +594,7 @@ What this currently does not support is something like `scroll-snap-both-mandato
 return { 'scroll-snap-type': parts.slice(1).join(' ') }
 ```
 
-As this is quite common beamwind provides two helper ([join](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#join) and [tail](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#tail)) for this:
+As this is quite common beamwind provides two helper ([join](https://beamwind.js.org/packages/beamwind/modules.html#join) and [tail](https://beamwind.js.org/packages/beamwind/modules.html#tail)) for this:
 
 ```js
 import { setup, join, tail } from 'beamwind'
@@ -616,8 +619,8 @@ setup({
     }
   }
 
-  plugin: {
-    'scroll-snap'(parts, theme) {
+  plugins: {
+    'scroll-snap': (parts, theme) => {
       // defaultToKey: if no theme value is found -> use the provided key (value of parts.slice(1).join(' '))
       return { 'scroll-snap-type': theme('scroll', parts.slice(1).join(' '), defaultToKey }
     }
@@ -637,7 +640,7 @@ Static components that are only a collection of utilities can be defined as stri
 import { setup } from 'beamwind'
 
 setup({
-  plugin: {
+  plugins: {
     card: 'max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl',
   },
 })
@@ -649,10 +652,10 @@ Dynamic components can be implemented as function which should return a string o
 import { setup } from 'beamwind'
 
 setup({
-  plugin: {
+  plugins: {
     btn(parts) {
       if (parts[1]) {
-        return `bg-${parts[1]} text-${parts[1]}-contrast hover:bg-${parts[1]}-hover active:bg-${parts[1]}-active`
+        return `bg-${parts[1]} hover:bg-${parts[1]}-hover active:bg-${parts[1]}-active`
       }
 
       return 'font-bold py-2 px-4 rounded'
@@ -661,20 +664,20 @@ setup({
 })
 ```
 
-Some dynamic components depend on additional logic and like to use the familiar `bw` API. For these case beamwind provides the [apply](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply) helper, which has the same API signature as `bw`.
+Some dynamic components depend on additional logic and like to use the familiar `bw` API. For these case beamwind provides the [apply](https://beamwind.js.org/packages/beamwind/modules.html#apply) helper, which has the same API signature as `bw`.
 
 ```js
 import { setup, apply, optional } from 'beamwind'
 
 setup({
-  plugin: {
+  plugins: {
     btn(parts, theme) {
       if (parts[1]) {
-        return apply`bg-${parts[1]} text-${parts[1]}-contrast ${{rounded: !!theme('btn', 'rounded', optional}}`
-      } else {
-        return 'font-bold py-2 px-4 rounded'
+        return apply`bg-${parts[1]} ${{ rounded: !!theme('btn', 'rounded', optional) }}`
       }
-    }
+
+      return 'font-bold py-2 px-4 rounded'
+    },
   },
 })
 ```
@@ -683,18 +686,18 @@ setup({
 
 beamwind provides a small set of helper functions to write your own plugins:
 
-- [apply](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#apply)
-- [compose](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#compose)
-- [convertTo](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#convertto)
-- [corners](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#corners)
-- [defaultToKey](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#defaulttokey)
-- [divideBy](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#divideby)
-- [edges](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#edges)
-- [join](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#join)
-- [optional](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_helpers_.md#optional)
-- [tail](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/modules/_util_.md#tail)
+- [apply](https://beamwind.js.org/packages/beamwind/modules.html#apply)
+- [compose](https://beamwind.js.org/packages/beamwind/modules.html#compose)
+- [convertTo](https://beamwind.js.org/packages/beamwind/modules.html#convertto)
+- [corners](https://beamwind.js.org/packages/beamwind/modules.html#corners)
+- [defaultToKey](https://beamwind.js.org/packages/beamwind/modules.html#defaulttokey)
+- [divideBy](https://beamwind.js.org/packages/beamwind/modules.html#divideby)
+- [edges](https://beamwind.js.org/packages/beamwind/modules.html#edges)
+- [join](https://beamwind.js.org/packages/beamwind/modules.html#join)
+- [optional](https://beamwind.js.org/packages/beamwind/modules.html#optional)
+- [tail](https://beamwind.js.org/packages/beamwind/modules.html#tail)
 
-## [API](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/docs/README.md)
+## [API](https://beamwind.js.org/packages/beamwind/modules.html)
 
 ### Global Styles
 
@@ -865,21 +868,21 @@ TODO see TODO.md
 
 - beamwind uses a different color nameing scheme which is based on [Braid Design System - Tones](https://seek-oss.github.io/braid-design-system/foundations/tones/)
 
-  > The default tailwind theme is available via [@beamwind/preset-tailwind](https://www.npmjs.com/package/@beamwind/preset-tailwind)
+  > The default tailwind theme is available via [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind)
 
   ```js
   import { setup } from 'beamwind'
   import tailwindPreset from '@beamwind/preset-tailwind'
 
   setup(tailwindPreset)
-  `
   ```
 
 - beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features
 
-  The following feature are not yet available in beamwind:
+  The following Tailwind v2 features are not yet available in beamwind:
 
   - dark mode
+  - space-x-reverse
   - divide-y-reverse
   - [Font Variant Numeric](https://tailwindcss.com/docs/font-variant-numeric)
 
@@ -940,7 +943,7 @@ Some notable differences are:
 
 - beamwind API [additionally supports](#function-signature)
 
-  - variadic arguments like `cs('bg-blue', 'text-white')`
+  - variadic arguments like `bw('bg-blue', 'text-white')`
   - [Directive Grouping](#directive-grouping)
   - Tagged Template Interpolation values may additionally be Array, Object or Function ([inline plugins](#inline-plugins))
   - Object values which are String, Array or Object start a new variant group

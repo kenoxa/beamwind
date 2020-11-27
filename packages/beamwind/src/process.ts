@@ -139,7 +139,7 @@ const translate = (token: string, variants: readonly string[]): unknown => {
       is.function(plugin) ? plugin(parts, theme, { keyframes, tag: currentContext.a }) : plugin,
     )
   ) {
-    currentContext.w(token, `No translation for "${token}" found`)
+    currentContext.w(token, `No plugin for "${token}" found`)
   }
 }
 

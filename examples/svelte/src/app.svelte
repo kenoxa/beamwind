@@ -48,8 +48,7 @@
 </script>
 
 <div class={bw`text-center`}>
-  <header
-    class={bw`bg-#f9f6f6 text-#333 min-h-screen flex flex-col items-center justify-center text-2xl`}>
+  <header class={bw`bg-surface min-h-screen flex flex-col items-center justify-center text-2xl`}>
     <img
       src="/logo.svg"
       class={bw`h-36vmin pointer-events-none mb-12 animate-logo-pulse`}

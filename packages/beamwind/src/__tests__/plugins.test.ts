@@ -60,7 +60,7 @@ test('plugin can return new tokens to parse using `apply`', () => {
   )
 
   expect(() => instance.bw('btn-unknown-color')).toThrow(
-    `Invalid token btn-unknown-color: No translation for "btn-unknown-color" found`,
+    `Invalid token btn-unknown-color: No plugin for "btn-unknown-color" found`,
   )
 })
 

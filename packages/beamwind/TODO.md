@@ -1,11 +1,19 @@
 Link to https://nerdcave.com/tailwind-cheat-sheet
 
+default to strict mode and only allow themed values
+
+oceanwind issue: to discuss format
+
 pre-commit hook to format files
 
 space-x-reverse
 divide-y-reverse
 
 doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
+
+DOMException: Failed to execute 'insertRule' on 'CSSStyleSheet': Failed to parse the rule '::-moz-focus-inner{border-style:none;padding:0}'.
+DOMException: Failed to execute 'insertRule' on 'CSSStyleSheet': Failed to parse the rule ':-moz-focusring{outline:1px dotted ButtonText}'.
+DOMException: Failed to execute 'insertRule' on 'CSSStyleSheet': Failed to parse the rule ':-moz-ui-invalid{box-shadow:none}'.
 
 transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
 https://github.com/tailwindlabs/tailwindcss/pull/2531

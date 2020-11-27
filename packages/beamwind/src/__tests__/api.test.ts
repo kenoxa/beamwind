@@ -218,7 +218,7 @@ test('warn to console', () => {
     expect(bw('text-white unknown-directive bg-black')).toBe('text-white bg-black')
 
     expect(console.warn).toHaveBeenCalledWith(
-      `Invalid token unknown-directive: No translation for "unknown-directive" found`,
+      `Invalid token unknown-directive: No plugin for "unknown-directive" found`,
     )
   } finally {
     console.warn = consoleWarn
@@ -229,7 +229,7 @@ test('use fail for warn', () => {
   setup({ warn: fail })
 
   expect(() => bw('unknown-directive')).toThrow(
-    `Invalid token unknown-directive: No translation for "unknown-directive" found`,
+    `Invalid token unknown-directive: No plugin for "unknown-directive" found`,
   )
 })
 
