@@ -39,7 +39,6 @@ const asRGBA = (color: string, alpha: string): string => {
 }
 
 const TOP_LEFT: Record<string, undefined | string> = { x: 'left', y: 'top' }
-const WIDTH_HEIGHT: Record<string, undefined | string> = { w: 'width', h: 'height' }
 
 const propertyAndValue = (parts: string[]): Declarations => ({ [parts[0]]: parts[1] })
 const display = (parts: string[]): Declarations => ({ display: join(parts) })
@@ -80,7 +79,7 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
 }
 
 const minMax: Plugin = (parts, theme) =>
-  (_ = WIDTH_HEIGHT[parts[1]]) && {
+  (_ = ({ w: 'width', h: 'height' } as Record<string, undefined | string>)[parts[1]]) && {
     [`${parts[0]}-${_}`]: theme(
       'sizes',
       join(tail(parts, 2)),
@@ -99,20 +98,19 @@ const padding = edgesPluginFor('padding')
 // For m-*, mx-*, mt-*
 const margin = edgesPluginFor('margin')
 
-const gridPlugin = (kind: string): Plugin => (parts) =>{
-    switch (parts[1]) {
-      case 'auto':
-        return { [`grid-${kind}`]: parts[1] }
-      case 'span':
-        return {
-          [`grid-${kind}`]: parts[2] === 'full' ? '1 / -1' : `span ${parts[2]} / span ${parts[2]}`,
-        }
-      case 'start':
-      case 'end':
-        return { [`grid-${kind}-${parts[1]}`]: parts[2] }
-    }
+const gridPlugin = (kind: string): Plugin => (parts) => {
+  switch (parts[1]) {
+    case 'auto':
+      return { [`grid-${kind}`]: parts[1] }
+    case 'span':
+      return {
+        [`grid-${kind}`]: parts[2] === 'full' ? '1 / -1' : `span ${parts[2]} / span ${parts[2]}`,
+      }
+    case 'start':
+    case 'end':
+      return { [`grid-${kind}-${parts[1]}`]: parts[2] }
   }
-
+}
 
 const contentPluginFor = (property: string): Plugin => (parts) => {
   switch (parts[1]) {
@@ -522,7 +520,7 @@ export const utilities: Record<string, Plugin> = {
       case 'rows':
         return {
           [`grid-template-${parts[1] === 'cols' ? 'columns' : parts[1]}`]:
-            parts[2] === 'none' ? parts[2] : `repeat(${parts[2]}, minmax(0, 1fr))`,
+            parts[2] === 'none' ? parts[2] : `repeat(${parts[2]},minmax(0,1fr))`,
         }
       case 'flow':
         return {
@@ -593,7 +591,12 @@ export const utilities: Record<string, Plugin> = {
     'white-space': 'nowrap',
   },
 
-  resize: (parts) => ({ resize: ({x: 'vertical', y: 'horizontal'} as Record<string, string | undefined>)[parts[1]] || parts[1] || 'both' }),
+  resize: (parts) => ({
+    resize:
+      ({ x: 'vertical', y: 'horizontal' } as Record<string, string | undefined>)[parts[1]] ||
+      parts[1] ||
+      'both',
+  }),
 
   // TODO remove once IE11 support is dropped: https://www.digitalocean.com/community/tutorials/css-no-more-clearfix-flow-root
   clearfix: [
@@ -655,11 +658,10 @@ export const utilities: Record<string, Plugin> = {
   col: gridPlugin('column'),
   row: gridPlugin('row'),
 
-  subpixel: (parts) =>
-    parts[1] === 'antialiased' && {
-      '-webkit-font-smoothing': 'auto',
-      '-moz-osx-font-smoothing': 'auto',
-    },
+  'subpixel-antialiased': {
+    '-webkit-font-smoothing': 'auto',
+    '-moz-osx-font-smoothing': 'auto',
+  },
 
   list(parts) {
     switch (parts[1]) {
