@@ -58,6 +58,7 @@ const propertyAndValue = (parts: string[]): Declarations => ({ [parts[0]]: parts
 const display = (parts: string[]): Declarations => ({ display: join(parts) })
 const position = (parts: string[]): Declarations => ({ position: parts[0] })
 const textTransform = (parts: string[]): Declarations => ({ 'text-transform': parts[0] })
+const textDecoration = (parts: string[]): Declarations => ({ 'text-decoration': join(parts) })
 
 const border = (
   parts: string[],
@@ -395,9 +396,6 @@ export const utilities: Record<string, Plugin> = {
     }
   },
 
-  'no-underline': { 'text-decoration': 'none' },
-  'line-through': { 'text-decoration': 'line-through' },
-
   // .w-64	width: 16rem;
   // .w-auto	width: auto;
   // .w-px	width: 1px;
@@ -411,6 +409,21 @@ export const utilities: Record<string, Plugin> = {
     height: theme('sizes', parts[1], compose(convertTo('rem', 'h'), defaultToKey)),
   }),
 
+  underline: textDecoration,
+  'no-underline': textDecoration(['none']),
+  'line-through': textDecoration,
+
+  'text-underline': textDecoration(['underline']),
+  'text-no-underline': textDecoration(['none']),
+  'text-line-through': textDecoration(['line', 'through']),
+
+  uppercase: textTransform,
+  lowercase: textTransform,
+  capitalize: textTransform,
+
+  'normal-case': textTransform(['none']),
+  'text-normal-case': textTransform(['none']),
+
   text(parts, theme, { tag }) {
     switch (parts[1]) {
       case 'left':
@@ -418,6 +431,10 @@ export const utilities: Record<string, Plugin> = {
       case 'right':
       case 'justify':
         return { 'text-align': parts[1] }
+      case 'uppercase':
+      case 'lowercase':
+      case 'capitalize':
+        return textTransform(tail(parts))
       case 'opacity':
         return { [`--${tag('text-opacity')}`]: theme('opacity', parts[2], divideBy(100)) }
     }
@@ -564,7 +581,6 @@ export const utilities: Record<string, Plugin> = {
     return display(parts)
   },
 
-  'not-italic': { 'font-style': 'normal' },
   'not-sr-only': {
     position: 'static',
     width: 'auto',
@@ -607,15 +623,6 @@ export const utilities: Record<string, Plugin> = {
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
   },
-
-  italic: { 'font-style': 'italic' },
-  underline: { 'text-decoration': 'underline' },
-
-  uppercase: textTransform,
-  lowercase: textTransform,
-  capitalize: textTransform,
-
-  'normal-case': textTransform(['none']),
 
   truncate: {
     overflow: 'hidden',
@@ -752,6 +759,12 @@ export const utilities: Record<string, Plugin> = {
   mr: margin,
   mb: margin,
   ml: margin,
+
+  italic: { 'font-style': 'italic' },
+  'not-italic': { 'font-style': 'normal' },
+
+  'font-italic': { 'font-style': 'italic' },
+  'font-not-italic': { 'font-style': 'normal' },
 
   font: (parts, theme) =>
     (_ = theme('fontFamily', parts[1], optional))

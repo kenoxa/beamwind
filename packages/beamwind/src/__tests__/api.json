@@ -828,5 +828,22 @@
       ".ring-offset-sm{--ring-offset-width:.5rem}",
       ".ring-offset-on-caution{--ring-offset-color:#1A202C}"
     ]
+  ],
+  "text(lg primary capitalize underline)": [
+    "text-lg text-primary text-capitalize text-underline",
+    [
+      ".text-primary{--text-opacity:1;color:#0d3880;color:rgba(13,56,128,var(--text-opacity))}",
+      ".text-lg{font-size:1.125rem;line-height:1.75rem}",
+      ".text-capitalize{text-transform:capitalize}",
+      ".text-underline{text-decoration:underline}"
+    ]
+  ],
+  "font(sans italic bold)": [
+    "font-sans font-italic font-bold",
+    [
+      ".font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"}",
+      ".font-italic{font-style:italic}",
+      ".font-bold{font-weight:700}"
+    ]
   ]
 }

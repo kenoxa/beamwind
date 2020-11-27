@@ -2,12 +2,6 @@ Link to https://nerdcave.com/tailwind-cheat-sheet
 
 pre-commit hook to format files
 
-util: merge using object spread
-text like directive (underline, italic) via text to support
-same for font (italic) via text to support
-
-doc for: text(center primary underline) font(sans bold italic)
-
 space-x-reverse
 divide-y-reverse
 

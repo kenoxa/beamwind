@@ -894,6 +894,9 @@ TODO see TODO.md
 - `d-*`: allows to set the `display` property (from [bootstrap](https://v5.getbootstrap.com/docs/5.0/utilities/display/))
 - `appearance-*`: supports [all values](https://developer.mozilla.org/en-US/docs/Web/CSS/appearance)
 - `bg-<color>`: if a "_on_" color) (`on-<color>`) is found it is used as default CSS `color`; to change to a different color use `text-<color>` (tailwind style)
+- text like directive (underline, italic) via text
+- `text-underline`, `text-no-underline`, `text-line-through`, `text-uppercase`, `text-lowercase` and `text-capitalize`: this allows grouping of text directives like `text(lg primary capitalize underline)`
+- `font-italic` and `font-no-italic`: this allows grouping of font directives like `font(sans italic bold)`
 - `border` and `divide` allow to combine positions (`t`op, `r`righ, `l`eft, `b`ottom)
 
   - `tr` - `top` & `right`
