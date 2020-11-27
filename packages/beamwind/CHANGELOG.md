@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/kenoxa/beamwind/compare/beamwind@1.4.1...beamwind@1.5.0) (2020-11-27)
+
+### Bug Fixes
+
+- parse all kinds of hex colors ([069cb99](https://github.com/kenoxa/beamwind/commit/069cb99c4b39e3c264f6b51a9e4b356a14892255))
+
+### Features
+
+- additional text and font directives to simplify grouping ([5965116](https://github.com/kenoxa/beamwind/commit/5965116e5dd35e790294078c28cce2c29e274dbc))
+- support bg, text, divide, border and placeholder opacity ([18d7fe9](https://github.com/kenoxa/beamwind/commit/18d7fe9c0c3bb319bee75f11a1f96954ff9e0eb9))
+
 ## [1.4.1](https://github.com/kenoxa/beamwind/compare/beamwind@1.4.0...beamwind@1.4.1) (2020-11-26)
 
 ### Bug Fixes
