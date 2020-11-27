@@ -18,26 +18,21 @@ let _: undefined | string | Declarations | string[]
 
 /* eslint-disable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */
 
-const parseColorComponent = (chars: string, factor?: number): number =>
+const parseColorComponent = (chars: string, factor: number): number =>
   // eslint-disable-next-line unicorn/prefer-number-properties
-  parseInt(chars, 16) * (factor || 1)
+  Math.round(parseInt(chars, 16) * factor)
 
 const asRGBA = (color: string, alpha: string): string => {
   if (color[0] === '#') {
-    // In three-character format, each value is multiplied by 0x11 to give an
-    // even scale from 0x00 to 0xff
-    return (
-      'rgba(' +
-      (color.length === 4
-        ? `${parseColorComponent(color[1], 0x11)},${parseColorComponent(
-            color[2],
-            0x11,
-          )},${parseColorComponent(color[3], 0x11)}`
-        : `${parseColorComponent(color.slice(1, 3))},${parseColorComponent(
-            color.slice(3, 5),
-          )},${parseColorComponent(color.slice(5, 7))}`) +
-      `,${alpha})`
-    )
+    const length = (color.length - 1) / 3
+    const factor = [17, 1, 0.062272][length - 1]
+
+    /* eslint-disable unicorn/prefer-string-slice */
+    return `rgba(${parseColorComponent(color.substr(1, length), factor)},${parseColorComponent(
+      color.substr(1 + length, length),
+      factor,
+    )},${parseColorComponent(color.substr(1 + 2 * length, length), factor)},${alpha})`
+    /* eslint-enable unicorn/prefer-string-slice */
   }
 
   return color
