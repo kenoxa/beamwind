@@ -153,7 +153,12 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
       injector.insert(rule, index)
       sortedPrecedences.splice(index, 0, presedence)
     } catch (error) {
-      console.warn(error)
+      // Filter out vendor specific pseudo classes to prevent unnecessary warnings
+      // ::-moz-focus-inner
+      // :-moz-focusring
+      if (!/:-[mwo]/.test(rule)) {
+        warn((error as Error).message)
+      }
     }
   }
 
@@ -166,8 +171,9 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
   ): void => {
     if (!cachedClassNames.has(className)) {
       // eslint-disable-next-line unicorn/explicit-length-check
-      if (!sortedPrecedences.length && inits.length) {
+      if (inits.length) {
         inits.forEach((init) => init((rule) => insert(rule, 0), activeTheme))
+        inits.length = 0
       }
 
       insert(rule, calculatePrecedence(variantsCss, declarations))
