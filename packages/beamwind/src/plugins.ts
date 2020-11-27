@@ -99,6 +99,20 @@ const padding = edgesPluginFor('padding')
 // For m-*, mx-*, mt-*
 const margin = edgesPluginFor('margin')
 
+const gridPlugin = (kind: string): Plugin => (parts) =>{
+    switch (parts[1]) {
+      case 'auto':
+        return { [`grid-${kind}`]: parts[1] }
+      case 'span':
+        return {
+          [`grid-${kind}`]: parts[2] === 'full' ? '1 / -1' : `span ${parts[2]} / span ${parts[2]}`,
+        }
+      case 'start':
+      case 'end':
+        return { [`grid-${kind}-${parts[1]}`]: parts[2] }
+    }
+  }
+
 
 const contentPluginFor = (property: string): Plugin => (parts) => {
   switch (parts[1]) {
@@ -638,33 +652,8 @@ export const utilities: Record<string, Plugin> = {
 
   order: (parts, theme) => ({ order: theme('order', parts[1], defaultToKey) }),
 
-  col(parts) {
-    switch (parts[1]) {
-      case 'auto':
-        return { 'grid-column': parts[1] }
-      case 'span':
-        return {
-          'grid-column': parts[2] === 'full' ? '1 / -1' : `span ${parts[2]} / span ${parts[2]}`,
-        }
-      case 'start':
-      case 'end':
-        return { [`grid-column-${parts[1]}`]: parts[2] }
-    }
-  },
-
-  row(parts) {
-    switch (parts[1]) {
-      case 'auto':
-        return { 'grid-row': parts[1] }
-      case 'span':
-        return {
-          'grid-row': parts[2] === 'full' ? '1 / -1' : `span ${parts[2]} / span ${parts[2]}`,
-        }
-      case 'start':
-      case 'end':
-        return { [`grid-row-${parts[1]}`]: parts[2] }
-    }
-  },
+  col: gridPlugin('column'),
+  row: gridPlugin('row'),
 
   subpixel: (parts) =>
     parts[1] === 'antialiased' && {
