@@ -10,7 +10,7 @@ export const join = (parts: readonly string[], separator = '-'): string => parts
 export const joinTruthy = (parts: readonly (string | Falsy)[], separator?: string): string =>
   join(parts.filter(Boolean) as string[], separator)
 
-export const tail = <T extends string | readonly unknown[]>(array: T): T => array.slice(1) as T
+export const tail = <T extends string | readonly unknown[]>(array: T, startIndex = 1): T => array.slice(startIndex) as T
 
 export const format = (message: string, token?: string): string =>
   (token ? `Invalid token ${token}: ` : '') + message

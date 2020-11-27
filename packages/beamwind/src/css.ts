@@ -1,4 +1,4 @@
-import { join } from './util'
+import { join, tail } from './util'
 import { isGroupVariant } from './variants'
 
 export const escape =
@@ -25,7 +25,7 @@ const createSelector = (
   variants.reduce(
     (selector, variant) =>
       // .group:hover .group-hover\:text-gray-500
-      (isGroupVariant(variant) ? `.${escape(tag('group'))}:${variant.slice(6)} ` : '') +
+      (isGroupVariant(variant) ? `.${escape(tag('group'))}:${tail(variant, 6)} ` : '') +
       selector +
       (isPseudoVariant(variant) ? variant : ''),
     '.' + escape(className),

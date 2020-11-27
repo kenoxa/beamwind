@@ -121,7 +121,7 @@ const PROPERTY_PRECEDENCE_CORRECTION_GROUPS = /^(?:(border-(?:[tlbr].{2,4}-)?(?:
 const propertyPrecedence = (property: string): number => {
   // The property's baseline precedence is based on "-" counting
   const unprefixedProperty =
-    property[0] === '-' ? property.slice(property.indexOf('-', 1) + 1) : property
+    property[0] === '-' ? tail(property, property.indexOf('-', 1) + 1) : property
 
   const match = PROPERTY_PRECEDENCE_CORRECTION_GROUPS.exec(unprefixedProperty)
 

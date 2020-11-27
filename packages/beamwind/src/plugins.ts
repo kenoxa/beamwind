@@ -16,7 +16,7 @@ import { join, joinTruthy, tail } from './util'
 // Shared variables
 let _: undefined | string | Declarations | string[]
 
-/* eslint-disable no-return-assign, no-cond-assign */
+/* eslint-disable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */
 
 const parseColorComponent = (chars: string, factor?: number): number =>
   // eslint-disable-next-line unicorn/prefer-number-properties
@@ -74,7 +74,7 @@ const border = (parts: string[], theme: ThemeValueResolver): Declarations => {
           [
             _,
             'solid',
-            theme(`${parts[0]}Color` as 'borderColor', join(parts.slice(2)), defaultToKey),
+            theme(`${parts[0]}Color` as 'borderColor', join(tail(parts, 2)), defaultToKey),
           ],
           ' ',
         ),
@@ -88,7 +88,7 @@ const minMax: Plugin = (parts, theme) =>
   (_ = WIDTH_HEIGHT[parts[1]]) && {
     [`${parts[0]}-${_}`]: theme(
       'sizes',
-      join(parts.slice(2)),
+      join(tail(parts, 2)),
       convertTo('rem', parts[1] as 'w' | 'h'),
     ),
   }
@@ -103,6 +103,7 @@ const padding = edgesPluginFor('padding')
 
 // For m-*, mx-*, mt-*
 const margin = edgesPluginFor('margin')
+
 
 const contentPluginFor = (property: string): Plugin => (parts) => {
   switch (parts[1]) {
@@ -166,7 +167,7 @@ export const utilities: Record<string, Plugin> = {
           : {
               [`--${tag('ring-offset-color')}`]: theme(
                 'colors',
-                join(parts.slice(2)),
+                join(tail(parts, 2)),
                 defaultToKey,
               ),
             }
@@ -240,42 +241,32 @@ export const utilities: Record<string, Plugin> = {
   // .scale-0	--transform-scale-x: 0;
   // .scale-x-150
   // .scale-y-0
-  scale(parts, theme, { tag }) {
-    _ = theme('scale', parts[2] || parts[1], divideBy(100))
-
-    return {
+  scale: (parts, theme, { tag }) =>
+    (_ = theme('scale', parts[2] || parts[1], divideBy(100))) && {
       [`--${tag('transform-scale-x')}`]: parts[1] !== 'y' && _,
       [`--${tag('transform-scale-y')}`]: parts[1] !== 'x' && _,
       transform: `scale${parts[2] ? parts[1].toUpperCase() : ''}(${_})`,
-    }
-  },
-
+    },
   // .translate-x-0	--transform-translate-x: 0;
   // .translate-x-1	--transform-translate-x: 0.25rem;
   // .translate-y-px	--transform-translate-y: 1px;
   // .translate-y-full	--transform-translate-y: 100%;
   // .translate-y-1/2	--transform-translate-y: 50%;
-  translate(parts, theme, { tag }) {
-    _ = theme('spacing', parts[2], convertTo('rem'))
-
-    return {
+  translate: (parts, theme, { tag }) =>
+    (_ = theme('spacing', parts[2], convertTo('rem'))) && {
       [`--${tag('transform-translate-x')}`]: parts[1] !== 'y' && _,
       [`--${tag('transform-translate-y')}`]: parts[1] !== 'x' && _,
       transform: `translate${parts[1].toUpperCase()}(${_})`,
-    }
-  },
+    },
 
   // .skew-y-0	--transform-skew-y: 0;
   // .skew-y-1	--transform-skew-y: 1deg;
-  skew(parts, theme, { tag }) {
-    _ = theme('angle', parts[2], convertTo('deg'))
-
-    return {
+  skew: (parts, theme, { tag }) =>
+    (_ = theme('angle', parts[2], convertTo('deg'))) && {
       [`--${tag('transform-skew-x')}`]: parts[1] !== 'y' && _,
       [`--${tag('transform-skew-y')}`]: parts[1] !== 'x' && _,
       transform: `skew${parts[1].toUpperCase()}(${_})`,
-    }
-  },
+    },
 
   // .bg-gradient => linear-gradient(180deg, ...)
   // .bg-gradient-45 => linear-gradient(45deg, ...)
@@ -459,7 +450,7 @@ export const utilities: Record<string, Plugin> = {
       // 'on-primary' -> 'primary'
       color: theme(
         'colors',
-        join(parts[1] === 'on' ? parts.slice(2) : ['on'].concat(tail(parts))),
+        join(parts[1] === 'on' ? tail(parts, 2) : ['on'].concat(tail(parts))),
         optional,
       ),
     }
@@ -485,9 +476,7 @@ export const utilities: Record<string, Plugin> = {
   transition: (parts, theme) => ({
     transition: join(
       [
-        parts[1]
-          ? theme('transitionProperty', parts[1], defaultToKey)
-          : 'background-color,border-color,color,fill,stroke,opacity,box-shadow,transform',
+        theme('transitionProperty', parts[1], defaultToKey),
         theme('durations', undefined, convertTo('ms')),
         theme('transitionTimingFunction'),
       ],
@@ -529,7 +518,7 @@ export const utilities: Record<string, Plugin> = {
       case 'flow':
         return {
           [`grid-auto-${parts[1]}`]:
-            parts[2] === 'col' ? joinTruthy(['column', parts[3]], ' ') : join(parts.slice(2), ' '),
+            parts[2] === 'col' ? joinTruthy(['column', parts[3]], ' ') : join(tail(parts, 2), ' '),
         }
     }
 
@@ -595,16 +584,7 @@ export const utilities: Record<string, Plugin> = {
     'white-space': 'nowrap',
   },
 
-  resize(parts) {
-    switch (parts[1]) {
-      case 'x':
-        return { resize: 'vertical' }
-      case 'y':
-        return { resize: 'horizontal' }
-    }
-
-    return { resize: parts[1] || 'both' }
-  },
+  resize: (parts) => ({ resize: ({x: 'vertical', y: 'horizontal'} as Record<string, string | undefined>)[parts[1]] || parts[1] || 'both' }),
 
   // TODO remove once IE11 support is dropped: https://www.digitalocean.com/community/tutorials/css-no-more-clearfix-flow-root
   clearfix: [
@@ -786,7 +766,7 @@ export const utilities: Record<string, Plugin> = {
           [
             _ || theme('borderWidth', 'DEFAULT', optional),
             'solid',
-            theme('borderColor', join(parts.slice(_ ? 3 : 2)), defaultToKey),
+            theme('borderColor', join(tail(parts, _ ? 3 : 2)), defaultToKey),
           ],
           ' ',
         ),
@@ -814,7 +794,7 @@ export const utilities: Record<string, Plugin> = {
               [
                 _ || theme('divideWidth', 'DEFAULT'),
                 'solid',
-                theme('divideColor', join(parts.slice(_ ? 3 : 2)), defaultToKey),
+                theme('divideColor', join(tail(parts, _ ? 3 : 2)), defaultToKey),
               ],
               ' ',
             ),
@@ -844,4 +824,4 @@ export const utilities: Record<string, Plugin> = {
   },
 }
 
-/* eslint-enable no-return-assign, no-cond-assign */
+/* eslint-enable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */

@@ -68,7 +68,7 @@ const processTokenResult = (
   /* eslint-enable @typescript-eslint/no-use-before-define */
 
   // Cache created class names
-  currentContext.s(token, variants, join(classNames.slice(lastClassNameLength), ' '))
+  currentContext.s(token, variants, join(tail(classNames, lastClassNameLength), ' '))
 }
 
 const handlePluginResult = (
@@ -126,7 +126,7 @@ const translate = (token: string, variants: readonly string[]): unknown => {
     plugin = currentContext.p(id)
 
     if (plugin) {
-      parts = parts.slice(index)
+      parts = tail(parts, index)
       parts.unshift(id)
       break
     }
