@@ -974,11 +974,6 @@ Some notable differences are:
   - [transform](https://tailwindcss.com/docs/transform)
   - [Background Image](https://tailwindcss.com/docs/gradient-color-stops#class-reference)
   - [ring](https://tailwindcss.com/docs/ring-width)
-  - [text-opacity](https://tailwindcss.com/docs/text-opacity)
-  - [bg-opacity](https://tailwindcss.com/docs/bg-opacity)
-  - [divide-opacity](https://tailwindcss.com/docs/divide-opacity)
-  - [border-opacity](https://tailwindcss.com/docs/border-opacity)
-  - [placeholder-opacity](https://tailwindcss.com/docs/placeholder-opacity)
 
 - oceanwind supports duplicate token tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
