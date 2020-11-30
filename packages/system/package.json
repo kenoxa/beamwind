@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/system",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ready to go beamwind fusing a semantic design system",
   "keywords": [
     "beamwind",
@@ -32,9 +32,9 @@
     "preset": "@carv/jest-preset"
   },
   "dependencies": {
-    "@beamwind/core": "^1.0.0",
-    "@beamwind/preflight": "^1.2.1",
-    "@beamwind/preset-system": "^1.0.0"
+    "@beamwind/core": "^2.0.0",
+    "@beamwind/preflight": "^2.0.0",
+    "@beamwind/preset-system": "^2.0.0"
   },
   "devDependencies": {
     "nps": "^5.9.12"

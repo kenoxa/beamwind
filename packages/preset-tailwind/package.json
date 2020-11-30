@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/preset-tailwind",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "beamwind preset mirroring tailwind default theme",
   "keywords": [
     "beamwind",
@@ -32,7 +32,7 @@
     "preset": "@carv/jest-preset"
   },
   "devDependencies": {
-    "@beamwind/types": "^1.0.0",
+    "@beamwind/types": "^2.0.0",
     "nps": "^5.9.12"
   },
   "publishConfig": {

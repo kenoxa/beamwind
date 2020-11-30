@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/kenoxa/beamwind/compare/@beamwind/colors@1.0.5...@beamwind/colors@2.0.0) (2020-11-30)
+
+**Note:** Version bump only for package @beamwind/colors
+
 ## [1.0.5](https://github.com/kenoxa/beamwind/compare/@beamwind/colors@1.0.4...@beamwind/colors@1.0.5) (2020-11-27)
 
 **Note:** Version bump only for package @beamwind/colors
