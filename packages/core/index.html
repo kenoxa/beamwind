@@ -1,0 +1,208 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@beamwind/core - v1.0.0</title>
+	<meta name="description" content="Documentation for @beamwind/core - v1.0.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@beamwind/core - v1.0.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>Project @beamwind/core - v1.0.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#beamwindcore" id="beamwindcore" style="color: inherit; text-decoration: none;">
+					<h1>@beamwind/core</h1>
+				</a>
+				<blockquote>
+					<p>compiles <a href="https://tailwindcss.com">Tailwind CSS</a> like shorthand syntax into CSS at runtime</p>
+				</blockquote>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE"><img src="https://flat.badgen.net/github/license/kenoxa/beamwind" alt="MIT License"></a>
+					<a href="https://www.npmjs.com/package/@beamwind/core"><img src="https://flat.badgen.net/npm/v/@beamwind/core?icon=npm&label" alt="Latest Release"></a>
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/core"><img src="https://flat.badgen.net/badge/icon/kenoxa%2Fbeamwind?icon=github&label" alt="Github"></a>
+					<a href="https://unpkg.com/browse/@beamwind/core/types/core.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
+				<a href="https://bundlephobia.com/result?p=@beamwind/core"><img src="https://flat.badgen.net/bundlephobia/minzip/@beamwind/core?icon=packagephobia&label&color=blue" alt="Bundle Size"></a></p>
+				<blockquote>
+					<p><a href="https://beamwind.js.org">Read the docs</a> |
+						<a href="https://beamwind.js.org/packages/core">API</a> |
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/core/CHANGELOG.md">Change Log</a></p>
+				</blockquote>
+				<hr>
+				<blockquote>
+					<p>The <a href="https://github.com/kenoxa/beamwind/blob/main/packages/core/src/theme.js">core theme</a> is bare bones as most projects have their own colors, sizes, ... and naming system. You probably want use one of the following:</p>
+					<ul>
+						<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/beamwind">beamwind</a> - using the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">tailwind default theme</a> and <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">preflight</a></li>
+						<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/system">@beamwind/system</a> - using a <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-system">semantic design system</a> and <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">preflight</a></li>
+						<li><a href="https://github.com/kenoxa/beamwind/blob/main/packages/play">@beamwind/play</a> - combining the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind">tailwind default theme</a>, the <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-system">semantic design system</a> and <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight">preflight</a> with <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-play">auto-conversion of unknown theme values</a></li>
+					</ul>
+				</blockquote>
+				<hr>
+				<!-- prettier-ignore-start -->
+				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+				<ul>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#contribute">Contribute</a></li>
+					<li><a href="#license">License</a></li>
+				</ul>
+				<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- prettier-ignore-end -->
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-sh">npm install @beamwind/core</code></pre>
+				<p>And then import it:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { bw } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/core&#x27;</span></code></pre>
+				<blockquote>
+					<p>Please refer to the <a href="https://beamwind.js.org#usage">main documentation</a> for further information.</p>
+				</blockquote>
+				<a href="#contribute" id="contribute" style="color: inherit; text-decoration: none;">
+					<h2>Contribute</h2>
+				</a>
+				<p>Thanks for being willing to contribute!</p>
+				<blockquote>
+					<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/kenoxa/beamwind">star it on GitHub</a>. Feel free to <a href="https://github.com/kenoxa/beamwind/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
+				</blockquote>
+				<p><strong>Working on your first Pull Request?</strong> You can learn how from this <em>free</em> series <a href="https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github">How to Contribute to an Open Source Project on GitHub</a></p>
+				<p>We are following the <a href="https://www.conventionalcommits.org">Conventional Commits</a> convention.</p>
+				<a href="#sponsors" id="sponsors" style="color: inherit; text-decoration: none;">
+					<h3>Sponsors</h3>
+				</a>
+				<p><a href="https://www.kenoxa.com"><img src="https://images.opencollective.com/kenoxa/9c25796/logo/68.png" alt="Kenoxa GmbH"></a> <a href="https://www.kenoxa.com">Kenoxa GmbH</a></p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE">MIT</a> © <a href="https://kenoxa.com">Kenoxa GmbH</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#strict" class="tsd-kind-icon">strict</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#warn" class="tsd-kind-icon">warn</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#apply" class="tsd-kind-icon">apply</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#autoprefix" class="tsd-kind-icon">autoprefix</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#bw" class="tsd-kind-icon">bw</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#corners" class="tsd-kind-icon">corners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#cssominjector" class="tsd-kind-icon">cssom<wbr>Injector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#cyrb32" class="tsd-kind-icon">cyrb32</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#edges" class="tsd-kind-icon">edges</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#expandedges" class="tsd-kind-icon">expand<wbr>Edges</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#join" class="tsd-kind-icon">join</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#mode" class="tsd-kind-icon">mode</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#noopinjector" class="tsd-kind-icon">no<wbr>OpInjector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#noprefix" class="tsd-kind-icon">noprefix</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#setup" class="tsd-kind-icon">setup</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#tail" class="tsd-kind-icon">tail</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#theme" class="tsd-kind-icon">theme</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#virtualinjector" class="tsd-kind-icon">virtual<wbr>Injector</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

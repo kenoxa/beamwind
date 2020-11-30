@@ -1,0 +1,186 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@beamwind/preset-play - v1.0.0</title>
+	<meta name="description" content="Documentation for @beamwind/preset-play - v1.0.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@beamwind/preset-play - v1.0.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>Project @beamwind/preset-play - v1.0.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#beamwindpreset-play" id="beamwindpreset-play" style="color: inherit; text-decoration: none;">
+					<h1>@beamwind/preset-play</h1>
+				</a>
+				<blockquote>
+					<p>rapid prototyping for beamwind using auto-conversion of values</p>
+				</blockquote>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE"><img src="https://flat.badgen.net/github/license/kenoxa/beamwind" alt="MIT License"></a>
+					<a href="https://www.npmjs.com/package/@beamwind/preset-play"><img src="https://flat.badgen.net/npm/v/@beamwind/preset-play?icon=npm&label" alt="Latest Release"></a>
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-play"><img src="https://flat.badgen.net/badge/icon/kenoxa%2Fbeamwind?icon=github&label" alt="Github"></a>
+					<a href="https://unpkg.com/browse/@beamwind/preset-play/types/preset-play.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
+				<a href="https://bundlephobia.com/result?p=@beamwind/preset-play"><img src="https://flat.badgen.net/bundlephobia/minzip/@beamwind/preset-play?icon=packagephobia&label&color=blue" alt="Bundle Size"></a></p>
+				<blockquote>
+					<p><a href="https://beamwind.js.org">Read the docs</a> |
+						<a href="https://beamwind.js.org/packages/preset-play">API</a> |
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-play/CHANGELOG.md">Change Log</a></p>
+				</blockquote>
+				<hr>
+				<blockquote>
+					<p>This is a only a preset. <a href="https://github.com/kenoxa/beamwind/blob/main/packages/play">@beamwind/play</a> provides a ready to use <code>bw</code> export.
+					This preset should be used for <em>prototyping only</em> as it usually prevents a consistent UI experience.</p>
+				</blockquote>
+				<hr>
+				<!-- prettier-ignore-start -->
+				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+				<ul>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#usage">Usage</a></li>
+					<li><a href="#contribute">Contribute</a></li>
+					<li><a href="#license">License</a></li>
+				</ul>
+				<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- prettier-ignore-end -->
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-sh">npm install @beamwind/preset-play</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<blockquote>
+					<p>Please refer to the <a href="https://beamwind.js.org#usage">main documentation</a> for further information.</p>
+				</blockquote>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup, warn } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/core&#x27;</span>
+<span class="hljs-keyword">import</span> play <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/preset-play&#x27;</span>
+
+<span class="hljs-comment">// Use warn as fallback if no conversion could be made</span>
+setup(play(warn))</code></pre>
+				<p>See <a href="https://github.com/kenoxa/beamwind/blob/main/packages/preset-play/src/play.ts">preset-play/src/play.ts</a> which conversions are applied.</p>
+				<p>Most tailwind classes use a deterministic number calculation scheme (for example <a href="https://tailwindcss.com/docs/width">width</a>). If beamwind detects a number in a directive and there is not mapped value in the theme it uses the following algorithm to generate a CSS value which aligns with the tailwind rules for that directive:</p>
+				<ul>
+					<li><p>decimal numbers (<code>2</code> or <code>1.5</code>) are divided by a divisor and a unit is added (<code>w-2.5</code> becomes <code>width: 0.625rem;</code>)</p>
+					</li>
+					<li><p>fractions (<code>1/6</code> or <code>3/5</code>) are evaluated and <code>%</code> is used as a unit (<code>w-4/5</code> becomes <code>width: 80%;</code>)</p>
+					</li>
+					<li><p>most directives are lenient when a value is not found in the theme:</p>
+						<ul>
+							<li>decimal numbers (<code>2</code> or <code>1.5</code>) are divided by a divisor and a unit is added (<code>w-2.5</code> becomes <code>width: 0.625rem;</code>)</li>
+							<li>fractions (<code>1/6</code> or <code>3/5</code>) are evaluated and <code>%</code> is added as a unit (<code>w-4/5</code> becomes <code>width: 80%;</code>)</li>
+							<li>color names (<code>text-rebeccapurple</code>) and hex colors (<code>text-#009900</code>)</li>
+						</ul>
+					</li>
+					<li><p><code>bg-gradient</code> accepts additionally to the side-or-corner parameter (<code>bg-gradient-to-tr</code>) an angle or mixed parameters:</p>
+						<ul>
+							<li><code>bg-gradient</code> - defaults to <code>180deg</code> eg <code>to bottom</code></li>
+							<li><code>bg-gradient-45</code></li>
+							<li><code>bg-gradient-0.25turn</code></li>
+							<li><code>bg-gradient-to-bottom-left</code></li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#contribute" id="contribute" style="color: inherit; text-decoration: none;">
+					<h2>Contribute</h2>
+				</a>
+				<p>Thanks for being willing to contribute!</p>
+				<blockquote>
+					<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/kenoxa/beamwind">star it on GitHub</a>. Feel free to <a href="https://github.com/kenoxa/beamwind/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
+				</blockquote>
+				<p><strong>Working on your first Pull Request?</strong> You can learn how from this <em>free</em> series <a href="https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github">How to Contribute to an Open Source Project on GitHub</a></p>
+				<p>We are following the <a href="https://www.conventionalcommits.org">Conventional Commits</a> convention.</p>
+				<a href="#sponsors" id="sponsors" style="color: inherit; text-decoration: none;">
+					<h3>Sponsors</h3>
+				</a>
+				<p><a href="https://www.kenoxa.com"><img src="https://images.opencollective.com/kenoxa/9c25796/logo/68.png" alt="Kenoxa GmbH"></a> <a href="https://www.kenoxa.com">Kenoxa GmbH</a></p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE">MIT</a> © <a href="https://kenoxa.com">Kenoxa GmbH</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/playoptions.html" class="tsd-kind-icon">Play<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-property">
+						<a href="modules.html#default" class="tsd-kind-icon">default</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -62,22 +62,26 @@
 				<blockquote>
 					<p>an opinionated set of base styles for modern browsers based on <a href="https://tailwindcss.com/docs/preflight">Tailwind Preflight</a></p>
 				</blockquote>
-				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE"><img src="https://flat.badgen.net/github/license/kenoxa/beamwind" alt="License"></a>
-					<a href="https://www.npmjs.com/package/@beamwind/preflight"><img src="https://flat.badgen.net/npm/v/@beamwind/preflight?label=release" alt="Latest Release"></a>
-					<a href="https://bundlephobia.com/result?p=@beamwind/preflight"><img src="https://flat.badgen.net/bundlephobia/minzip/@beamwind/preflight?icon=packagephobia&label&color=blue" alt="Bundle Size"></a>
-					<a href="https://unpkg.com/browse/@beamwind/preflight/dist/index.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
-				<a href="https://www.kenoxa.com"><img src="https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9" alt="Sponsor"></a></p>
+				<p><a href="https://github.com/kenoxa/beamwind/blob/main/LICENSE"><img src="https://flat.badgen.net/github/license/kenoxa/beamwind" alt="MIT License"></a>
+					<a href="https://www.npmjs.com/package/@beamwind/preflight"><img src="https://flat.badgen.net/npm/v/@beamwind/preflight?icon=npm&label" alt="Latest Release"></a>
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight"><img src="https://flat.badgen.net/badge/icon/kenoxa%2Fbeamwind?icon=github&label" alt="Github"></a>
+					<a href="https://unpkg.com/browse/@beamwind/preflight/types/preflight.d.ts"><img src="https://flat.badgen.net/badge/icon/included?icon=typescript&label" alt="Typescript"></a>
+				<a href="https://bundlephobia.com/result?p=@beamwind/preflight"><img src="https://flat.badgen.net/bundlephobia/minzip/@beamwind/preflight?icon=packagephobia&label&color=blue" alt="Bundle Size"></a></p>
+				<blockquote>
+					<p><a href="https://beamwind.js.org">Read the docs</a> |
+						<a href="https://beamwind.js.org/packages/preflight">API</a> |
+					<a href="https://github.com/kenoxa/beamwind/blob/main/packages/preflight/CHANGELOG.md">Change Log</a></p>
+				</blockquote>
+				<hr>
 				<p>Built on top of <a href="https://github.com/sindresorhus/modern-normalize">modern-normalize</a>, @beamwind/preflight is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Preflight does not support any version of IE, including IE 11.</p>
-				<p>If you need to support IE 11, we recommend using <a href="https://www.npmjs.com/package/@beamwind/reset">@beamwind/reset</a>.</p>
+				<p>If you need to support IE 11, we recommend using <a href="https://github.com/kenoxa/beamwind/blob/main/packages/reset">@beamwind/reset</a>.</p>
 				<!-- prettier-ignore-start -->
 				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
 				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 				<ul>
 					<li><a href="#installation">Installation</a></li>
 					<li><a href="#usage">Usage</a></li>
-					<li><a href="#support">Support</a></li>
 					<li><a href="#contribute">Contribute</a></li>
-					<li><a href="#sponsors">Sponsors</a></li>
 					<li><a href="#license">License</a></li>
 				</ul>
 				<!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -89,22 +93,24 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
+				<blockquote>
+					<p>Please refer to the <a href="https://beamwind.js.org#usage">main documentation</a> for further information.</p>
+				</blockquote>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 <span class="hljs-keyword">import</span> preflight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/preflight&#x27;</span>
 
-setup(preflight)</code></pre>
-				<a href="#support" id="support" style="color: inherit; text-decoration: none;">
-					<h2>Support</h2>
-				</a>
-				<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/kenoxa/beamwind">star it on GitHub</a>. Feel free to <a href="https://github.com/kenoxa/beamwind/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
+setup(preflight())</code></pre>
 				<a href="#contribute" id="contribute" style="color: inherit; text-decoration: none;">
 					<h2>Contribute</h2>
 				</a>
 				<p>Thanks for being willing to contribute!</p>
+				<blockquote>
+					<p>This project is free and open-source, so if you think this project can help you or anyone else, you may <a href="https://github.com/kenoxa/beamwind">star it on GitHub</a>. Feel free to <a href="https://github.com/kenoxa/beamwind/issues">open an issue</a> if you have any idea, question, or you&#39;ve found a bug.</p>
+				</blockquote>
 				<p><strong>Working on your first Pull Request?</strong> You can learn how from this <em>free</em> series <a href="https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github">How to Contribute to an Open Source Project on GitHub</a></p>
 				<p>We are following the <a href="https://www.conventionalcommits.org">Conventional Commits</a> convention.</p>
 				<a href="#sponsors" id="sponsors" style="color: inherit; text-decoration: none;">
-					<h2>Sponsors</h2>
+					<h3>Sponsors</h3>
 				</a>
 				<p><a href="https://www.kenoxa.com"><img src="https://images.opencollective.com/kenoxa/9c25796/logo/68.png" alt="Kenoxa GmbH"></a> <a href="https://www.kenoxa.com">Kenoxa GmbH</a></p>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
@@ -123,12 +129,6 @@ setup(preflight)</code></pre>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/theme.html" class="tsd-kind-icon">Theme</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#oninitcallback" class="tsd-kind-icon">On<wbr>Init<wbr>Callback</a>
-					</li>
 					<li class=" tsd-kind-property">
 						<a href="modules.html#default" class="tsd-kind-icon">default</a>
 					</li>
@@ -141,9 +141,6 @@ setup(preflight)</code></pre>
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
 		</div>
 	</div>
 </footer>
