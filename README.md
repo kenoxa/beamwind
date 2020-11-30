@@ -3,10 +3,10 @@
 > a [collection of packages](#packages) to compile [Tailwind CSS] like shorthand syntax into CSS at runtime
 
 [![MIT License](https://badgen.net/github/license/kenoxa/beamwind)](https://github.com/kenoxa/beamwind/blob/main/LICENSE)
-[![Latest Release](https://flat.badgen.net/npm/v/beamwind?icon=npm&label)](https://www.npmjs.com/package/beamwind)
-[![Bundle Size](https://flat.badgen.net/bundlephobia/minzip/beamwind?icon=packagephobia&label&color=blue)](https://bundlephobia.com/result?p=beamwind)
+[![Latest Release](https://flat.badgen.net/npm/v/@beamwind/core?icon=npm&label)](https://www.npmjs.com/package/@beamwind/core)
+[![Bundle Size](https://flat.badgen.net/bundlephobia/minzip/@beamwind/core?icon=packagephobia&label&color=blue)](https://bundlephobia.com/result?p=@beamwind/core)
 [![Github](https://flat.badgen.net/badge/icon/kenoxa%2Fbeamwind?icon=github&label)](https://github.com/kenoxa/beamwind)
-[![Typescript](https://flat.badgen.net/badge/icon/included?icon=typescript&label)](https://unpkg.com/browse/beamwind/types/beamwind.d.ts)
+[![Typescript](https://flat.badgen.net/badge/icon/included?icon=typescript&label)](https://unpkg.com/browse/@beamwind/core/types/core.d.ts)
 [![CI](https://github.com/kenoxa/beamwind/workflows/CI/badge.svg)](https://github.com/kenoxa/beamwind/actions?query=workflow%3Aci)
 [![Coverage Status](https://flat.badgen.net/coveralls/c/github/kenoxa/beamwind/main?icon=codecov&label)](https://coveralls.io/github/kenoxa/beamwind?branch=main)
 [![PRs Welcome](https://flat.badgen.net/badge/PRs/welcome/purple)](http://makeapullrequest.com)
@@ -913,10 +913,10 @@ Some notable differences are:
 
 ### Size Comparison
 
-| &nbsp;   | [oceanwind](<(https://bundlephobia.com/result?p=oceanwind)>)                                                                     | [beamwind](<(https://bundlephobia.com/result?p=beamwind)>)                                                                    |
+| &nbsp;   | [oceanwind](<(https://bundlephobia.com/result?p=oceanwind)>)                                                                     | [beamwind](<(https://bundlephobia.com/result?p=@beamwind/core)>)                                                                    |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| minified | [![Oceanwind Minified](https://flat.badgen.net/bundlephobia/min/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind)   | [![Beamwind Minified](https://flat.badgen.net/bundlephobia/min/beamwind?label)](https://bundlephobia.com/result?p=beamwind)   |
-| gzipped  | [![Oceanwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind) | [![Beamwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/beamwind?label)](https://bundlephobia.com/result?p=beamwind) |
+| minified | [![Oceanwind Minified](https://flat.badgen.net/bundlephobia/min/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind)   | [![Beamwind Minified](https://flat.badgen.net/bundlephobia/min/@beamwind/core?label)](https://bundlephobia.com/result?p=@beamwind/core)   |
+| gzipped  | [![Oceanwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind) | [![Beamwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/@beamwind/core?label)](https://bundlephobia.com/result?p=@beamwind/core) |
 
 ## Compatibility
 
