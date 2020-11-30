@@ -268,7 +268,6 @@ export const theme = createThemeResolver(
     scale: {},
     skew: {},
     space: (theme) => theme('spacing'),
-    // TODO @beamwind/play use colors
     stroke: {
       current: 'currentColor',
     },

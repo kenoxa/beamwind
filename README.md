@@ -399,17 +399,6 @@ Please note the following guidelines:
 1. This is a flat object (`{ 'gray-50': '#f9fafb' }`) not a nested on like in tailwind (`{ 'gray': { 50: '#f9fafb' } }`) uses.
 2. Colors should be in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) (like `#RRGGBB` or `#RGB`) to work best with opacity plugins like `text-opacitiy` or `bg-opacitiy`.
 
-[@beamwind/core](https://github.com/kenoxa/beamwind/blob/main/package/core) provides **no** colors except for:
-
-```js
-const theme = {
-  colors: {
-    transparent: 'transparent',
-    current: 'currentColor',
-  },
-}
-```
-
 #### "_On_" colors
 
 > provide accessible contrast to their base color - `on-primary` or `on-surface`
