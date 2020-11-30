@@ -10,6 +10,8 @@ __generated__
 docs
 !packages/*/docs
 
+benchmarks/*.min.mjs
+
 # Svelte Component type defs
 *.svelte.tsx
 __svelte-jsx.d.ts

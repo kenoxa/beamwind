@@ -1,11 +1,10 @@
 import benchmark from 'benchmark'
 
-import { themed } from 'oceanwind/index.min.js'
+import { themed } from './oceanwind.min.mjs'
 
-// Build beamwind.mjs
-// esbuild --platform=node --target=node10.4 --format=esm --outfile=benchmarks/beamwind.mjs --bundle packages/beamwind/src/index.ts
-// esbuild --platform=node --target=node10.4 --format=esm --outfile=benchmarks/beamwind.min.mjs --minify --bundle packages/beamwind/src/index.ts
-import { bw, setup, strict, createInstance } from './beamwind.mjs'
+// Build beamwind
+// esbuild --platform=node --target=node14 --format=esm --outfile=benchmarks/beamwind.min.mjs --minify --bundle packages/beamwind/src/index.ts
+import { bw, setup, strict, createInstance } from './beamwind.min.mjs'
 
 const ow = themed({ strict: true })
 setup({ mode: strict })
@@ -45,7 +44,7 @@ function bench(name, run) {
 
 function benchInitial() {
   console.log(`\n# Setup and first insert`)
-  const tokens = 'bg-white text-black rounded underline uppercase'
+  const tokens = 'rounded underline uppercase'
 
   new Suite()
     .add('oceanwind', () => {
