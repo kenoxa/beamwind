@@ -8731,10 +8731,10 @@ object.values@^1.1.0:
     function-bind "^1.1.1"
     has "^1.0.3"
 
-oceanwind@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.npmjs.org/oceanwind/-/oceanwind-0.9.0.tgz#3b5a5c21217b2ffc8440fe9cec67a89f53df1c92"
-  integrity sha512-XlIM+L/1sT7UHsqYFnd48WIehoOHcwwBbnCX5ySYa+DaAsVNSphdzBjg9g5U53RSn6G+PbIAiZd3BcOBYWAqEA==
+oceanwind@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.npmjs.org/oceanwind/-/oceanwind-0.10.0.tgz#e31c55121e9df26ded8e7a32f8d17223aa7d9f93"
+  integrity sha512-cBTdEVPVgGwwIsIBqdqlGqP2pvVu/595L/u/GQe197JJ7VqlbRfZDDvA/CHx5kzlnYi/H5Yy2IkHx35rK9bDow==
 
 octokit-pagination-methods@^1.1.0:
   version "1.1.0"

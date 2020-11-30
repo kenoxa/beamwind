@@ -4,23 +4,14 @@
 // Source: https://github.com/tailwindlabs/tailwindcss/blob/v1/src/plugins/css/preflight.css
 // License: MIT
 
-export interface Theme {
-  fontFamily: {
-    sans: string
-    mono: string
-  }
-
-  borderColor?: { DEFAULT?: string }
-
-  placeholderColor?: { DEFAULT?: string }
-}
+import type { ThemeResolver } from '@beamwind/types'
 
 /**
  * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
  * A thin layer on top of normalize.css that provides a starting point more
  * suitable for web applications.
  */
-export const reset = (theme: Theme): string[] => [
+export const reset = (theme: ThemeResolver): string[] => [
   /**
    * Use a more readable tab size (opinionated).
    */
@@ -54,7 +45,11 @@ export const reset = (theme: Theme): string[] => [
    * 3. Use the user's configured `sans` font-family (with Tailwind's default
    *    sans-serif font stack as a fallback) as a sane default.
    */
-  `html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:${theme.fontFamily.sans}}`,
+  `html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:${theme(
+    'fontFamily',
+    'sans',
+    'ui-sans-serif,system-ui,sans-serif',
+  )}}`,
 
   /**
    * 1. Remove the margin in all browsers.
@@ -88,9 +83,11 @@ export const reset = (theme: Theme): string[] => [
    *
    *    https://github.com/tailwindcss/tailwindcss/pull/116
    */
-  `*,::before,::after{box-sizing:border-box;border:0 solid ${
-    theme.borderColor?.DEFAULT || 'currentColor'
-  }}`,
+  `*,::before,::after{box-sizing:border-box;border:0 solid ${theme(
+    'borderColor',
+    'DEFAULT',
+    'currentColor',
+  )}}`,
 
   /*
    * 1. Add the correct height in Firefox.
@@ -116,7 +113,11 @@ export const reset = (theme: Theme): string[] => [
    */
   `textarea{overflow:auto;resize:vertical}`,
 
-  `input::placeholder,textarea::placeholder{color:${theme.placeholderColor?.DEFAULT || '#a1a1aa'}}`,
+  `input::placeholder,textarea::placeholder{color:${theme(
+    'placeholderColor',
+    'DEFAULT',
+    '#a1a1aa',
+  )}}`,
 
   `button,[role="button"]{cursor:pointer}`,
 
@@ -225,7 +226,11 @@ export const reset = (theme: Theme): string[] => [
    * 'mono' font family.
    * 2. Correct the odd 'em' font sizing in all browsers.
    */
-  `pre,code,kbd,samp{font-family:${theme.fontFamily.mono};font-size:1em}`,
+  `pre,code,kbd,samp{font-family:${theme(
+    'fontFamily',
+    'mono',
+    'ui-monospace,monospace',
+  )};font-size:1em}`,
 
   /**
    * Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.

@@ -9,7 +9,7 @@ export const createColorVariants = (
   key: string,
   color = colors[key],
 ): ThemeColors => {
-  if (!color) return {}
+  if (!(color && color[0] === '#')) return {}
 
   // TODO test these variants
   const hover = colors[`${key}-hover`] || getShadeVariant(color, 0.05)

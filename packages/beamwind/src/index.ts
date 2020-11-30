@@ -1,16 +1,21 @@
-import { createInstance } from './instance'
+import tailwind from '@beamwind/preset-tailwind'
+import preflight from '@beamwind/preflight'
+import { createInstance } from '@beamwind/core'
 
-const instance = createInstance()
+const instance = createInstance([tailwind(), preflight()])
 
 export const { bw } = instance
 export const { setup } = instance
+export const { theme } = instance
 
-export * from './hash'
-export * from './injectors'
-export * from './instance'
-export * from './prefix'
-export { consoleWarn as warn } from './context'
-export { fail, join, tail } from './util'
-export * from './helpers'
-
-export * from './types'
+// Re-export common configuration utilities
+export {
+  strict,
+  warn,
+  noprefix,
+  cyrb32,
+  cssomInjector,
+  noOpInjector,
+  virtualInjector,
+  createInstance,
+} from '@beamwind/core'

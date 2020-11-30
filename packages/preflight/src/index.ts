@@ -1,11 +1,9 @@
-import { preflight, Theme } from './preflight'
+import type { ConfigurationOptions } from '@beamwind/types'
 
-export type { Theme }
+import { preflight } from './preflight'
 
-export type OnInitCallback = (rule: string) => void
-
-export default {
-  init(insert: OnInitCallback, theme: Theme): void {
+export default (): ConfigurationOptions => ({
+  init(insert, theme): void {
     preflight(theme).forEach(insert)
   },
-}
+})

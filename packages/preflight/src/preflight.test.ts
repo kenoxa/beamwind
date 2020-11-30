@@ -1,6 +1,6 @@
-import type { Instance, Injector } from 'beamwind'
+import type { Instance, Injector } from '@beamwind/types'
 
-import { createInstance, virtualInjector } from 'beamwind'
+import { createInstance, virtualInjector } from '@beamwind/core'
 
 import preflight from '..'
 
@@ -13,9 +13,9 @@ beforeEach(() => {
 })
 
 test('add preflight styles', () => {
-  instance.setup(preflight)
+  instance.setup(preflight())
 
-  expect(instance.bw('text-primary')).toBe('text-primary')
+  expect(instance.bw('text-left')).toBe('text-left')
 
   expect(injector.target).toMatchObject([
     ':root{-moz-tab-size:4;tab-size:4}',
@@ -25,13 +25,13 @@ test('add preflight styles', () => {
     'button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}',
     'fieldset{margin:0;padding:0}',
     'ol,ul{list-style:none;margin:0;padding:0}',
-    'html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}',
+    'html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}',
     'body{margin:0;font-family:inherit;line-height:inherit}',
     '*,::before,::after{box-sizing:border-box;border:0 solid currentColor}',
     'hr{height:0;color:inherit;border-top-width:1px}',
     'img{border-style:solid}',
     'textarea{resize:vertical}',
-    'input::placeholder,textarea::placeholder{color:#9ca3af}',
+    'input::placeholder,textarea::placeholder{color:#a1a1aa}',
     'button,[role="button"]{cursor:pointer}',
     'table{text-indent:0;border-color:inherit;border-collapse:collapse}',
     'h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}',
@@ -50,29 +50,31 @@ test('add preflight styles', () => {
     'summary{display:list-item}',
     'abbr[title]{text-decoration:underline dotted}',
     'b,strong{font-weight:bolder}',
-    'pre,code,kbd,samp{font-family:ui-monospace,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}',
+    'pre,code,kbd,samp{font-family:ui-monospace,monospace;font-size:1em}',
     'sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}',
     'sub{bottom:-0.25em}',
     'sup{top:-0.5em}',
     'img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}',
     'img,video{max-width:100%;height:auto}',
-    '.text-primary{--text-opacity:1;color:#0d3880;color:rgba(13,56,128,var(--text-opacity))}',
+    '.text-left{text-align:left}',
   ])
 })
 
 test('add preflight styles with custom theme', () => {
   instance.setup([
-    preflight,
+    preflight(),
     {
       theme: {
-        fontFamily: { sans: 'ui-sans-serif', mono: 'ui-monospace' },
-        borderColor: { DEFAULT: '#222' },
-        placeholderColor: { DEFAULT: '#333' },
+        extend: {
+          fontFamily: { sans: 'ui-sans-serif', mono: 'ui-monospace' },
+          borderColor: { DEFAULT: '#222' },
+          placeholderColor: { DEFAULT: '#333' },
+        },
       },
     },
   ])
 
-  expect(instance.bw('text-primary')).toBe('text-primary')
+  expect(instance.bw('text-left')).toBe('text-left')
 
   expect(injector.target).toContain(
     'html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif}',
@@ -84,17 +86,17 @@ test('add preflight styles with custom theme', () => {
 
 test('add preflight styles with theme missing some values', () => {
   instance.setup([
-    preflight,
+    preflight(),
     {
       theme: {
         fontFamily: { sans: 'ui-sans-serif', mono: 'ui-monospace' },
-        borderColor: { DEFAULT: '' },
-        placeholderColor: { DEFAULT: '' },
+        borderColor: {},
+        placeholderColor: {},
       },
     },
   ])
 
-  expect(instance.bw('text-primary')).toBe('text-primary')
+  expect(instance.bw('text-left')).toBe('text-left')
 
   expect(injector.target).toContain(
     '*,::before,::after{box-sizing:border-box;border:0 solid currentColor}',

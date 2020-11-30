@@ -1,7 +1,7 @@
 {
   "name": "beamwind",
   "version": "1.5.1",
-  "description": "compiles tailwind like shorthand syntax into css at runtime",
+  "description": "ready to go beamwind tailwind theme and preflight",
   "keywords": [
     "beamwind",
     "tailwind"
@@ -20,9 +20,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "nps",
-    "postbuild": "size-limit",
     "prepublishOnly": "nps",
-    "size": "size-limit",
     "test": "nps"
   },
   "prettier": "@carv/prettier-config",
@@ -34,20 +32,14 @@
     "preset": "@carv/jest-preset"
   },
   "dependencies": {
-    "tiny-css-prefixer": "^1.1.4"
+    "@beamwind/core": "^1.0.0",
+    "@beamwind/preflight": "^1.2.1",
+    "@beamwind/preset-tailwind": "^1.0.4"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.6.0",
-    "nps": "^5.9.12",
-    "size-limit": "^4.6.0"
+    "nps": "^5.9.12"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "size-limit": [
-    {
-      "path": "./dist/esnext/beamwind.js",
-      "limit": "9 KB"
-    }
-  ]
+  }
 }

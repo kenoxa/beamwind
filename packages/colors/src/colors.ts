@@ -19,29 +19,24 @@ interface HSL {
   l: number
 }
 
+const parseColorComponent = (chars: string, factor: number): number =>
+  // eslint-disable-next-line unicorn/prefer-number-properties
+  Math.round(parseInt(chars, 16) * factor)
+
 const parse = (color: string): RGB => {
-  /* eslint-disable unicorn/prefer-number-properties */
+  if (color[0] === '#') {
+    const length = (color.length - 1) / 3
+    const factor = [17, 1, 0.062272][length - 1]
 
-  // 3 digits
-  if (color.length === 4) {
-    // In three-character format, each value is multiplied by 0x11 to give an
-    // even scale from 0x00 to 0xff
+    /* eslint-disable unicorn/prefer-string-slice */
     return {
-      r: parseInt(color[1], 16) * 0x11,
-      g: parseInt(color[2], 16) * 0x11,
-      b: parseInt(color[3], 16) * 0x11,
+      r: parseColorComponent(color.substr(1, length), factor),
+      g: parseColorComponent(color.substr(1 + length, length), factor),
+      b: parseColorComponent(color.substr(1 + 2 * length, length), factor),
     }
-  }
 
-  // 6 digits
-  if (color.length === 7) {
-    return {
-      r: parseInt(color.slice(1, 3), 16),
-      g: parseInt(color.slice(3, 5), 16),
-      b: parseInt(color.slice(5), 16),
-    }
+    /* eslint-enable unicorn/prefer-string-slice */
   }
-  /* eslint-enable unicorn/prefer-number-properties */
 
   throw new Error(`Can not parse color ${color}`)
 }

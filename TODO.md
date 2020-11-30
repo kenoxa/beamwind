@@ -1,14 +1,5 @@
 Link to https://nerdcave.com/tailwind-cheat-sheet
 
-default to strict mode and allow only known values
-
-preset-semantic: use callback theme to adjust all existing colors
-
-oceanwind issue:
-
-- discuss format (grouping variants and directives)
-- plugin api
-
 architecure section
 
 - beamwind:
@@ -22,9 +13,6 @@ architecure section
 
 pre-commit hook to format files
 
-space-x-reverse
-divide-y-reverse
-
 doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
 
 transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
@@ -33,6 +21,7 @@ https://tailwindcss.com/docs/grid-auto-columns
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
 https://github.com/tailwindlabs/tailwindcss/pull/2910
 https://tailwindcss.com/docs/background-image#background-images
+https://tailwindcss.com/docs/container
 
 - @beamwind/prose: https://tailwindcss.com/docs/typography-plugin
   - implement as plugin??

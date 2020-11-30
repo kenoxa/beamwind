@@ -1,0 +1,40 @@
+{
+  "name": "@beamwind/types",
+  "version": "1.0.0",
+  "description": "Common typescript types",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/types"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nps",
+    "prepublishOnly": "nps",
+    "test": "nps"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "devDependencies": {
+    "nps": "^5.9.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

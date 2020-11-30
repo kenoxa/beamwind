@@ -2,11 +2,17 @@
 
 > color utilities for beamwind
 
-[![License](https://flat.badgen.net/github/license/kenoxa/beamwind)](https://github.com/kenoxa/beamwind/blob/main/LICENSE)
-[![Latest Release](https://flat.badgen.net/npm/v/@beamwind/colors?label=release)](https://www.npmjs.com/package/@beamwind/colors)
+[![MIT License](https://flat.badgen.net/github/license/kenoxa/beamwind)](https://github.com/kenoxa/beamwind/blob/main/LICENSE)
+[![Latest Release](https://flat.badgen.net/npm/v/@beamwind/colors?icon=npm&label)](https://www.npmjs.com/package/@beamwind/colors)
+[![Github](https://flat.badgen.net/badge/icon/kenoxa%2Fbeamwind?icon=github&label)](https://github.com/kenoxa/beamwind/blob/main/packages/colors)
+[![Typescript](https://flat.badgen.net/badge/icon/included?icon=typescript&label)](https://unpkg.com/browse/@beamwind/colors/types/colors.d.ts)
 [![Bundle Size](https://flat.badgen.net/bundlephobia/minzip/@beamwind/colors?icon=packagephobia&label&color=blue)](https://bundlephobia.com/result?p=@beamwind/colors)
-[![Typescript](https://flat.badgen.net/badge/icon/included?icon=typescript&label)](https://unpkg.com/browse/@beamwind/colors/dist/index.d.ts)
-[![Sponsor](https://flat.badgen.net/badge/sponsored%20by/Kenoxa/2980b9)](https://www.kenoxa.com)
+
+> [Read the docs](https://beamwind.js.org) |
+> [API](https://beamwind.js.org/packages/colors) |
+> [Change Log](https://github.com/kenoxa/beamwind/blob/main/packages/colors/CHANGELOG.md) |
+
+---
 
 <!-- prettier-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -14,12 +20,9 @@
 
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [API](#api)
 - [Inspired by and based on](#inspired-by-and-based-on)
-- [Support](#support)
 - [Contribute](#contribute)
-- [Sponsors](#sponsors)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -37,34 +40,24 @@ And then import it:
 import { createColorVariants } from '@beamwind/colors'
 ```
 
-## Usage
-
-```js
-
-```
-
-## [API](https://github.com/kenoxa/beamwind/blob/main/docs/README.md)
-
-- [add](https://github.com/kenoxa/beamwind/blob/main/docs/README.md#add)
+## [API](https://beamwind.js.org/packages/colors)
 
 ## Inspired by and based on
 
-- polished
-- https://seek-oss.github.io/braid-design-system/foundations/tones
-
-## Support
-
-This project is free and open-source, so if you think this project can help you or anyone else, you may [star it on GitHub](https://github.com/kenoxa/beamwind). Feel free to [open an issue](https://github.com/kenoxa/beamwind/issues) if you have any idea, question, or you've found a bug.
+- [polished](https://github.com/styled-components/polished)
+- [Braid Design Tones](https://seek-oss.github.io/braid-design-system/foundations/tones)
 
 ## Contribute
 
 Thanks for being willing to contribute!
 
+> This project is free and open-source, so if you think this project can help you or anyone else, you may [star it on GitHub](https://github.com/kenoxa/beamwind). Feel free to [open an issue](https://github.com/kenoxa/beamwind/issues) if you have any idea, question, or you've found a bug.
+
 **Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
 We are following the [Conventional Commits](https://www.conventionalcommits.org) convention.
 
-## Sponsors
+### Sponsors
 
 [![Kenoxa GmbH](https://images.opencollective.com/kenoxa/9c25796/logo/68.png)](https://www.kenoxa.com) [Kenoxa GmbH](https://www.kenoxa.com)
 

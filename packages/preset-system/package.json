@@ -1,0 +1,45 @@
+{
+  "name": "@beamwind/preset-system",
+  "version": "1.0.5",
+  "description": "beamwind design system preset using a semantic naming scheme",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/preset-system"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nps",
+    "prepublishOnly": "nps",
+    "start": "nps",
+    "test": "nps"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "dependencies": {
+    "@beamwind/colors": "^1.0.5"
+  },
+  "devDependencies": {
+    "@beamwind/types": "^1.0.0",
+    "nps": "^5.9.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

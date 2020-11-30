@@ -6,6 +6,6 @@
   "dependencies": {
     "beamwind": "^1.2.0",
     "benchmark": "^2.1.4",
-    "oceanwind": "^0.9.0"
+    "oceanwind": "^0.10.0"
   }
 }

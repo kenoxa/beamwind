@@ -1,0 +1,47 @@
+{
+  "name": "@beamwind/play",
+  "version": "1.0.0",
+  "description": "ready to go beamwind for rapid prototyping using tailwind & system preset with auto-conversion of values",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/play"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nps",
+    "prepublishOnly": "nps",
+    "test": "nps"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "dependencies": {
+    "@beamwind/core": "^1.0.0",
+    "@beamwind/preflight": "^1.2.1",
+    "@beamwind/preset-play": "^1.0.0",
+    "@beamwind/preset-system": "^1.0.0",
+    "@beamwind/preset-tailwind": "^1.0.0"
+  },
+  "devDependencies": {
+    "nps": "^5.9.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

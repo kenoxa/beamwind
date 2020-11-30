@@ -1,11 +1,9 @@
-import { reset, Theme } from './reset'
+import type { ConfigurationOptions } from '@beamwind/types'
 
-export type { Theme }
+import { reset } from './reset'
 
-export type OnInitCallback = (rule: string) => void
-
-export default {
-  init(insert: OnInitCallback, theme: Theme): void {
+export default (): ConfigurationOptions => ({
+  init(insert, theme): void {
     reset(theme).forEach(insert)
   },
-}
+})

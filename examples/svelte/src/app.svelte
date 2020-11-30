@@ -1,35 +1,31 @@
 <script context="module">
-  import preflight from '@beamwind/preflight'
-  import { bw, setup } from 'beamwind'
+  import { bw, setup } from '@beamwind/play'
 
   if (import.meta.env.MODE !== 'production') {
     setup({ hash: false })
   }
 
-  setup([
-    preflight,
-    {
-      plugins: {
-        'app-p': 'm-sm',
-        'app-code': 'bg-#0002 px-sm py-xs rounded-sm',
+  setup({
+    plugins: {
+      'app-p': 'm-sm',
+      'app-code': 'bg-#0002 px-sm py-xs rounded-sm',
+    },
+    theme: {
+      animation: {
+        'logo-pulse': ['infinite 1.6s ease-in-out alternate'],
       },
-      theme: {
-        animation: {
-          'logo-pulse': ['infinite 1.6s ease-in-out alternate'],
-        },
-        keyframes: {
-          'logo-pulse': {
-            from: {
-              transform: 'scale(1)',
-            },
-            to: {
-              transform: 'scale(1.06)',
-            },
+      keyframes: {
+        'logo-pulse': {
+          from: {
+            transform: 'scale(1)',
+          },
+          to: {
+            transform: 'scale(1.06)',
           },
         },
       },
     },
-  ])
+  })
 </script>
 
 <script>
@@ -63,7 +59,7 @@
       <code class={bw`app-code`}>{count}</code>
       seconds.
     </p>
-    <p class={bw`app-p divide-x`}>
+    <p class={bw`app-p divide-x-xl divide-promote`}>
       <a class={appLink} href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
         Learn Svelte
       </a>
@@ -76,9 +72,10 @@
       </a>
     </p>
 
-    <p class={bw`app-p divide-x`}>
+    <p
+      class={bw`app-p rounded-t-xl overflow-hidden bg-gradient-to-r from-indigo-50 to-indigo-100 p-10`}>
       <button
-        class={bw`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg(promote opacity-80) ring(& xs promote opacity-80 offset(xs on-promote))`}>
+        class={bw`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg(promote opacity-80) shadow-2xl ring(& sm promote opacity-80 offset(sm on-promote))`}>
         ring-offset-purple-100
       </button>
     </p>

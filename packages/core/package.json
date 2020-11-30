@@ -1,0 +1,54 @@
+{
+  "name": "@beamwind/core",
+  "version": "1.0.0",
+  "description": "compiles tailwind like shorthand syntax into css at runtime",
+  "keywords": [
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nps",
+    "postbuild": "size-limit",
+    "prepublishOnly": "nps",
+    "size": "size-limit",
+    "test": "nps"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "dependencies": {
+    "tiny-css-prefixer": "^1.1.4"
+  },
+  "devDependencies": {
+    "@beamwind/types": "^1.0.0",
+    "@size-limit/preset-small-lib": "^4.6.0",
+    "nps": "^5.9.12",
+    "size-limit": "^4.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "size-limit": [
+    {
+      "path": "./dist/esnext/core.js",
+      "limit": "8.5 KB"
+    }
+  ]
+}
