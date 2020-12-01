@@ -225,14 +225,13 @@ const findClosestAccessibleColor = (
       return nextColor
     }
 
-    if (process.env.NODE_ENV === 'development') {
-      console.warn(
-        `Desired contrast ratio cannot be achieved,\nForeground: ${foregroundColor}\nBackground: ${backgroundColor}\nDesired Contrast: ${contrastRatio}\nActual Contrast: ${contrast(
-          maxHSL,
-          backgroundHSL,
-        )}\nFalling back to: ${nextColor}`,
-      )
-    }
+    // TODO should we propagate this warning
+    // console.warn(
+    //   `Desired contrast ratio cannot be achieved,\nForeground: ${foregroundColor}\nBackground: ${backgroundColor}\nDesired Contrast: ${contrastRatio}\nActual Contrast: ${contrast(
+    //     maxHSL,
+    //     backgroundHSL,
+    //   )}\nFalling back to: ${nextColor}`,
+    // )
 
     return findClosestAccessibleColor(nextColor, backgroundColor, contrastRatio, darker)
   }

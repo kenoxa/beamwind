@@ -1,16 +1,5 @@
 Link to https://nerdcave.com/tailwind-cheat-sheet
 
-architecure section
-
-- beamwind:
-  - foreach directive
-    - search plugin
-    - inject one css rules for each directive
-- oceanwind:
-  - parses directives into one css declaration object
-  - otion generates atomic styles
-  - may lead to invalid ordering
-
 pre-commit hook to format files
 
 doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
