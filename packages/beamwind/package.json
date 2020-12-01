@@ -1,6 +1,6 @@
 {
   "name": "beamwind",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "ready to go beamwind tailwind theme and preflight",
   "keywords": [
     "beamwind",
@@ -32,7 +32,7 @@
     "preset": "@carv/jest-preset"
   },
   "dependencies": {
-    "@beamwind/core": "^2.0.0",
+    "@beamwind/core": "^2.0.1",
     "@beamwind/preflight": "^2.0.0",
     "@beamwind/preset-tailwind": "^2.0.0"
   },

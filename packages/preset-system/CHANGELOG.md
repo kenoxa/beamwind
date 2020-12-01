@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/kenoxa/beamwind/compare/@beamwind/preset-system@2.0.0...@beamwind/preset-system@2.0.1) (2020-12-01)
+
+### Bug Fixes
+
+- use colors from base theme to generate variants ([7ee8a8c](https://github.com/kenoxa/beamwind/commit/7ee8a8c8e63936017e11ce22e830c312efe5ca42))
+
 # 2.0.0 (2020-11-30)
 
 **Note:** Version bump only for package @beamwind/preset-system
