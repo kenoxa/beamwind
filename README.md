@@ -14,7 +14,7 @@
 > [Read the docs](https://beamwind.js.org) |
 > [API](https://beamwind.js.org/packages/beamwind) |
 > [Change Log](https://github.com/kenoxa/beamwind/blob/main/packages/core/CHANGELOG.md) |
-> [⚡️ Demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXBpbmstNzAwIHRleHQtd2hpdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTUgc2NhbGUtMTUwIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xNSBzY2FsZS0xODApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
+> [⚡️ Demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXBpbmstNzAwIHRleHQtd2hpdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTYgc2NhbGUtMTI1IGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xMiBzY2FsZS0xNTApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
 
 ---
 
@@ -29,7 +29,7 @@ import { bw } from 'beamwind'
 document.body.className = bw`h-full bg-pink-700 rotate-3 scale-95`
 ```
 
-> ⚡️ Check out the [live and interactive demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXBpbmstNzAwIHRleHQtd2hpdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTUgc2NhbGUtMTUwIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xNSBzY2FsZS0xODApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
+> ⚡️ Check out the [live and interactive demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXBpbmstNzAwIHRleHQtd2hpdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTYgc2NhbGUtMTI1IGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xMiBzY2FsZS0xNTApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
 
 ---
 
@@ -104,15 +104,19 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 
 ## Packages
 
+> ready to use [instances](#instance-creation)
+
 - [beamwind](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind) - using the [tailwind default theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)
 - [@beamwind/system](https://github.com/kenoxa/beamwind/blob/main/packages/system) - using a [semantic design system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)
 - [@beamwind/play](https://github.com/kenoxa/beamwind/blob/main/packages/play) - combining the [tailwind default theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind), the [semantic design system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) with [auto-conversion of unknown theme values](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play)
 
 > These packages all use [@beamwind/core](https://github.com/kenoxa/beamwind/blob/main/packages/core) under the hood which only has a minimal theme intended to be used as base to be further configured.
 
+The [Instance Creation](#instance-creation) section show how to implement your own packages.
+
 ### Presets
 
-> reusable configuration presets
+> reusable configuration presets to create your own [instance](#instance-creation)
 
 - [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) - mirroring tailwind default theme
 - [@beamwind/preset-system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) - a semantic design system
@@ -120,7 +124,7 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 
 ### Base Styles
 
-> A set of opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier to work within the constraints of your design system.
+> opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier to work within the constraints of your design system.
 
 - [@beamwind/preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) - for modern browsers
 - [@beamwind/reset](https://github.com/kenoxa/beamwind/blob/main/packages/reset) - for legacy browsers like IE10/11
@@ -343,7 +347,7 @@ cx`bg-red-500` // will result in a #DC2626 background-color
 
 The `theme` property of the `setup` options follows [Tailwinds Theme Configuration](https://tailwindcss.com/docs/theme) It contains keys for `screens`, `colors`, and `spacing`, as well as a key for each customizable core plugin. The [core theme](https://github.com/kenoxa/beamwind/blob/main/packages/core/src/theme.js) is bare bones as most projects have their own colors, sizes, ... and naming system. A tailwind like theme is available via [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind). For a full featured design system take a look at [@beamwind/preset-system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system).
 
-> [API / Themes](https://beamwind.js.org/packages/types/interfaces/theme.html) provides an overview of all possible values.
+> [API / Themes](https://beamwind.js.org/packages/types/interfaces/theme.html) provides an overview of all possible values and differences are highlighted [here](#tailwind-differences).
 
 To customize the theme call `setup` with a `theme` property:
 
@@ -744,7 +748,28 @@ injector.target // Array with sorted CSS rulesText
 
 ### Instance creation
 
-Separate [instances](https://beamwind.js.org/packages/types/interfaces/instance.html) of beamwind are necessary when managing styles of multiple browsing contexts (e.g. an `<iframe>` besides the main document). This option should be used along with a custom target for injection:
+There are some case where you need to create separate [instance](https://beamwind.js.org/packages/types/interfaces/instance.html) of beamwind:
+
+- for reduced bundle size by using a own preset
+- IE11 support using [reset](https://github.com/kenoxa/beamwind/blob/main/packages/reset)
+
+Basically you need to do the following:
+
+```js
+// Choose either reset or preflight
+import preflight from '@beamwind/preflight'
+import { createInstance } from '@beamwind/core'
+
+import yourTheme from './your-theme'
+
+export const { bw, setup, theme } = createInstance([preflight(), yourTheme])
+```
+
+> You can use one of the existing [packages](#packages) as a template.
+
+#### Multiple Browsing Contexts
+
+Creating a own beamwind instance is required if you want to manage styles of multiple browsing contexts (e.g. an `<iframe>` besides the main document).
 
 ```js
 import { createInstance, cssomInjector } from 'beamwind'
@@ -758,6 +783,8 @@ export const { bw } = createInstance({
   }),
 })
 ```
+
+> This option should be used along with a custom target for injection.
 
 ### Server-side rendering (SSR)
 
@@ -833,11 +860,15 @@ TODO see TODO.md
 
 ## Tailwind Differences
 
-- beamwind uses a [flat-object color configuration](#colors)
-- beamwind supports [_"on"_ colors](#on-colors)
-- beamwind supports [variant](#variant-grouping) and [directive](#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
 - beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features
-- beamwind does not use negated values in the theme config - these are automatically inferred
+- beamwind supports [variant](#variant-grouping) and [directive](#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
+- beamwind theme has a slightly different format:
+  - `colors` is [flat-object](#colors)
+  - `fontFamily`s are strings
+  - `animation` additionally accepts a [tuple form](https://beamwind.js.org/packages/types/modules.html#themeanimation) to infer the key within [keyframes](https://beamwind.js.org/packages/types/interfaces/theme.html#keyframes) which waypoints should be injected
+  - values maybe [theme resolvers](#referencing-other-values)
+- beamwind supports [_"on"_ colors](#on-colors)
+- beamwind automatically infers negated values - they do _not_ need to be in the theme config
 
 ### Missing Features
 
@@ -913,8 +944,8 @@ Some notable differences are:
 
 ### Size Comparison
 
-| &nbsp;   | [oceanwind](<(https://bundlephobia.com/result?p=oceanwind)>)                                                                     | [beamwind](<(https://bundlephobia.com/result?p=@beamwind/core)>)                                                                    |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| &nbsp;   | [oceanwind](<(https://bundlephobia.com/result?p=oceanwind)>)                                                                     | [beamwind](<(https://bundlephobia.com/result?p=@beamwind/core)>)                                                                          |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | minified | [![Oceanwind Minified](https://flat.badgen.net/bundlephobia/min/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind)   | [![Beamwind Minified](https://flat.badgen.net/bundlephobia/min/@beamwind/core?label)](https://bundlephobia.com/result?p=@beamwind/core)   |
 | gzipped  | [![Oceanwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind) | [![Beamwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/@beamwind/core?label)](https://bundlephobia.com/result?p=@beamwind/core) |
 
