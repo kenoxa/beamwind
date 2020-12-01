@@ -34,6 +34,7 @@ module.exports = {
     '@beamwind/preset-system': '@beamwind/preset-system/dist/esnext/preset-system.js',
     '@beamwind/preset-tailwind': '@beamwind/preset-tailwind/dist/esnext/preset-tailwind.js',
     '@beamwind/reset': '@beamwind/reset/dist/esnext/reset.js',
+    '@beamwind/system': '@beamwind/system/dist/esnext/system.js',
     '@beamwind/types': '@beamwind/types/dist/esnext/types.js',
   },
 }

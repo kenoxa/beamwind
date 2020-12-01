@@ -21,9 +21,7 @@ test.each([
   expect(play(strict).unknown(section as keyof Theme, parts, false, theme)).toBe(expected)
 })
 
-test.each([
-  ['ringColor', ['fuchsia'], 'fuchsia'],
-])('%s: %j => warning', (section, parts) => {
+test.each([['ringColor', ['fuchsia'], 'fuchsia']])('%s: %j => warning', (section, parts) => {
   const report = {
     unknown: jest.fn(),
     warn: jest.fn(),
