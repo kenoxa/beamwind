@@ -5,4 +5,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 2.0.0 (2020-11-30)
 
-**Note:** Version bump only for package @beamwind/core
+- BREAKING CHANGE: rewrite to be strict by default like oceanwind
+
+  All core plugins have been adjusted to use a theme value resolver. That
+  is hooked into the new `mode.unknown()` handler which may convert
+  unknown values.
+
+  The main package (beamwind) is now pre-configured with a tailwind v2
+  theme. The lenient behavior is available via @beamwind/play.
