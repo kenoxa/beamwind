@@ -19,9 +19,15 @@ interface HSL {
   l: number
 }
 
+const colorToInt = (color: number, factor = 255): number => Math.round(color * factor)
+
 const parseColorComponent = (chars: string, factor: number): number =>
   // eslint-disable-next-line unicorn/prefer-number-properties
-  Math.round(parseInt(chars, 16) * factor)
+  colorToInt(parseInt(chars, 16), factor)
+
+const toHex = (value: number): string => ('0' + clamp(value, 0, 255).toString(16)).slice(-2)
+
+const stringify = (rgb: RGB): string => `#${toHex(rgb.r)}${toHex(rgb.g)}${toHex(rgb.b)}`
 
 const parse = (color: string): RGB => {
   if (color[0] === '#') {
@@ -40,10 +46,6 @@ const parse = (color: string): RGB => {
 
   throw new Error(`Can not parse color ${color}`)
 }
-
-const toHex = (value: number): string => ('0' + clamp(value, 0, 255).toString(16)).slice(-2)
-
-const stringify = (rgb: RGB): string => `#${toHex(rgb.r)}${toHex(rgb.g)}${toHex(rgb.b)}`
 
 const rgbToHsl = (rgb: RGB): HSL => {
   const red = rgb.r / 255
@@ -78,12 +80,14 @@ const rgbToHsl = (rgb: RGB): HSL => {
   return { h: hue * 60, s: saturation, l: lightness }
 }
 
-const colorToInt = (color: number): number => Math.round(color * 255)
-
 const hslToRgb = (hsl: HSL): RGB => {
   if (hsl.s === 0) {
     // Achromatic
-    return { r: hsl.l, g: hsl.l, b: hsl.l }
+    return {
+      r: colorToInt(hsl.l),
+      g: colorToInt(hsl.l),
+      b: colorToInt(hsl.l),
+    }
   }
 
   // Formulae from https://en.wikipedia.org/wiki/HSL_and_HSV
@@ -124,61 +128,15 @@ const hslToRgb = (hsl: HSL): RGB => {
   }
 }
 
-const luminanceHelper = (value: number): number => {
-  const channel = value / 255
-  return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4
+const luminanace = (value: number): number => {
+  value /= 255
+  return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
 }
 
 const getLuminance = (rgb: RGB): number =>
-  Number(
-    (
-      0.2126 * luminanceHelper(rgb.r) +
-      0.7152 * luminanceHelper(rgb.g) +
-      0.0722 * luminanceHelper(rgb.b)
-    ).toFixed(3),
-  )
+  luminanace(rgb.r) * 0.2126 + luminanace(rgb.g) * 0.7152 + luminanace(rgb.b) * 0.0722
 
-export const isLight = (color: string): boolean => {
-  const rgb = parse(color)
-
-  // Convert RGB to YIQ to better take into account the
-  // luminance of the separate color channels:
-  //
-  // Further reading:
-  //   - YIQ:
-  //     https://en.wikipedia.org/wiki/YIQ
-  //   - Calculating contrast:
-  //     https://24ways.org/2010/calculating-color-contrast/
-
-  const yiq = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000
-
-  // Colour is considered `light` if greater than the midpoint:
-  // eg. 256 / 2 = 128.
-  return yiq >= 128
-}
-
-const smooth = (
-  saturation: number,
-  luminance: number,
-  brightFactor: number,
-  factor: number,
-): number => saturation * (luminance > 0.6 ? brightFactor : factor)
-
-export const getLightVariant = (color: string): string => {
-  const rgb = parse(color)
-
-  const hsl = rgbToHsl(rgb)
-
-  const luminance = getLuminance(rgb)
-
-  return stringify(
-    hslToRgb({
-      h: hsl.h,
-      s: smooth(hsl.s, luminance, 0.8, 0.45),
-      l: 0.95 - smooth(hsl.l, luminance, 0.03, 0.06),
-    }),
-  )
-}
+export const isLight = (color: string): boolean => getLuminance(parse(color)) >= 0.5
 
 const AA_CONTRAST = 4.52
 // AA_NON_TEXT_CONTRAST = 3
@@ -192,6 +150,29 @@ const contrast = (color1: HSL, color2: HSL): number => {
 
   return L1 < L2 ? L2 / L1 : L1 / L2
 }
+
+const smooth = (value: number, luminance: number, brightFactor: number, factor: number): number =>
+  value * (luminance > 0.6 ? brightFactor : factor)
+
+const makeLightnessTransformer = (transform: (hsl: HSL, luminance: number) => HSL) => (
+  color: string,
+): string => {
+  const rgb = parse(color)
+
+  return stringify(hslToRgb(transform(rgbToHsl(rgb), getLuminance(rgb))))
+}
+
+export const getLightVariant = makeLightnessTransformer((hsl, luminance) => ({
+  h: hsl.h,
+  s: smooth(hsl.s, luminance, 0.8, 0.45),
+  l: 0.95 - smooth(hsl.l, luminance, 0.03, 0.06),
+}))
+
+export const getDarkVariant = makeLightnessTransformer((hsl, luminance) => ({
+  h: hsl.h,
+  s: smooth(hsl.s, luminance, 0.45, 0.8),
+  l: 0.05 + smooth(hsl.l, luminance, 0.06, 0.03),
+}))
 
 const findClosestAccessibleColor = (
   foregroundColor: string,
@@ -215,7 +196,6 @@ const findClosestAccessibleColor = (
 
   // If max lightness fails to meet contrast, throw error
   if (contrast(maxHSL, backgroundHSL) < contrastRatio) {
-    // Choose dark or white based on better contrast
     const nextColor =
       contrast({ h: 0, s: 0, l: 0 }, backgroundHSL) > contrast({ h: 0, s: 1, l: 1 }, backgroundHSL)
         ? '#000'
@@ -268,12 +248,17 @@ const findClosestAccessibleColor = (
   return stringify(hslToRgb(minHSL))
 }
 
-export const getContrastVariant = (color: string): string => {
+export const getContrastVariant = (
+  color: string,
+  // '#1a202c'
+  darker = getDarkVariant(color),
+  lighter = getLightVariant(color),
+): string => {
   const darken = isLight(color)
 
   return findClosestAccessibleColor(
     // Start with dark gray or with a lighter variant
-    darken ? '#1A202C' : getLightVariant(color),
+    darken ? darker : lighter,
     color,
     AA_CONTRAST,
     darken,

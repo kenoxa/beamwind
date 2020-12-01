@@ -106,7 +106,7 @@ The color names are designed to have a strong correlation with the tone of voice
 
 ### "_On_" colors
 
-> provide accessible contrast to their base color - `on-primary` or `on-primary-active`
+> provide [accessible contrast](https://contrast-ratio.com/) to their base color - `on-primary` or `on-primary-active`
 
 Whenever elements, such as text or icons, appear in front of surfaces, those elements should use colors designed to be clear and legible against the colors behind them. When a color appears "_on_" top of a primary color, it’s called an "_on primary color_". They are labelled using the original color category (such as primary color) with the prefix `on-`.
 
