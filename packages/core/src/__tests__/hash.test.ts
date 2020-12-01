@@ -81,9 +81,9 @@ test('bg-gradient-to-r', () => {
 })
 
 test('different variant producde different hashes', () => {
-  expect(instance.bw('sm:text-center lg:text-center')).toBe('_4ibn6j _1n3gpqh')
+  expect(instance.bw('sm:text-center lg:text-center')).toBe('_1vpmzwf _6lc98d')
   expect(injector.target).toMatchObject([
-    '@media (min-width: 640px){._4ibn6j{text-align:center}}',
-    '@media (min-width: 1024px){._1n3gpqh{text-align:center}}',
+    '@media (min-width: 640px){._1vpmzwf{text-align:center}}',
+    '@media (min-width: 1024px){._6lc98d{text-align:center}}',
   ])
 })

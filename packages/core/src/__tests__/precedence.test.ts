@@ -88,10 +88,10 @@ test('pseudo classes (ascending -> link, visited, empty, focus-within, hover, fo
 
   const focusWithin = calculatePrecedence([':focus-within'], { a: '1' })
 
-  const groupHover = calculatePrecedence(['group-hover'], { a: '1' })
+  const groupHover = calculatePrecedence([':group-hover'], { a: '1' })
   const hover = calculatePrecedence([':hover'], { a: '1' })
 
-  const groupFocus = calculatePrecedence(['group-focus'], { a: '1' })
+  const groupFocus = calculatePrecedence([':group-focus'], { a: '1' })
   const focus = calculatePrecedence([':focus'], { a: '1' })
 
   const focusVisible = calculatePrecedence([':focus-visible'], { a: '1' })

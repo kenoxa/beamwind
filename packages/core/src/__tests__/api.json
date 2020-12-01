@@ -835,5 +835,34 @@
       ".divide-y-2>:not([hidden])~:not([hidden]){border-top-width:2px}",
       "@media (min-width: 768px){.md\\:divide-opacity-50>:not([hidden])~:not([hidden]){--divide-opacity:0.5}}"
     ]
+  ],
+  "active:hover:text-lg hover:text(center active:(underline) purple) hover:active:ring(& opacity-5) font(bold)": [
+    "active:hover:text-lg hover:text-center hover:active:text-underline hover:text-purple hover:active:ring hover:active:ring-opacity-5 font-bold",
+    [
+      ".font-bold{font-weight:700}",
+      ".hover\\:text-purple:hover{--text-opacity:1;color:purple}",
+      ".hover\\:text-center:hover{text-align:center}",
+      ".hover\\:active\\:ring:hover:active{--ring-offset-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 var(--ring-offset-width,0px) var(--ring-offset-color,#fff);--ring-shadow:var(--ring-inset,/*!*/ /*!*/) 0 0 0 calc(3px + var(--ring-offset-width,0px)) var(--ring-color,rgba(59,130,246,0.5));box-shadow:var(--ring-offset-shadow),var(--ring-shadow),var(--shadow,0 0 transparent)}",
+      ".active\\:hover\\:text-lg:active:hover{font-size:1.125rem;line-height:1.75rem}",
+      ".hover\\:active\\:ring-opacity-5:hover:active{--ring-opacity:0.05}",
+      ".hover\\:active\\:text-underline:hover:active{text-decoration:underline}"
+    ]
+  ],
+  "\n  text(4xl underline)\n  font(bold sans)\n  transition\n  hover:(transform rotate-6 scale-125 cursor-pointer)\n  active:(transform -rotate-12 scale-150)\n": [
+    "text-4xl text-underline font-bold font-sans transition hover:transform hover:rotate-6 hover:scale-125 hover:cursor-pointer active:transform active:-rotate-12 active:scale-150",
+    [
+      ".text-4xl{font-size:2.25rem;line-height:2.5rem}",
+      ".transition{transition:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform 150ms cubic-bezier(0.4,0,0.2,1)}",
+      ".font-sans{font-family:ui-sans-serif,system-ui,sans-serif}",
+      ".text-underline{text-decoration:underline}",
+      ".font-bold{font-weight:700}",
+      ".hover\\:scale-125:hover{--transform-scale-x:1.25;--transform-scale-y:1.25;transform:scale(1.25)}",
+      ".hover\\:rotate-6:hover{--transform-rotate:6deg;transform:rotate(6deg)}",
+      ".hover\\:transform:hover{transform:translateX(var(--transform-translate-x,0)) translateY(var(--transform-translate-y,0)) rotate(var(--transform-rotate,0)) skewX(var(--transform-skew-x,0)) skewY(var(--transform-skew-y,0)) scaleX(var(--transform-scale-x,1)) scaleY(var(--transform-scale-y,1))}",
+      ".hover\\:cursor-pointer:hover{cursor:pointer}",
+      ".active\\:scale-150:active{--transform-scale-x:1.5;--transform-scale-y:1.5;transform:scale(1.5)}",
+      ".active\\:-rotate-12:active{--transform-rotate:calc(12deg * -1);transform:rotate(calc(12deg * -1))}",
+      ".active\\:transform:active{transform:translateX(var(--transform-translate-x,0)) translateY(var(--transform-translate-y,0)) rotate(var(--transform-rotate,0)) skewX(var(--transform-skew-x,0)) skewY(var(--transform-skew-y,0)) scaleX(var(--transform-scale-x,1)) scaleY(var(--transform-scale-y,1))}"
+    ]
   ]
 }

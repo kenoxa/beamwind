@@ -3,7 +3,6 @@
 
 import type { Declarations } from './types'
 
-import { isGroupVariant } from './variants'
 import { isAtRuleVariant } from './css'
 import { join, tail } from './util'
 
@@ -76,12 +75,7 @@ const pseudoPrecedence = (pseudoClass: string): number =>
     : PRECEDENCES_BY_PSEUDO_CLASS.length
 
 const accumulatePseudoPrecedence = (precedence: number, variant: string): number => {
-  return (
-    precedence |
-    (isAtRuleVariant(variant)
-      ? 0
-      : 1 << pseudoPrecedence(isGroupVariant(variant) ? ':' + variant : variant))
-  )
+  return precedence | (isAtRuleVariant(variant) ? 0 : 1 << pseudoPrecedence(variant))
 }
 
 // https://github.com/kripod/otion/blob/main/packages/otion/src/propertyMatchers.ts

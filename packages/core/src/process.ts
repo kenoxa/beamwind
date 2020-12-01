@@ -18,9 +18,9 @@ import { tail, join, joinTruthy } from './util'
 let negate: string
 let currentContext: Context
 
-const variants: string[] = []
+// List of active groupings: either variant ('xxx:') or prefix
+const groupings: string[] = []
 const classNames: string[] = []
-const prefix: string[] = []
 
 const theme: ThemeValueResolver = <Section extends keyof Theme>(
   section: Section,
@@ -146,55 +146,69 @@ const reset = (array: unknown[]): void => {
   array.length = 0
 }
 
-const withBuffer = (next: (buffer: string) => unknown) => (buffer: string): string => {
-  if (buffer) next(buffer)
+const startGrouping = (value = ''): '' => {
+  groupings.push(value)
   return ''
 }
 
-const startGrouping = (): void => {
-  // Mark new variant grouping start
-  variants.push('')
+const endGrouping = (isWhitespace?: boolean): void => {
+  // If isWhitespace is true
+  // ['', ':sm', ':hover'] => ['']
+  // ['', ':sm', ':hover', ''] => ['', ':sm', ':hover', '']
+
+  // If isWhitespace is falsey
+  // ['', ':sm', ':hover'] => ['']
+  // ['', ':sm', ':hover', ''] => ['', ':sm', ':hover', '']
+
+  const index = groupings.lastIndexOf('')
+
+  if (~index) {
+    /* eslint-disable unicorn/prefer-math-trunc */
+    groupings.splice(
+      index + ~~(isWhitespace as boolean),
+      groupings.length - index + ~~(isWhitespace as boolean),
+    )
+    /* eslint-enable unicorn/prefer-math-trunc */
+  }
 }
 
-const endGrouping = (isVariant?: boolean): void => {
-  // Pop variants until empty marker
-  let lastVariant: string | undefined
+const onlyPrefixes = (s: string): '' | boolean => s && s[0] !== ':'
+const onlyVariants = (s: string): '' | boolean => s && s[0] === ':'
 
-  while ((lastVariant = variants.pop())) {
-    /* No-Op */
+const translateBuffer = (buffer: string): '' => {
+  if (buffer) {
+    const p = join(groupings.filter(onlyPrefixes))
+    const token = buffer === '&' ? p : (p && p + '-') + buffer
+
+    if (token) {
+      translate(token, groupings.filter(onlyVariants))
+    }
   }
 
-  if (isVariant && lastVariant != null) variants.push(lastVariant)
+  return ''
 }
 
-const saveVariant = withBuffer((buffer) => {
-  variants.push(buffer)
-})
-
-const translateBuffer = withBuffer((buffer) => {
-  const p = joinTruthy(prefix)
-  const token = buffer === '&' ? p : (p && p + '-') + buffer
-
-  if (token) {
-    translate(token, variants.filter(Boolean))
-  }
-})
-
-const parseString = (token: string, isGrouping?: boolean): void => {
+const parseString = (token: string, isVariant?: boolean): void => {
   let char: string
   let buffer = ''
 
   for (let position = 0; position < token.length; ) {
     switch ((char = token[position++])) {
       case ':':
-        buffer = saveVariant(buffer)
+        if (buffer) {
+          buffer = startGrouping(':' + buffer)
+        }
+
         break
 
       case '(':
         // If there is a buffer this is the prefix for all grouped tokens
-        prefix.push(buffer)
-        buffer = ''
+        if (buffer) {
+          buffer = startGrouping(buffer)
+        }
+
         startGrouping()
+
         break
 
       case ')':
@@ -202,16 +216,8 @@ const parseString = (token: string, isGrouping?: boolean): void => {
       case '\t':
       case '\n':
       case '\r':
-        if (buffer) {
-          buffer = translateBuffer(buffer)
-          endGrouping(char !== ')')
-        } else if (char === ')') {
-          endGrouping()
-        }
-
-        if (char === ')') {
-          prefix.pop()
-        }
+        buffer = translateBuffer(buffer)
+        endGrouping(char !== ')')
 
         break
 
@@ -220,8 +226,10 @@ const parseString = (token: string, isGrouping?: boolean): void => {
     }
   }
 
-  if (isGrouping) {
-    saveVariant(buffer)
+  if (isVariant) {
+    if (buffer) {
+      startGrouping(':' + buffer)
+    }
   } else {
     translateBuffer(buffer)
   }
@@ -230,8 +238,10 @@ const parseString = (token: string, isGrouping?: boolean): void => {
 const parseGroupedToken = (token: Token): void => {
   if (token) {
     startGrouping()
+
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     parse(token)
+
     endGrouping()
   }
 }
@@ -240,11 +250,11 @@ const parseGroup = (key: string, token: Token): void => {
   if (token) {
     startGrouping()
 
-    const isGrouping = is.string(token) || is.array(token) || is.object(token)
+    const isVariant = is.string(token) || is.array(token) || is.object(token) || is.function(token)
 
-    parseString(key, isGrouping)
+    parseString(key, isVariant)
 
-    if (isGrouping) {
+    if (isVariant) {
       parseGroupedToken(token)
     }
 
@@ -262,7 +272,7 @@ const parse = (token: Token): void => {
   } else if (is.function(token)) {
     handlePluginResult(
       `__${token.name}_${(++nextTokenId).toString(36)}`,
-      variants.filter(Boolean),
+      groupings.filter(onlyVariants),
       token(theme, { keyframes, tag: currentContext.a }),
     )
   } else if (is.object(token)) {
@@ -280,8 +290,7 @@ export const process = (token: Token[], context: Context): string => {
   currentContext = context
 
   reset(classNames)
-  reset(variants)
-  reset(prefix)
+  reset(groupings)
 
   try {
     token.forEach(parseGroupedToken)

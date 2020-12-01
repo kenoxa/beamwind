@@ -222,7 +222,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
         const declarationBody = serializeDeclarationList(declarations)
 
         className = hash
-          ? hash(join([join(variants, '\0'), selectorDecorator(''), declarationBody], '\0'))
+          ? hash(join([join(variantsCss, '\0'), selectorDecorator(''), declarationBody], '\0'))
           : id
 
         inject(
