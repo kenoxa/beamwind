@@ -82,6 +82,7 @@ export const play = (parent: Mode): Mode => ({
       case 'gap':
       case 'inset':
       case 'translate':
+      case 'fontSize':
         if (parts.length === 1) {
           value = convert(parts[0], 'rem') || asSize(parts[0])
         }
