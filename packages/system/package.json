@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/system",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "ready to go beamwind fusing a semantic design system",
   "keywords": [
     "beamwind",
@@ -34,7 +34,7 @@
   "dependencies": {
     "@beamwind/core": "^2.0.1",
     "@beamwind/preflight": "^2.0.0",
-    "@beamwind/preset-system": "^2.0.1"
+    "@beamwind/preset-system": "^2.0.2"
   },
   "devDependencies": {
     "nps": "^5.9.12"

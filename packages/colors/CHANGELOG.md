@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/kenoxa/beamwind/compare/@beamwind/colors@2.0.0...@beamwind/colors@2.0.1) (2020-12-01)
+
+### Bug Fixes
+
+- remove contrast fallback warning ([ded4b65](https://github.com/kenoxa/beamwind/commit/ded4b65bae1f577c78ed98a4323360700cd42860))
+
 # [2.0.0](https://github.com/kenoxa/beamwind/compare/@beamwind/colors@1.0.5...@beamwind/colors@2.0.0) (2020-11-30)
 
 **Note:** Version bump only for package @beamwind/colors
