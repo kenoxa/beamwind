@@ -103,7 +103,7 @@ export const play = (parent: Mode): Mode => ({
       case 'borderOpacity':
       case 'scale':
         if (parts.length === 1) {
-          value = divide(parts[0], 100)
+          value = asNumber(parts[0]) && divide(parts[0], 100)
         }
 
         break
