@@ -12,7 +12,7 @@ import type {
 import type { Context } from './context'
 
 import * as is from './is'
-import { tail, join, joinTruthy } from './util'
+import { tail, join } from './util'
 
 // Shared variables used during processing
 let negate: string
@@ -173,7 +173,7 @@ const endGrouping = (isWhitespace?: boolean): void => {
 }
 
 const onlyPrefixes = (s: string): '' | boolean => s && s[0] !== ':'
-const onlyVariants = (s: string): '' | boolean => s && s[0] === ':'
+const onlyVariants = (s: string): '' | boolean => s[0] === ':'
 
 const translateBuffer = (buffer: string): '' => {
   if (buffer) {
