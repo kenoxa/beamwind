@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/preset-play",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "rapid prototyping for beamwind using auto-conversion of values",
   "keywords": [
     "beamwind",
