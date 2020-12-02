@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/kenoxa/beamwind/compare/@beamwind/preset-system@2.0.3...@beamwind/preset-system@2.1.0) (2020-12-02)
+
+### Bug Fixes
+
+- generate shade and on colors ([9a653fa](https://github.com/kenoxa/beamwind/commit/9a653fa41160b30a21a58d118902c6238272ec38))
+
+### Features
+
+- support background images from theme ([492ffe0](https://github.com/kenoxa/beamwind/commit/492ffe063197d4af1a6ea2daff89e8e43d0855ed))
+
 ## [2.0.3](https://github.com/kenoxa/beamwind/compare/@beamwind/preset-system@2.0.1...@beamwind/preset-system@2.0.3) (2020-12-01)
 
 ### Bug Fixes

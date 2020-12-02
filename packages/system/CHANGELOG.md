@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/kenoxa/beamwind/compare/@beamwind/system@2.0.3...@beamwind/system@2.0.4) (2020-12-02)
+
+**Note:** Version bump only for package @beamwind/system
+
 ## [2.0.3](https://github.com/kenoxa/beamwind/compare/@beamwind/system@2.0.2...@beamwind/system@2.0.3) (2020-12-01)
 
 ### Bug Fixes

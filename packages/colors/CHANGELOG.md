@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/kenoxa/beamwind/compare/@beamwind/colors@2.0.2...@beamwind/colors@2.0.3) (2020-12-02)
+
+### Bug Fixes
+
+- generate shade and on colors ([9a653fa](https://github.com/kenoxa/beamwind/commit/9a653fa41160b30a21a58d118902c6238272ec38))
+
 ## [2.0.2](https://github.com/kenoxa/beamwind/compare/@beamwind/colors@2.0.1...@beamwind/colors@2.0.2) (2020-12-01)
 
 ### Bug Fixes
