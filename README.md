@@ -214,6 +214,9 @@ bw`text(center bold gray-500)`)
 
 bw`divide(y-2 blue-500 opacity(75 md:50))`
 // => divide-y-2 divide-blue-500 divide-opacity-75 md:divide-opacity-50
+
+bw`w(1/2 sm:1/3 lg:1/6) p-sm`
+// => w-1/2 sm:w-1/3 lg:w-1/6 p-sm
 ```
 
 Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be applied as is. For that case you can use the special `&` directive which is replaced with the current prefix:
