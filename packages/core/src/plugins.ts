@@ -441,6 +441,7 @@ export const utilities: Record<string, Plugin> = {
     return withOpacityFallback('color', 'text', theme('textColor', tail(parts)), tag)
   },
 
+  // eslint-disable-next-line complexity
   bg(parts, theme, { tag }) {
     switch (parts[1]) {
       case 'fixed':
@@ -476,22 +477,24 @@ export const utilities: Record<string, Plugin> = {
         return { [`--${tag('bg-opacity')}`]: theme('backgroundOpacity', tail(parts, 2)) }
     }
 
-    return merge(
-      withOpacityFallback('background-color', 'bg', theme('backgroundColor', tail(parts)), tag),
-      // Look for a corresponding text color:
-      // 'primary' -> 'on-primary'
-      // 'on-primary' -> 'primary'
-      withOpacityFallback(
-        'color',
-        'text',
-        theme(
-          'textColor',
-          parts[1] === 'on' ? tail(parts, 2) : ['on'].concat(tail(parts)),
-          true /* Optional */,
-        ),
-        tag,
-      ),
-    )
+    return (_ = theme('backgroundImage', tail(parts), true /* Optional */))
+      ? { 'background-image': _ }
+      : merge(
+          withOpacityFallback('background-color', 'bg', theme('backgroundColor', tail(parts)), tag),
+          // Look for a corresponding text color:
+          // 'primary' -> 'on-primary'
+          // 'on-primary' -> 'primary'
+          withOpacityFallback(
+            'color',
+            'text',
+            theme(
+              'textColor',
+              parts[1] === 'on' ? tail(parts, 2) : ['on'].concat(tail(parts)),
+              true /* Optional */,
+            ),
+            tag,
+          ),
+        )
   },
 
   // .rounded	border-radius: 0.25rem;

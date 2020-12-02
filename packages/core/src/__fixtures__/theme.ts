@@ -112,6 +112,11 @@ const theme: PartialTheme = {
       md: (theme: ThemeResolver): ThemeFontSize | undefined => theme('fontSize', 'base'),
     },
 
+    backgroundImage: {
+      'hero-pattern': "url('/img/hero-pattern.svg')",
+      'footer-texture': "url('/img/footer-texture.png')",
+    },
+
     borderRadius: {
       sm: '0.125rem',
       md: '0.375rem',

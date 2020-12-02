@@ -5,11 +5,7 @@ pre-commit hook to format files
 doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
 
 transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
-https://github.com/tailwindlabs/tailwindcss/pull/2531
-https://tailwindcss.com/docs/grid-auto-columns
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
-https://github.com/tailwindlabs/tailwindcss/pull/2910
-https://tailwindcss.com/docs/background-image#background-images
 https://tailwindcss.com/docs/container
 
 - @beamwind/prose: https://tailwindcss.com/docs/typography-plugin
@@ -37,3 +33,9 @@ https://github.com/ben-rogerson/twin.macro
 bw`hidden!`
 // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
 { "display": "none !important" }
+
+@beamwind/css like https://emotion.sh/docs/@emotion/css
+maybe useful for inline plugins or advanced use cases
+
+- convert declarations in to dash case
+- nested declarations as inline plugins

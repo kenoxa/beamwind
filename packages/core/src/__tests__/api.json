@@ -143,6 +143,7 @@
   "bg-primary": ".bg-primary{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}",
   "bg-on-primary": ".bg-on-primary{--bg-opacity:1;background-color:#e8ecf4;background-color:rgba(232,236,244,var(--bg-opacity));--text-opacity:1;color:#0d3880;color:rgba(13,56,128,var(--text-opacity))}",
   "bg-fuchsia": ".bg-fuchsia{--bg-opacity:1;background-color:fuchsia}",
+  "bg-hero-pattern": ".bg-hero-pattern{background-image:url('/img/hero-pattern.svg')}",
   "border": { "border-width": "1px" },
   "border-solid": { "border-style": "solid" },
   "border-dashed": { "border-style": "dashed" },

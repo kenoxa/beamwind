@@ -938,8 +938,10 @@ Some notable differences are:
   - [transition](https://tailwindcss.com/docs/transition-property) with default timing function and duration
   - [animate](https://tailwindcss.com/docs/animate)
   - [transform](https://tailwindcss.com/docs/transform)
-  - [Background Image](https://tailwindcss.com/docs/gradient-color-stops#class-reference)
+  - [Background Image](https://tailwindcss.com/docs/background-image)
+  - [Gradient Color Stops](https://tailwindcss.com/docs/gradient-color-stops)
   - [ring](https://tailwindcss.com/docs/ring-width)
+  - [auto-cols-\*](https://tailwindcss.com/docs/grid-auto-columns) and [auto-rows-\*](https://tailwindcss.com/docs/grid-auto-rows)
 
 - oceanwind supports duplicate directives tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
