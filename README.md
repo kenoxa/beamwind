@@ -102,41 +102,6 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 
 > **Beamwind**: a wind blowing against a vessel from a direction at right angles to its keel for optimal speed
 
-## Packages
-
-> ready to use [instances](#instance-creation)
-
-- [beamwind](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind) - using the [tailwind default theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)
-- [@beamwind/system](https://github.com/kenoxa/beamwind/blob/main/packages/system) - using a [semantic design system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)
-- [@beamwind/play](https://github.com/kenoxa/beamwind/blob/main/packages/play) - combining the [tailwind default theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind), the [semantic design system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) with [auto-conversion of unknown theme values](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play)
-
-> These packages all use [@beamwind/core](https://github.com/kenoxa/beamwind/blob/main/packages/core) under the hood which only has a minimal theme intended to be used as base to be further configured.
-
-The [Instance Creation](#instance-creation) section show how to implement your own packages.
-
-### Presets
-
-> reusable configuration presets to create your own [instance](#instance-creation)
-
-- [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) - mirroring tailwind default theme
-- [@beamwind/preset-system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) - a semantic design system
-- [@beamwind/preset-play](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play) - auto-conversion of unknown theme values
-
-### Base Styles
-
-> opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier to work within the constraints of your design system.
-
-- [@beamwind/preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) - for modern browsers
-- [@beamwind/reset](https://github.com/kenoxa/beamwind/blob/main/packages/reset) - for legacy browsers like IE10/11
-
-### Helpers
-
-- [@beamwind/colors](https://github.com/kenoxa/beamwind/blob/main/packages/colors) - color utilities
-
-### Examples
-
-- [svelte](https://github.com/kenoxa/beamwind/blob/main/examples/svelte) - using [svelte](https://svelte.dev/)
-
 ## Usage
 
 > The following code examples will use [beamwind](https://github.com/kenoxa/beamwind/blob/main/package/beamwind).
@@ -343,6 +308,41 @@ const cx = createInstance({
 
 cx`bg-red-500` // will result in a #DC2626 background-color
 ```
+
+## Packages
+
+> ready to use [instances](#instance-creation)
+
+- [beamwind](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind) - using the [tailwind default theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)
+- [@beamwind/system](https://github.com/kenoxa/beamwind/blob/main/packages/system) - using a [semantic design system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)
+- [@beamwind/play](https://github.com/kenoxa/beamwind/blob/main/packages/play) - combining the [tailwind default theme](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind), the [semantic design system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) and [preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) with [auto-conversion of unknown theme values](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play)
+
+> These packages all use [@beamwind/core](https://github.com/kenoxa/beamwind/blob/main/packages/core) under the hood which only has a minimal theme intended to be used as base to be further configured.
+
+The [Instance Creation](#instance-creation) section show how to implement your own packages.
+
+### Presets
+
+> reusable configuration presets to create your own [instance](#instance-creation)
+
+- [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) - mirroring tailwind default theme
+- [@beamwind/preset-system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-system) - a semantic design system
+- [@beamwind/preset-play](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play) - auto-conversion of unknown theme values
+
+### Base Styles
+
+> opinionated base styles that are designed to smooth over cross-browser inconsistencies and make it easier to work within the constraints of your design system.
+
+- [@beamwind/preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight) - for modern browsers
+- [@beamwind/reset](https://github.com/kenoxa/beamwind/blob/main/packages/reset) - for legacy browsers like IE10/11
+
+### Helpers
+
+- [@beamwind/colors](https://github.com/kenoxa/beamwind/blob/main/packages/colors) - color utilities
+
+### Examples
+
+- [svelte](https://github.com/kenoxa/beamwind/blob/main/examples/svelte) - using [svelte](https://svelte.dev/)
 
 ## Theming
 
