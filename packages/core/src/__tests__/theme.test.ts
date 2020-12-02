@@ -29,6 +29,12 @@ test('adjust theme using callback', () => {
   ])
 })
 
+test('theme resolved', () => {
+  expect(instance.theme('colors')).toHaveProperty('current', 'currentColor')
+  expect(instance.theme('colors', 'current')).toBe('currentColor')
+  expect(instance.theme('colors', 'yyyy', 'xxxx')).toBe('xxxx')
+})
+
 test('on-* text color is added to bg-color', () => {
   instance.setup({
     theme: {

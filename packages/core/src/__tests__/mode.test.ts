@@ -7,9 +7,18 @@ test('mode warn (default)', () => {
     console.warn = jest.fn()
 
     expect(bw('unknown-directive')).toBe('')
+    expect(console.warn).toHaveBeenCalledTimes(1)
     expect(console.warn).toHaveBeenCalledWith(
       `[unknown-directive] No plugin for "unknown-directive" found`,
     )
+
+    expect(bw('rounded-t-xxx')).toBe('_ymtp7f')
+    expect(console.warn).toHaveBeenCalledTimes(2)
+    expect(console.warn).toHaveBeenLastCalledWith(`No theme value found for borderRadius["t-xxx"]`)
+
+    expect(bw('gap')).toBe('_ymtp7f')
+    expect(console.warn).toHaveBeenCalledTimes(3)
+    expect(console.warn).toHaveBeenLastCalledWith(`No theme value found for gap["DEFAULT"]`)
   } finally {
     console.warn = consoleWarn
   }

@@ -529,6 +529,7 @@
     ">:not([hidden])~:not([hidden])",
     { "--divide-opacity": "1", "border-color": "transparent" }
   ],
+  "divide-opacity-75": [">:not([hidden])~:not([hidden])", { "--divide-opacity": "0.75" }],
   "rounded-2xl": { "border-radius": "1rem" },
   "animate-none": { "animation": "none" },
   "text-promote text-opacity-70": [
