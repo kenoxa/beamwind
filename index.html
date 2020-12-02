@@ -261,7 +261,10 @@
 <span class="hljs-comment">// =&gt; text-center text-bold text-gray-500</span>
 
 bw<span class="hljs-string">`divide(y-2 blue-500 opacity(75 md:50))`</span>
-<span class="hljs-comment">// =&gt; divide-y-2 divide-blue-500 divide-opacity-75 md:divide-opacity-50</span></code></pre>
+<span class="hljs-comment">// =&gt; divide-y-2 divide-blue-500 divide-opacity-75 md:divide-opacity-50</span>
+
+bw<span class="hljs-string">`w(1/2 sm:1/3 lg:1/6) p-sm`</span>
+<span class="hljs-comment">// =&gt; w-1/2 sm:w-1/3 lg:w-1/6 p-sm</span></code></pre>
 				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
 				<pre><code class="language-js">bw<span class="hljs-string">`ring(&amp; ping-700 offset(4 ping-200))`</span>)
 <span class="hljs-comment">// =&gt; ring ring-ping-700 ring-offset-4 ring-offset-on-ping-200</span></code></pre>
@@ -921,8 +924,10 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 							<li><a href="https://tailwindcss.com/docs/transition-property">transition</a> with default timing function and duration</li>
 							<li><a href="https://tailwindcss.com/docs/animate">animate</a></li>
 							<li><a href="https://tailwindcss.com/docs/transform">transform</a></li>
-							<li><a href="https://tailwindcss.com/docs/gradient-color-stops#class-reference">Background Image</a></li>
+							<li><a href="https://tailwindcss.com/docs/background-image">Background Image</a></li>
+							<li><a href="https://tailwindcss.com/docs/gradient-color-stops">Gradient Color Stops</a></li>
 							<li><a href="https://tailwindcss.com/docs/ring-width">ring</a></li>
+							<li><a href="https://tailwindcss.com/docs/grid-auto-columns">auto-cols-*</a> and <a href="https://tailwindcss.com/docs/grid-auto-rows">auto-rows-*</a></li>
 						</ul>
 					</li>
 					<li><p>oceanwind supports duplicate directives tracking</p>
