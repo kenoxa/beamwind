@@ -27,15 +27,15 @@ As with all systems, one of the most important things are reasoning. Why use thi
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Colors](#colors)
-- [Spacing](#spacing)
-- [Typography](#typography)
-- [Scales](#scales)
-- [Acknowledgements](#acknowledgements)
-- [Contribute](#contribute)
-- [License](#license)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Colors](#colors)
+  - [Spacing](#spacing)
+  - [Typography](#typography)
+  - [Scales](#scales)
+  - [Acknowledgements](#acknowledgements)
+  - [Contribute](#contribute)
+  - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
@@ -144,7 +144,7 @@ Assign values to the scale (h1 — h6)
 
 ## Scales
 
-### z-index
+### Elevation
 
 https://v5.getbootstrap.com/docs/5.0/extend/approach/#z-index-scales
 
