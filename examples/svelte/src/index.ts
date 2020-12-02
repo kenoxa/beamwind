@@ -1,3 +1,9 @@
+import { setup } from '@beamwind/play'
+
+if (import.meta.env.MODE !== 'production') {
+  setup({ hash: false })
+}
+
 import App from './app.svelte'
 
 const app = new App({

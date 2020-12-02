@@ -1778,14 +1778,6 @@
     execa "^4.0.3"
     npm-run-path "^4.0.1"
 
-"@snowpack/plugin-dotenv@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@snowpack/plugin-dotenv/-/plugin-dotenv-2.0.4.tgz#bd9b9db3adb589a0163a937a4a0dd41ff86f1051"
-  integrity sha512-Ho4IpDLiA0m6YgKoBAuHV/s8bk+pIaE7sYH01nvfm9QOkZK68l69Dv61DG4VXMatcnw1zEPPR3RoLKpyDofKYQ==
-  dependencies:
-    dotenv "^8.2.0"
-    dotenv-expand "^5.1.0"
-
 "@snowpack/plugin-run-script@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@snowpack/plugin-run-script/-/plugin-run-script-2.2.0.tgz#26b434af5f23dbe3bc189dcacdca5834113b79bc"
@@ -2824,6 +2816,13 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+beamwind@^1.2.0:
+  version "1.5.1"
+  resolved "https://registry.npmjs.org/beamwind/-/beamwind-1.5.1.tgz#d70b0ba7ee5f2f5e2f4f0bfa5c17947336b067b1"
+  integrity sha512-yC9H1O3KY4cgeGBOYWIY5sK1+rw3lLzi9DdeFUyQs/as3o8n9UTVNfre/2zgZxacgYnHsAb8XdKlhdcYO2kDdg==
+  dependencies:
+    tiny-css-prefixer "^1.1.4"
 
 before-after-hook@^2.0.0:
   version "2.1.0"
@@ -4520,16 +4519,6 @@ dot-prop@^5.1.0, dot-prop@^5.2.0:
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
   dependencies:
     is-obj "^2.0.0"
-
-dotenv-expand@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
-  integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
-
-dotenv@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.npmjs.org/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
-  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
 duplexer3@^0.1.4:
   version "0.1.4"

@@ -2,42 +2,34 @@ import type { ThemeConfiguration, ThemeFontSize, ThemeResolver } from '@beamwind
 
 import type { Options } from './types'
 
-import { createColorVariants } from '@beamwind/colors'
-
-// eslint-disable-next-line unicorn/prefer-includes
-const isBaseColor = (key: string): boolean => key.indexOf('-') === -1
-
-const generateColors = (
-  base: Record<string, string | undefined>,
-): Record<string, string | undefined> =>
-  Object.keys(base)
-    .filter(isBaseColor)
-    // eslint-disable-next-line unicorn/no-reduce
-    .reduce((colors, key) => ({ ...colors, ...createColorVariants(colors, key) }), base)
+import { generateColors } from '@beamwind/colors'
 
 // Add all value not in default @beamwind/core theme
-export const theme = ({ colors }: Options = {}): ThemeConfiguration => (base) => ({
+export const theme = ({ colors, shades }: Options = {}): ThemeConfiguration => (base) => ({
   extend: {
-    colors: generateColors({
-      ...base('colors'),
+    colors: generateColors(
+      {
+        ...base('colors'),
 
-      surface: '#fafafa',
-      'on-surface': '#222',
+        surface: '#fafafa',
+        'on-surface': '#222',
 
-      // TODO other surfaces like sheet, panel, menu
+        // TODO other surfaces like sheet, panel, menu
 
-      // https://seek-oss.github.io/braid-design-system/foundations/tones/
-      primary: '#0d3880',
-      secondary: '#e60278',
-      caution: '#ffc600',
-      critical: '#d0011b',
-      info: '#1e468c',
-      neutral: '#596581',
-      positive: '#138a08',
-      promote: '#9556b7',
+        // https://seek-oss.github.io/braid-design-system/foundations/tones/
+        primary: '#0d3880',
+        secondary: '#e60278',
+        caution: '#ffc600',
+        critical: '#d0011b',
+        info: '#1e468c',
+        neutral: '#596581',
+        positive: '#138a08',
+        promote: '#9556b7',
 
-      ...colors,
-    }),
+        ...colors,
+      },
+      shades,
+    ),
 
     spacing: {
       none: '0px',

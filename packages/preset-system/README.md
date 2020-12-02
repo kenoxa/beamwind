@@ -99,10 +99,11 @@ The color names are designed to have a strong correlation with the tone of voice
 
 > refines the used tone - `primary-hover` or `primary-active`
 
-- `hover`
-- `active`
+- `hover` - applies when a pointing device [interacts](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover) with an element without necessarily activating it
+- `focus` - applies when an element is in a state that is ready to be interacted with, i.e. it has the [:focus](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) of the input device.
+- `active` - applies during the period in which the element is being [activated](https://developer.mozilla.org/en-US/docs/Web/CSS/:active). For example, if using a mouse 🐭, it would be the time between when the mouse button is clicked and when it is released.
 - `disabled` - usually in form controls and buttons
-- `selected` - indicate selected or focused control
+- `selected` - indicate selected a value.
 
 ### "_On_" colors
 

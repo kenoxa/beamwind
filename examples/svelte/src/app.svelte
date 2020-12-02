@@ -1,9 +1,7 @@
 <script context="module">
-  import { bw, setup } from '@beamwind/play'
+  import { bw, setup, theme } from '@beamwind/play'
 
-  if (import.meta.env.MODE !== 'production') {
-    setup({ hash: false })
-  }
+  console.log(theme('backgroundColor'))
 
   setup({
     plugins: {
@@ -43,6 +41,181 @@
   })
 </script>
 
+<header class={bw`bg-surface m-md space-y-md`}>
+  <h1 class={bw`text-2xl font-bold`}>Tones</h1>
+
+  <p>
+    The usage of colour in the system is designed to have a strong correlation with the tone of
+    voice being used. The system makes available a spectrum of tones which are leveraged across the
+    entire component suite.
+  </p>
+
+  <div class={bw`flex flex-wrap p-md text-center`}>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-primary rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>primary</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-secondary rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>secondary</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-critical rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>critical</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-caution rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>caution</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-positive rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>positive</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-neutral rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>neutral</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-info rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>info</figcaption>
+    </figure>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <div class={bw`bg-promote rounded-md h-2xl`} />
+      <figcaption class={bw`text(sm neutral) tracking-wider`}>promote</figcaption>
+    </figure>
+  </div>
+
+  <div class={bw`flex flex-wrap p-md text-center`}>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-primary
+          hover:bg-primary-hover
+          focus:bg-primary-focus
+          active:bg-primary-active
+        `}>
+        primary
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-primary-hover
+        `}>
+        hover
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-primary-active
+        `}>
+        active
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-primary-focus
+        `}>
+        focus
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-primary-disabled
+        `}>
+        disabled
+      </button>
+    </figure>
+  </div>
+
+  <div class={bw`flex flex-wrap p-md text-center`}>
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-critical
+          hover:bg-critical-hover
+          focus:bg-critical-focus
+          active:bg-critical-active
+        `}>
+        critical
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-critical-hover
+        `}>
+        hover
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-critical-active
+        `}>
+        active
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-critical-focus
+        `}>
+        focus
+      </button>
+    </figure>
+
+    <figure class={bw`w(1/2 sm:1/4 lg:1/8) p-sm`}>
+      <button
+        class={bw`
+          focus:outline-none
+          px-md py-sm
+          rounded-md
+          bg-critical-disabled
+        `}>
+        disabled
+      </button>
+    </figure>
+  </div>
+</header>
+
 <div class={bw`text-center`}>
   <header class={bw`bg-surface min-h-screen flex flex-col items-center justify-center text-2xl`}>
     <img
@@ -59,7 +232,7 @@
       <code class={bw`app-code`}>{count}</code>
       seconds.
     </p>
-    <p class={bw`app-p divide-x-xl divide-promote`}>
+    <p class={bw`app-p divide-x-sm divide-promote`}>
       <a class={appLink} href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
         Learn Svelte
       </a>

@@ -481,8 +481,7 @@ setup({
   plugins: {
     // The directive splitted by '-' with the plugin name as first value: ['scroll-snap', ...]
     'scroll-snap': (parts) => {
-        return { 'scroll-snap-type': parts[1] }
-      }
+      return { 'scroll-snap-type': parts[1] }
     },
   },
 })

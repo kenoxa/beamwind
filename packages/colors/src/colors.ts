@@ -136,7 +136,9 @@ const luminanace = (value: number): number => {
 const getLuminance = (rgb: RGB): number =>
   luminanace(rgb.r) * 0.2126 + luminanace(rgb.g) * 0.7152 + luminanace(rgb.b) * 0.0722
 
-export const isLight = (color: string): boolean => getLuminance(parse(color)) >= 0.5
+const isBright = (luminance: number): boolean => luminance > 0.6
+
+export const isLight = (color: string): boolean => isBright(getLuminance(parse(color)))
 
 const AA_CONTRAST = 4.52
 // AA_NON_TEXT_CONTRAST = 3
@@ -152,7 +154,7 @@ const contrast = (color1: HSL, color2: HSL): number => {
 }
 
 const smooth = (value: number, luminance: number, brightFactor: number, factor: number): number =>
-  value * (luminance > 0.6 ? brightFactor : factor)
+  value * (isBright(luminance) ? brightFactor : factor)
 
 const makeLightnessTransformer = (transform: (hsl: HSL, luminance: number) => HSL) => (
   color: string,
@@ -175,10 +177,9 @@ export const getDarkVariant = makeLightnessTransformer((hsl, luminance) => ({
 }))
 
 const findClosestAccessibleColor = (
-  foregroundColor: string,
   backgroundColor: string,
-  contrastRatio: number,
-  darker: boolean,
+  darker = isLight(backgroundColor),
+  foregroundColor = darker ? getDarkVariant(backgroundColor) : getLightVariant(backgroundColor),
 ): string => {
   const foregroundHSL = rgbToHsl(parse(foregroundColor))
   const backgroundHSL = rgbToHsl(parse(backgroundColor))
@@ -190,30 +191,17 @@ const findClosestAccessibleColor = (
   let minHSL = foregroundHSL
 
   // If already meets contrast, return passed value
-  if (contrast(foregroundHSL, backgroundHSL) >= contrastRatio) {
+  if (contrast(foregroundHSL, backgroundHSL) >= AA_CONTRAST) {
     return foregroundColor
   }
 
   // If max lightness fails to meet contrast, throw error
-  if (contrast(maxHSL, backgroundHSL) < contrastRatio) {
-    const nextColor =
-      contrast({ h: 0, s: 0, l: 0 }, backgroundHSL) > contrast({ h: 0, s: 1, l: 1 }, backgroundHSL)
-        ? '#000'
-        : '#fff'
-
-    if (foregroundColor === nextColor) {
-      return nextColor
-    }
-
-    // TODO should we propagate this warning
-    // console.warn(
-    //   `Desired contrast ratio cannot be achieved,\nForeground: ${foregroundColor}\nBackground: ${backgroundColor}\nDesired Contrast: ${contrastRatio}\nActual Contrast: ${contrast(
-    //     maxHSL,
-    //     backgroundHSL,
-    //   )}\nFalling back to: ${nextColor}`,
-    // )
-
-    return findClosestAccessibleColor(nextColor, backgroundColor, contrastRatio, darker)
+  if (contrast(maxHSL, backgroundHSL) < AA_CONTRAST) {
+    // Select black or white based on higher contrast ratio
+    return contrast({ h: 0, s: 0, l: 0 }, backgroundHSL) >
+      contrast({ h: 0, s: 1, l: 1 }, backgroundHSL)
+      ? '#000'
+      : '#fff'
   }
 
   let lastMinHSL
@@ -228,7 +216,7 @@ const findClosestAccessibleColor = (
     adjustedLightness = (minLightness + maxLightness) / 2
     adjustedHSL = { ...adjustedHSL, l: adjustedLightness }
 
-    if (contrast(adjustedHSL, backgroundHSL) < contrastRatio) {
+    if (contrast(adjustedHSL, backgroundHSL) < AA_CONTRAST) {
       if (darker) {
         maxLightness = adjustedLightness
         maxHSL = adjustedHSL
@@ -248,24 +236,22 @@ const findClosestAccessibleColor = (
   return stringify(hslToRgb(minHSL))
 }
 
-export const getContrastVariant = (
-  color: string,
-  // '#1a202c'
-  darker = getDarkVariant(color),
-  lighter = getLightVariant(color),
-): string => {
-  const darken = isLight(color)
+/**
+ * Finds the closest [accessible color](https://contrast-ratio.com/).
+ *
+ * @param color - in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) (like `#RRGGBB` or `#RGB`)
+ * @returns contrast color in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+ */
+export const getContrastVariant = (color: string): string => findClosestAccessibleColor(color)
 
-  return findClosestAccessibleColor(
-    // Start with dark gray or with a lighter variant
-    darken ? darker : lighter,
-    color,
-    AA_CONTRAST,
-    darken,
-  )
-}
-
-const shade = (color: string, amount: number): string => {
+/**
+ * Changes the lightness of `color` by the given `amount`.
+ *
+ * @param color - to shade in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) (like `#RRGGBB` or `#RGB`)
+ * @param amount - value between `0` and `1`
+ * @returns shaded color in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+ */
+export const shade = (color: string, amount: number): string => {
   const hsl = rgbToHsl(parse(color))
 
   return stringify(
@@ -276,5 +262,14 @@ const shade = (color: string, amount: number): string => {
   )
 }
 
-export const getShadeVariant = (color: string, darker: number, lighter?: number): string =>
-  shade(color, isLight(color) ? darker : lighter || darker * -1)
+/**
+ * Creates a {@link shade} color using `ifLight` if `color` [is light]{@link isLight}
+ * otherwise `ifDark`.
+ *
+ * @param color - to shade in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) (like `#RRGGBB` or `#RGB`)
+ * @param ifLight - amount between `0` and `1` if `color` [is light]{@link isLight}
+ * @param ifDark - amount between `0` and `1` if `color` is dark (eg [not light]{@link isLight})
+ * @returns shaded color in [#-hexadecimal notation](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+ */
+export const getShadeVariant = (color: string, ifLight: number, ifDark = ifLight * -1): string =>
+  shade(color, isLight(color) ? ifLight : ifDark)
