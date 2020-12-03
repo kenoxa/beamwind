@@ -12,6 +12,8 @@ import type { ConfigurationManager } from './configuration'
 
 import * as vscode from 'vscode-languageserver-types'
 
+import { processPlugins } from './process-plugins'
+
 function arePositionsEqual(left: ts.LineAndCharacter, right: ts.LineAndCharacter): boolean {
   return left.line === right.line && left.character === right.character
 }
@@ -22,6 +24,15 @@ function isAfter(left: vscode.Position, right: vscode.Position): boolean {
 
 function overlaps(a: vscode.Range, b: vscode.Range): boolean {
   return !isAfter(a.end, b.start) && !isAfter(b.end, a.start)
+}
+
+function pad(n: string): string {
+  return ('00000000' + n).slice(-8)
+}
+
+function naturalExpand(value: number | string): string {
+  const string = typeof value === 'string' ? value : value.toString()
+  return string.replace(/\d+/g, pad)
 }
 
 const emptyCompletionList: vscode.CompletionList = {
@@ -68,10 +79,13 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
   private readonly logger: Logger
   private readonly _completionsCache = new CompletionsCache()
 
+  private state: ReturnType<typeof processPlugins>
+
   constructor(typescript: typeof ts, configurationManager: ConfigurationManager, logger: Logger) {
     this.typescript = typescript
     this.configurationManager = configurationManager
     this.logger = logger
+    this.state = processPlugins()
   }
 
   public getCompletionsAtPosition(
@@ -295,38 +309,6 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
       }
     }
 
-    const data = {
-      screens: ['sm', 'md', 'lg'],
-      variants: ['active', 'hover', 'group-hover', 'focus', 'group-focus'],
-      directives: [
-        'underline',
-        'text-xs',
-        'text-sm',
-        'text-lg',
-        'text-transparent',
-        'text-current',
-        'text-black',
-        'text-white',
-        'text-opacity-10',
-        'text-opacity-25',
-        'text-opacity-50',
-        'text-uppercase',
-        'text-lowercase',
-        'min-w-0',
-        'min-w-full',
-        'min-w-min',
-        'min-w-max',
-        'max-w-0',
-        'max-w-none',
-        'max-w-xs',
-        'max-w-sm',
-        'max-w-md',
-        'max-w-full',
-        'max-w-min',
-        'max-w-max',
-      ],
-    }
-
     const variants = groupings.filter(onlyVariants)
     const prefix = groupings.filter(onlyPrefixes).join('-')
     const token = buffer === '&' ? buffer : (prefix && prefix + '-') + buffer
@@ -344,14 +326,17 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
         label: directive,
         sortText: `!${directive}`,
       },
-      ...data.screens
+      ...Object.keys(this.state.screens)
         .filter((screen) => variants.length === 0 && screen.startsWith(buffer))
         .map((screen) => ({
           kind: vscode.CompletionItemKind.EnumMember,
           data: 'screens',
           label: `${screen}:`,
-          detail: `breakpoint @ ${screen}`,
-          documentation: { kind: vscode.MarkupKind.PlainText, value: `Add ${screen} breakpoint` },
+          detail: `breakpoint @ ${this.state.screens[screen]}`,
+          documentation: {
+            kind: vscode.MarkupKind.PlainText,
+            value: `@media (min-width: ${this.state.screens[screen]})`,
+          },
           sortText: `#${screen}`,
           textEdit: {
             newText: `${screen}:`.slice(buffer.length),
@@ -361,7 +346,7 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
             },
           },
         })),
-      ...data.variants
+      ...this.state.variants
         .filter((variant) => !variants.includes(':' + variant) && variant.startsWith(buffer))
         .map((variant) => ({
           kind: vscode.CompletionItemKind.Unit,
@@ -378,8 +363,8 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
             },
           },
         })),
-      // TODO Start a new directive group
-      ...data.directives
+      // Start a new directive group
+      ...Object.keys(this.state.directives)
         .filter((directive) => directive.startsWith(token))
         // tex
         // text-current
@@ -408,7 +393,13 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
           },
         })),
       // Insert directive
-      ...data.directives
+      // tex
+      // text-current
+      // => text
+      // ring-off
+      // ring-offset-70
+      // => ring-offset
+      ...Object.keys(this.state.directives)
         .filter((directive) => directive.startsWith(token))
         .map((directive) => ({
           kind:
@@ -417,15 +408,28 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
               : vscode.CompletionItemKind.Property,
           data: 'directive',
           label: prefix ? directive.slice(prefix.length + 1) : directive,
-          detail: directive,
-          documentation: {
-            kind: vscode.MarkupKind.PlainText,
-            value:
-              directive === 'text-black'
-                ? '#ff0000'
-                : (variants.length === 0 ? '' : variants.join('').slice(1) + ':') + directive,
-          },
-          sortText: `=${directive}`,
+          // VS Code bug causes '0' to not display in some cases
+          detail: directive === '0' ? '0 ' : directive,
+          // TODO https://github.com/tailwindlabs/tailwindcss-intellisense/blob/264cdc0c5e6fdbe1fee3c2dc338354235277ed08/packages/tailwindcss-language-service/src/util/color.ts#L28
+          documentation:
+            directive === 'text-black'
+              ? '#ff0000'
+              : {
+                  kind: vscode.MarkupKind.Markdown,
+                  value: [
+                    '```css',
+                    '.' +
+                      (variants.length === 0 ? '' : variants.join('').slice(1) + ':') +
+                      this.state.directives[directive].selector.slice(1) +
+                      ' {',
+                    ...Object.entries(this.state.directives[directive].properties).map(
+                      ([property, value]) => `  ${property}: ${value};`,
+                    ),
+                    '}',
+                    '```',
+                  ].join('\n'),
+                },
+          sortText: `=${naturalExpand(directive)}`,
           textEdit: {
             newText: (prefix ? directive.slice(prefix.length + 1) : directive).slice(buffer.length),
             range: {

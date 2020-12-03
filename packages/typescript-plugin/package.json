@@ -20,6 +20,7 @@
   "author": "Kenoxa GmbH <https://kenoxa.com>",
   "source": "src/index.ts",
   "main": "dist/node/typescript-plugin.js",
+  "browser": false,
   "scripts": {
     "build": "nps",
     "prepublishOnly": "nps",
@@ -34,8 +35,11 @@
     "preset": "@carv/jest-preset"
   },
   "dependencies": {
+    "dlv": "^1.1.3",
+    "tailwindcss": "^2.0.1",
     "typescript-template-language-service-decorator": "^2.2.0",
     "vscode-languageserver-types": "^3.13.0"
+
   },
   "devDependencies": {
     "nps": "^5.9.12"
