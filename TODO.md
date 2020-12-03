@@ -4,6 +4,12 @@ pre-commit hook to format files
 
 doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
 
+states
+first: => :first-child
+last: => :last-child
+even: => :nth-child(2n)
+odd: => :nth-child(odd)
+
 transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
 https://github.com/tailwindlabs/tailwindcss/pull/2951/files
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio

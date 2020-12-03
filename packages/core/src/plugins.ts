@@ -639,9 +639,15 @@ export const utilities: Record<string, Plugin> = {
 
   visible: { visibility: 'visible' },
   invisible: { visibility: 'hidden' },
+
   antialiased: {
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
+  },
+
+  'subpixel-antialiased': {
+    '-webkit-font-smoothing': 'auto',
+    '-moz-osx-font-smoothing': 'auto',
   },
 
   truncate: {
@@ -719,11 +725,6 @@ export const utilities: Record<string, Plugin> = {
 
   col: gridPlugin('column'),
   row: gridPlugin('row'),
-
-  'subpixel-antialiased': {
-    '-webkit-font-smoothing': 'auto',
-    '-moz-osx-font-smoothing': 'auto',
-  },
 
   list(parts) {
     switch (parts[1]) {
