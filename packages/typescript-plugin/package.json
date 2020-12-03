@@ -1,0 +1,46 @@
+{
+  "name": "@beamwind/typescript-plugin",
+  "version": "0.0.0",
+  "description": "TypeScript language service plugin that adds IntelliSense for beamwind",
+  "keywords": [
+    "TypeScript",
+    "beamwind",
+    "tailwind"
+  ],
+  "homepage": "https://github.com/kenoxa/beamwind#readme",
+  "bugs": {
+    "url": "https://github.com/kenoxa/beamwind/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenoxa/beamwind.git",
+    "directory": "packages/typescript-plugin"
+  },
+  "license": "MIT",
+  "author": "Kenoxa GmbH <https://kenoxa.com>",
+  "source": "src/index.ts",
+  "main": "dist/node/typescript-plugin.js",
+  "scripts": {
+    "build": "nps",
+    "prepublishOnly": "nps",
+    "test": "nps"
+  },
+  "prettier": "@carv/prettier-config",
+  "eslintConfig": {
+    "extends": "@carv/eslint-config",
+    "root": true
+  },
+  "jest": {
+    "preset": "@carv/jest-preset"
+  },
+  "dependencies": {
+    "typescript-template-language-service-decorator": "^2.2.0",
+    "vscode-languageserver-types": "^3.13.0"
+  },
+  "devDependencies": {
+    "nps": "^5.9.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
