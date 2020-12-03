@@ -18,7 +18,7 @@
 
 ---
 
-This library takes inspiration from [Tailwind CSS] ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#tailwind-differences)), [Oceanwind] ([see differences](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind/README.md#oceanwind-differences)) and [Otion] to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.
+This library takes inspiration from [Tailwind CSS] ([see differences](#tailwind-differences)), [Oceanwind] ([see differences](#oceanwind-differences)) and [Otion] to provide means of efficiently generating mostly atomic styles from shorthand syntax and appending them to the DOM at runtime.
 
 [beamwind](https://github.com/kenoxa/beamwind/blob/main/packages/beamwind) uses the [tailwind default theme](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js) ([@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind)) and an opinionated set of base styles for modern browsers based on [Tailwind Preflight](https://tailwindcss.com/docs/preflight)
 ([@beamwind/preflight](https://github.com/kenoxa/beamwind/blob/main/packages/preflight)):
@@ -888,7 +888,7 @@ The following Tailwind v2 features are not yet available in beamwind:
 - `d-*`: allows to set the `display` property (from [bootstrap](https://v5.getbootstrap.com/docs/5.0/utilities/display/))
 - `appearance-*`: supports [all values](https://developer.mozilla.org/en-US/docs/Web/CSS/appearance)
 - `bg-<color>`: if a "_on_" color) (`on-<color>`) is found it is used as default CSS `color`; to change to a different color use `text-<color>` (tailwind style)
-- `underline`, `text-no-underline`, `text-line-through`, `text-uppercase`, `text-lowercase` and `text-capitalize`: this allows grouping of text directives like `text(lg red-500 capitalize underline)`
+- `text-underline`, `text-no-underline`, `text-line-through`, `text-uppercase`, `text-lowercase` and `text-capitalize`: this allows grouping of text directives like `text(lg red-500 capitalize underline)`
 - `font-italic` and `font-no-italic`: this allows grouping of font directives like `font(sans italic bold)`
 - `border` and `divide` allow to combine positions (`t`op, `r`righ, `l`eft, `b`ottom)
 
