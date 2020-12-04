@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/reset",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An opinionated set of base styles for legacy browsers like IE10/11",
   "keywords": [
     "beamwind",
@@ -32,7 +32,7 @@
     "preset": "@carv/jest-preset"
   },
   "devDependencies": {
-    "@beamwind/types": "^2.0.0",
+    "@beamwind/types": "^2.1.0",
     "nps": "^5.9.12"
   },
   "publishConfig": {

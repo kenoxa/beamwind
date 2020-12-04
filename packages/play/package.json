@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/play",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "ready to go beamwind for rapid prototyping using tailwind & system preset with auto-conversion of values",
   "keywords": [
     "beamwind",
@@ -32,11 +32,11 @@
     "preset": "@carv/jest-preset"
   },
   "dependencies": {
-    "@beamwind/core": "^2.1.0",
-    "@beamwind/preflight": "^2.0.0",
-    "@beamwind/preset-play": "^2.0.2",
-    "@beamwind/preset-system": "^2.1.0",
-    "@beamwind/preset-tailwind": "^2.0.0"
+    "@beamwind/core": "^2.2.0",
+    "@beamwind/preflight": "^2.0.1",
+    "@beamwind/preset-play": "^2.0.3",
+    "@beamwind/preset-system": "^2.2.0",
+    "@beamwind/preset-tailwind": "^2.0.1"
   },
   "devDependencies": {
     "nps": "^5.9.12"
