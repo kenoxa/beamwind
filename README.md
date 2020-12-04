@@ -877,8 +877,6 @@ TODO see TODO.md
 The following Tailwind v2 features are not yet available in beamwind:
 
 - dark mode
-- space-x-reverse
-- divide-y-reverse
 - [Font Variant Numeric](https://tailwindcss.com/docs/font-variant-numeric)
 
 > Did we miss a feature? Please [open a an issue](https://github.com/kenoxa/beamwind/issues/new) or [contribute](#contribute) a pull request.
@@ -900,6 +898,20 @@ The following Tailwind v2 features are not yet available in beamwind:
 - `rotate`, `scale` , `skew` and `translate` can be used without `transform` when used alone
 
   > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
+
+### IE 11 compatibility
+
+> Some new tailwind features use [CSS Variables (Custom Properties)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) and are therefore not compatible with [IE 11](https://caniuse.com/css-variables).
+> Beamwind includes fallbacks which mimic [Tailwind v1](https://v1.tailwindcss.com/) behavior.
+
+- Color Opacity
+  - [border-opacity-*](https://tailwindcss.com/docs/border-opacity)
+  - [bg-opacity-*](https://tailwindcss.com/docs/background-opacity)
+  - [text-opacity-*](https://tailwindcss.com/docs/text-opacity)
+  - [placeholder-opacity-*](https://tailwindcss.com/docs/placeholder-opacity)
+- Reversing Children Order
+  - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order)
+  - [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
 
 ## Oceanwind Differences
 
@@ -942,6 +954,7 @@ Some notable differences are:
   - [Gradient Color Stops](https://tailwindcss.com/docs/gradient-color-stops)
   - [ring](https://tailwindcss.com/docs/ring-width)
   - [auto-cols-\*](https://tailwindcss.com/docs/grid-auto-columns) and [auto-rows-\*](https://tailwindcss.com/docs/grid-auto-rows)
+  - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order) and [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
 
 - oceanwind supports duplicate directives tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))

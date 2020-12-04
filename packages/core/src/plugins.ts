@@ -6,6 +6,8 @@ import { join, joinTruthy, merge, tail } from './util'
 
 // Shared variables
 let _: undefined | string | Declarations | string[] | boolean
+let __: undefined | string
+let $: undefined | string
 
 /* eslint-disable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */
 
@@ -45,6 +47,30 @@ const withOpacityFallback = (
         [`--${tag(kind + '-opacity')}`]: '1',
         [property]: (_ = asRGBA(color, tag(kind + '-opacity'))) && _ !== color ? [color, _] : color,
       }
+    : undefined
+
+const reversableEdge = (
+  parts: string[],
+  theme: ThemeValueResolver,
+  section: 'divideWidth' | 'space',
+  tag: PluginContext['tag'],
+  prefix: string,
+  suffix?: string,
+): Declarations | undefined =>
+  (_ = ({ x: ['right', 'left'], y: ['bottom', 'top'] } as Record<string, undefined | string[]>)[
+    parts[1]
+  ]) && ($ = `--${tag(`${parts[0]}-${parts[1]}-reverse`)}`)
+    ? parts[2] === 'reverse'
+      ? {
+          [$]: '1',
+        }
+      : {
+          [$]: '0',
+          [joinTruthy([prefix, _[0], suffix])]:
+            (__ = theme(section, tail(parts, 2))) && `calc(${__} * var(${$}))`,
+          // IE 11 fallback
+          [joinTruthy([prefix, _[1], suffix])]: __ && [__, `calc(${__} * calc(1 - var(${$})))`],
+        }
     : undefined
 
 const propertyAndValue = (parts: string[]): Declarations => ({ [parts[0]]: join(tail(parts)) })
@@ -792,10 +818,10 @@ export const utilities: Record<string, Plugin> = {
       ? { 'font-family': _ }
       : { 'font-weight': theme('fontWeight', tail(parts)) },
 
-  space: (parts, theme) =>
-    (_ = ({ x: 'l', y: 't' } as Record<string, undefined | string>)[parts[1]]) && [
+  space: (parts, theme, { tag }) =>
+    (_ = reversableEdge(parts, theme, 'space', tag, 'margin')) && [
       '>:not([hidden])~:not([hidden])',
-      edges(theme('space', tail(parts, 2)), _, 'margin'),
+      _,
     ],
 
   // .border	border-width: 1px;
@@ -813,9 +839,9 @@ export const utilities: Record<string, Plugin> = {
   // .divide-x
   // .divide-x-8
   divide: (parts, theme, { tag }) =>
-    (_ = (_ = ({ x: 'l', y: 't' } as Record<string, undefined | string>)[parts[1]])
-      ? edges(theme('divideWidth', tail(parts, 2)), _, 'border', 'width')
-      : border(parts, theme, tag)) && ['>:not([hidden])~:not([hidden])', _],
+    (_ =
+      reversableEdge(parts, theme, 'divideWidth', tag, 'border', 'width') ||
+      border(parts, theme, tag)) && ['>:not([hidden])~:not([hidden])', _],
 
   placeholder: (parts, theme, { tag }) =>
     (_ =

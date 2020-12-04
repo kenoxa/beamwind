@@ -51,14 +51,6 @@ test('same color is inserted only once', () => {
   ])
 })
 
-test('suffix is considered for hash', () => {
-  expect(instance.bw('border-l divide-x')).toBe('_gg8x1m _9d49do')
-  expect(injector.target).toMatchObject([
-    '._gg8x1m{border-left-width:1px}',
-    '._9d49do>:not([hidden])~:not([hidden]){border-left-width:1px}',
-  ])
-})
-
 test('transform', () => {
   expect(instance.bw('transform')).toBe('_qlfj4a')
   expect(injector.target).toMatchObject([
