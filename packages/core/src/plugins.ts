@@ -645,6 +645,7 @@ export const utilities: Record<string, Plugin> = {
 
   inline: display,
   block: display,
+  contents: display,
 
   table(parts) {
     switch (parts[1]) {
