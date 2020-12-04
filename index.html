@@ -731,7 +731,7 @@ injector.target <span class="hljs-comment">// Array with sorted CSS rulesText</s
 				<p>There are some case where you need to create separate <a href="https://beamwind.js.org/packages/types/interfaces/instance.html">instance</a> of beamwind:</p>
 				<ul>
 					<li>for reduced bundle size by using a own preset</li>
-					<li>IE11 support using <a href="https://github.com/kenoxa/beamwind/blob/main/packages/reset">reset</a></li>
+					<li>IE 11 support using <a href="https://github.com/kenoxa/beamwind/blob/main/packages/reset">reset</a></li>
 				</ul>
 				<p>Basically you need to do the following:</p>
 				<pre><code class="language-js"><span class="hljs-comment">// Choose either reset or preflight</span>
@@ -827,11 +827,13 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 				<a href="#tailwind-differences" id="tailwind-differences" style="color: inherit; text-decoration: none;">
 					<h2>Tailwind Differences</h2>
 				</a>
+				<blockquote>
+					<p>Beamwind aims to support with Tailwind v2 and v1 (see <a href="#ie-11-compatibility">IE 11 Compatibilty</a>). <a href="#missing-features">Some features</a> are not yet implemented.</p>
+				</blockquote>
 				<ul>
-					<li>beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features</li>
 					<li>beamwind supports <a href="#variant-grouping">variant</a> and <a href="#directive-grouping">directive</a> grouping to reduce the overwhelming maze Tailwind sometimes creates</li>
 					<li>beamwind theme has a slightly different format:<ul>
-							<li><code>colors</code> is <a href="#colors">flat-object</a></li>
+							<li><code>colors</code> is a <a href="#colors">flat-object</a></li>
 							<li><code>fontFamily</code>s are strings</li>
 							<li><code>animation</code> additionally accepts a <a href="https://beamwind.js.org/packages/types/modules.html#themeanimation">tuple form</a> to infer the key within <a href="https://beamwind.js.org/packages/types/interfaces/theme.html#keyframes">keyframes</a> which waypoints should be injected</li>
 							<li>values maybe <a href="#referencing-other-values">theme resolvers</a></li>
@@ -845,9 +847,7 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 				</a>
 				<p>The following Tailwind v2 features are not yet available in beamwind:</p>
 				<ul>
-					<li>dark mode</li>
-					<li>space-x-reverse</li>
-					<li>divide-y-reverse</li>
+					<li><a href="https://tailwindcss.com/docs/dark-mode">Dark Mode</a></li>
 					<li><a href="https://tailwindcss.com/docs/font-variant-numeric">Font Variant Numeric</a></li>
 				</ul>
 				<blockquote>
@@ -882,6 +882,38 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 						</blockquote>
 					</li>
 				</ul>
+				<a href="#ie-11-compatibility" id="ie-11-compatibility" style="color: inherit; text-decoration: none;">
+					<h3>IE 11 compatibility</h3>
+				</a>
+				<blockquote>
+					<p>Some new tailwind features use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS Variables (Custom Properties)</a> and are therefore not compatible with <a href="https://caniuse.com/css-variables">IE 11</a>.</p>
+				</blockquote>
+				<p>Beamwind includes fallbacks for the following directives which mimic <a href="https://v1.tailwindcss.com/">Tailwind v1</a> behavior:</p>
+				<ul>
+					<li><p>Color Opacity</p>
+						<ul>
+							<li><a href="https://tailwindcss.com/docs/border-opacity">border-opacity-*</a></li>
+							<li><a href="https://tailwindcss.com/docs/background-opacity">bg-opacity-*</a></li>
+							<li><a href="https://tailwindcss.com/docs/text-opacity">text-opacity-*</a></li>
+							<li><a href="https://tailwindcss.com/docs/placeholder-opacity">placeholder-opacity-*</a></li>
+						</ul>
+					</li>
+					<li><p>Reversing Children Order</p>
+						<ul>
+							<li><a href="https://tailwindcss.com/docs/divide-width#reversing-children-order">divide-*-reverse</a></li>
+							<li><a href="https://tailwindcss.com/docs/space#reversing-children-order">space-*-reverse</a></li>
+						</ul>
+					</li>
+					<li><p><code>rotate</code>, <code>scale</code> , <code>skew</code> and <code>translate</code> can only be used alone</p>
+						<blockquote>
+							<p><code>rotate-45</code> works but when using <code>rotate-45 scale-150</code> only one of both is applied. In that case you must use <code>transform</code>: <code>transform rotate-45 scale-150</code></p>
+						</blockquote>
+					</li>
+				</ul>
+				<p>Some directive only work with CSS Variables and are not supported in IE 11:</p>
+				<ul>
+					<li><a href="https://tailwindcss.com/docs/ring-width">Ring</a></li>
+				</ul>
 				<a href="#oceanwind-differences" id="oceanwind-differences" style="color: inherit; text-decoration: none;">
 					<h2>Oceanwind Differences</h2>
 				</a>
@@ -891,9 +923,9 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 				<p>This library is heavily inspired and based on <a href="https://www.npmjs.com/package/oceanwind">oceanwind</a>. Without the work of <a href="https://github.com/lukejacksonn">Luke Jackson</a> this would not have been possible! He wrote a great <a href="http://blog.lukejacksonn.com/oceanwind">blog post</a> about the development of oceanwind.</p>
 				<p>Some notable differences are:</p>
 				<ul>
-					<li><p>beamwind does not generate strictly atomic CSS</p>
-						<p>Some tailwind classes like <a href="https://tailwindcss.com/docs/font-size">font-size</a> are comprised of several CSS declarations.
-						They must be in one CSS declaration block to be overridden by single CSS declarations liken <a href="https://tailwindcss.com/docs/line-height">line-heigth</a>.</p>
+					<li><p>oceanwind supports duplicate directives tracking</p>
+					</li>
+					<li><p>beamwind is 7-10 times faster than oceanwind (see <a href="https://github.com/kenoxa/beamwind/blob/main/benchmarks">Benchmarks</a>)</p>
 					</li>
 					<li><p>beamwind API <a href="#function-signature">additionally supports</a></p>
 						<ul>
@@ -915,24 +947,37 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 					<li><p>beamwind supports additional tailwind features like</p>
 						<ul>
 							<li><a href="https://tailwindcss.com/docs/animation">animation</a></li>
-							<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover">group-hover</a></li>
-							<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#group-focus">group-focus</a></li>
 							<li><a href="https://tailwindcss.com/docs/font-size#providing-a-default-line-height">font-size with default line-height</a></li>
 							<li><a href="https://tailwindcss.com/docs/font-size#providing-a-default-letter-spacing">font-size with default letter-spacing</a></li>
 							<li><a href="https://tailwindcss.com/docs/text-overflow#overflow-ellipsis">overflow-ellipsis</a></li>
 							<li><a href="https://tailwindcss.com/docs/text-overflow#overflow-clip">overflow-clip</a></li>
 							<li><a href="https://tailwindcss.com/docs/transition-property">transition</a> with default timing function and duration</li>
 							<li><a href="https://tailwindcss.com/docs/animate">animate</a></li>
-							<li><a href="https://tailwindcss.com/docs/transform">transform</a></li>
+							<li><a href="https://tailwindcss.com/docs/transform">transform</a> and <a href="https://tailwindcss.com/docs/transform#hardware-acceleration">transform-gpu</a></li>
 							<li><a href="https://tailwindcss.com/docs/background-image">Background Image</a></li>
 							<li><a href="https://tailwindcss.com/docs/gradient-color-stops">Gradient Color Stops</a></li>
 							<li><a href="https://tailwindcss.com/docs/ring-width">ring</a></li>
 							<li><a href="https://tailwindcss.com/docs/grid-auto-columns">auto-cols-*</a> and <a href="https://tailwindcss.com/docs/grid-auto-rows">auto-rows-*</a></li>
+							<li><a href="https://tailwindcss.com/docs/divide-width#reversing-children-order">divide-*-reverse</a> and <a href="https://tailwindcss.com/docs/space#reversing-children-order">space-*-reverse</a></li>
+							<li><a href="https://tailwindcss.com/docs/background-clip">Background Clip</a></li>
+							<li><a href="https://tailwindcss.com/docs/place-self">place-content-*</a>, <a href="https://tailndcss.com/docs/place-items">place-items-*</a> and <a href="https://tailwindcss.com/docs/place-self">place-self-*</a></li>
+							<li><a href="https://tailwindcss.com/docs/overscroll-behavior">Overscroll Behavior</a></li>
+							<li>[Hover, Focus, &amp; Other States]<a href="https://tailwindcss.com/docs/hover-focus-and-other-states">https://tailwindcss.com/docs/hover-focus-and-other-states</a>)<ul>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover">group-hover</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#group-focus">group-focus</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe">motion-safe</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce">motion-reduce</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#first-child">first-child</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#last-child">last-child</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#odd-child">odd-child</a></li>
+									<li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#even-child">even-child</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
-					<li><p>oceanwind supports duplicate directives tracking</p>
-					</li>
-					<li><p>beamwind is 7-10 times faster than oceanwind (see <a href="https://github.com/kenoxa/beamwind/blob/main/benchmarks">Benchmarks</a>)</p>
+					<li><p>beamwind does not generate strictly atomic CSS</p>
+						<p>Some tailwind classes like <a href="https://tailwindcss.com/docs/font-size">font-size</a> are comprised of several CSS declarations.
+						They must be in one CSS declaration block to be overridden by single CSS declarations liken <a href="https://tailwindcss.com/docs/line-height">line-heigth</a>.</p>
 					</li>
 				</ul>
 				<a href="#size-comparison" id="size-comparison" style="color: inherit; text-decoration: none;">
