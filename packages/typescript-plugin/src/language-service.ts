@@ -224,7 +224,6 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
     //   return cached
     // }
 
-    const { text } = context
     const completions: vscode.CompletionList = {
       isIncomplete: false,
       items: [],
@@ -271,6 +270,7 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
     let char: string
     let buffer = ''
     let tokenStartOffset = 0
+    const { text } = context
 
     for (let index = 0; index < offset; index++) {
       switch ((char = text[index])) {
@@ -332,12 +332,12 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
           kind: vscode.CompletionItemKind.EnumMember,
           data: 'screens',
           label: `${screen}:`,
+          sortText: `#${screen}`,
           detail: `breakpoint @ ${this.state.screens[screen]}`,
           documentation: {
             kind: vscode.MarkupKind.PlainText,
             value: `@media (min-width: ${this.state.screens[screen]})`,
           },
-          sortText: `#${screen}`,
           textEdit: {
             newText: `${screen}:`.slice(buffer.length),
             range: {
@@ -352,9 +352,9 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
           kind: vscode.CompletionItemKind.Unit,
           data: 'variant',
           label: `${variant}:`,
+          sortText: `:${variant}`,
           detail: `pseudo-class ${variant}`,
           documentation: { kind: vscode.MarkupKind.PlainText, value: `Add ${variant} variant` },
-          sortText: `:${variant}`,
           textEdit: {
             newText: `${variant}:`.slice(buffer.length),
             range: {
@@ -381,8 +381,8 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
           kind: vscode.CompletionItemKind.Module,
           data: 'directive-group',
           label: prefix ? group.slice(prefix.length + 1) : group,
-          detail: `${group}(...)`,
           sortText: `=${group}`,
+          detail: `${group}(...)`,
           documentation: { kind: vscode.MarkupKind.PlainText, value: `Start a new ${group} group` },
           textEdit: {
             newText: (prefix ? group.slice(prefix.length + 1) : group).slice(buffer.length),
@@ -408,6 +408,7 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
               : vscode.CompletionItemKind.Property,
           data: 'directive',
           label: prefix ? directive.slice(prefix.length + 1) : directive,
+          sortText: `=${naturalExpand(directive)}`,
           // VS Code bug causes '0' to not display in some cases
           detail: directive === '0' ? '0 ' : directive,
           // TODO https://github.com/tailwindlabs/tailwindcss-intellisense/blob/264cdc0c5e6fdbe1fee3c2dc338354235277ed08/packages/tailwindcss-language-service/src/util/color.ts#L28
@@ -429,7 +430,6 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
                     '```',
                   ].join('\n'),
                 },
-          sortText: `=${naturalExpand(directive)}`,
           textEdit: {
             newText: (prefix ? directive.slice(prefix.length + 1) : directive).slice(buffer.length),
             range: {
