@@ -927,11 +927,8 @@ This library is heavily inspired and based on [oceanwind]. Without the work of [
 
 Some notable differences are:
 
-- beamwind does not generate strictly atomic CSS
-
-  Some tailwind classes like [font-size](https://tailwindcss.com/docs/font-size) are comprised of several CSS declarations.
-  They must be in one CSS declaration block to be overridden by single CSS declarations liken [line-heigth](https://tailwindcss.com/docs/line-height).
-
+- oceanwind supports duplicate directives tracking
+- beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
 - beamwind API [additionally supports](#function-signature)
 
   - variadic arguments like `bw('bg-blue', 'text-white')`
@@ -939,7 +936,6 @@ Some notable differences are:
   - Tagged Template Interpolation values may additionally be Array, Object or Function ([inline plugins](#inline-plugins))
   - Object values which are String, Array or Object start a new variant group
   - support for [inline plugins](#inline-plugins)
-
 - beamwind allows to define new plugins (see [Plugins](#plugins))
 - beamwind allows to generate [readable class names](#hashed-class-names)
 - beamwind adheres to the pseudo class and variant order as used by tailwind
@@ -947,8 +943,6 @@ Some notable differences are:
 - beamwind supports additional tailwind features like
 
   - [animation](https://tailwindcss.com/docs/animation)
-  - [group-hover](https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover)
-  - [group-focus](https://tailwindcss.com/docs/hover-focus-and-other-states#group-focus)
   - [font-size with default line-height](https://tailwindcss.com/docs/font-size#providing-a-default-line-height)
   - [font-size with default letter-spacing](https://tailwindcss.com/docs/font-size#providing-a-default-letter-spacing)
   - [overflow-ellipsis](https://tailwindcss.com/docs/text-overflow#overflow-ellipsis)
@@ -962,11 +956,22 @@ Some notable differences are:
   - [auto-cols-\*](https://tailwindcss.com/docs/grid-auto-columns) and [auto-rows-\*](https://tailwindcss.com/docs/grid-auto-rows)
   - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order) and [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
   - [Background Clip](https://tailwindcss.com/docs/background-clip)
-  - [place-content-*](https://tailwindcss.com/docs/place-self), [place-items-*](https://tailwindcss.com/docs/place-items) and [place-self-*](https://tailwindcss.com/docs/place-self)
+  - [place-content-*](https://tailwindcss.com/docs/place-self), [place-items-*](https://tailndcss.com/docs/place-items) and [place-self-*](https://tailwindcss.com/docs/place-self)
   - [Overscroll Behavior](https://tailwindcss.com/docs/overscroll-behavior)
-  
-- oceanwind supports duplicate directives tracking
-- beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
+  - [Hover, Focus, & Other States]https://tailwindcss.com/docs/hover-focus-and-other-states)
+    - [group-hover](https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover)
+    - [group-focus](https://tailwindcss.com/docs/hover-focus-and-other-states#group-focus)
+    - [motion-safe](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe)
+    - [motion-reduce](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce)
+    - [first-child](https://tailwindcss.com/docs/hover-focus-and-other-states#first-child)
+    - [last-child](https://tailwindcss.com/docs/hover-focus-and-other-states#last-child)
+    - [odd-child](https://tailwindcss.com/docs/hover-focus-and-other-states#odd-child)
+    - [even-child](https://tailwindcss.com/docs/hover-focus-and-other-states#even-child)
+
+- beamwind does not generate strictly atomic CSS
+
+  Some tailwind classes like [font-size](https://tailwindcss.com/docs/font-size) are comprised of several CSS declarations.
+  They must be in one CSS declaration block to be overridden by single CSS declarations liken [line-heigth](https://tailwindcss.com/docs/line-height).
 
 ### Size Comparison
 

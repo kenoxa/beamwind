@@ -40,7 +40,7 @@ const seperatorPrecedence = (string: string): number => {
 // Pesude and groupd variant presedence
 // Chars 3 - 8: Uniquely identifies a pseudo selector
 // represented as a bit set for each relevant value
-// 17 bits: one for each variant above plus one for unknown variants
+// 16 bits: one for each variant above plus one for unknown variants
 
 // Sources:
 // - https://bitsofco.de/when-do-the-hover-focus-and-active-pseudo-classes-apply/#orderofstyleshoverthenfocusthenactive
@@ -51,20 +51,21 @@ const seperatorPrecedence = (string: string): number => {
 const PRECEDENCES_BY_PSEUDO_CLASS = [
   /* fi */ 'rst' /* : 0 */,
   /* la */ 'st' /* : 1 */,
-  /* od */ 'd' /* : 2 */,
-  /* ev */ 'en' /* : 3 */,
-  /* li */ 'nk' /* : 4 */,
-  /* vi */ 'sited' /* : 5 */,
-  /* em */ 'pty' /* : 6 */,
-  /* ch */ 'ecked' /* : 7 */,
-  /* gr */ 'oup-h' /* over : 8 */,
-  /* gr */ 'oup-f' /* ocus : 9 */,
-  /* fo */ 'cus-w' /* ithin : 10 */,
-  /* ho */ 'ver' /* : 11 */,
-  /* fo */ 'cus' /* : 12 */,
-  /* fo */ 'cus-v' /* isible : 13 */,
-  /* ac */ 'tive' /* : 14 */,
-  /* di */ 'sable' /* d : 15 */,
+  // ':even': 'nth-child(2n)',
+  // ':odd': 'nth-child(odd)',
+  /* nt */ 'h-chi' /* h-child(odd): 2 */,
+  /* li */ 'nk' /* : 3 */,
+  /* vi */ 'sited' /* : 4 */,
+  /* em */ 'pty' /* : 5 */,
+  /* ch */ 'ecked' /* : 6 */,
+  /* gr */ 'oup-h' /* over : 7 */,
+  /* gr */ 'oup-f' /* ocus : 8 */,
+  /* fo */ 'cus-w' /* ithin : 9 */,
+  /* ho */ 'ver' /* : 10 */,
+  /* fo */ 'cus' /* : 11 */,
+  /* fo */ 'cus-v' /* isible : 12 */,
+  /* ac */ 'tive' /* : 13 */,
+  /* di */ 'sable' /* d : 14 */,
 ]
 /* eslint-enable capitalized-comments */
 
@@ -161,20 +162,20 @@ export const calculatePrecedence = (
 ): number => {
   const rp = responsivePrecedence(variantsCss[0] || '')
 
-  // 38 bits
+  // 37 bits
   return (
-    // Variants: 26 bits
+    // Variants: 25 bits
     // 5: responsive
-    (((rp & 31) << 21) |
+    (((rp & 31) << 20) |
       // 4: precedence of other at-rules
       ((seperatorPrecedence(
         join((rp ? tail(variantsCss) : variantsCss).filter(isAtRuleVariant), ';'),
       ) &
         15) <<
-        17) |
-      // 17: pseudo and group variants
+        16) |
+      // 16: pseudo and group variants
       // eslint-disable-next-line unicorn/no-reduce
-      (variantsCss.reduce(accumulatePseudoPrecedence, 0) & 0x1ffff)) *
+      (variantsCss.reduce(accumulatePseudoPrecedence, 0) & 0xffff)) *
       // Declarations: 12 bits = 4096
       (1 << 12) +
     // 4: number of declarations (descending)

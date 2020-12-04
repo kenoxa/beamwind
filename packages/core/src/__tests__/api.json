@@ -914,5 +914,9 @@
   "bg-clip-border": ".bg-clip-border{background-clip:border-box}",
   "bg-clip-padding": ".bg-clip-padding{background-clip:padding-box}",
   "bg-clip-content": ".bg-clip-content{background-clip:content-box}",
-  "bg-clip-text": ".bg-clip-text{background-clip:text}"
+  "bg-clip-text": ".bg-clip-text{background-clip:text}",
+  "first:font-bold": ".first\\:font-bold:first-child{font-weight:700}",
+  "last:font-bold": ".last\\:font-bold:last-child{font-weight:700}",
+  "odd:font-bold": ".odd\\:font-bold:nth-child(odd){font-weight:700}",
+  "even:font-bold": ".even\\:font-bold:nth-child(2n){font-weight:700}"
 }
