@@ -18,6 +18,7 @@ export function processPlugins() {
     separator,
   } = config
 
+  // eslint-disable-next-line unicorn/consistent-function-scoping
   const applyConfiguredPrefix = (selector) => selector
 
   const getConfigValue = (path, defaultValue) => (path ? dlv(config, path, defaultValue) : config)
@@ -32,7 +33,7 @@ export function processPlugins() {
     const handler = typeof plugin === 'function' ? plugin : dlv(plugin, 'handler', () => {})
 
     handler({
-      // postcss,
+      // Postcss,
       config: getConfigValue,
 
       theme: (path, defaultValue) => {
@@ -65,7 +66,7 @@ export function processPlugins() {
       prefix: applyConfiguredPrefix,
 
       addUtilities: (newUtilities) => {
-        // const defaultOptions = { variants: [], respectPrefix: true, respectImportant: true }
+        // => const defaultOptions = { variants: [], respectPrefix: true, respectImportant: true }
 
         // options = Array.isArray(options)
         //   ? { ...defaultOptions, variants: options }
@@ -74,38 +75,34 @@ export function processPlugins() {
         // .directive => CSS rule
         Object.assign(utilities, ...(Array.isArray(newUtilities) ? newUtilities : [newUtilities]))
 
-        // console.log(utilities)
-        // pluginUtilities.push(
+        // =>pluginUtilities.push(
         //   wrapWithLayer(wrapWithVariants(styles.nodes, options.variants), 'utilities'),
         // )
       },
 
-      addComponents: (components, options) => {
-        // const defaultOptions = { variants: [], respectPrefix: true }
+      addComponents: (_components, _options) => {
+        // => const defaultOptions = { variants: [], respectPrefix: true }
         // options = Array.isArray(options)
         //   ? { ...defaultOptions, variants: options }
         //   : { ...defaultOptions, ...options }
-        // console.log({ components, options })
         // pluginComponents.push(
         //   wrapWithLayer(wrapWithVariants(styles.nodes, options.variants), 'components'),
         // )
       },
 
-      addBase: (baseStyles) => {
-        // console.log({ baseStyles })
-        // pluginBaseStyles.push(wrapWithLayer(parseStyles(baseStyles), 'base'))
+      addBase: (_baseStyles) => {
+        // => pluginBaseStyles.push(wrapWithLayer(parseStyles(baseStyles), 'base'))
       },
 
-      addVariant: (name, generator, options = {}) => {
-        // console.log({ name, generator, options })
-        // pluginVariantGenerators[name] = generateVariantFunction(generator, options)
+      addVariant: (_name, _generator, _options = {}) => {
+        // =>pluginVariantGenerators[name] = generateVariantFunction(generator, options)
       },
     })
   })
 
-  // TODO 'group'
-
-  const directives = {}
+  const directives = {
+    group: { selector: '.group', properties: {} },
+  }
 
   for (const selector of Object.keys(utilities)) {
     // '@keyframes spin'

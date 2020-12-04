@@ -37,8 +37,8 @@
     "@beamwind/preset-tailwind": "^2.0.0"
   },
   "devDependencies": {
-    "tailwindcss": "^2.0.1",
-    "nps": "^5.9.12"
+    "nps": "^5.9.12",
+    "tailwindcss": "^2.0.1"
   },
   "publishConfig": {
     "access": "public"
