@@ -20,7 +20,9 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "nps",
+    "postbuild": "size-limit",
     "prepublishOnly": "nps",
+    "size": "size-limit",
     "test": "nps"
   },
   "prettier": "@carv/prettier-config",
@@ -37,9 +39,17 @@
     "@beamwind/preset-system": "^2.2.0"
   },
   "devDependencies": {
-    "nps": "^5.9.12"
+    "@size-limit/preset-small-lib": "^4.6.0",
+    "nps": "^5.9.12",
+    "size-limit": "^4.6.0"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "./dist/script/system.js",
+      "limit": "11.5 KB"
+    }
+  ]
 }

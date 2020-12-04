@@ -35,7 +35,6 @@
     "@beamwind/colors": "^2.0.3"
   },
   "devDependencies": {
-    "@beamwind/types": "^2.1.0",
     "nps": "^5.9.12"
   },
   "publishConfig": {
