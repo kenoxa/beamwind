@@ -154,17 +154,29 @@ const gridPlugin = (kind: string): Plugin => (parts) => {
   }
 }
 
-const contentPluginFor = (property: string): Plugin => (parts) => {
+const placeHelper = (property: string, parts: string[]): Declarations => ({
+  // 'auto'
+  // 'start'
+  // 'end'
+  // 'center'
+  // 'stretch'
+  // 'between'
+  // 'around'
+  // 'evenly'
+  // 'between', 'around', 'evenly' => space-$0
+  // 4th char is unique
+  // eslint-disable-next-line no-implicit-coercion
+  [property]: (~'wun'.indexOf(parts[1][3]) ? 'space-' : '') + parts[1],
+})
+
+const contentPluginFor = (property: string) => (parts: string[]): Declarations => {
   switch (parts[1]) {
     case 'start':
     case 'end':
       return { [property]: `flex-${parts[1]}` }
-    case 'between':
-    case 'around':
-      return { [property]: `space-${parts[1]}` }
   }
 
-  return { [property]: parts[1] }
+  return placeHelper(property, parts)
 }
 
 export const utilities: Record<string, Plugin> = {
@@ -750,6 +762,8 @@ export const utilities: Record<string, Plugin> = {
   content: contentPluginFor('align-content'),
   justify: contentPluginFor('justify-content'),
   self: contentPluginFor('align-self'),
+
+  place: (parts) => placeHelper('place-' + parts[1], tail(parts)),
 
   order: (parts, theme) => ({ order: theme('order', tail(parts)) }),
 

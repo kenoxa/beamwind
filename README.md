@@ -956,7 +956,8 @@ Some notable differences are:
   - [auto-cols-\*](https://tailwindcss.com/docs/grid-auto-columns) and [auto-rows-\*](https://tailwindcss.com/docs/grid-auto-rows)
   - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order) and [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
   - [Background Clip](https://tailwindcss.com/docs/background-clip)
-  
+  - [place-content-*](https://tailwindcss.com/docs/place-self), [place-items-*](https://tailwindcss.com/docs/place-items) and [place-self-*](https://tailwindcss.com/docs/place-self)
+
 - oceanwind supports duplicate directives tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
 
