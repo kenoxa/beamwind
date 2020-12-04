@@ -74,7 +74,12 @@ export interface Context {
   w: (directive: string, message: string) => void
 }
 
+const withoutDarkVariant = (variant: string): boolean => variant !== ':dark'
+
 export const createContext = (config?: ConfigurationOptions | ConfigurationOptions[]): Context => {
+  let darkMode: ConfigurationOptions['darkMode'] = 'media'
+  let darkModeClass = 'dark'
+
   let activeTheme = theme
   let activePlugins = builtinUtilities
 
@@ -92,9 +97,15 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
   const cachedClassNames = createCache<boolean>()
   const sortedPrecedences: number[] = []
 
+  const withDarkModeClass = (selectorDecorator: SelectorDecorator): SelectorDecorator => (
+    selector,
+  ) => `.${darkModeClass} ${selectorDecorator(selector)}`
+
   const setup = (nextConfig?: ConfigurationOptions | ConfigurationOptions[]): void =>
     (is.array(nextConfig) ? nextConfig : [nextConfig]).forEach(
       ({
+        darkMode: nextDarkMode = darkMode,
+        darkModeClass: nextDarkModeClass = darkModeClass,
         theme: nextTheme,
         plugins: newPlugins,
         init,
@@ -107,6 +118,9 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
         if (nextInjector && sortedPrecedences.length > 0) {
           throw new Error('Changing the injector after first use is not supported')
         }
+
+        darkMode = nextDarkMode
+        darkModeClass = nextDarkModeClass
 
         nextTheme && (activeTheme = activeTheme.extend(nextTheme))
         activePlugins = merge(activePlugins, newPlugins)
@@ -170,6 +184,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
     rule: string,
     variantsCss: readonly string[],
     declarations: Declarations,
+    darkMode: boolean,
   ): void => {
     if (!cachedClassNames.has(className)) {
       // eslint-disable-next-line unicorn/explicit-length-check
@@ -178,7 +193,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
         inits.length = 0
       }
 
-      insert(rule, calculatePrecedence(variantsCss, declarations))
+      insert(rule, calculatePrecedence(darkMode, variantsCss, declarations))
 
       cachedClassNames.set(className, true)
     }
@@ -218,6 +233,14 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
       let className = idToClassName.get(id)
 
       if (!className) {
+        // eslint-disable-next-line unicorn/prefer-includes
+        const useDarkMode = variants.indexOf(':dark') >= 0
+
+        if (useDarkMode && darkMode === 'class') {
+          selectorDecorator = withDarkModeClass(selectorDecorator)
+          variants = variants.filter(withoutDarkVariant)
+        }
+
         const variantsCss = variants.map(variantToCss)
         const declarationBody = serializeDeclarationList(declarations)
 
@@ -231,6 +254,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
           createRule(className, variantsCss, declarationBody, selectorDecorator, tag),
           variantsCss,
           declarations,
+          useDarkMode,
         )
       }
 
@@ -254,7 +278,7 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
 
         const rule = `@keyframes ${className}{${declarationBody}}`
 
-        inject(id, className, rule, [rule], {})
+        inject(id, className, rule, [rule], {}, false)
       }
 
       return className

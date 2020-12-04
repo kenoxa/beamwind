@@ -4,6 +4,7 @@ import { tail } from './util'
 let size: string | undefined
 
 const variants: Record<string, string> = {
+  ':dark': '@media (prefers-color-scheme:dark)',
   ':sticky': '@supports ((position: -webkit-sticky) or (position:sticky))',
   ':motion-reduce': '@media (prefers-reduced-motion:reduce)',
   ':motion-safe': '@media (prefers-reduced-motion:no-preference)',

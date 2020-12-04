@@ -157,16 +157,20 @@ const max = (
   )
 
 export const calculatePrecedence = (
+  darkMode: boolean,
   variantsCss: readonly string[],
   declarations: Declarations,
 ): number => {
   const rp = responsivePrecedence(variantsCss[0] || '')
 
-  // 37 bits
+  // 38 bits
   return (
     // Variants: 25 bits
     // 5: responsive
-    (((rp & 31) << 20) |
+    (((rp & 31) << 21) |
+      // 1: dark mode flag
+      // eslint-disable-next-line no-implicit-coercion
+      (+darkMode << 20) |
       // 4: precedence of other at-rules
       ((seperatorPrecedence(
         join((rp ? tail(variantsCss) : variantsCss).filter(isAtRuleVariant), ';'),

@@ -27,15 +27,15 @@ As with all systems, one of the most important things are reasoning. Why use thi
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Colors](#colors)
-  - [Spacing](#spacing)
-  - [Typography](#typography)
-  - [Scales](#scales)
-  - [Acknowledgements](#acknowledgements)
-  - [Contribute](#contribute)
-  - [License](#license)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Colors](#colors)
+- [Spacing](#spacing)
+- [Typography](#typography)
+- [Scales](#scales)
+- [Acknowledgements](#acknowledgements)
+- [Contribute](#contribute)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->

@@ -30,6 +30,16 @@ export type OnInitCallback = (rule: string) => void
 export type OnInit = (insert: OnInitCallback, theme: ThemeResolver) => void
 
 export interface ConfigurationOptions {
+  /**
+   * Determines the dark mode strategy (default: `"media"`).
+   */
+  darkMode?: 'media' | 'class'
+
+  /**
+   * Class name to use if `darkMode` is `class` (default: `"dark"`)
+   */
+  darkModeClass?: string
+
   theme?: ThemeConfiguration
 
   plugins?: Record<string, Plugin>

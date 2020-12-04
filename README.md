@@ -47,6 +47,7 @@ For rapid prototyping [@beamwind/play](https://github.com/kenoxa/beamwind/blob/m
 - [Usage](#usage)
 - [Packages](#packages)
 - [Theming](#theming)
+- [Dark Mode](#dark-mode)
 - [Plugins](#plugins)
 - [Configuration](#configuration)
 - [Selector Ordering](#selector-ordering)
@@ -396,6 +397,32 @@ Whenever elements, such as text or icons, appear in front of surfaces, those ele
 "_On_" colors are primarily applied to text, iconography, and strokes. Sometimes, they are applied to surfaces.
 
 > The `bg-<color>` directive adds a default `color` CSS declaration if a corresponding `on-*` color is found. The reverse works as well: `bg-on-<color>` adds `bg-<color>` as `color`. The `color` set in a way it can be overridden using `text-<color>` (see [Selector Ordering](#selector-ordering)).
+
+## Dark Mode
+
+Now that dark mode is a first-class feature of many operating systems, it's becoming more and more common to design a dark version of your website to go along with the default design.
+
+To make this as easy as possible, beamwind includes a dark variant that lets you style your site differently when dark mode is enabled:
+
+```jsx
+<div class={bw`bg-white dark:bg-gray-800`}>
+  <h1 class={bw`text-gray-900 dark:text-white`}>Dark mode is here!</h1>
+  <p class={bw`text-gray-600 dark:text-gray-300`}>Lorem ipsum...</p>
+</div>
+```
+
+> It's important to note that the dark mode variant is **always** enabled and available for all directives.
+
+Now whenever dark mode is enabled on the user's operating system, `dark:{directive}` classes will take precedence over unprefixed classes. The `media` strategy uses the [prefers-color-scheme media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) under the hood, but if you'd like to support toggling dark mode manually, you can also use the `class` strategy for more control:
+
+```js
+setup({
+  darkMode: 'class', // default is 'media'
+  darkModeClass: 'dark-mode', // optional, default is 'dark'
+})
+```
+
+For an example how to toggle dark mode manually read the [Tailwind Guide](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually).
 
 ## Plugins
 
@@ -858,7 +885,6 @@ TODO see TODO.md
 
 The following Tailwind v2 features are not yet available in beamwind:
 
-- [Dark Mode](https://tailwindcss.com/docs/dark-mode)
 - [Font Variant Numeric](https://tailwindcss.com/docs/font-variant-numeric)
 
 > Did we miss a feature? Please [open a an issue](https://github.com/kenoxa/beamwind/issues/new) or [contribute](#contribute) a pull request.
@@ -927,6 +953,7 @@ Some notable differences are:
 - beamwind uses [`calc()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/calc()>) to negate values - this allows to use complex expression as theme values
 - beamwind supports additional tailwind features like
 
+  - [Dark Mode](https://tailwindcss.com/docs/dark-mode)
   - [animation](https://tailwindcss.com/docs/animation)
   - [font-size with default line-height](https://tailwindcss.com/docs/font-size#providing-a-default-line-height)
   - [font-size with default letter-spacing](https://tailwindcss.com/docs/font-size#providing-a-default-letter-spacing)
