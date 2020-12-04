@@ -103,9 +103,12 @@ export function processPlugins() {
     })
   })
 
-  // TODO 'group'
-
-  const directives = {}
+  const directives = {
+    group: {
+      selector: '.group',
+      properties: {}
+    }
+  }
 
   for (const selector of Object.keys(utilities)) {
     // '@keyframes spin'
@@ -135,7 +138,7 @@ export function processPlugins() {
 
   return {
     screens,
-    variants,
+    variants: ['dark', ...variants],
     directives,
     darkMode,
     prefix,
