@@ -886,6 +886,10 @@ export const utilities: Record<string, Plugin> = {
       }
     )
   },
+
+  overscroll: (parts) => ({
+    ['overscroll-behavior' + (parts[2] ? '-' + parts[1] : '')]: parts[2] || parts[1],
+  }),
 }
 
 /* eslint-enable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */
