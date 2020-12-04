@@ -78,6 +78,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="configurationoptions.html#darkmode" class="tsd-kind-icon">dark<wbr>Mode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="configurationoptions.html#darkmodeclass" class="tsd-kind-icon">dark<wbr>Mode<wbr>Class</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="configurationoptions.html#hash" class="tsd-kind-icon">hash</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="configurationoptions.html#init" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="configurationoptions.html#injector" class="tsd-kind-icon">injector</a></li>
@@ -94,12 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="darkmode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> dark<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">dark<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;media&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;class&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L36">config.ts:36</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Determines the dark mode strategy (default: <code>&quot;media&quot;</code>).</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="darkmodeclass" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> dark<wbr>Mode<wbr>Class</h3>
+					<div class="tsd-signature tsd-kind-icon">dark<wbr>Mode<wbr>Class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L41">config.ts:41</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Class name to use if <code>darkMode</code> is <code>class</code> (default: <code>&quot;dark&quot;</code>)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hash" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hash</h3>
 					<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <a href="../modules.html#hasher" class="tsd-signature-type">Hasher</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L53">config.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L63">config.ts:63</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -109,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">:</span> <a href="../modules.html#oninit" class="tsd-signature-type">OnInit</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L48">config.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L58">config.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -124,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">injector<span class="tsd-signature-symbol">:</span> <a href="injector.html" class="tsd-signature-type">Injector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L45">config.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L55">config.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -139,7 +171,7 @@
 					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="mode.html" class="tsd-signature-type">Mode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L55">config.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L65">config.ts:65</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L42">config.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L52">config.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -165,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">plugins<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../modules.html#plugin" class="tsd-signature-type">Plugin</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L35">config.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L45">config.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <a href="../modules.html#prefixer" class="tsd-signature-type">Prefixer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L51">config.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L61">config.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -190,7 +222,7 @@
 					<div class="tsd-signature tsd-kind-icon">theme<span class="tsd-signature-symbol">:</span> <a href="../modules.html#themeconfiguration" class="tsd-signature-type">ThemeConfiguration</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/e55d59e/packages/types/src/config.ts#L33">config.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/kenoxa/beamwind/blob/11eb4aa/packages/types/src/config.ts#L43">config.ts:43</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,6 +246,12 @@
 					<li class="current tsd-kind-interface">
 						<a href="configurationoptions.html" class="tsd-kind-icon">Configuration<wbr>Options</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="configurationoptions.html#darkmode" class="tsd-kind-icon">dark<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="configurationoptions.html#darkmodeclass" class="tsd-kind-icon">dark<wbr>Mode<wbr>Class</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="configurationoptions.html#hash" class="tsd-kind-icon">hash</a>
 							</li>

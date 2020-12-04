@@ -99,6 +99,7 @@
 						<li><a href="#usage">Usage</a></li>
 						<li><a href="#packages">Packages</a></li>
 						<li><a href="#theming">Theming</a></li>
+						<li><a href="#dark-mode">Dark Mode</a></li>
 						<li><a href="#plugins">Plugins</a></li>
 						<li><a href="#configuration">Configuration</a></li>
 						<li><a href="#selector-ordering">Selector Ordering</a></li>
@@ -428,6 +429,24 @@ setup({
 				<blockquote>
 					<p>The <code>bg-&lt;color&gt;</code> directive adds a default <code>color</code> CSS declaration if a corresponding <code>on-*</code> color is found. The reverse works as well: <code>bg-on-&lt;color&gt;</code> adds <code>bg-&lt;color&gt;</code> as <code>color</code>. The <code>color</code> set in a way it can be overridden using <code>text-&lt;color&gt;</code> (see <a href="#selector-ordering">Selector Ordering</a>).</p>
 				</blockquote>
+				<a href="#dark-mode" id="dark-mode" style="color: inherit; text-decoration: none;">
+					<h2>Dark Mode</h2>
+				</a>
+				<p>Now that dark mode is a first-class feature of many operating systems, it&#39;s becoming more and more common to design a dark version of your website to go along with the default design.</p>
+				<p>To make this as easy as possible, beamwind includes a dark variant that lets you style your site differently when dark mode is enabled:</p>
+				<pre><code class="language-jsx">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>={bw<span class="hljs-string">`bg-white dark:bg-gray-800`</span>}&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">text-gray-900</span> <span class="hljs-attr">dark:text-white</span>`}&gt;</span>Dark mode is here!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">text-gray-600</span> <span class="hljs-attr">dark:text-gray-300</span>`}&gt;</span>Lorem ipsum...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+&lt;/div&gt;</code></pre>
+				<blockquote>
+					<p>It&#39;s important to note that the dark mode variant is <strong>always</strong> enabled and available for all directives.</p>
+				</blockquote>
+				<p>Now whenever dark mode is enabled on the user&#39;s operating system, <code>dark:{directive}</code> classes will take precedence over unprefixed classes. The <code>media</code> strategy uses the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme media feature</a> under the hood, but if you&#39;d like to support toggling dark mode manually, you can also use the <code>class</code> strategy for more control:</p>
+				<pre><code class="language-js">setup({
+  <span class="hljs-attr">darkMode</span>: <span class="hljs-string">&#x27;class&#x27;</span>, <span class="hljs-comment">// default is &#x27;media&#x27;</span>
+  <span class="hljs-attr">darkModeClass</span>: <span class="hljs-string">&#x27;dark-mode&#x27;</span>, <span class="hljs-comment">// optional, default is &#x27;dark&#x27;</span>
+})</code></pre>
+				<p>For an example how to toggle dark mode manually read the <a href="https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually">Tailwind Guide</a>.</p>
 				<a href="#plugins" id="plugins" style="color: inherit; text-decoration: none;">
 					<h2>Plugins</h2>
 				</a>
@@ -835,7 +854,6 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 				</a>
 				<p>The following Tailwind v2 features are not yet available in beamwind:</p>
 				<ul>
-					<li><a href="https://tailwindcss.com/docs/dark-mode">Dark Mode</a></li>
 					<li><a href="https://tailwindcss.com/docs/font-variant-numeric">Font Variant Numeric</a></li>
 				</ul>
 				<blockquote>
@@ -934,6 +952,7 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 					</li>
 					<li><p>beamwind supports additional tailwind features like</p>
 						<ul>
+							<li><a href="https://tailwindcss.com/docs/dark-mode">Dark Mode</a></li>
 							<li><a href="https://tailwindcss.com/docs/animation">animation</a></li>
 							<li><a href="https://tailwindcss.com/docs/font-size#providing-a-default-line-height">font-size with default line-height</a></li>
 							<li><a href="https://tailwindcss.com/docs/font-size#providing-a-default-letter-spacing">font-size with default letter-spacing</a></li>
