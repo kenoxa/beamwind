@@ -2,8 +2,6 @@ Link to https://nerdcave.com/tailwind-cheat-sheet
 
 pre-commit hook to format files
 
-doc: IE11 - which directives do not work (ring); which have fallbacks (\*-opacity)
-
 states
 first: => :first-child
 last: => :last-child
@@ -36,6 +34,8 @@ https://github.com/kingdaro/typescript-plugin-tw-template
 
 https://github.com/ben-rogerson/twin.macro
 💥 Add important to any class with a trailing bang!
+
+tw.macro like https://github.com/ben-rogerson/twin.macro
 
 bw`hidden!`
 // ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓

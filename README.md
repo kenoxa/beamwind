@@ -862,10 +862,11 @@ TODO see TODO.md
 
 ## Tailwind Differences
 
-- beamwind is compatible with Tailwind v2 and v1 ([for IE 11 support](#ie-11-compatibility))
+> Beamwind aims to support with Tailwind v2 and v1 (see [IE 11 Compatibilty](#ie-11-compatibility)). [Some features](#missing-features) are not yet implemented.
+
 - beamwind supports [variant](#variant-grouping) and [directive](#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
 - beamwind theme has a slightly different format:
-  - `colors` is [flat-object](#colors)
+  - `colors` is a [flat-object](#colors)
   - `fontFamily`s are strings
   - `animation` additionally accepts a [tuple form](https://beamwind.js.org/packages/types/modules.html#themeanimation) to infer the key within [keyframes](https://beamwind.js.org/packages/types/interfaces/theme.html#keyframes) which waypoints should be injected
   - values maybe [theme resolvers](#referencing-other-values)
@@ -876,7 +877,7 @@ TODO see TODO.md
 
 The following Tailwind v2 features are not yet available in beamwind:
 
-- dark mode
+- [Dark Mode](https://tailwindcss.com/docs/dark-mode)
 - [Font Variant Numeric](https://tailwindcss.com/docs/font-variant-numeric)
 
 > Did we miss a feature? Please [open a an issue](https://github.com/kenoxa/beamwind/issues/new) or [contribute](#contribute) a pull request.
@@ -902,7 +903,8 @@ The following Tailwind v2 features are not yet available in beamwind:
 ### IE 11 compatibility
 
 > Some new tailwind features use [CSS Variables (Custom Properties)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) and are therefore not compatible with [IE 11](https://caniuse.com/css-variables).
-> Beamwind includes fallbacks which mimic [Tailwind v1](https://v1.tailwindcss.com/) behavior.
+
+Beamwind includes fallbacks for the following directives which mimic [Tailwind v1](https://v1.tailwindcss.com/) behavior:
 
 - Color Opacity
   - [border-opacity-*](https://tailwindcss.com/docs/border-opacity)
@@ -912,6 +914,10 @@ The following Tailwind v2 features are not yet available in beamwind:
 - Reversing Children Order
   - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order)
   - [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
+
+Some directive only work with CSS Variables and are not supported in IE 11:
+
+- [Ring](https://tailwindcss.com/docs/ring-width)
 
 ## Oceanwind Differences
 
