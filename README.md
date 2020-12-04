@@ -31,39 +31,19 @@ document.body.className = bw`h-full bg-pink-700 rotate-3 scale-95`
 
 > ⚡️ Check out the [live and interactive demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vYmVhbXdpbmQ/bW9kdWxlJwoKCmNvbnN0IHN0eWxlID0gewogIC8vIEV4YW1wbGUgb2YgYWJzdHJhY3RlZCBzdHlsZQogIGNvbnRhaW5lcjogYndgaC1mdWxsIGJnLXBpbmstNzAwIHRleHQtd2hpdGUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDR4bCB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTYgc2NhbGUtMTI1IGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0xMiBzY2FsZS0xNTApCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
 
----
+As an alternative [@beamwind/system](https://github.com/kenoxa/beamwind/blob/main/packages/system) is a good start if you prefer a semantic naming scheme in your design system: [⚡️ Demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vQGJlYW13aW5kL3BsYXk/bW9kdWxlJwoKY29uc3Qgc3R5bGUgPSB7CiAgLy8gRXhhbXBsZSBvZiBhYnN0cmFjdGVkIHN0eWxlCiAgY29udGFpbmVyOiBid2BoLWZ1bGwgYmctcHJvbW90ZSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlcmAKfQoKcmVuZGVyKAogIGh0bWxgCiAgICA8ZGl2IGNsYXNzPSR7c3R5bGUuY29udGFpbmVyfT4KICAgICAgPGgxIGNsYXNzPSR7CiAgICAgICAgLy8gRXhhbXBsZSBvZiBhbiBpbmxpbmUgc3R5bGUKICAgICAgICBid2AKICAgICAgICAgIHRleHQoNHhsIHVuZGVybGluZSkKICAgICAgICAgIGZvbnQoYm9sZCBzYW5zKQogICAgICAgICAgdHJhbnNpdGlvbgogICAgICAgICAgaG92ZXI6KHRyYW5zZm9ybSByb3RhdGUtbWQgc2NhbGUtMnhsIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS14bCBzY2FsZS0zeGwpCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
 
-As an alternative [@beamwind/system](https://github.com/kenoxa/beamwind/blob/main/packages/system) is a good start if you prefer a semantic naming scheme in your design system:
-
-```js
-import { bw } from '@beamwind/system'
-
-document.body.className = bw`h-full bg-promote rotate-md scale-sm`
-```
-
-> ⚡️ Check out the [@beamwind/system demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vQGJlYW13aW5kL3BsYXk/bW9kdWxlJwoKY29uc3Qgc3R5bGUgPSB7CiAgLy8gRXhhbXBsZSBvZiBhYnN0cmFjdGVkIHN0eWxlCiAgY29udGFpbmVyOiBid2BoLWZ1bGwgYmctcHJvbW90ZSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlcmAKfQoKcmVuZGVyKAogIGh0bWxgCiAgICA8ZGl2IGNsYXNzPSR7c3R5bGUuY29udGFpbmVyfT4KICAgICAgPGgxIGNsYXNzPSR7CiAgICAgICAgLy8gRXhhbXBsZSBvZiBhbiBpbmxpbmUgc3R5bGUKICAgICAgICBid2AKICAgICAgICAgIHRleHQoNHhsIHVuZGVybGluZSkKICAgICAgICAgIGZvbnQoYm9sZCBzYW5zKQogICAgICAgICAgdHJhbnNpdGlvbgogICAgICAgICAgaG92ZXI6KHRyYW5zZm9ybSByb3RhdGUtbWQgc2NhbGUtMnhsIGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS14bCBzY2FsZS0zeGwpCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
+For rapid prototyping [@beamwind/play](https://github.com/kenoxa/beamwind/blob/main/packages/play) is the right choice. It combines [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and [@beamwind/preset-system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) with [auto-conversion of unknown theme values](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play): [⚡️ Demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vQGJlYW13aW5kL3BsYXk/bW9kdWxlJwoKLy8gVGFpbHdpbmQgYW5kIFN5c3RlbSB0aGVtZSB2YWx1ZXMgYXJlIGF2YWlsYWJsZQoKY29uc3Qgc3R5bGUgPSB7CiAgLy8gRXhhbXBsZSBvZiBhYnN0cmFjdGVkIHN0eWxlCiAgY29udGFpbmVyOiBid2BoLWZ1bGwgYmctI0RCMjc3NyB0ZXh0LSNFNUU3RUIgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDIuNXJlbSB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTcgc2NhbGUtMTM1IGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0yMyBzY2FsZS0xNzUpCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
 
 ---
 
-For rapid prototyping [@beamwind/play](https://github.com/kenoxa/beamwind/blob/main/packages/play) is the right choice. It combines [@beamwind/preset-tailwind](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) and [@beamwind/preset-system](https://github.com/kenoxa/beamwind/blob/main/packages/preset-tailwind) with [auto-conversion of unknown theme values](https://github.com/kenoxa/beamwind/blob/main/packages/preset-play):
-
-```js
-import { bw } from '@beamwind/play'
-
-document.body.className = bw`h-full bg-#9556b7 rotate-5 scale-92`
-```
-
-> ⚡️ Check out the [@beamwind/play demo](https://esm.codes/#Ly8gQmVhbXdpbmQgZGVtbyAoYmFzZWQgb24gY29kZSBieSBAbHVrZWphY2tzb25uIC0gY3JlYXRvciBvZiBvY2VhbndpbmQpCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAKaW1wb3J0IHsgcmVuZGVyLCBodG1sIH0gZnJvbSAnaHR0cHM6Ly9ucG0ucmV2ZXJzZWh0dHAuY29tL3ByZWFjdCxwcmVhY3QvaG9va3MsaHRtL3ByZWFjdCc7CmltcG9ydCB7IGJ3IH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vQGJlYW13aW5kL3BsYXk/bW9kdWxlJwoKLy8gVGFpbHdpbmQgYW5kIFN5c3RlbSB0aGVtZSB2YWx1ZXMgYXJlIGF2YWlsYWJsZQoKY29uc3Qgc3R5bGUgPSB7CiAgLy8gRXhhbXBsZSBvZiBhYnN0cmFjdGVkIHN0eWxlCiAgY29udGFpbmVyOiBid2BoLWZ1bGwgYmctI0RCMjc3NyB0ZXh0LSNFNUU3RUIgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJgCn0KCnJlbmRlcigKICBodG1sYAogICAgPGRpdiBjbGFzcz0ke3N0eWxlLmNvbnRhaW5lcn0+CiAgICAgIDxoMSBjbGFzcz0kewogICAgICAgIC8vIEV4YW1wbGUgb2YgYW4gaW5saW5lIHN0eWxlCiAgICAgICAgYndgCiAgICAgICAgICB0ZXh0KDIuNXJlbSB1bmRlcmxpbmUpCiAgICAgICAgICBmb250KGJvbGQgc2FucykKICAgICAgICAgIHRyYW5zaXRpb24KICAgICAgICAgIGhvdmVyOih0cmFuc2Zvcm0gcm90YXRlLTcgc2NhbGUtMTM1IGN1cnNvci1wb2ludGVyKQogICAgICAgICAgYWN0aXZlOih0cmFuc2Zvcm0gLXJvdGF0ZS0yMyBzY2FsZS0xNzUpCiAgICAgICAgYAogICAgICB9PkhlbGxvIFdvcmxkPC9oMT4KICAgIDwvZGl2PgogIGAsCiAgZG9jdW1lbnQuYm9keQopOw==)
-
----
-
+<details><summary>TablOf Contents (click to expand)</summary>
 <!-- prettier-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [Backstory](#backstory)
 - [Key Features](#key-features)
+- [Backstory](#backstory)
 - [Usage](#usage)
 - [Packages](#packages)
 - [Theming](#theming)
@@ -73,25 +53,20 @@ document.body.className = bw`h-full bg-#9556b7 rotate-5 scale-92`
 - [Roadmap](#roadmap)
 - [Tailwind Differences](#tailwind-differences)
 - [Oceanwind Differences](#oceanwind-differences)
-- [Compatibility](#compatibility)
+- [Browser Support](#browser-support)
 - [Acknowledgements](#acknowledgements)
 - [Contribute](#contribute)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
-
-## Backstory
-
-Design systems embrace a component-oriented mindset. Inspired by [Tailwind CSS], utility classes provide reusable styles with no unwanted side-effects. However, they have to be generated upfront.
-
-Atomicity generalizes the former concept by instantiating style rules on demand. Serving as a solid foundation for constraint-based layouts, [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) has come to fluorish at scale.
+</details>
 
 ## Key Features
 
 - 📖 Supports the [vast majority](#missing-features) of Tailwind directives outlined [in the docs](https://tailwindcss.com/docs) ([see differences](#tailwind-differences))
 - 🗜 Is smaller than the average purged css file output from the Tailwind compiler
-- 🚀 Generates only the styles required without building or purging
+- 🚀 Runtime generation of used styles without a build step or purging
 - 💡 [Variant](#variant-grouping) and [Directive](#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
 - 🧱 [Extendable with plugins](#plugins)
 - 💅 [Customizable themeing](#theming)
@@ -101,6 +76,12 @@ Atomicity generalizes the former concept by instantiating style rules on demand.
 - ⚠️ [Warns the developer](#catching-errors) when a unrecognized directive is used
 
 > **Beamwind**: a wind blowing against a vessel from a direction at right angles to its keel for optimal speed
+
+## Backstory
+
+Design systems embrace a component-oriented mindset. Inspired by [Tailwind CSS], utility classes provide reusable styles with no unwanted side-effects. However, they have to be generated upfront.
+
+Atomicity generalizes the former concept by instantiating style rules on demand. Serving as a solid foundation for constraint-based layouts, [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) has come to fluorish at scale.
 
 ## Usage
 
@@ -984,11 +965,13 @@ Some notable differences are:
 | minified | [![Oceanwind Minified](https://flat.badgen.net/bundlephobia/min/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind)   | [![Beamwind Minified](https://flat.badgen.net/bundlephobia/min/@beamwind/core?label)](https://bundlephobia.com/result?p=@beamwind/core)   |
 | gzipped  | [![Oceanwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/oceanwind?label)](https://bundlephobia.com/result?p=oceanwind) | [![Beamwind Gzipped](https://flat.badgen.net/bundlephobia/minzip/@beamwind/core?label)](https://bundlephobia.com/result?p=@beamwind/core) |
 
-## Compatibility
+## Browser Support
 
 All versions of Node.js are supported.
 
 All browsers that support [Array.isArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#Browser_compatibility) and [Object.keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys#Browser_compatibility) are supported (IE9+).
+
+[Some directives](#ie-11-compatibility) use fallbacks for IE 11.
 
 ## Acknowledgements
 
