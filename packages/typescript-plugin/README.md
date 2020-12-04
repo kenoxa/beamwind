@@ -187,7 +187,8 @@ We are following the [Conventional Commits](https://www.conventionalcommits.org)
 You can check manually language service plugin features with our example project.
 
 ```
-yarn compile
+yarn build
+cd dist
 yarn link
 cd project-fixtures/react-apollo-prj
 yarn install

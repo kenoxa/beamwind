@@ -240,12 +240,13 @@ export class BeamwindTemplateLanguageService implements TemplateLanguageService 
 
     const endGrouping = (isWhitespace?: boolean): void => {
       // If isWhitespace is true
+      // sm:hover:(mx-5 my-5)
       // ['', ':sm', ':hover'] => ['']
       // ['', ':sm', ':hover', ''] => ['', ':sm', ':hover', '']
 
       // If isWhitespace is falsey
       // ['', ':sm', ':hover'] => ['']
-      // ['', ':sm', ':hover', ''] => ['', ':sm', ':hover', '']
+      // ['', ':sm', ':hover', ''] => ['', ':sm', ':hover']
 
       const index = groupings.lastIndexOf('')
 
