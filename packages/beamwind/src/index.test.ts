@@ -27,3 +27,31 @@ test('readme example', () => {
     '_9zien4 _1rn96fu _1u8tsvs _vx8z01 _iniysy _2fdrgx _bsbmms _1illtd4 _vdrcah _1yvlsvh _9n3wjf _11epqbp',
   )
 })
+
+test('all tailwind directive are available', async () => {
+  const { processPlugins } = await import('./__fixtures__/process-plugins')
+
+  const { directives } = processPlugins()
+
+  for (const directive of Object.keys(directives)) {
+    try {
+      expect(bw(directive)).toBeTruthy()
+    } catch (error) {
+      if (isFontVariantNumeric(directive)) {
+        // TODO https://tailwindcss.com/docs/font-variant-numeric
+      } else {
+        console.warn(directive, directives[directive])
+        throw error
+      }
+    }
+  }
+})
+
+function isFontVariantNumeric(directive: string): boolean {
+  return (
+    directive === 'ordinal' ||
+    directive.endsWith('-zero') ||
+    directive.endsWith('-nums') ||
+    directive.endsWith('-fractions')
+  )
+}
