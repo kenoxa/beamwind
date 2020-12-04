@@ -518,20 +518,6 @@ function translateCompletionItemKind(
   kind: vscode.CompletionItemKind,
 ): ts.ScriptElementKind {
   switch (kind) {
-    case vscode.CompletionItemKind.Method:
-      return typescript.ScriptElementKind.memberFunctionElement
-    case vscode.CompletionItemKind.Function:
-      return typescript.ScriptElementKind.functionElement
-    case vscode.CompletionItemKind.Constructor:
-      return typescript.ScriptElementKind.constructorImplementationElement
-    case vscode.CompletionItemKind.Field:
-    case vscode.CompletionItemKind.Variable:
-      return typescript.ScriptElementKind.variableElement
-    case vscode.CompletionItemKind.Class:
-      return typescript.ScriptElementKind.classElement
-    case vscode.CompletionItemKind.Interface:
-      return typescript.ScriptElementKind.interfaceElement
-    case vscode.CompletionItemKind.File:
     case vscode.CompletionItemKind.Module:
       return typescript.ScriptElementKind.moduleElement
     case vscode.CompletionItemKind.Property:
