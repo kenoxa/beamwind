@@ -2,6 +2,9 @@ Link to https://nerdcave.com/tailwind-cheat-sheet
 
 pre-commit hook to format files
 
+transform reset properties
+tailwind compat: compare generated CSS rule
+
 https://github.com/tailwindlabs/tailwindcss/pull/2951/files
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
 https://tailwindcss.com/docs/container

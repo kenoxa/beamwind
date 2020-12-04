@@ -28,7 +28,7 @@ test('readme example', () => {
   )
 })
 
-test('all tailwind directive are available', async () => {
+test('all tailwind directives are available', async () => {
   const { processPlugins } = await import('./__fixtures__/process-plugins')
 
   const { directives } = processPlugins()
