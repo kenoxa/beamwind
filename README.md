@@ -37,7 +37,7 @@ For rapid prototyping [@beamwind/play](https://github.com/kenoxa/beamwind/blob/m
 
 ---
 
-<details><summary>TablOf Contents (click to expand)</summary>
+<details><summary>Table Of Contents (click to expand)</summary>
 <!-- prettier-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
