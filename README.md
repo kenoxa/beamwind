@@ -970,7 +970,7 @@ Some notable differences are:
   - [Background Clip](https://tailwindcss.com/docs/background-clip)
   - [place-content-\*](https://tailwindcss.com/docs/place-self), [place-items-\*](https://tailndcss.com/docs/place-items) and [place-self-\*](https://tailwindcss.com/docs/place-self)
   - [Overscroll Behavior](https://tailwindcss.com/docs/overscroll-behavior)
-  - [Hover, Focus, & Other States]https://tailwindcss.com/docs/hover-focus-and-other-states)
+  - [Hover, Focus, & Other States](https://tailwindcss.com/docs/hover-focus-and-other-states)
     - [group-hover](https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover)
     - [group-focus](https://tailwindcss.com/docs/hover-focus-and-other-states#group-focus)
     - [motion-safe](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe)
