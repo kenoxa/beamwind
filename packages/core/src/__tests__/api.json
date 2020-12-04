@@ -5,6 +5,7 @@
   "grid": { "display": "grid" },
   "table": { "display": "table" },
   "block": { "display": "block" },
+  "contents": { "display": "contents" },
   "top-0": { "top": "0px" },
   "right-0": { "right": "0px" },
   "bottom-0": { "bottom": "0px" },
