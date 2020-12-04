@@ -501,6 +501,9 @@ export const utilities: Record<string, Plugin> = {
 
       case 'opacity':
         return { [`--${tag('bg-opacity')}`]: theme('backgroundOpacity', tail(parts, 2)) }
+
+      case 'clip':
+        return { 'background-clip': parts[2] + (parts[2] === 'text' ? '' : '-box') }
     }
 
     return (_ = theme('backgroundImage', tail(parts), true /* Optional */))

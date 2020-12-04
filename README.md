@@ -753,7 +753,7 @@ injector.target // Array with sorted CSS rulesText
 There are some case where you need to create separate [instance](https://beamwind.js.org/packages/types/interfaces/instance.html) of beamwind:
 
 - for reduced bundle size by using a own preset
-- IE11 support using [reset](https://github.com/kenoxa/beamwind/blob/main/packages/reset)
+- IE 11 support using [reset](https://github.com/kenoxa/beamwind/blob/main/packages/reset)
 
 Basically you need to do the following:
 
@@ -862,7 +862,7 @@ TODO see TODO.md
 
 ## Tailwind Differences
 
-- beamwind is compatible with Tailwind v1 for IE11 support - but trys to integrate new v2 features
+- beamwind is compatible with Tailwind v2 and v1 ([for IE 11 support](#ie-11-compatibility))
 - beamwind supports [variant](#variant-grouping) and [directive](#directive-grouping) grouping to reduce the overwhelming maze Tailwind sometimes creates
 - beamwind theme has a slightly different format:
   - `colors` is [flat-object](#colors)
@@ -955,7 +955,8 @@ Some notable differences are:
   - [ring](https://tailwindcss.com/docs/ring-width)
   - [auto-cols-\*](https://tailwindcss.com/docs/grid-auto-columns) and [auto-rows-\*](https://tailwindcss.com/docs/grid-auto-rows)
   - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order) and [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
-
+  - [Background Clip](https://tailwindcss.com/docs/background-clip)
+  
 - oceanwind supports duplicate directives tracking
 - beamwind is 7-10 times faster than oceanwind (see [Benchmarks](https://github.com/kenoxa/beamwind/blob/main/benchmarks))
 

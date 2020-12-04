@@ -881,5 +881,9 @@
     ">:not([hidden])~:not([hidden])",
     { "--divide-opacity": "1", "border-color": "transparent" }
   ],
-  "divide-opacity-75": [">:not([hidden])~:not([hidden])", { "--divide-opacity": "0.75" }]
+  "divide-opacity-75": [">:not([hidden])~:not([hidden])", { "--divide-opacity": "0.75" }],
+  "bg-clip-border": ".bg-clip-border{background-clip:border-box}",
+  "bg-clip-padding": ".bg-clip-padding{background-clip:padding-box}",
+  "bg-clip-content": ".bg-clip-content{background-clip:content-box}",
+  "bg-clip-text": ".bg-clip-text{background-clip:text}"
 }
