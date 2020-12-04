@@ -37,6 +37,7 @@
     "@beamwind/preset-tailwind": "^2.0.0"
   },
   "devDependencies": {
+    "dlv": "^1.1.3",
     "nps": "^5.9.12",
     "tailwindcss": "^2.0.1"
   },
