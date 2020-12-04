@@ -64,8 +64,8 @@ document.body.className = bw`h-full bg-#9556b7 rotate-5 scale-92`
 
 - [Backstory](#backstory)
 - [Key Features](#key-features)
-- [Packages](#packages)
 - [Usage](#usage)
+- [Packages](#packages)
 - [Theming](#theming)
 - [Plugins](#plugins)
 - [Configuration](#configuration)
@@ -907,13 +907,16 @@ The following Tailwind v2 features are not yet available in beamwind:
 Beamwind includes fallbacks for the following directives which mimic [Tailwind v1](https://v1.tailwindcss.com/) behavior:
 
 - Color Opacity
-  - [border-opacity-*](https://tailwindcss.com/docs/border-opacity)
-  - [bg-opacity-*](https://tailwindcss.com/docs/background-opacity)
-  - [text-opacity-*](https://tailwindcss.com/docs/text-opacity)
-  - [placeholder-opacity-*](https://tailwindcss.com/docs/placeholder-opacity)
+  - [border-opacity-\*](https://tailwindcss.com/docs/border-opacity)
+  - [bg-opacity-\*](https://tailwindcss.com/docs/background-opacity)
+  - [text-opacity-\*](https://tailwindcss.com/docs/text-opacity)
+  - [placeholder-opacity-\*](https://tailwindcss.com/docs/placeholder-opacity)
 - Reversing Children Order
-  - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order)
-  - [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
+  - [divide-\*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order)
+  - [space-\*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
+- `rotate`, `scale` , `skew` and `translate` can only be used alone
+
+  > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
 
 Some directive only work with CSS Variables and are not supported in IE 11:
 
@@ -936,6 +939,7 @@ Some notable differences are:
   - Tagged Template Interpolation values may additionally be Array, Object or Function ([inline plugins](#inline-plugins))
   - Object values which are String, Array or Object start a new variant group
   - support for [inline plugins](#inline-plugins)
+
 - beamwind allows to define new plugins (see [Plugins](#plugins))
 - beamwind allows to generate [readable class names](#hashed-class-names)
 - beamwind adheres to the pseudo class and variant order as used by tailwind
@@ -949,14 +953,14 @@ Some notable differences are:
   - [overflow-clip](https://tailwindcss.com/docs/text-overflow#overflow-clip)
   - [transition](https://tailwindcss.com/docs/transition-property) with default timing function and duration
   - [animate](https://tailwindcss.com/docs/animate)
-  - [transform](https://tailwindcss.com/docs/transform)
+  - [transform](https://tailwindcss.com/docs/transform) and [transform-gpu](https://tailwindcss.com/docs/transform#hardware-acceleration)
   - [Background Image](https://tailwindcss.com/docs/background-image)
   - [Gradient Color Stops](https://tailwindcss.com/docs/gradient-color-stops)
   - [ring](https://tailwindcss.com/docs/ring-width)
   - [auto-cols-\*](https://tailwindcss.com/docs/grid-auto-columns) and [auto-rows-\*](https://tailwindcss.com/docs/grid-auto-rows)
-  - [divide-*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order) and [space-*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
+  - [divide-\*-reverse](https://tailwindcss.com/docs/divide-width#reversing-children-order) and [space-\*-reverse](https://tailwindcss.com/docs/space#reversing-children-order)
   - [Background Clip](https://tailwindcss.com/docs/background-clip)
-  - [place-content-*](https://tailwindcss.com/docs/place-self), [place-items-*](https://tailndcss.com/docs/place-items) and [place-self-*](https://tailwindcss.com/docs/place-self)
+  - [place-content-\*](https://tailwindcss.com/docs/place-self), [place-items-\*](https://tailndcss.com/docs/place-items) and [place-self-\*](https://tailwindcss.com/docs/place-self)
   - [Overscroll Behavior](https://tailwindcss.com/docs/overscroll-behavior)
   - [Hover, Focus, & Other States]https://tailwindcss.com/docs/hover-focus-and-other-states)
     - [group-hover](https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover)

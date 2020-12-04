@@ -271,21 +271,36 @@ export const utilities: Record<string, Plugin> = {
 
   select: (parts) => ({ 'user-select': parts[1] }),
 
-  transform: (parts, theme, { tag }) => ({
-    transform: `translateX(var(--${tag('transform-translate-x')},0)) translateY(var(--${tag(
-      'transform-translate-y',
-    )},0)) rotate(var(--${tag('transform-rotate')},0)) skewX(var(--${tag(
-      'transform-skew-x',
-    )},0)) skewY(var(--${tag('transform-skew-y')},0)) scaleX(var(--${tag(
-      'transform-scale-x',
-    )},1)) scaleY(var(--${tag('transform-scale-y')},1))`,
-  }),
+  transform: (parts, theme, { tag }) => {
+    switch (parts[1]) {
+      case 'none':
+        return { transform: 'none' }
+      case 'gpu':
+        return {
+          transform: `translate3d(var(--${tag('translate-x')},0),var(--${tag(
+            'translate-y',
+          )},0),0) rotate(var(--${tag('rotate')},0)) skewX(var(--${tag(
+            'skew-x',
+          )},0)) skewY(var(--${tag('skew-y')},0)) scaleX(var(--${tag(
+            'scale-x',
+          )},1)) scaleY(var(--${tag('scale-y')},1))`,
+        }
+    }
+
+    return {
+      transform: `translateX(var(--${tag('translate-x')},0)) translateY(var(--${tag(
+        'translate-y',
+      )},0)) rotate(var(--${tag('rotate')},0)) skewX(var(--${tag('skew-x')},0)) skewY(var(--${tag(
+        'skew-y',
+      )},0)) scaleX(var(--${tag('scale-x')},1)) scaleY(var(--${tag('scale-y')},1))`,
+    }
+  },
 
   // .rotate-0	--transform-rotate: 0;
   // .rotate-1	--transform-rotate: 1deg;
   rotate: (parts, theme, { tag }) =>
     (_ = theme('rotate', tail(parts))) && {
-      [`--${tag('transform-rotate')}`]: _,
+      [`--${tag('rotate')}`]: _,
       transform: `rotate(${_})`,
     },
 
@@ -294,8 +309,8 @@ export const utilities: Record<string, Plugin> = {
   // .scale-y-0
   scale: (parts, theme, { tag }) =>
     (_ = theme('scale', [parts[2] || parts[1]])) && {
-      [`--${tag('transform-scale-x')}`]: parts[1] !== 'y' && _,
-      [`--${tag('transform-scale-y')}`]: parts[1] !== 'x' && _,
+      [`--${tag('scale-x')}`]: parts[1] !== 'y' && _,
+      [`--${tag('scale-y')}`]: parts[1] !== 'x' && _,
       transform: `scale${parts[2] ? parts[1].toUpperCase() : ''}(${_})`,
     },
 
@@ -306,8 +321,8 @@ export const utilities: Record<string, Plugin> = {
   // .translate-y-1/2	--transform-translate-y: 50%;
   translate: (parts, theme, { tag }) =>
     (_ = theme('translate', tail(parts, 2))) && {
-      [`--${tag('transform-translate-x')}`]: parts[1] !== 'y' && _,
-      [`--${tag('transform-translate-y')}`]: parts[1] !== 'x' && _,
+      [`--${tag('translate-x')}`]: parts[1] !== 'y' && _,
+      [`--${tag('translate-y')}`]: parts[1] !== 'x' && _,
       transform: `translate${parts[1].toUpperCase()}(${_})`,
     },
 
@@ -315,8 +330,8 @@ export const utilities: Record<string, Plugin> = {
   // .skew-y-1	--transform-skew-y: 1deg;
   skew: (parts, theme, { tag }) =>
     (_ = theme('skew', tail(parts, 2))) && {
-      [`--${tag('transform-skew-x')}`]: parts[1] !== 'y' && _,
-      [`--${tag('transform-skew-y')}`]: parts[1] !== 'x' && _,
+      [`--${tag('skew-x')}`]: parts[1] !== 'y' && _,
+      [`--${tag('skew-y')}`]: parts[1] !== 'x' && _,
       transform: `skew${parts[1].toUpperCase()}(${_})`,
     },
 

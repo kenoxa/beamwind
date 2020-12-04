@@ -2,13 +2,6 @@ Link to https://nerdcave.com/tailwind-cheat-sheet
 
 pre-commit hook to format files
 
-states
-first: => :first-child
-last: => :last-child
-even: => :nth-child(2n)
-odd: => :nth-child(odd)
-
-transform-gpu: https://github.com/tailwindlabs/tailwindcss/pull/1380
 https://github.com/tailwindlabs/tailwindcss/pull/2951/files
 https://github.com/tailwindlabs/tailwindcss-aspect-ratio
 https://tailwindcss.com/docs/container
