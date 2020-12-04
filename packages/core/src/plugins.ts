@@ -378,7 +378,10 @@ export const utilities: Record<string, Plugin> = {
   // .gap-px	gap: 1px;
   // .gap-x-0	column-gap: 0;
   // .gap-x-1	column-gap: 0.25rem;
-  gap: (parts, theme) => ({ gap: theme('gap', tail(parts)) }),
+  gap: (parts, theme) =>
+    (_ = ({ x: 'column', y: 'row' } as Record<string, string | undefined>)[parts[1]])
+      ? { [_ + '-gap']: theme('gap', tail(parts, 2)) }
+      : { gap: theme('gap', tail(parts)) },
 
   // .stroke-current	stroke: currentColor;
   // stroke-0	stroke-width: 0;
