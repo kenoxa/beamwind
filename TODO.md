@@ -10,14 +10,7 @@ https://tailwindcss.com/docs/container
 - @beamwind/prose: https://tailwindcss.com/docs/typography-plugin
   - implement as plugin??
 
-https://theme-ui.com/color-modes/:
-
-- https://github.com/tailwindlabs/tailwindcss/pull/2279
-- https://github.com/tailwindlabs/tailwindcss/pull/2631
-  @beamwind/preset-dark, @beamwind/preset-light
-
-Server Side Rendering including re-hydration
-@beamwind/ssr
+Server Side Rendering: @beamwind/ssr
 
 https://tailwindui.com/components
 @tailwindcss/forms: https://github.com/tailwindlabs/tailwindcss-forms

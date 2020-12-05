@@ -884,6 +884,7 @@ TODO see TODO.md
 
 The following Tailwind v2 features are not yet available in beamwind:
 
+- [Container](https://tailwindcss.com/docs/container)
 - [Font Variant Numeric](https://tailwindcss.com/docs/font-variant-numeric)
 
 > Did we miss a feature? Please [open a an issue](https://github.com/kenoxa/beamwind/issues/new) or [contribute](#contribute) a pull request.
