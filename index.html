@@ -204,8 +204,8 @@
 bw<span class="hljs-string">`divide(y-2 blue-500 opacity(75 md:50))`</span>
 <span class="hljs-comment">// =&gt; divide-y-2 divide-blue-500 divide-opacity-75 md:divide-opacity-50</span>
 
-bw<span class="hljs-string">`w(1/2 sm:1/3 lg:1/6) p-sm`</span>
-<span class="hljs-comment">// =&gt; w-1/2 sm:w-1/3 lg:w-1/6 p-sm</span></code></pre>
+bw<span class="hljs-string">`w(1/2 sm:1/3 lg:1/6) p-2`</span>
+<span class="hljs-comment">// =&gt; w-1/2 sm:w-1/3 lg:w-1/6 p-2</span></code></pre>
 				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
 				<pre><code class="language-js">bw<span class="hljs-string">`ring(&amp; ping-700 offset(4 ping-200))`</span>)
 <span class="hljs-comment">// =&gt; ring ring-ping-700 ring-offset-4 ring-offset-on-ping-200</span></code></pre>
@@ -434,10 +434,9 @@ setup({
 				</a>
 				<p>Now that dark mode is a first-class feature of many operating systems, it&#39;s becoming more and more common to design a dark version of your website to go along with the default design.</p>
 				<p>To make this as easy as possible, beamwind includes a dark variant that lets you style your site differently when dark mode is enabled:</p>
-				<pre><code class="language-jsx">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>={bw<span class="hljs-string">`bg-white dark:bg-gray-800`</span>}&gt;
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">text-gray-900</span> <span class="hljs-attr">dark:text-white</span>`}&gt;</span>Dark mode is here!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{bw</span>`<span class="hljs-attr">text-gray-600</span> <span class="hljs-attr">dark:text-gray-300</span>`}&gt;</span>Lorem ipsum...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-&lt;/div&gt;</code></pre>
+				<pre><code class="language-js">bw<span class="hljs-string">`
+  bg-white text-black
+  dark:(bg-gray-800 text-white)`</span></code></pre>
 				<blockquote>
 					<p>It&#39;s important to note that the dark mode variant is <strong>always</strong> enabled and available for all directives.</p>
 				</blockquote>
@@ -869,6 +868,8 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 					</li>
 					<li><p><code>bg-&lt;color&gt;</code>: if a &quot;<em>on</em>&quot; color) (<code>on-&lt;color&gt;</code>) is found it is used as default CSS <code>color</code>; to change to a different color use <code>text-&lt;color&gt;</code> (tailwind style)</p>
 					</li>
+					<li><p><code>bg-gradient-to-*</code> is built-in, no need to configure these</p>
+					</li>
 					<li><p><code>text-underline</code>, <code>text-no-underline</code>, <code>text-line-through</code>, <code>text-uppercase</code>, <code>text-lowercase</code> and <code>text-capitalize</code>: this allows grouping of text directives like <code>text(lg red-500 capitalize underline)</code></p>
 					</li>
 					<li><p><code>font-italic</code> and <code>font-no-italic</code>: this allows grouping of font directives like <code>font(sans italic bold)</code></p>
@@ -882,9 +883,9 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 							<p><strong>Note</strong> <code>x</code> and <code>y</code> can not be combined.</p>
 						</blockquote>
 					</li>
-					<li><p><code>rotate</code>, <code>scale</code> , <code>skew</code> and <code>translate</code> can be used without <code>transform</code> when used alone</p>
+					<li><p><code>rotate</code>, <code>scale</code> , <code>skew</code> and <code>translate</code> provide a fallback for IE 11</p>
 						<blockquote>
-							<p><code>rotate-45</code> works but when using <code>rotate-45 scale-150</code> only one of both is applied. In that case you must use <code>transform</code>: <code>transform rotate-45 scale-150</code></p>
+							<p><code>transform rotate-45</code> works but when using <code>transform rotate-45 scale-150</code> only one of both is applied.</p>
 						</blockquote>
 					</li>
 				</ul>
