@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/kenoxa/beamwind/compare/@beamwind/reset@2.0.1...@beamwind/reset@2.0.2) (2020-12-05)
+
+**Note:** Version bump only for package @beamwind/reset
+
 ## [2.0.1](https://github.com/kenoxa/beamwind/compare/@beamwind/reset@2.0.0...@beamwind/reset@2.0.1) (2020-12-04)
 
 **Note:** Version bump only for package @beamwind/reset

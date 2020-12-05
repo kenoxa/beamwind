@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/preset-system",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "beamwind design system preset using a semantic naming scheme",
   "keywords": [
     "beamwind",

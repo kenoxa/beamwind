@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/kenoxa/beamwind/compare/@beamwind/core@2.2.0...@beamwind/core@2.3.0) (2020-12-05)
+
+### Bug Fixes
+
+- transform resets its css properties to break inheritence ([c521414](https://github.com/kenoxa/beamwind/commit/c521414571e3e36b156e6ecc0e80cb66025a2826))
+
+### Features
+
+- ring defaults ([e50bfdf](https://github.com/kenoxa/beamwind/commit/e50bfdf1edf3dfb2421b4d9ab3a73d09eb1da475))
+- support negated values in directive groupings ([b1b66ff](https://github.com/kenoxa/beamwind/commit/b1b66ff78dace4f5d9aaeb9ee9eb960bb3b7583d))
+
 # [2.2.0](https://github.com/kenoxa/beamwind/compare/@beamwind/core@2.1.0...@beamwind/core@2.2.0) (2020-12-04)
 
 ### Features

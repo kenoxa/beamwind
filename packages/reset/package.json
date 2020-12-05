@@ -1,6 +1,6 @@
 {
   "name": "@beamwind/reset",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An opinionated set of base styles for legacy browsers like IE10/11",
   "keywords": [
     "beamwind",
