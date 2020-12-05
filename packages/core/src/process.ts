@@ -89,6 +89,7 @@ const handlePluginResult = (
   }
 }
 
+// eslint-disable-next-line no-return-assign
 const handleNegation = (value: string): string =>
   value[0] === '-' ? ((negate = '-'), tail(value)) : ((negate = ''), value)
 
