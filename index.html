@@ -209,6 +209,9 @@ bw<span class="hljs-string">`w(1/2 sm:1/3 lg:1/6) p-2`</span>
 				<p>Some directives like <a href="https://tailwindcss.com/docs/ring-width">ring</a> need to be applied as is. For that case you can use the special <code>&amp;</code> directive which is replaced with the current prefix:</p>
 				<pre><code class="language-js">bw<span class="hljs-string">`ring(&amp; ping-700 offset(4 ping-200))`</span>)
 <span class="hljs-comment">// =&gt; ring ring-ping-700 ring-offset-4 ring-offset-on-ping-200</span></code></pre>
+				<p>Negated values can be used within the braces and will be applied to the directive:</p>
+				<pre><code class="language-js">bw<span class="hljs-string">`rotate(-3 hover:6 md:(3 hover:-6))`</span>
+<span class="hljs-comment">// =&gt; -rotate-3 hover:rotate-6 md:rotate-3 md:hover:-rotate-6&quot;</span></code></pre>
 				<a href="#function-signature" id="function-signature" style="color: inherit; text-decoration: none;">
 					<h3>Function Signature</h3>
 				</a>
@@ -853,6 +856,7 @@ setup({ <span class="hljs-attr">nonce</span>: __webpack_nonce__ })</code></pre>
 				</a>
 				<p>The following Tailwind v2 features are not yet available in beamwind:</p>
 				<ul>
+					<li><a href="https://tailwindcss.com/docs/container">Container</a></li>
 					<li><a href="https://tailwindcss.com/docs/font-variant-numeric">Font Variant Numeric</a></li>
 				</ul>
 				<blockquote>
