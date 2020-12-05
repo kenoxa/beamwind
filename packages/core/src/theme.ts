@@ -251,16 +251,10 @@ export const theme = createThemeResolver(
     padding: (theme) => theme('spacing'),
     placeholderColor: (theme) => theme('colors'),
     placeholderOpacity: (theme) => theme('opacity'),
-    ringColor: (theme) => ({
-      DEFAULT: '#3b82f6',
-      ...theme('colors'),
-    }),
+    ringColor: (theme) => theme('colors'),
     ringOffsetColor: (theme) => theme('colors'),
     ringOffsetWidth: {},
-    ringOpacity: (theme) => ({
-      DEFAULT: '0.5',
-      ...theme('opacity'),
-    }),
+    ringOpacity: (theme) => theme('opacity'),
     ringWidth: {
       DEFAULT: '3px',
     },

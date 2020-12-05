@@ -240,22 +240,34 @@ export const utilities: Record<string, Plugin> = {
     }
 
     // Either width or color
-    return (_ = theme('ringWidth', tail(parts), true /* Optional */))
+    return (_ = theme('ringWidth', tail(parts), '' /* Optional */))
       ? {
           // A width
           [`--${tag('ring-offset-shadow')}`]: `var(--${tag(
             'ring-inset',
-          )},/*!*/ /*!*/) 0 0 0 var(--${tag('ring-offset-width')},0px) var(--${tag(
-            'ring-offset-color',
-          )},#fff)`,
+          )},/*!*/ /*!*/) 0 0 0 var(--${tag('ring-offset-width')},${theme(
+            'ringOffsetWidth',
+            '',
+            '0px',
+          )}) var(--${tag('ring-offset-color')},${theme('ringOffsetColor', '', '#fff')})`,
+
           [`--${tag('ring-shadow')}`]: `var(--${tag(
             'ring-inset',
-          )},/*!*/ /*!*/) 0 0 0 calc(${_} + var(--${tag('ring-offset-width')},0px)) var(--${tag(
-            'ring-color',
-          )},rgba(59,130,246,0.5))`,
-          'box-shadow': `var(--${tag('ring-offset-shadow')}),var(--${tag(
-            'ring-shadow',
-          )}),var(--${tag('shadow')},0 0 transparent)`,
+          )},/*!*/ /*!*/) 0 0 0 calc(${_} + var(--${tag('ring-offset-width')},${theme(
+            'ringOffsetWidth',
+            '',
+            '0px',
+          )})) var(--${tag('ring-color')},${theme(
+            'ringColor',
+            '',
+            asRGBA(
+              theme('ringColor', '', '#93c5fd'),
+              tag('ring-opacity'),
+              theme('ringOpacity', '', '0.5'),
+            ),
+          )})`,
+
+          'box-shadow': boxShadow(tag),
         }
       : {
           // A color

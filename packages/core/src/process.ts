@@ -8,6 +8,7 @@ import type {
   InjectKeyframes,
   PluginResult,
   SelectorDecorator,
+  Falsy,
 } from './types'
 import type { Context } from './context'
 
@@ -25,9 +26,9 @@ const classNames: string[] = []
 const theme: ThemeValueResolver = <Section extends keyof Theme>(
   section: Section,
   key: string | string[],
-  optional?: boolean,
-): ThemeSectionValueType<Theme[Section]> | undefined => {
-  const value = currentContext.t(section, key, optional)
+  defaultValue?: Falsy | NonNullable<ThemeSectionValueType<Theme[Section]>>,
+) => {
+  const value = currentContext.t(section, key, defaultValue as Falsy)
 
   return negate && value && is.string(value)
     ? (`calc(${value} * -1)` as ThemeSectionValueType<Theme[Section]>)

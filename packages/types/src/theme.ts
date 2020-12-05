@@ -1,4 +1,5 @@
 import type { Declarations } from './common'
+import type { Falsy } from './util'
 
 export type ThemeExtend = {
   [K in keyof Theme]?: ThemeSectionRecord<ThemeSectionValueType<Theme[K]>>
@@ -11,9 +12,15 @@ export interface PartialTheme extends Partial<Theme> {
 export type ThemeConfiguration = PartialTheme | ((theme: ThemeResolver) => PartialTheme)
 
 export interface ThemeValueResolver {
-  <Section extends keyof Theme>(section: Section, key: string | string[], optional?: boolean):
+  <Section extends keyof Theme>(section: Section, key: string | string[], defaultValue?: Falsy):
     | ThemeSectionValueType<Theme[Section]>
     | undefined
+
+  <Section extends keyof Theme>(
+    section: Section,
+    key: string | string[],
+    defaultValue?: NonNullable<ThemeSectionValueType<Theme[Section]>>,
+  ): NonNullable<ThemeSectionValueType<Theme[Section]>>
 }
 
 export interface ThemeResolver {

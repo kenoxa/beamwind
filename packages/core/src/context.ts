@@ -9,6 +9,8 @@ import type {
   SelectorDecorator,
   ThemeResolver,
   Theme,
+  ThemeSectionValueType,
+  Falsy,
 } from './types'
 
 import * as is from './is'
@@ -204,13 +206,17 @@ export const createContext = (config?: ConfigurationOptions | ConfigurationOptio
   setup(config)
 
   return {
-    t: (section, keypath, optional) => {
+    t: <Section extends keyof Theme>(
+      section: Section,
+      keypath: string | string[],
+      defaultValue?: Falsy | NonNullable<ThemeSectionValueType<Theme[Section]>>,
+    ) => {
       const parts = is.array(keypath) ? keypath : [keypath]
 
       const value = activeTheme(section, join(parts) || 'DEFAULT')
 
       return value == null
-        ? (mode.unknown(section, parts, optional, activeTheme) as undefined)
+        ? defaultValue || (mode.unknown(section, parts, defaultValue != null, activeTheme) as undefined)
         : value
     },
 

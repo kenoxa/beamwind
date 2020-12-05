@@ -227,7 +227,7 @@ export const theme = ({ colors, shades }: Options = {}): ThemeConfiguration => (
     },
 
     ringColor: {
-      DEFAULT: 'currentColor',
+      DEFAULT: (theme: ThemeResolver): string | undefined => theme('colors', 'primary'),
     },
 
     ringOffsetWidth: {
