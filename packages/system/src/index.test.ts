@@ -6,7 +6,7 @@ test('smoke', () => {
   expect(
     bw`absolute inset-0 bg-gradient-to-r from-promote to-on-promote shadow-lg transform -skew-y-md sm:skew-y-none sm:-rotate-lg sm:rounded-3xl`,
   ).toBe(
-    '_1mkfpkn _o006n8 _1gt8na1 _bgnw62 _1afdwys _78gvop _1gdx5xp _1dkoody _1i2ygol _107qm68 _9pmjrn',
+    '_1mkfpkn _o006n8 _1gt8na1 _bgnw62 _1afdwys _lae5pa _gqktp6 _i5h0pq _1w053pr _1vzslrt _9pmjrn',
   )
 })
 
@@ -24,6 +24,6 @@ test('readme example', () => {
       active:(transform -rotate-xl scale-3xl)
     `,
   ).toBe(
-    '_9zien4 _1rn96fu _1u8tsvs _vx8z01 _iniysy _1nib7jt _125ip9e _13zhynp _vdrcah _wvnkih _19wprbf _1is70uq',
+    '_9zien4 _1rn96fu _1u8tsvs _vx8z01 _iniysy _1crosn3 _1ry7tt8 _z6b2rb _vdrcah _vzti3v _rqq84r _1mwh623',
   )
 })

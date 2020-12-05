@@ -1,8 +1,8 @@
-import type { Declarations, Plugin, PluginContext, ThemeValueResolver } from './types'
+import type { Declarations, Plugin, PluginContext, Theme, ThemeValueResolver } from './types'
 
 import * as is from './is'
 import { corners, edges, expandEdges } from './helpers'
-import { join, joinTruthy, merge, tail } from './util'
+import { join, joinTruthy, merge, tail, capitalize, hyphenate } from './util'
 
 // Shared variables
 let _: undefined | string | Declarations | string[] | boolean
@@ -11,13 +11,15 @@ let $: undefined | string
 
 /* eslint-disable no-return-assign, no-cond-assign, @typescript-eslint/consistent-type-assertions */
 
-const capitalize = (value: string): string => value[0].toUpperCase() + tail(value)
-
 const parseColorComponent = (chars: string, factor: number): number =>
   // eslint-disable-next-line unicorn/prefer-number-properties
   Math.round(parseInt(chars, 16) * factor)
 
-const asRGBA = (color: string | undefined, opacityProperty: string): string | undefined => {
+const asRGBA = <T extends string | undefined>(
+  color: T,
+  opacityProperty: string,
+  opacityDefault?: string,
+): T | string => {
   if (color && color[0] === '#') {
     const length = (color.length - 1) / 3
     const factor = [17, 1, 0.062272][length - 1]
@@ -29,7 +31,7 @@ const asRGBA = (color: string | undefined, opacityProperty: string): string | un
     )},${parseColorComponent(
       color.substr(1 + 2 * length, length),
       factor,
-    )},var(--${opacityProperty}))`
+    )},var(--${opacityProperty}${opacityDefault ? ',' + opacityDefault : ''}))`
     /* eslint-enable unicorn/prefer-string-slice */
   }
 
@@ -73,12 +75,35 @@ const reversableEdge = (
         }
     : undefined
 
-const propertyAndValue = (parts: string[]): Declarations => ({ [parts[0]]: join(tail(parts)) })
+const propertyValue = (property: string, separator?: string) => (
+  parts: string[],
+): Declarations => ({ [property]: join(tail(parts), separator) })
+
+// .duration-75	transition-duration: 75ms;
+// .duration-75	transition-duration: 75ms;
+const themeProperty = (section: keyof Theme) => (parts: string[], theme: ThemeValueResolver) => ({
+  [hyphenate(section)]: theme(section, tail(parts)) as string,
+})
+
+const propertyAndValue = (parts: string[]): Declarations => propertyValue(parts[0])(parts)
+
 const display = (parts: string[]): Declarations => ({ display: join(parts) })
 const position = (parts: string[]): Declarations => ({ position: parts[0] })
 const textTransform = (parts: string[]): Declarations => ({ 'text-transform': parts[0] })
 const textDecoration = (parts: string[]): Declarations => ({ 'text-decoration': join(parts) })
 const inset: Plugin = (parts, theme) => ({ [parts[0]]: theme('inset', tail(parts)) })
+
+const opacityProperty = (
+  parts: string[],
+  theme: ThemeValueResolver,
+  tag: PluginContext['tag'],
+  sectionPrefix = parts[0],
+): Declarations => ({
+  [`--${tag(parts[0] + '-opacity')}`]: theme(
+    (sectionPrefix + 'Opacity') as 'textOpacity',
+    tail(parts, 2),
+  ),
+})
 
 const border = (
   parts: string[],
@@ -91,18 +116,18 @@ const border = (
     case 'dotted':
     case 'double':
     case 'none':
-      return { 'border-style': parts[1] }
+      return propertyValue('border-style')(parts)
     case 'collapse':
     case 'separate':
-      return { 'border-collapse': parts[1] }
+      return propertyValue('border-collapse')(parts)
     case 'opacity':
-      return { [`--${tag(parts[0] + '-opacity')}`]: theme('borderOpacity', tail(parts, 2)) }
+      return opacityProperty(parts, theme, tag)
   }
 
   return (_ = theme(
     `${parts[0]}Width` as 'borderWidth' | 'divideWidth',
     tail(parts),
-    true /* Optional */,
+    '' /* Optional */,
   ))
     ? { 'border-width': _ }
     : withOpacityFallback(
@@ -188,6 +213,35 @@ const transform = (tag: PluginContext['tag'], gpu?: boolean): string =>
     'skew-y',
   )},0)) scaleX(var(--${tag('scale-x')},1)) scaleY(var(--${tag('scale-y')},1))`
 
+// .scale-0	--scale-x: 0;
+// .scale-x-150
+// .scale-y-0
+// .translate-x-0	--translate-x: 0;
+// .translate-x-1	--translate-x: 0.25rem;
+// .translate-y-px	--translate-y: 1px;
+// .translate-y-full	--translate-y: 100%;
+// .translate-y-1/2	--translate-y: 50%;
+// .skew-y-0	--skew-y: 0;
+// .skew-y-1	--skew-y: 1deg;
+const transformFunction: Plugin = (parts, theme, { tag }) =>
+  (_ = theme(parts[0] as 'scale' | 'skew' | 'translate', parts[2] || parts[1])) && {
+    [`--${tag(parts[0] + '-x')}`]: parts[1] !== 'y' && _,
+    [`--${tag(parts[0] + '-y')}`]: parts[1] !== 'x' && _,
+    transform: [`${parts[0]}${parts[2] ? parts[1].toUpperCase() : ''}(${_})`, transform(tag)],
+  }
+
+const boxShadow = (tag: PluginContext['tag']): string =>
+  `var(--${tag('ring-offset-shadow')},0 0 transparent),var(--${tag(
+    'ring-shadow',
+  )},0 0 transparent),var(--${tag('shadow')},0 0 transparent)`
+
+// .from-purple-400
+// .to-red-500
+const gradientColorStop: Plugin = (parts, theme, { tag }) =>
+  (_ = theme('gradientColorStops', tail(parts))) && {
+    [`--${tag('gradient-' + parts[0])}`]: _,
+  }
+
 export const utilities: Record<string, Plugin> = {
   // .shadow	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   // .shadow-md	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -195,13 +249,8 @@ export const utilities: Record<string, Plugin> = {
   shadow: (parts, theme, { tag }) =>
     (_ = theme('boxShadow', tail(parts))) && {
       [`--${tag('shadow')}`]: _,
-      // IE11 fallback first, then modern with rin-* support
-      'box-shadow': [
-        _,
-        `var(--${tag('ring-offset-shadow')},0 0 transparent),var(--${tag(
-          'ring-shadow',
-        )},0 0 transparent),var(--${tag('shadow')})`,
-      ],
+      // IE11 fallback first, then modern with ring-* support
+      'box-shadow': [_, boxShadow(tag)],
     },
 
   // From theme.ringWidth
@@ -226,11 +275,11 @@ export const utilities: Record<string, Plugin> = {
         return { [`--${tag('ring-inset')}`]: 'inset' }
 
       case 'opacity':
-        return { [`--${tag('ring-opacity')}`]: theme('ringOpacity', tail(parts, 2)) }
+        return opacityProperty(parts, theme, tag)
 
       case 'offset':
         // Either width or color
-        return (_ = theme('ringOffsetWidth', tail(parts, 2), true /* Optional */))
+        return (_ = theme('ringOffsetWidth', tail(parts, 2), '' /* Optional */))
           ? {
               [`--${tag('ring-offset-width')}`]: _,
             }
@@ -278,19 +327,50 @@ export const utilities: Record<string, Plugin> = {
 
   // .duration-75	transition-duration: 75ms;
   // .duration-75	transition-duration: 75ms;
-  duration: (parts, theme) => ({
-    'transition-duration': theme('transitionDuration', tail(parts)),
-  }),
+  duration: themeProperty('transitionDuration'),
 
   // .delay-75	transition-delay: 75ms;
   // .delay-100	transition-delay: 100ms;
-  delay: (parts, theme) => ({ 'transition-delay': theme('transitionDelay', tail(parts)) }),
+  delay: themeProperty('transitionDelay'),
 
-  origin: (parts) => ({ 'transform-origin': join(tail(parts), ' ') }),
+  tracking: themeProperty('letterSpacing'),
 
-  cursor: propertyAndValue,
+  // .leading-10	line-height: 2.5rem;
+  // .leading-none	line-height: 1;
+  // .leading-tight	line-height: 1.25;
+  leading: themeProperty('lineHeight'),
 
-  select: (parts) => ({ 'user-select': parts[1] }),
+  // .z-50	z-index: 50;
+  // .z-auto	z-index: auto;
+  z: themeProperty('zIndex'),
+
+  opacity: themeProperty('opacity'),
+
+  ease: themeProperty('transitionTimingFunction'),
+
+  // .w-64	width: 16rem;
+  // .w-auto	width: auto;
+  // .w-px	width: 1px;
+  // .w-1/2	width: 50%;
+  // .w-full	width: 100%;
+  // .w-screen	width: 100vw;
+  w: themeProperty('width'),
+
+  h: themeProperty('height'),
+
+  fill: themeProperty('fill'),
+
+  order: themeProperty('order'),
+
+  origin: propertyValue('transform-origin', ' '),
+
+  select: propertyValue('user-select'),
+
+  'pointer-events': propertyValue('pointer-events'),
+
+  align: propertyValue('vertical-align'),
+
+  whitespace: propertyValue('white-space'),
 
   transform: (parts, theme, { tag }) =>
     parts[1] === 'none'
@@ -314,89 +394,9 @@ export const utilities: Record<string, Plugin> = {
       transform: [`rotate(${_})`, transform(tag)],
     },
 
-  // .scale-0	--transform-scale-x: 0;
-  // .scale-x-150
-  // .scale-y-0
-  scale: (parts, theme, { tag }) =>
-    (_ = theme('scale', [parts[2] || parts[1]])) && {
-      [`--${tag('scale-x')}`]: parts[1] !== 'y' && _,
-      [`--${tag('scale-y')}`]: parts[1] !== 'x' && _,
-      transform: [`scale${parts[2] ? parts[1].toUpperCase() : ''}(${_})`, transform(tag)],
-    },
-
-  // .translate-x-0	--transform-translate-x: 0;
-  // .translate-x-1	--transform-translate-x: 0.25rem;
-  // .translate-y-px	--transform-translate-y: 1px;
-  // .translate-y-full	--transform-translate-y: 100%;
-  // .translate-y-1/2	--transform-translate-y: 50%;
-  translate: (parts, theme, { tag }) =>
-    (_ = theme('translate', tail(parts, 2))) && {
-      [`--${tag('translate-x')}`]: parts[1] !== 'y' && _,
-      [`--${tag('translate-y')}`]: parts[1] !== 'x' && _,
-      transform: [`translate${parts[1].toUpperCase()}(${_})`, transform(tag)],
-    },
-
-  // .skew-y-0	--transform-skew-y: 0;
-  // .skew-y-1	--transform-skew-y: 1deg;
-  skew: (parts, theme, { tag }) =>
-    (_ = theme('skew', tail(parts, 2))) && {
-      [`--${tag('skew-x')}`]: parts[1] !== 'y' && _,
-      [`--${tag('skew-y')}`]: parts[1] !== 'x' && _,
-      transform: [`skew${parts[1].toUpperCase()}(${_})`, transform(tag)],
-    },
-
-  // .bg-gradient => linear-gradient(180deg, ...)
-  // .bg-gradient-45 => linear-gradient(45deg, ...)
-  // .bg-gradient-to-r => linear-gradient(to right, ...)
-  // .bg-gradient-to-r => linear-gradient(to right, ...)
-  // TODO: bg-gradient theme keys and values
-  'bg-gradient': (parts, theme, { tag }) =>
-    (_ =
-      parts[1] === 'to' && (_ = expandEdges(parts[2]))
-        ? 'to ' + join(_, ' ')
-        : theme('rotate', tail(parts))) && {
-      'background-image': `linear-gradient(${_},var(--${tag('gradient-stops')},var(--${tag(
-        'gradient-from',
-      )},transparent),var(--${tag('gradient-to')},transparent)))`,
-    },
-
-  // .from-purple-400
-  from: (parts, theme, { tag }) =>
-    (_ = theme('gradientColorStops', tail(parts))) && {
-      [`--${tag('gradient-from')}`]: _,
-    },
-
-  // .via-pink-500
-  via: (parts, theme, { tag }) =>
-    (_ = theme('gradientColorStops', tail(parts))) && {
-      [`--${tag('gradient-stops')}`]: `var(--${tag('gradient-from')},transparent),${_},var(--${tag(
-        'gradient-to',
-      )},transparent)`,
-    },
-
-  // .to-red-500
-  to: (parts, theme, { tag }) =>
-    (_ = theme('gradientColorStops', tail(parts))) && {
-      [`--${tag('gradient-to')}`]: _,
-    },
-
-  'pointer-events-none': { 'pointer-events': 'none' },
-  'pointer-events-auto': { 'pointer-events': 'auto' },
-
-  tracking: (parts, theme) => ({ 'letter-spacing': theme('letterSpacing', tail(parts)) }),
-
-  // .leading-10	line-height: 2.5rem;
-  // .leading-none	line-height: 1;
-  // .leading-tight	line-height: 1.25;
-  leading: (parts, theme) => ({ 'line-height': theme('lineHeight', tail(parts)) }),
-
-  align: (parts) => ({ 'vertical-align': join(tail(parts)) }),
-
-  whitespace: (parts) => ({ 'white-space': join(tail(parts)) }),
-
-  // .z-50	z-index: 50;
-  // .z-auto	z-index: auto;
-  z: (parts, theme) => ({ 'z-index': theme('zIndex', tail(parts)) }),
+  scale: transformFunction,
+  translate: transformFunction,
+  skew: transformFunction,
 
   // .gap-0	gap: 0;
   // .gap-1	gap: 0.25rem;
@@ -406,17 +406,15 @@ export const utilities: Record<string, Plugin> = {
   gap: (parts, theme) =>
     (_ = ({ x: 'column', y: 'row' } as Record<string, string | undefined>)[parts[1]])
       ? { [_ + '-gap']: theme('gap', tail(parts, 2)) }
-      : { gap: theme('gap', tail(parts)) },
+      : themeProperty('gap')(parts, theme),
 
   // .stroke-current	stroke: currentColor;
   // stroke-0	stroke-width: 0;
   // .stroke-1	stroke-width: 1;
   stroke: (parts, theme) =>
-    (_ = theme('stroke', tail(parts), true /* Optional */))
+    (_ = theme('stroke', tail(parts), '' /* Optional */))
       ? { stroke: _ }
-      : { 'stroke-width': theme('strokeWidth', tail(parts)) },
-
-  fill: (parts, theme) => ({ fill: theme('fill', tail(parts)) }),
+      : themeProperty('strokeWidth')(parts, theme),
 
   // .outline-none	outline: 2px solid transparent; outline-offset: 2px;
   // .outline-white	outline: 2px dotted white; outline-offset: 2px;
@@ -425,18 +423,6 @@ export const utilities: Record<string, Plugin> = {
       outline: _[0],
       'outline-offset': _[1],
     },
-
-  // .appearance-none -> appearance: none;
-  // .appearance-auto -> appearance: auto;
-  // .appearance-menulist-button; -> appearance: menulist-button;
-  // .appearance-textfield -> appearance: textfield;
-  appearance: propertyAndValue,
-
-  opacity: (parts, theme) => ({ opacity: theme('opacity', tail(parts)) }),
-
-  ease: (parts, theme) => ({
-    'transition-timing-function': theme('transitionTimingFunction', tail(parts)),
-  }),
 
   break(parts) {
     switch (parts[1]) {
@@ -451,16 +437,6 @@ export const utilities: Record<string, Plugin> = {
         return { 'word-break': 'break-all' }
     }
   },
-
-  // .w-64	width: 16rem;
-  // .w-auto	width: auto;
-  // .w-px	width: 1px;
-  // .w-1/2	width: 50%;
-  // .w-full	width: 100%;
-  // .w-screen	width: 100vw;
-  w: (parts, theme) => ({ width: theme('width', tail(parts)) }),
-
-  h: (parts, theme) => ({ height: theme('height', tail(parts)) }),
 
   underline: textDecoration,
   'no-underline': textDecoration(['none']),
@@ -483,16 +459,16 @@ export const utilities: Record<string, Plugin> = {
       case 'center':
       case 'right':
       case 'justify':
-        return { 'text-align': parts[1] }
+        return propertyValue('text-align')(parts)
       case 'uppercase':
       case 'lowercase':
       case 'capitalize':
         return textTransform(tail(parts))
       case 'opacity':
-        return { [`--${tag('text-opacity')}`]: theme('textOpacity', tail(parts, 2)) }
+        return opacityProperty(parts, theme, tag)
     }
 
-    const fontSize = theme('fontSize', tail(parts), true /* Optional */)
+    const fontSize = theme('fontSize', tail(parts), '' /* Optional */)
 
     if (fontSize) {
       return is.string(fontSize)
@@ -513,40 +489,53 @@ export const utilities: Record<string, Plugin> = {
       case 'fixed':
       case 'local':
       case 'scroll':
-        return { 'background-attachment': join(tail(parts), ',') }
+        return propertyValue('background-attachment', ',')(parts)
 
       case 'bottom':
       case 'center':
       case 'left':
       case 'right':
       case 'top':
-        return { 'background-position': join(tail(parts), ' ') }
+        return propertyValue('background-position', ' ')(parts)
 
       case 'no':
-        return parts[2] === 'repeat' && { 'background-repeat': join(tail(parts)) }
+        return parts[2] === 'repeat' && propertyValue('background-repeat')(parts)
 
       case 'auto':
       case 'cover':
       case 'contain':
-        return { 'background-size': parts[1] }
+        return propertyValue('background-size')(parts)
 
       case 'repeat':
         switch (parts[2]) {
           case 'x':
           case 'y':
-            return { 'background-repeat': join(tail(parts)) }
+            return propertyValue('background-repeat')(parts)
         }
 
         return { 'background-repeat': parts[2] || parts[1] }
 
       case 'opacity':
-        return { [`--${tag('bg-opacity')}`]: theme('backgroundOpacity', tail(parts, 2)) }
+        return opacityProperty(parts, theme, tag, 'background')
 
       case 'clip':
         return { 'background-clip': parts[2] + (parts[2] === 'text' ? '' : '-box') }
+
+      // .bg-gradient-to-r => linear-gradient(to right, ...)
+      // .bg-gradient-to-r => linear-gradient(to right, ...)
+      case 'gradient':
+        if (parts[2] === 'to' && (_ = expandEdges(parts[3]))) {
+          return {
+            'background-image': `linear-gradient(to ${join(_, ' ')},var(--${tag(
+              'gradient-stops',
+            )},var(--${tag('gradient-from')},transparent),var(--${tag(
+              'gradient-to',
+            )},transparent)))`,
+          }
+        }
     }
 
-    return (_ = theme('backgroundImage', tail(parts), true /* Optional */))
+    return (_ = theme('backgroundImage', tail(parts), '' /* Optional */))
       ? { 'background-image': _ }
       : merge(
           withOpacityFallback('background-color', 'bg', theme('backgroundColor', tail(parts)), tag),
@@ -559,12 +548,26 @@ export const utilities: Record<string, Plugin> = {
             theme(
               'textColor',
               parts[1] === 'on' ? tail(parts, 2) : ['on'].concat(tail(parts)),
-              true /* Optional */,
+              '' /* Optional */,
             ),
             tag,
           ),
         )
   },
+
+  // .from-purple-400
+  from: gradientColorStop,
+
+  // .to-red-500
+  to: gradientColorStop,
+
+  // .via-pink-500
+  via: (parts, theme, { tag }) =>
+    (_ = theme('gradientColorStops', tail(parts))) && {
+      [`--${tag('gradient-stops')}`]: `var(--${tag('gradient-from')},transparent),${_},var(--${tag(
+        'gradient-to',
+      )},transparent)`,
+    },
 
   // .rounded	border-radius: 0.25rem;
   // .rounded-5	border-radius: 5px;
@@ -578,13 +581,11 @@ export const utilities: Record<string, Plugin> = {
   // .rounded-t-4	border-radius: 4px;
   rounded: (parts, theme) =>
     corners(
-      theme('borderRadius', tail(parts, 2), true /* Optional */),
+      theme('borderRadius', tail(parts, 2), '' /* Optional */),
       parts[1],
       'border',
       'radius',
-    ) || {
-      'border-radius': theme('borderRadius', tail(parts)),
-    },
+    ) || themeProperty('borderRadius')(parts, theme),
 
   'transition-none': { 'transition-property': 'none' },
 
@@ -592,8 +593,8 @@ export const utilities: Record<string, Plugin> = {
     transition: joinTruthy(
       [
         theme('transitionProperty', tail(parts)),
-        theme('transitionDuration', []),
-        theme('transitionTimingFunction', []),
+        theme('transitionDuration', ''),
+        theme('transitionTimingFunction', ''),
       ],
       ' ',
     ),
@@ -610,17 +611,13 @@ export const utilities: Record<string, Plugin> = {
         }
       case 'nowrap':
       case 'wrap':
-        return { 'flex-wrap': join(tail(parts)) }
+        return propertyValue('flex-wrap')(parts)
       case 'grow':
       case 'shrink':
         return { [`flex-${parts[1]}`]: parts[2] || '1' }
     }
 
-    if ((_ = theme('flex', tail(parts), true /* Optional */))) {
-      return { flex: _ }
-    }
-
-    return display(parts)
+    return (_ = theme('flex', tail(parts), '' /* Optional */)) ? { flex: _ } : display(parts)
   },
 
   grid(parts) {
@@ -691,7 +688,7 @@ export const utilities: Record<string, Plugin> = {
     switch (parts[1]) {
       case 'auto':
       case 'fixed':
-        return { 'table-layout': parts[1] }
+        return propertyValue('table-layout')(parts)
     }
 
     return display(parts)
@@ -750,12 +747,11 @@ export const utilities: Record<string, Plugin> = {
       case 'cover':
       case 'fill':
       case 'none':
-        return { 'object-fit': parts[1] }
       case 'scale':
-        return { 'object-fit': join(tail(parts)) }
+        return propertyValue('object-fit')(parts)
     }
 
-    return { 'object-position': join(tail(parts), ' ') }
+    return propertyValue('object-position', ' ')(parts)
   },
 
   // TODO: move into helper
@@ -784,7 +780,7 @@ export const utilities: Record<string, Plugin> = {
         return { 'align-items': `flex-${parts[1]}` }
     }
 
-    return { 'align-items': parts[1] }
+    return propertyValue('align-items')(parts)
   },
 
   content: contentPluginFor('align-content'),
@@ -793,8 +789,6 @@ export const utilities: Record<string, Plugin> = {
 
   place: (parts) => placeHelper('place-' + parts[1], tail(parts)),
 
-  order: (parts, theme) => ({ order: theme('order', tail(parts)) }),
-
   col: gridPlugin('column'),
   row: gridPlugin('row'),
 
@@ -802,10 +796,10 @@ export const utilities: Record<string, Plugin> = {
     switch (parts[1]) {
       case 'inside':
       case 'outside':
-        return { 'list-style-position': parts[1] }
+        return propertyValue('list-style-position')(parts)
     }
 
-    return { 'list-style-type': join(tail(parts)) }
+    return propertyValue('list-style-type')(parts)
   },
 
   'sr-only': {
@@ -822,6 +816,13 @@ export const utilities: Record<string, Plugin> = {
 
   box: (parts) => ({ 'box-sizing': `${parts[1]}-box` }),
 
+  // .appearance-none -> appearance: none;
+  // .appearance-auto -> appearance: auto;
+  // .appearance-menulist-button; -> appearance: menulist-button;
+  // .appearance-textfield -> appearance: textfield;
+  appearance: propertyAndValue,
+  cursor: propertyAndValue,
+
   float: propertyAndValue,
   clear: propertyAndValue,
 
@@ -831,7 +832,7 @@ export const utilities: Record<string, Plugin> = {
     switch (parts[1]) {
       case 'ellipsis':
       case 'clip':
-        return { 'text-overflow': parts[1] }
+        return propertyValue('text-overflow')(parts)
     }
 
     return parts[2] ? { [`overflow-${parts[1]}`]: parts[2] } : propertyAndValue(parts)
@@ -860,9 +861,9 @@ export const utilities: Record<string, Plugin> = {
   'font-not-italic': { 'font-style': 'normal' },
 
   font: (parts, theme) =>
-    (_ = theme('fontFamily', tail(parts), true /* Optional */))
+    (_ = theme('fontFamily', tail(parts), '' /* Optional */))
       ? { 'font-family': _ }
-      : { 'font-weight': theme('fontWeight', tail(parts)) },
+      : themeProperty('fontWeight')(parts, theme),
 
   space: (parts, theme, { tag }) =>
     (_ = reversableEdge(parts, theme, 'space', tag, 'margin')) && [
@@ -892,7 +893,7 @@ export const utilities: Record<string, Plugin> = {
   placeholder: (parts, theme, { tag }) =>
     (_ =
       parts[1] === 'opacity'
-        ? { [`--${tag('placeholder-opacity')}`]: theme('placeholderOpacity', tail(parts, 2)) }
+        ? opacityProperty(parts, theme, tag)
         : withOpacityFallback(
             'color',
             'placeholder',

@@ -12,6 +12,13 @@ export const tail = <T extends string | readonly unknown[]>(array: T, startIndex
 
 export const identity = <T>(value: T): T => value
 
+export const capitalize = (value: string): string => value[0].toUpperCase() + tail(value)
+
+const uppercasePattern = /([A-Z])/g
+const prefixAndLowerCase = (char: string): string => `-${char.toLowerCase()}`
+export const hyphenate = (value: string): string => value.replace(uppercasePattern, prefixAndLowerCase)
+
+
 export interface Cache<V> {
   has(key: string): boolean
   get(key: string): V | undefined

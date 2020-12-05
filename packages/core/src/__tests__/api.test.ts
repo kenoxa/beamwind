@@ -143,7 +143,7 @@ test.each([
       '@media (min-width: 1024px){.lg\\:rounded-full{border-radius:9999px}}',
       '@media (min-width: 1024px){.lg\\:hover\\:bg-primary:hover{--bg-opacity:1;background-color:#0d3880;background-color:rgba(13,56,128,var(--bg-opacity));--text-opacity:1;color:#e8ecf4;color:rgba(232,236,244,var(--text-opacity))}}',
       '@media (min-width: 1024px){.lg\\:hover\\:text-critical:hover{--text-opacity:1;color:#d0011b;color:rgba(208,1,27,var(--text-opacity))}}',
-      '@media (min-width: 1024px){.lg\\:hover\\:active\\:shadow:hover:active{--shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}}',
+      '@media (min-width: 1024px){.lg\\:hover\\:active\\:shadow:hover:active{--shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow,0 0 transparent)}}',
       '@media (min-width: 1024px){.lg\\:hover\\:active\\:underline:hover:active{text-decoration:underline}}',
     ],
   ],

@@ -25,7 +25,7 @@ test('value can be a token string', () => {
   expect(injector.target).toMatchObject([
     '.bg-surface{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity));--text-opacity:1;color:#111;color:rgba(17,17,17,var(--text-opacity))}',
     '.mx-auto{margin-left:auto;margin-right:auto}',
-    '.shadow-md{--shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow)}',
+    '.shadow-md{--shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);box-shadow:var(--ring-offset-shadow,0 0 transparent),var(--ring-shadow,0 0 transparent),var(--shadow,0 0 transparent)}',
     '.my-md{margin-bottom:.875rem;margin-top:.875rem}',
     '.overflow-hidden{overflow:hidden}',
     '.max-w-md{max-width:28rem}',
@@ -41,7 +41,7 @@ test('plugin can return new tokens to parse using `apply`', () => {
     plugins: {
       btn(parts, theme) {
         if (parts[1]) {
-          const color = theme('colors', parts[1], true)
+          const color = theme('colors', parts[1], '')
 
           if (color) {
             return apply`bg-${parts[1]} hover:bg-on-${parts[1]} active:(bg-${parts[1]} underline)`
