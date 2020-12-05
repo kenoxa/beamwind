@@ -15,6 +15,8 @@ Server Side Rendering: @beamwind/ssr
 https://tailwindui.com/components
 @tailwindcss/forms: https://github.com/tailwindlabs/tailwindcss-forms
 
+@beamwind/styled like styled-components
+
 Autocompletion:
 https://tailwindcss.com/docs/intellisense
 https://github.com/kingdaro/typescript-plugin-tw-template
