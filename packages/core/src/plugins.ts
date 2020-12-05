@@ -179,6 +179,15 @@ const contentPluginFor = (property: string) => (parts: string[]): Declarations =
   return placeHelper(property, parts)
 }
 
+const transform = (tag: PluginContext['tag'], gpu?: boolean): string =>
+  `${
+    gpu
+      ? `translate3d(var(--${tag('translate-x')},0),var(--${tag('translate-y')},0),0)`
+      : `translateX(var(--${tag('translate-x')},0)) translateY(var(--${tag('translate-y')},0))`
+  } rotate(var(--${tag('rotate')},0)) skewX(var(--${tag('skew-x')},0)) skewY(var(--${tag(
+    'skew-y',
+  )},0)) scaleX(var(--${tag('scale-x')},1)) scaleY(var(--${tag('scale-y')},1))`
+
 export const utilities: Record<string, Plugin> = {
   // .shadow	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   // .shadow-md	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -271,37 +280,26 @@ export const utilities: Record<string, Plugin> = {
 
   select: (parts) => ({ 'user-select': parts[1] }),
 
-  transform: (parts, theme, { tag }) => {
-    switch (parts[1]) {
-      case 'none':
-        return { transform: 'none' }
-      case 'gpu':
-        return {
-          transform: `translate3d(var(--${tag('translate-x')},0),var(--${tag(
-            'translate-y',
-          )},0),0) rotate(var(--${tag('rotate')},0)) skewX(var(--${tag(
-            'skew-x',
-          )},0)) skewY(var(--${tag('skew-y')},0)) scaleX(var(--${tag(
-            'scale-x',
-          )},1)) scaleY(var(--${tag('scale-y')},1))`,
-        }
-    }
-
-    return {
-      transform: `translateX(var(--${tag('translate-x')},0)) translateY(var(--${tag(
-        'translate-y',
-      )},0)) rotate(var(--${tag('rotate')},0)) skewX(var(--${tag('skew-x')},0)) skewY(var(--${tag(
-        'skew-y',
-      )},0)) scaleX(var(--${tag('scale-x')},1)) scaleY(var(--${tag('scale-y')},1))`,
-    }
-  },
+  transform: (parts, theme, { tag }) =>
+    parts[1] === 'none'
+      ? { transform: 'none' }
+      : {
+          [`--${tag('translate-x')}`]: '0',
+          [`--${tag('translate-y')}`]: '0',
+          [`--${tag('rotate')}`]: '0',
+          [`--${tag('skew-x')}`]: '0',
+          [`--${tag('skew-y')}`]: '0',
+          [`--${tag('scale-x')}`]: '1',
+          [`--${tag('scale-y')}`]: '1',
+          transform: transform(tag, parts[1] === 'gpu'),
+        },
 
   // .rotate-0	--transform-rotate: 0;
   // .rotate-1	--transform-rotate: 1deg;
   rotate: (parts, theme, { tag }) =>
     (_ = theme('rotate', tail(parts))) && {
       [`--${tag('rotate')}`]: _,
-      transform: `rotate(${_})`,
+      transform: [`rotate(${_})`, transform(tag)],
     },
 
   // .scale-0	--transform-scale-x: 0;
@@ -311,7 +309,7 @@ export const utilities: Record<string, Plugin> = {
     (_ = theme('scale', [parts[2] || parts[1]])) && {
       [`--${tag('scale-x')}`]: parts[1] !== 'y' && _,
       [`--${tag('scale-y')}`]: parts[1] !== 'x' && _,
-      transform: `scale${parts[2] ? parts[1].toUpperCase() : ''}(${_})`,
+      transform: [`scale${parts[2] ? parts[1].toUpperCase() : ''}(${_})`, transform(tag)],
     },
 
   // .translate-x-0	--transform-translate-x: 0;
@@ -323,7 +321,7 @@ export const utilities: Record<string, Plugin> = {
     (_ = theme('translate', tail(parts, 2))) && {
       [`--${tag('translate-x')}`]: parts[1] !== 'y' && _,
       [`--${tag('translate-y')}`]: parts[1] !== 'x' && _,
-      transform: `translate${parts[1].toUpperCase()}(${_})`,
+      transform: [`translate${parts[1].toUpperCase()}(${_})`, transform(tag)],
     },
 
   // .skew-y-0	--transform-skew-y: 0;
@@ -332,7 +330,7 @@ export const utilities: Record<string, Plugin> = {
     (_ = theme('skew', tail(parts, 2))) && {
       [`--${tag('skew-x')}`]: parts[1] !== 'y' && _,
       [`--${tag('skew-y')}`]: parts[1] !== 'x' && _,
-      transform: `skew${parts[1].toUpperCase()}(${_})`,
+      transform: [`skew${parts[1].toUpperCase()}(${_})`, transform(tag)],
     },
 
   // .bg-gradient => linear-gradient(180deg, ...)

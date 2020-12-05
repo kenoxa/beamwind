@@ -52,15 +52,17 @@ test('same color is inserted only once', () => {
 })
 
 test('transform', () => {
-  expect(instance.bw('transform')).toBe('_1gdx5xp')
+  expect(instance.bw('transform')).toBe('_gqktp6')
   expect(injector.target).toMatchObject([
-    '._1gdx5xp{transform:translateX(var(--_wo1cv4,0)) translateY(var(--_hov5ig,0)) rotate(var(--_ld4lhp,0)) skewX(var(--_harkfw,0)) skewY(var(--_9bg65f,0)) scaleX(var(--_z0bztv,1)) scaleY(var(--_ceh22,1))}',
+    '._gqktp6{--_wo1cv4:0;--_hov5ig:0;--_ld4lhp:0;--_harkfw:0;--_9bg65f:0;--_z0bztv:1;--_ceh22:1;transform:translateX(var(--_wo1cv4,0)) translateY(var(--_hov5ig,0)) rotate(var(--_ld4lhp,0)) skewX(var(--_harkfw,0)) skewY(var(--_9bg65f,0)) scaleX(var(--_z0bztv,1)) scaleY(var(--_ceh22,1))}',
   ])
 })
 
 test('scale', () => {
-  expect(instance.bw('scale-90')).toBe('_19yec5a')
-  expect(injector.target).toMatchObject(['._19yec5a{--_z0bztv:.9;--_ceh22:.9;transform:scale(.9)}'])
+  expect(instance.bw('scale-90')).toBe('_1ftb7ve')
+  expect(injector.target).toMatchObject([
+    '._1ftb7ve{--_z0bztv:.9;--_ceh22:.9;transform:scale(.9);transform:translateX(var(--_wo1cv4,0)) translateY(var(--_hov5ig,0)) rotate(var(--_ld4lhp,0)) skewX(var(--_harkfw,0)) skewY(var(--_9bg65f,0)) scaleX(var(--_z0bztv,1)) scaleY(var(--_ceh22,1))}',
+  ])
 })
 
 test('bg-gradient-to-r', () => {

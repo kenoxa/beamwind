@@ -162,8 +162,8 @@ bw`text(center bold gray-500)`)
 bw`divide(y-2 blue-500 opacity(75 md:50))`
 // => divide-y-2 divide-blue-500 divide-opacity-75 md:divide-opacity-50
 
-bw`w(1/2 sm:1/3 lg:1/6) p-sm`
-// => w-1/2 sm:w-1/3 lg:w-1/6 p-sm
+bw`w(1/2 sm:1/3 lg:1/6) p-2`
+// => w-1/2 sm:w-1/3 lg:w-1/6 p-2
 ```
 
 Some directives like [ring](https://tailwindcss.com/docs/ring-width) need to be applied as is. For that case you can use the special `&` directive which is replaced with the current prefix:
@@ -404,11 +404,10 @@ Now that dark mode is a first-class feature of many operating systems, it's beco
 
 To make this as easy as possible, beamwind includes a dark variant that lets you style your site differently when dark mode is enabled:
 
-```jsx
-<div class={bw`bg-white dark:bg-gray-800`}>
-  <h1 class={bw`text-gray-900 dark:text-white`}>Dark mode is here!</h1>
-  <p class={bw`text-gray-600 dark:text-gray-300`}>Lorem ipsum...</p>
-</div>
+```js
+bw`
+  bg-white text-black
+  dark:(bg-gray-800 text-white)`
 ```
 
 > It's important to note that the dark mode variant is **always** enabled and available for all directives.
@@ -903,9 +902,9 @@ The following Tailwind v2 features are not yet available in beamwind:
 
   > **Note** `x` and `y` can not be combined.
 
-- `rotate`, `scale` , `skew` and `translate` can be used without `transform` when used alone
+- `rotate`, `scale` , `skew` and `translate` provide a fallback for IE 11
 
-  > `rotate-45` works but when using `rotate-45 scale-150` only one of both is applied. In that case you must use `transform`: `transform rotate-45 scale-150`
+  > `transform rotate-45` works but when using `transform rotate-45 scale-150` only one of both is applied.
 
 ### IE 11 compatibility
 
