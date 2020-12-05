@@ -89,6 +89,9 @@ const handlePluginResult = (
   }
 }
 
+const handleNegation = (value: string): string =>
+  value[0] === '-' ? ((negate = '-'), tail(value)) : ((negate = ''), value)
+
 const translate = (token: string, variants: readonly string[]): unknown => {
   const className =
     // Return the marker class name
@@ -100,12 +103,7 @@ const translate = (token: string, variants: readonly string[]): unknown => {
 
   let directive = token
 
-  negate = ''
-
-  if (directive[0] === '-') {
-    negate = '-'
-    directive = tail(directive)
-  }
+  directive = handleNegation(directive)
 
   let parts = directive.split('-')
 
@@ -178,12 +176,11 @@ const onlyVariants = (s: string): '' | boolean => s[0] === ':'
 
 const translateBuffer = (buffer: string): '' => {
   if (buffer) {
-    const p = join(groupings.filter(onlyPrefixes))
-    const token = buffer === '&' ? p : (p && p + '-') + buffer
+    buffer = handleNegation(buffer)
 
-    if (token) {
-      translate(token, groupings.filter(onlyVariants))
-    }
+    const p = join(groupings.filter(onlyPrefixes))
+
+    translate(buffer === '&' ? p : negate + (p && p + '-') + buffer, groupings.filter(onlyVariants))
   }
 
   return ''

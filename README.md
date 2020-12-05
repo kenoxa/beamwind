@@ -173,6 +173,13 @@ bw`ring(& ping-700 offset(4 ping-200))`)
 // => ring ring-ping-700 ring-offset-4 ring-offset-on-ping-200
 ```
 
+Negated values can be used within the braces and will be applied to the directive:
+
+```js
+bw`rotate(-3 hover:6 md:(3 hover:-6))`
+// => -rotate-3 hover:rotate-6 md:rotate-3 md:hover:-rotate-6"
+```
+
 ### Function Signature
 
 It is possible to invoke beamwind in a multitude of different ways. The [`bw` function](https://beamwind.js.org/packages/types/interfaces/instance.html#bw) can take **_any_** number of arguments, each of which can be an Object, Array, Boolean, Number, String or [inline plugins](#inline-plugins). This feature is based on [clsx](https://www.npmjs.com/package/cslx).

@@ -872,5 +872,14 @@
   "even:font-bold": ".even\\:font-bold:nth-child(2n){font-weight:700}",
   "transform-none": { "transform": "none" },
   "transform-gpu": ".transform-gpu{--translate-x:0;--translate-y:0;--rotate:0;--skew-x:0;--skew-y:0;--scale-x:1;--scale-y:1;transform:translate3d(var(--translate-x,0),var(--translate-y,0),0) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}",
-  "transform": ".transform{--translate-x:0;--translate-y:0;--rotate:0;--skew-x:0;--skew-y:0;--scale-x:1;--scale-y:1;transform:translateX(var(--translate-x,0)) translateY(var(--translate-y,0)) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}"
+  "transform": ".transform{--translate-x:0;--translate-y:0;--rotate:0;--skew-x:0;--skew-y:0;--scale-x:1;--scale-y:1;transform:translateX(var(--translate-x,0)) translateY(var(--translate-y,0)) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}",
+  "rotate(-3 hover:6 md:(3 hover:-6))": [
+    "-rotate-3 hover:rotate-6 md:rotate-3 md:hover:-rotate-6",
+    [
+      ".-rotate-3{--rotate:calc(3deg * -1);transform:rotate(calc(3deg * -1));transform:translateX(var(--translate-x,0)) translateY(var(--translate-y,0)) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}",
+      ".hover\\:rotate-6:hover{--rotate:6deg;transform:rotate(6deg);transform:translateX(var(--translate-x,0)) translateY(var(--translate-y,0)) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}",
+      "@media (min-width: 768px){.md\\:rotate-3{--rotate:3deg;transform:rotate(3deg);transform:translateX(var(--translate-x,0)) translateY(var(--translate-y,0)) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}}",
+      "@media (min-width: 768px){.md\\:hover\\:-rotate-6:hover{--rotate:calc(6deg * -1);transform:rotate(calc(6deg * -1));transform:translateX(var(--translate-x,0)) translateY(var(--translate-y,0)) rotate(var(--rotate,0)) skewX(var(--skew-x,0)) skewY(var(--skew-y,0)) scaleX(var(--scale-x,1)) scaleY(var(--scale-y,1))}}"
+    ]
+  ]
 }
