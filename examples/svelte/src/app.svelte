@@ -1,47 +1,90 @@
-<script context="module">
-  import { bw, setup, theme } from '@beamwind/play'
-
-  console.log(theme('backgroundColor'))
-
-  setup({
-    plugins: {
-      'app-p': 'm-sm',
-      'app-code': 'bg-#0002 px-sm py-xs rounded-sm',
-    },
-    theme: {
-      animation: {
-        'logo-pulse': ['infinite 1.6s ease-in-out alternate'],
-      },
-      keyframes: {
-        'logo-pulse': {
-          from: {
-            transform: 'scale(1)',
-          },
-          to: {
-            transform: 'scale(1.06)',
-          },
-        },
-      },
-    },
-  })
-</script>
-
 <script>
-  import { onMount } from 'svelte'
+  import { bw } from '@beamwind/play'
 
-  const appLink = bw`text-#ff3e00 no-underline inline-block px-md`
-
-  let count = 0
-
-  onMount(() => {
-    const interval = setInterval(() => count++, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  })
+  const style = {
+    main: bw`
+      ${true ? 'text-green-500' : ''}
+      bg-current
+      font-sans
+      w-full
+      min-h-screen
+      flex
+      items-center
+      justify-center
+      clearfix
+      transition
+      duration-1000
+      hover:(
+        sm:(bg-blue-600 text-blue-500)
+        md:(text-purple-700 bg-purple-500)
+      )
+    `,
+    card: bw`
+      bg-white
+      max-w-sm
+      rounded-2xl
+      overflow-hidden
+      shadow-2xl
+      border(current 16)
+      rotate(
+        -3 hover:6
+        sm:(0 hover:3)
+        md:(3 hover:-6)
+      )
+    `,
+    tag: bw`
+      inline-block
+      bg-gray-200
+      hover:(
+        bg-gray-100
+        text-gray-800
+        shadow-lg
+      )
+      border(& gray-400)
+      rounded-full
+      px-2
+      py-1
+      text(sm gray-600)
+      font-semibold
+      cursor-pointer
+    `,
+  }
 </script>
 
-<header class={bw`bg-surface m-md space-y-md`}>
+<main class={style.main}>
+  <div class={style.card}>
+    <img
+      class={bw('w-full')}
+      src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
+      alt="Sunset in the mountains" />
+    <div class={bw({ 'px-6': true, 'py-8': true, 'space-y-4': true })}>
+      <div class={bw`font-bold`}>
+        <h1 class={bw`text-3xl`}>The Coldest Sunset In The World</h1>
+      </div>
+      <div>
+        <p class={bw`text-gray-700 text-base`}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
+          Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <form class={bw`flex flex-row space-x-4`}>
+        <input
+          class={bw`w-full py-3 px-4 bg-gray-100 border(& gray-300) rounded sm:focus:(bg-gray-100 placeholder-current)`}
+          placeholder="Enter a value" />
+        <button class={bw`px-6 rounded bg-current font-bold`}>
+          <span class={bw`text-white`}>SEND</span>
+        </button>
+      </form>
+    </div>
+    <div class={bw`px-6 py-4 bg-gray-100 border(t gray-300) space-x-2`}>
+      <div class={style.tag}><span>#photography</span></div>
+      <div class={style.tag}><span>#travel</span></div>
+      <div class={style.tag}><span>#winter</span></div>
+    </div>
+  </div>
+</main>
+
+<footer class={bw`bg-surface m-md space-y-md`}>
   <h1 class={bw`text-2xl font-bold`}>Tones</h1>
 
   <p>
@@ -214,43 +257,4 @@
       </button>
     </figure>
   </div>
-</header>
-
-<div class={bw`text-center`}>
-  <header class={bw`bg-surface min-h-screen flex flex-col items-center justify-center text-2xl`}>
-    <img
-      src="/logo.svg"
-      class={bw`h-36vmin pointer-events-none mb-12 animate-logo-pulse`}
-      alt="logo" />
-    <p class={bw`app-p`}>
-      Edit
-      <code class={bw`app-code`}>src/App.svelte</code>
-      and save to reload.
-    </p>
-    <p class={bw`app-p`}>
-      Page has been open for
-      <code class={bw`app-code`}>{count}</code>
-      seconds.
-    </p>
-    <p class={bw`app-p divide-x-sm divide-promote`}>
-      <a class={appLink} href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
-        Learn Svelte
-      </a>
-      <a
-        class={appLink}
-        href="https://github.com/kenoxa/beamwind"
-        target="_blank"
-        rel="noopener noreferrer">
-        Learn Beamwind
-      </a>
-    </p>
-
-    <p
-      class={bw`app-p rounded-t-xl overflow-hidden bg-gradient-to-r from-indigo-50 to-indigo-100 p-10`}>
-      <button
-        class={bw`focus:outline-none text-sm px-5 py-3 rounded-md font-semibold bg(promote opacity-80) shadow-2xl ring(& sm promote opacity-80 offset(sm on-promote))`}>
-        ring-offset-purple-100
-      </button>
-    </p>
-  </header>
-</div>
+</footer>
