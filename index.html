@@ -778,7 +778,6 @@ injector.target <span class="hljs-comment">// Array with sorted CSS rulesText</s
 <span class="hljs-keyword">import</span> render <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;preact-render-to-string&#x27;</span>
 <span class="hljs-keyword">import</span> htm <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;htm&#x27;</span>
 <span class="hljs-keyword">import</span> { createInstance, virtualInjector } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
-<span class="hljs-keyword">import</span> { getStyleTag } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@beamwind/ssr&#x27;</span>
 
 <span class="hljs-keyword">const</span> injector = virtualInjector()
 <span class="hljs-keyword">const</span> bw = createInstance({ injector })
@@ -790,9 +789,13 @@ injector.target <span class="hljs-comment">// Array with sorted CSS rulesText</s
 
 <span class="hljs-keyword">const</span> app = html`<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">main</span> <span class="hljs-attr">className</span>=</span></span><span class="hljs-subst">${style.main}</span><span class="xml"><span class="hljs-tag">&gt;</span>hello beamwind<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>`</span>
 <span class="hljs-keyword">const</span> appHtml = render(app)
-<span class="hljs-keyword">const</span> styleTag = getStyleTag(injector)
+<span class="hljs-keyword">const</span> styleTag = <span class="hljs-string">`&lt;style id=&quot;__beamwind&quot;&gt;<span class="hljs-subst">${injector.target.join(<span class="hljs-string">&#x27;\n&#x27;</span>)}</span>&lt;/style&gt;`</span>
 
 <span class="hljs-comment">// Inject styleTag to your HTML now.</span></code></pre>
+				<blockquote>
+					<p>We are planning to implement the style tag rendering via <code>getStyleTag(injector)</code> in a <code>@beamwind/ssr</code> package.
+					The idea is that <code>@beamwind/ssr</code> would optimize the styles instead of simply joining them.</p>
+				</blockquote>
 				<a href="#nonce" id="nonce" style="color: inherit; text-decoration: none;">
 					<h3>nonce</h3>
 				</a>
