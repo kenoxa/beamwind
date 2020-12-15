@@ -811,7 +811,6 @@ import { h } from 'preact'
 import render from 'preact-render-to-string'
 import htm from 'htm'
 import { createInstance, virtualInjector } from 'beamwind'
-import { getStyleTag } from '@beamwind/ssr'
 
 const injector = virtualInjector()
 const bw = createInstance({ injector })
@@ -823,10 +822,14 @@ const style = {
 
 const app = html`<main className=${style.main}>hello beamwind</main>`
 const appHtml = render(app)
-const styleTag = getStyleTag(injector)
+const styleTag = `<style id="__beamwind">${injector.target.join('\n')}</style>`
 
 // Inject styleTag to your HTML now.
 ```
+
+> We are planning to implement the style tag rendering via `getStyleTag(injector)` in a `@beamwind/ssr` package.
+> The idea is that `@beamwind/ssr` would optimize the styles instead of simply joining them.
+
 
 ### nonce
 
