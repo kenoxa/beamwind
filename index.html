@@ -780,7 +780,7 @@ injector.target <span class="hljs-comment">// Array with sorted CSS rulesText</s
 <span class="hljs-keyword">import</span> { createInstance, virtualInjector } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;beamwind&#x27;</span>
 
 <span class="hljs-keyword">const</span> injector = virtualInjector()
-<span class="hljs-keyword">const</span> bw = createInstance({ injector })
+<span class="hljs-keyword">const</span> { bw } = createInstance({ injector })
 
 <span class="hljs-keyword">const</span> html = htm.bind(h)
 <span class="hljs-keyword">const</span> style = {
