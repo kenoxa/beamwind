@@ -813,7 +813,7 @@ import htm from 'htm'
 import { createInstance, virtualInjector } from 'beamwind'
 
 const injector = virtualInjector()
-const bw = createInstance({ injector })
+const { bw } = createInstance({ injector })
 
 const html = htm.bind(h)
 const style = {
